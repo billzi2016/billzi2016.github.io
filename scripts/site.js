@@ -95,7 +95,8 @@ const translations = {
     },
     projects: {
       en: {
-        pageTag: "Complete public GitHub repository list, ordered by importance first.",
+        pageTag:
+          "Complete public GitHub repository list, ordered by importance first. Some entries are reproductions or reimplementations of older or classic projects rather than original projects.",
         rankingTitle: "Repository Ranking",
         rankingNote:
           "The first section is ordered by current relevance to my AI / ML / research-engineering profile. The complete repository index below includes every public repository I was able to read from GitHub.",
@@ -104,7 +105,7 @@ const translations = {
           "Every public repository visible in the current GitHub readout. This list follows the latest successful read.",
       },
       zh: {
-        pageTag: "完整公开 GitHub 仓库列表，前面先按重要性排序。",
+        pageTag: "完整公开 GitHub 仓库列表，前面先按重要性排序。部分项目是对旧项目或经典项目的复现 / 重新实现，并不是原始项目。",
         rankingTitle: "项目重要性排序",
         rankingNote:
           "前一部分按照我当前 AI / ML / 研究工程方向的相关性排序。后一部分保留本次成功读取到的全部公开仓库。",

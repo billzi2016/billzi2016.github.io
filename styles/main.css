@@ -1178,7 +1178,7 @@ body.dark-theme .pub-copy-btn.is-copied {
 }
 
 .music-widget {
-  --music-widget-gap: 78px;
+  --music-widget-gap: 58px;
   position: fixed;
   right: 22px;
   top: var(--music-widget-gap);
@@ -1193,10 +1193,10 @@ body.dark-theme .pub-copy-btn.is-copied {
 
 .music-widget-panel {
   width: min(500px, calc(100vw - 88px));
-  height: min(calc(100vh - (2 * var(--music-widget-gap))), 720px);
-  padding: 18px 18px 16px;
+  height: min(calc(100vh - (2 * var(--music-widget-gap))), 560px);
+  padding: 14px 14px 12px;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 18px;
   background: var(--paper-strong);
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
@@ -1217,16 +1217,38 @@ body.dark-theme .pub-copy-btn.is-copied {
     "Book Antiqua",
     Georgia,
     serif;
-  font-size: 1.28rem;
+  font-size: 1.02rem;
   font-weight: 700;
 }
 
 .music-widget-body {
-  margin-top: 12px;
+  margin-top: 8px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   min-height: 0;
+}
+
+.music-widget .music-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+}
+
+.music-widget .music-current-title {
+  margin-top: 2px;
+  font-size: 1.08rem;
+}
+
+.music-widget .music-current-meta {
+  margin-top: 1px;
+  font-size: 0.78rem;
+}
+
+.music-widget .pub-copy-btn {
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  line-height: 1.2;
 }
 
 .music-core-player {
@@ -1242,30 +1264,30 @@ body.dark-theme .pub-copy-btn.is-copied {
 .music-mini-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .music-mini-playlist {
-  margin-top: 14px;
+  margin-top: 10px;
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
 }
 
 .music-source-note {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
 .site-search-widget {
   position: fixed;
-  right: 24px;
+  right: 22px;
   bottom: 24px;
   z-index: 55;
-  width: min(460px, calc(100vw - 48px));
+  width: min(500px, calc(100vw - 88px));
   pointer-events: none;
 }
 
@@ -1402,14 +1424,14 @@ body.dark-theme .site-search-form button {
 }
 
 .playlist-item-compact {
-  padding: 12px 14px;
-  border-radius: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
-  line-height: 1.35;
-  font-size: 0.9rem;
+  line-height: 1.25;
+  font-size: 0.78rem;
 }
 
 .playlist-item-compact .playlist-title,
@@ -1428,6 +1450,7 @@ body.dark-theme .site-search-form button {
 .playlist-item-compact .playlist-meta {
   flex: 0 0 auto;
   margin-top: 0;
+  font-size: 0.72rem;
   white-space: nowrap;
 }
 
@@ -1452,14 +1475,14 @@ body.dark-theme .music-player-wrap {
 .music-volume-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .music-volume-label,
 .music-volume-value {
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.78rem;
 }
 
 .music-volume {
@@ -1474,7 +1497,7 @@ body.dark-theme .music-player-wrap {
 }
 
 .playlist-list li + li {
-  margin-top: 10px;
+  margin-top: 7px;
 }
 
 .playlist-item {
