@@ -12,6 +12,7 @@
   --accent-strong: #16293d;
   --accent-soft: rgba(34, 56, 79, 0.08);
   --shadow: 0 18px 52px rgba(23, 34, 46, 0.08);
+  --theme-transition: 4.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -35,6 +36,9 @@ body {
     sans-serif;
   font-size: 18px;
   line-height: 1.78;
+  transition:
+    background var(--theme-transition),
+    color var(--theme-transition);
 }
 
 body.dark-theme {
@@ -59,6 +63,7 @@ body::before {
   pointer-events: none;
   background: rgba(255, 255, 255, 0.02);
   z-index: 0;
+  transition: background var(--theme-transition);
 }
 
 .background-layer {
@@ -70,11 +75,12 @@ body::before {
 
 .background-particles {
   opacity: 0.5;
+  transition: opacity var(--theme-transition);
 }
 
 .background-matrix {
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition: opacity var(--theme-transition);
 }
 
 body.dark-theme .background-particles {
@@ -88,6 +94,7 @@ body.dark-theme .background-matrix {
 a {
   color: var(--accent);
   text-decoration: none;
+  transition: color var(--theme-transition);
 }
 
 a:hover {
@@ -117,6 +124,7 @@ a:hover {
   gap: 26px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--theme-transition);
 }
 
 .header-main {
@@ -130,7 +138,7 @@ a:hover {
   flex-wrap: nowrap;
   align-items: center;
   flex: 0 0 auto;
-  padding-top: 2px;
+  padding-top: 0;
 }
 
 /* 控制按钮做成实体按钮，避免不明显。 */
@@ -149,9 +157,10 @@ a:hover {
   box-shadow: 0 12px 26px rgba(34, 56, 79, 0.18);
   transition:
     transform 160ms ease,
-    background 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease;
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .control-btn:hover,
@@ -171,8 +180,8 @@ body.dark-theme .control-btn {
 .language-switch {
   position: relative;
   display: inline-block;
-  width: 108px;
-  height: 44px;
+  width: 150px;
+  height: 59px;
   padding: 0;
   border: 1px solid rgba(30, 48, 68, 0.2);
   border-radius: 999px;
@@ -193,7 +202,7 @@ body.dark-theme .control-btn {
   display: grid;
   place-items: center;
   width: 50%;
-  font-size: 0.84rem;
+  font-size: 1.04rem;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1;
@@ -213,10 +222,10 @@ body.dark-theme .control-btn {
 .language-switch-thumb {
   position: absolute;
   z-index: 1;
-  top: 4px;
-  left: 4px;
-  width: calc(50% - 8px);
-  height: calc(100% - 8px);
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 6px);
+  height: calc(100% - 6px);
   border-radius: 999px;
   background: #0f74ed;
   box-shadow:
@@ -233,7 +242,7 @@ body.dark-theme .control-btn {
 }
 
 .language-switch[data-lang="zh"] .language-switch-thumb {
-  transform: translateX(54px);
+  transform: translateX(75px);
   background: #d73532;
   box-shadow:
     0 5px 12px rgba(176, 35, 33, 0.24),
@@ -267,6 +276,11 @@ body.dark-theme .language-switch {
   padding: 0;
   cursor: pointer;
   line-height: 0;
+  width: 141px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-switch-track {
@@ -286,11 +300,13 @@ body.dark-theme .language-switch {
     background 4.8s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 4.8s cubic-bezier(0.22, 1, 0.36, 1),
     transform 180ms ease;
+  transform: scale(1.5);
+  transform-origin: center;
 }
 
 .theme-switch:hover .theme-switch-track,
 .theme-switch:focus-visible .theme-switch-track {
-  transform: translateY(-1px);
+  transform: scale(1.5) translateY(-1px);
   box-shadow:
     0 -1px 1px rgba(0, 0, 0, 0.28),
     0 2px 2px rgba(255, 255, 255, 0.9),
@@ -727,8 +743,8 @@ html[lang="zh-CN"] .lang-zh {
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition:
-    color 160ms ease,
-    border-color 160ms ease;
+    color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .contact-meta a:hover,
@@ -760,10 +776,10 @@ html[lang="zh-CN"] .lang-zh {
   box-shadow: 0 10px 24px rgba(25, 36, 48, 0.08);
   transition:
     transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease,
-    box-shadow 160ms ease,
-    color 160ms ease;
+    border-color var(--theme-transition),
+    background var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .contact-chip:hover,
@@ -813,9 +829,10 @@ body.dark-theme .contact-chip:focus-visible {
   box-shadow: 0 8px 22px rgba(25, 36, 48, 0.06);
   transition:
     transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease,
-    box-shadow 160ms ease;
+    border-color var(--theme-transition),
+    background var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .nav-link:hover,
@@ -861,12 +878,14 @@ body.dark-theme .nav-link.is-active {
   margin: 28px 0 0;
   font-size: 1.18rem;
   color: var(--ink);
+  transition: color var(--theme-transition);
 }
 
 .page-tag {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.98rem;
+  transition: color var(--theme-transition);
 }
 
 main {
@@ -881,6 +900,11 @@ section {
   border-radius: 22px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .section-title {
@@ -896,12 +920,16 @@ section {
   font-size: 1.82rem;
   font-weight: 700;
   line-height: 1.18;
+  transition:
+    border-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .section-note {
   margin: 0 0 18px;
   color: var(--muted);
   font-size: 0.98rem;
+  transition: color var(--theme-transition);
 }
 
 .plain-list,
@@ -977,6 +1005,7 @@ section {
 
 .home-panel {
   border-top: 1px solid var(--line);
+  transition: border-color var(--theme-transition);
 }
 
 .home-panel h3 {
@@ -1009,6 +1038,10 @@ section {
   font-size: 0.93rem;
   font-weight: 600;
   line-height: 1.25;
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .skill-list {
@@ -1025,6 +1058,7 @@ section {
 .skill-group .skill-label {
   color: var(--ink);
   font-size: 0.98rem;
+  transition: color var(--theme-transition);
 }
 
 body.dark-theme .interest-pills span,
@@ -1038,6 +1072,7 @@ body.dark-theme .skill-pills span {
 .pub-list li {
   padding-bottom: 11px;
   border-bottom: 1px solid var(--line);
+  transition: border-color var(--theme-transition);
 }
 
 .repo-list li:last-child,
@@ -1069,6 +1104,7 @@ body.dark-theme .skill-pills span {
   font-size: 1.08rem;
   font-weight: 700;
   color: var(--ink);
+  transition: color var(--theme-transition);
 }
 
 .pub-item {
@@ -1098,9 +1134,10 @@ body.dark-theme .skill-pills span {
   box-shadow: 0 10px 24px rgba(25, 36, 48, 0.08);
   transition:
     transform 160ms ease,
-    background 160ms ease,
-    color 160ms ease,
-    border-color 160ms ease;
+    background var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
 }
 
 .pub-copy-btn:hover,
@@ -1202,6 +1239,11 @@ body.dark-theme .pub-copy-btn.is-copied {
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .music-widget-head {
@@ -1280,6 +1322,7 @@ body.dark-theme .pub-copy-btn.is-copied {
   color: var(--muted);
   font-size: 0.72rem;
   line-height: 1.35;
+  transition: color var(--theme-transition);
 }
 
 .site-search-widget {
@@ -1307,6 +1350,11 @@ body.dark-theme .pub-copy-btn.is-copied {
   background: var(--paper-strong);
   box-shadow: 0 12px 34px rgba(23, 34, 46, 0.12);
   backdrop-filter: blur(10px);
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .site-search-head {
@@ -1329,6 +1377,7 @@ body.dark-theme .pub-copy-btn.is-copied {
   color: var(--muted);
   font-size: 0.74rem;
   line-height: 1.35;
+  transition: color var(--theme-transition);
 }
 
 .site-search-status:empty {
@@ -1352,6 +1401,10 @@ body.dark-theme .pub-copy-btn.is-copied {
   font: inherit;
   font-size: 0.86rem;
   line-height: 1.2;
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .site-search-form button {
@@ -1459,6 +1512,9 @@ body.dark-theme .site-search-form button {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.62);
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 body.dark-theme .music-player-wrap {
@@ -1483,6 +1539,7 @@ body.dark-theme .music-player-wrap {
 .music-volume-value {
   color: var(--muted);
   font-size: 0.78rem;
+  transition: color var(--theme-transition);
 }
 
 .music-volume {
@@ -1512,9 +1569,10 @@ body.dark-theme .music-player-wrap {
   cursor: pointer;
   transition:
     transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease,
-    box-shadow 160ms ease;
+    border-color var(--theme-transition),
+    background var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .playlist-item:hover,
@@ -1554,11 +1612,13 @@ body.dark-theme .playlist-item.is-active {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.92rem;
+  transition: color var(--theme-transition);
 }
 
 .inline-meta {
   color: var(--muted);
   font-size: 0.95rem;
+  transition: color var(--theme-transition);
 }
 
 .project-language-pill {
@@ -1573,6 +1633,10 @@ body.dark-theme .playlist-item.is-active {
   font-size: 0.82rem;
   font-weight: 700;
   line-height: 1.2;
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 body.dark-theme .project-language-pill {
@@ -1584,6 +1648,7 @@ body.dark-theme .project-language-pill {
   margin-top: 4px;
   color: var(--ink);
   font-size: 0.98rem;
+  transition: color var(--theme-transition);
 }
 
 .small {

@@ -3,8 +3,8 @@ window.siteContent = {
   shared: {
     researchInterests: {
       en: [
-        "Large Language Models",
-        "Multimodal Large Language Models",
+        "Large Language Models (LLMs)",
+        "Multimodal Large Language Models (MLLMs)",
         "Natural Language Processing",
         "Generative Models",
         "Diffusion Models",
@@ -51,9 +51,9 @@ window.siteContent = {
           labelEn: "Specialized Models",
           labelZh: "专长模型",
           valueEn:
-            "LLM / MLLM, DiT / Stable Diffusion, CLIP / ViT / ResNet, YOLO, RetinaFace, Point Transformer, SimCLR, 3D VQGAN",
+            "Large Language Model (LLM) / Multimodal Large Language Model (MLLM), Diffusion Transformer (DiT) / Stable Diffusion, CLIP / ViT / ResNet, YOLO, RetinaFace, Point Transformer, SimCLR, 3D VQGAN",
           valueZh:
-            "LLM / MLLM、DiT / Stable Diffusion、CLIP / ViT / ResNet、YOLO、RetinaFace、Point Transformer、SimCLR、3D VQGAN",
+            "大语言模型（Large Language Model, LLM）/ 多模态大语言模型（Multimodal Large Language Model, MLLM）、Diffusion Transformer（DiT）/ Stable Diffusion、CLIP / ViT / ResNet、YOLO、RetinaFace、Point Transformer、SimCLR、3D VQGAN",
         },
       ],
       right: [
@@ -89,22 +89,22 @@ window.siteContent = {
           "Claude Code、Qwen Code、Codex、GitHub Copilot、Gemini CLI、Antigravity、Cursor、GitHub Spec Kit",
       },
       {
-        labelEn: "Agent and LLM Application Architecture",
-        labelZh: "智能体与 LLM 应用架构",
+        labelEn: "Agent and Large Language Model (LLM) Application Architecture",
+        labelZh: "智能体与大语言模型（Large Language Model, LLM）应用架构",
         valueEn: "LangChain, LangGraph, Pydantic-AI, Pydantic Graph",
         valueZh: "LangChain、LangGraph、Pydantic-AI、Pydantic Graph",
       },
       {
-        labelEn: "LLM Deployment and Model Runtime",
-        labelZh: "LLM 部署与模型运行时",
+        labelEn: "Large Language Model (LLM) Deployment and Model Runtime",
+        labelZh: "大语言模型（Large Language Model, LLM）部署与模型运行时",
         valueEn:
           "OpenRouter, OpenAI API, Ollama, vLLM, Hugging Face Transformers, Hugging Face Diffusers",
         valueZh:
           "OpenRouter、OpenAI API、Ollama、vLLM、Hugging Face Transformers、Hugging Face Diffusers",
       },
       {
-        labelEn: "LLM Fine-Tuning and Alignment",
-        labelZh: "LLM 微调与对齐",
+        labelEn: "Large Language Model (LLM) Fine-Tuning and Alignment",
+        labelZh: "大语言模型（Large Language Model, LLM）微调与对齐",
         valueEn: "LoRA, QLoRA, Unsloth, DPO, GRPO, SFT",
         valueZh: "LoRA、QLoRA、Unsloth、DPO、GRPO、SFT",
       },
@@ -112,9 +112,9 @@ window.siteContent = {
         labelEn: "Neural Network and Vision Architectures",
         labelZh: "神经网络与视觉架构",
         valueEn:
-          "ResNet, VGG, YOLO, ViT, CLIP, BLIP, SAM, Point Transformer, Diffusion Transformer, Latent Diffusion Model (LDM), U-Net, Transformer, Mamba, RWKV, NeRF, SLAM, 3D Gaussian Splatting",
+          "ResNet, VGG, YOLO, ViT, CLIP, BLIP, SAM, Point Transformer, Diffusion Transformer (DiT), Latent Diffusion Model (LDM), U-Net, Transformer, Mamba, RWKV, NeRF, SLAM, 3D Gaussian Splatting",
         valueZh:
-          "ResNet、VGG、YOLO、ViT、CLIP、BLIP、SAM、Point Transformer、Diffusion Transformer、Latent Diffusion Model（LDM）、U-Net、Transformer、Mamba、RWKV、NeRF、SLAM、3D Gaussian Splatting",
+          "ResNet、VGG、YOLO、ViT、CLIP、BLIP、SAM、Point Transformer、Diffusion Transformer（DiT）、Latent Diffusion Model（LDM）、U-Net、Transformer、Mamba、RWKV、NeRF、SLAM、3D Gaussian Splatting",
       },
       {
         labelEn: "Foundation Models and LLM Families",

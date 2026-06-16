@@ -34,7 +34,7 @@ const translations = {
     home: {
       en: {
         lead:
-          "I am a Ph.D. candidate working across large language models, multimodal AI, medical AI, sensing security, embedded hardware, sensing platforms, intelligent manufacturing systems, machine learning systems, and end-to-end AI deployment. I am most interested in roles that require both research depth and engineering execution: Research Engineer, Applied Scientist, ML Engineer, LLM / AI Systems, hardware AI, and intelligent manufacturing systems roles. My background also combines model development, system optimization, retrieval pipelines, embedded integration, hardware-aware experimentation, and bilingual communication for AI products, intelligent systems, manufacturing, and research.",
+          "I am a Ph.D. candidate working across Large Language Models (LLMs), multimodal Artificial Intelligence (AI), medical AI, sensing security, embedded hardware, sensing platforms, intelligent manufacturing systems, Machine Learning (ML) systems, and end-to-end AI deployment. I am most interested in roles that require both research depth and engineering execution: Research Engineer, Applied Scientist, ML Engineer, LLM / AI Systems, hardware AI, and intelligent manufacturing systems roles. My background also combines model development, system optimization, retrieval pipelines, embedded integration, hardware-aware experimentation, and bilingual communication for AI products, intelligent systems, manufacturing, and research.",
         guideTitle: "Site Guide",
         guideExperience:
           "Full CV-style page with research interests, technical skills, industry experience, research experience, and education.",
@@ -54,7 +54,7 @@ const translations = {
       },
       zh: {
         lead:
-          "我目前是博士阶段学生，研究方向覆盖大语言模型、多模态 AI、医学 AI、感知安全、嵌入式硬件、感知平台、智能制造系统、机器学习系统和端到端 AI 部署。我希望匹配的是同时要求研究深度与工程执行力的岗位，例如 Research Engineer、Applied Scientist、ML Engineer、LLM / AI Systems、硬件 AI 和智能制造系统相关职位。我的背景也结合了模型开发、系统优化、检索流水线、嵌入式集成、硬件感知实验，以及面向 AI 产品、智能系统、制造业和科研场景的中英文沟通能力。",
+          "我目前是博士阶段学生，研究方向覆盖大语言模型（Large Language Models, LLMs）、多模态人工智能（Artificial Intelligence, AI）、医学 AI、感知安全、嵌入式硬件、感知平台、智能制造系统、机器学习（Machine Learning, ML）系统和端到端 AI 部署。我希望匹配的是同时要求研究深度与工程执行力的岗位，例如 Research Engineer、Applied Scientist、ML Engineer、LLM / AI Systems、硬件 AI 和智能制造系统相关职位。我的背景也结合了模型开发、系统优化、检索流水线、嵌入式集成、硬件感知实验，以及面向 AI 产品、智能系统、制造业和科研场景的中英文沟通能力。",
         guideTitle: "站点导览",
         guideExperience: "完整在线简历页面，包含研究兴趣、技术技能、工业经历、研究经历和教育背景。",
         guideProjects: "按重要性排序的 GitHub 项目索引，以及完整仓库列表。",
@@ -99,7 +99,7 @@ const translations = {
           "Complete public GitHub repository list, ordered by importance first. Some entries are reproductions or reimplementations of older or classic projects rather than original projects.",
         rankingTitle: "Repository Ranking",
         rankingNote:
-          "The first section is ordered by current relevance to my AI / ML / research-engineering profile. The complete repository index below includes every public repository I was able to read from GitHub.",
+          "The first section is ordered by current relevance to my Artificial Intelligence (AI) / Machine Learning (ML) / research-engineering profile. The complete repository index below includes every public repository I was able to read from GitHub.",
         allTitle: "Complete Repository Index",
         allNote:
           "Every public repository visible in the current GitHub readout. This list follows the latest successful read.",
@@ -108,7 +108,7 @@ const translations = {
         pageTag: "完整公开 GitHub 仓库列表，前面先按重要性排序。部分项目是对旧项目或经典项目的复现 / 重新实现，并不是原始项目。",
         rankingTitle: "项目重要性排序",
         rankingNote:
-          "前一部分按照我当前 AI / ML / 研究工程方向的相关性排序。后一部分保留本次成功读取到的全部公开仓库。",
+          "前一部分按照我当前人工智能（Artificial Intelligence, AI）/ 机器学习（Machine Learning, ML）/ 研究工程方向的相关性排序。后一部分保留本次成功读取到的全部公开仓库。",
         allTitle: "完整仓库索引",
         allNote: "下面保留本次 GitHub 读取中可见的全部公开仓库，并按读取顺序列出。",
       },
@@ -118,7 +118,7 @@ const translations = {
         pageTag: "Representative publications first, followed by the complete publication list.",
         selectedTitle: "Selected Publications",
         selectedNote:
-          "This section is ordered by representative value for my current profile: first-author work, formally published work, and papers most relevant to AI / ML / LLM / sensing / medical AI roles.",
+          "This section is ordered by representative value for my current profile: first-author work, formally published work, and papers most relevant to Artificial Intelligence (AI) / Machine Learning (ML) / Large Language Model (LLM) / sensing / medical AI roles.",
         archiveTitle: "All Publications",
         archiveNote:
           "The full publication list below is reformatted from the current BibTeX source into a human-readable bibliography.",
@@ -130,7 +130,7 @@ const translations = {
         pageTag: "先看代表性论文，后面是完整论文列表。",
         selectedTitle: "代表性论文",
         selectedNote:
-          "这里优先按我当前方向的代表性排序：第一作者工作、正式发表论文，以及最贴近 AI / ML / LLM / 感知 / 医学 AI 求职方向的论文。",
+          "这里优先按我当前方向的代表性排序：第一作者工作、正式发表论文，以及最贴近人工智能（Artificial Intelligence, AI）/ 机器学习（Machine Learning, ML）/ 大语言模型（Large Language Model, LLM）/ 感知 / 医学 AI 求职方向的论文。",
         archiveTitle: "完整论文列表",
         archiveNote: "下面的完整论文列表由当前 BibTeX 源文件整理成人类可读格式，不再直接展示原始条目。",
         publishedGroupTitle: "已发表",
