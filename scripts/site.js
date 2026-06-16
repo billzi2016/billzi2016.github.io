@@ -177,6 +177,7 @@ const musicState = {
   widgetOpen: false,
   widgetInitialized: false,
 };
+const localGrandPianoSoundfont = "./assets/soundfonts/site-grand-piano";
 const selectedPublicationKeys = [
   "bi2025physical",
   "bi2026exploring",
@@ -656,7 +657,8 @@ function initFloatingMusicWidget() {
   const volumeSlider = document.getElementById("music-volume");
 
   ensureMidiAudioChain();
-  player.soundFont = null;
+  // 统一切到本地钢琴音源，避免默认电子合成器音色过重。
+  player.soundFont = localGrandPianoSoundfont;
   player.src = tracks[musicState.currentIndex].file;
   player.reload();
   setMidiVolume(musicState.volume);
