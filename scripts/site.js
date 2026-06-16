@@ -176,8 +176,12 @@ const musicState = {
   audioChainReady: false,
   widgetOpen: false,
   widgetInitialized: false,
+  restoreTime: 0,
+  shouldResume: false,
+  saveTimer: null,
 };
 const localGrandPianoSoundfont = "./assets/soundfonts/site-grand-piano";
+const musicPlaybackStorageKey = "site-music-playback";
 const selectedPublicationKeys = [
   "bi2025physical",
   "bi2026exploring",
@@ -401,6 +405,50 @@ function getActiveMidiPlayer() {
   return document.getElementById("floating-midi-player") || document.getElementById("midi-player");
 }
 
+function readSavedMusicPlayback() {
+  try {
+    const raw = sessionStorage.getItem(musicPlaybackStorageKey);
+    return raw ? JSON.parse(raw) : null;
+  } catch (error) {
+    console.warn("Failed to read saved music playback state.", error);
+    return null;
+  }
+}
+
+function saveMusicPlaybackState() {
+  const player = getActiveMidiPlayer();
+  if (!player) return;
+
+  const payload = {
+    index: musicState.currentIndex,
+    time: Number(player.currentTime || 0),
+    playing: Boolean(player.playing),
+    volume: musicState.volume,
+    savedAt: Date.now(),
+  };
+
+  try {
+    sessionStorage.setItem(musicPlaybackStorageKey, JSON.stringify(payload));
+  } catch (error) {
+    console.warn("Failed to save music playback state.", error);
+  }
+}
+
+function applySavedMusicPlayback() {
+  const saved = readSavedMusicPlayback();
+  if (!saved) return;
+
+  if (Number.isFinite(saved.index)) {
+    musicState.currentIndex = Math.max(0, Number(saved.index));
+  }
+  if (Number.isFinite(saved.volume)) {
+    musicState.volume = Math.min(1, Math.max(0, Number(saved.volume)));
+  }
+
+  musicState.restoreTime = Number(saved.time) || 0;
+  musicState.shouldResume = Boolean(saved.playing);
+}
+
 function setMidiVolume(level) {
   musicState.volume = Math.min(1, Math.max(0, level));
   localStorage.setItem("site-midi-volume", String(musicState.volume));
@@ -438,14 +486,16 @@ function ensureMidiAudioChain() {
 
   try {
     const compressor = rawContext.createDynamicsCompressor();
-    compressor.threshold.value = -26;
-    compressor.knee.value = 18;
-    compressor.ratio.value = 3.2;
-    compressor.attack.value = 0.01;
-    compressor.release.value = 0.22;
+    // 把压缩做得更柔和，避免音头过硬、尾音被压得太短。
+    compressor.threshold.value = -21;
+    compressor.knee.value = 24;
+    compressor.ratio.value = 1.9;
+    compressor.attack.value = 0.02;
+    compressor.release.value = 0.52;
 
+    // 留一点增益余量，避免强音刚进来就被“拍扁”成电子感。
     const outputGain = rawContext.createGain();
-    outputGain.gain.value = musicState.volume;
+    outputGain.gain.value = musicState.volume * 0.94;
 
     destinationOutput.disconnect();
     destinationOutput.connect(compressor);
@@ -538,10 +588,19 @@ function switchMusicTrack(index, autoplay) {
   player.stop();
   player.src = nextSrc;
   player.reload();
-  player.addEventListener("load", startPlayback, { once: true });
+  player.addEventListener(
+    "load",
+    () => {
+      musicState.restoreTime = 0;
+      musicState.shouldResume = false;
+      startPlayback();
+    },
+    { once: true },
+  );
 
   const lang = localStorage.getItem("site-lang") || "en";
   updateMusicPanel(lang);
+  saveMusicPlaybackState();
 }
 
 function ensureFloatingMusicWidget() {
@@ -651,6 +710,11 @@ function initFloatingMusicWidget() {
     musicState.currentIndex = 0;
   }
 
+  applySavedMusicPlayback();
+  if (!Number.isFinite(musicState.currentIndex) || musicState.currentIndex >= tracks.length) {
+    musicState.currentIndex = 0;
+  }
+
   const player = document.getElementById("floating-midi-player");
   const playToggle = document.getElementById("music-play-toggle");
   const randomBtn = document.getElementById("music-random");
@@ -691,14 +755,29 @@ function initFloatingMusicWidget() {
   player.addEventListener("load", () => {
     musicState.trackGain = estimateTrackGain(player.noteSequence);
     updateMidiOutputLevel();
+    if (musicState.restoreTime > 0) {
+      player.currentTime = musicState.restoreTime;
+    }
+    if (musicState.shouldResume) {
+      player.start().catch?.(() => {});
+      musicState.shouldResume = false;
+    }
     updateMusicPanel(localStorage.getItem("site-lang") || "en");
   });
 
   player.addEventListener("start", () => {
+    if (musicState.saveTimer) window.clearInterval(musicState.saveTimer);
+    musicState.saveTimer = window.setInterval(saveMusicPlaybackState, 1000);
+    saveMusicPlaybackState();
     updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
   });
 
   player.addEventListener("stop", (event) => {
+    if (musicState.saveTimer) {
+      window.clearInterval(musicState.saveTimer);
+      musicState.saveTimer = null;
+    }
+    saveMusicPlaybackState();
     updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
     if (event.detail && event.detail.finished) {
       switchMusicTrack(pickRandomTrackIndex(), true);
@@ -1080,3 +1159,5 @@ syncNavState();
 initFloatingMusicWidget();
 applyTheme(localStorage.getItem("site-theme") || "light");
 applyLanguage(localStorage.getItem("site-lang") || "en");
+window.addEventListener("pagehide", saveMusicPlaybackState);
+window.addEventListener("beforeunload", saveMusicPlaybackState);

@@ -610,10 +610,10 @@ body.dark-theme .pub-copy-btn.is-copied {
 }
 
 .music-widget {
+  --music-widget-gap: 78px;
   position: fixed;
   right: 22px;
-  top: 16px;
-  bottom: 16px;
+  top: var(--music-widget-gap);
   z-index: 40;
   display: block;
   pointer-events: none;
@@ -625,7 +625,7 @@ body.dark-theme .pub-copy-btn.is-copied {
 
 .music-widget-panel {
   width: min(360px, calc(100vw - 88px));
-  height: 100%;
+  height: min(calc(100vh - (2 * var(--music-widget-gap))), 720px);
   padding: 18px 18px 16px;
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -876,14 +876,15 @@ body.dark-theme .playlist-item.is-active {
   }
 
   .music-widget {
+    --music-widget-gap: 16px;
     right: 14px;
     top: auto;
-    bottom: 16px;
+    top: 16px;
     left: auto;
-    height: min(68vh, 560px);
   }
 
   .music-widget-panel {
     width: min(320px, calc(100vw - 82px));
+    height: min(calc(100vh - (2 * var(--music-widget-gap))), 500px);
   }
 }
