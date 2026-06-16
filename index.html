@@ -57,81 +57,11 @@
           </p>
         </header>
 
-        <main>
-          <section>
-            <h2 class="section-title" data-i18n="guideTitle">Site Guide</h2>
-            <div class="home-grid">
-              <div class="home-panel">
-                <h3><a href="./experience.html" data-i18n="navExperience">Experience</a></h3>
-                <p data-i18n="guideExperience">
-                  Full CV-style page with research interests, technical skills, industry
-                  experience, research experience, and education.
-                </p>
-              </div>
-              <div class="home-panel">
-                <h3><a href="./projects.html" data-i18n="navProjects">Projects</a></h3>
-                <p data-i18n="guideProjects">
-                  Ranked GitHub repository index, from the most job-relevant AI / systems
-                  work to the full repository archive.
-                </p>
-              </div>
-              <div class="home-panel">
-                <h3><a href="./publications.html" data-i18n="navPublications">Publications</a></h3>
-                <p data-i18n="guidePublications">
-                  Representative publications first, followed by the complete publication
-                  list formatted for reading.
-                </p>
-              </div>
-              <div class="home-panel">
-                <h3 data-i18n="guideFocus">Current Focus</h3>
-                <ul class="plain-list">
-                  <li>LLM evaluation, reasoning, and post-training</li>
-                  <li>Multimodal and medical AI systems</li>
-                  <li>Security and robustness for sensing and model pipelines</li>
-                  <li>From-scratch learning projects and systems implementation</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 class="section-title" data-i18n="researchTitle">Research Interests</h2>
-            <p>
-              Large Language Models; Multimodal Large Language Models; Natural Language
-              Processing; Generative Models; Diffusion Models; Computer Vision; Medical AI;
-              Model Security and Robustness; Model Interpretability; mmWave Sensing; Sensors;
-              Embedded Systems.
-            </p>
-          </section>
-
-          <section>
-            <h2 class="section-title" data-i18n="skillsTitle">Technical Skills</h2>
-            <div class="two-column">
-              <div class="skill-block">
-                <div><span class="skill-label">Programming Languages:</span> Python, C, C++, CUDA, MATLAB, SQL</div>
-                <div><span class="skill-label">Frameworks:</span> PyTorch, TensorFlow, DeepSpeed, Transformers, Diffusers, LangChain, LangGraph, Pydantic-AI, FastAPI, Django</div>
-                <div><span class="skill-label">Specialized Models:</span> LLM, MLLM, DiT, Stable Diffusion, CLIP, ViT, ResNet, YOLO, RetinaFace, Point Transformer, SimCLR, 3D VQGAN</div>
-              </div>
-              <div class="skill-block">
-                <div><span class="skill-label">Tools and Platforms:</span> Docker, Vertex AI, Ollama, vLLM, FAISS, RAG systems, PostgreSQL, Git</div>
-                <div><span class="skill-label">Hardware:</span> TI IWR6843 / 1843, Cascade EVM, STM32, ESP8266 / ESP32, I2C / SPI / UART / RS-485 / Modbus, GPU / CUDA optimization</div>
-                <div><span class="skill-label">Libraries:</span> NumPy, Pandas, Scikit-learn, XGBoost, AutoGluon, OpenCV, VTK, Mayavi</div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 class="section-title" data-i18n="highlightsTitle">Selected Highlights</h2>
-            <ul class="plain-list">
-              <li>Improved BERT validation measurements from 10<sup>-6</sup> to 10<sup>-12</sup> at Xperf through automated optimization.</li>
-              <li>Built full-stack LLM and retrieval systems supporting 500+ queries per second during my Infraeo internship.</li>
-              <li>Published or contributed to work spanning ICDCS, ICCCN, Journal of Biomedical Informatics, BIO Integration, Computation, and multiple domain journals.</li>
-            </ul>
-          </section>
-        </main>
+        <main id="page-content"></main>
       </div>
     </div>
 
+    <script src="./scripts/content-data.js"></script>
     <script src="./vendor/particles/particles.min.js"></script>
     <script src="./scripts/backgrounds.js"></script>
     <script src="./scripts/site.js"></script>

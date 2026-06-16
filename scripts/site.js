@@ -1,4 +1,4 @@
-// 站点级交互：中英文切换、深浅色切换、当前导航高亮、本地背景同步。
+// 站点级交互：中英文切换、深浅色切换、导航高亮，以及统一内容源渲染。
 const translations = {
   common: {
     en: {
@@ -123,11 +123,19 @@ const translations = {
   },
 };
 
+const pageTitles = {
+  home: { en: "Ziqian Bi | Home", zh: "毕梓仟 | 首页" },
+  experience: { en: "Ziqian Bi | Experience", zh: "毕梓仟 | 经历" },
+  projects: { en: "Ziqian Bi | Projects", zh: "毕梓仟 | 项目" },
+  publications: { en: "Ziqian Bi | Publications", zh: "毕梓仟 | 论文" },
+};
+
 const root = document.documentElement;
 const body = document.body;
 const pageKey = body.dataset.page;
 const langBtn = document.getElementById("lang-toggle");
 const themeBtn = document.getElementById("theme-toggle");
+const siteContent = window.siteContent || {};
 const selectedPublicationKeys = [
   "bi2025physical",
   "bi2026exploring",
@@ -161,6 +169,184 @@ function normalizeAuthorName(author) {
   return `${parts.slice(1).join(" ")} ${parts[0]}`.trim();
 }
 
+function getLangValue(item, lang, baseName) {
+  if (!item) return "";
+  if (!baseName) return item[lang] || "";
+  if (item[baseName] && typeof item[baseName] === "object") {
+    return item[baseName][lang] || "";
+  }
+  const suffix = lang === "zh" ? "Zh" : "En";
+  return item[`${baseName}${suffix}`] || item[baseName] || "";
+}
+
+function buildSkillBlocks(lang) {
+  const shared = siteContent.shared || {};
+  const skillData = shared.skills || { left: [], right: [] };
+
+  const renderColumn = (items) =>
+    items
+      .map(
+        (item) => `
+          <div><span class="skill-label">${escapeHtml(getLangValue(item, lang, "label"))}:</span> ${escapeHtml(
+            getLangValue(item, lang, "value"),
+          )}</div>
+        `,
+      )
+      .join("");
+
+  return `
+    <div class="two-column">
+      <div class="skill-block">${renderColumn(skillData.left || [])}</div>
+      <div class="skill-block">${renderColumn(skillData.right || [])}</div>
+    </div>
+  `;
+}
+
+function buildEntries(entries, lang) {
+  return entries
+    .map((entry) => {
+      const bullets = (entry.bullets || [])
+        .map((bullet) => `<li>${escapeHtml(getLangValue(bullet, lang, ""))}</li>`)
+        .join("");
+      const note = getLangValue(entry, lang, "note");
+      return `
+        <div class="entry">
+          <div class="entry-heading">
+            <h3 class="entry-title">${escapeHtml(getLangValue(entry, lang, "title"))}</h3>
+            <div class="entry-meta">${escapeHtml(entry.meta || "")}</div>
+          </div>
+          <div class="entry-role">${escapeHtml(getLangValue(entry, lang, "role"))}</div>
+          ${bullets ? `<ul>${bullets}</ul>` : ""}
+          ${note ? `<div class="item-note">${escapeHtml(note)}</div>` : ""}
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function formatProjectLanguage(language, lang) {
+  if (language === "none") {
+    return lang === "zh" ? "未标注主要语言" : "No primary language listed";
+  }
+  return language || "";
+}
+
+function buildProjectList(items, lang, showUpdated) {
+  return items
+    .map((item) => {
+      const language = formatProjectLanguage(item.language, lang);
+      const meta = showUpdated && item.updated
+        ? `${language} · ${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
+        : language;
+      const note = getLangValue(item, lang, "note");
+      return `
+        <li>
+          <div class="repo-line"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(
+            item.name,
+          )}</a> <span class="inline-meta">${escapeHtml(meta)}</span></div>
+          ${note ? `<div class="item-note">${escapeHtml(note)}</div>` : ""}
+        </li>
+      `;
+    })
+    .join("");
+}
+
+function renderHome(lang) {
+  const host = document.getElementById("page-content");
+  if (!host) return;
+  const shared = siteContent.shared || {};
+  const home = siteContent.home || {};
+  const focusItems = (home.focus || [])
+    .map((item) => `<li>${escapeHtml(getLangValue(item, lang, ""))}</li>`)
+    .join("");
+  const highlightItems = (home.highlights || [])
+    .map((item) => `<li>${escapeHtml(getLangValue(item, lang, ""))}</li>`)
+    .join("");
+
+  host.innerHTML = `
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.home[lang].guideTitle)}</h2>
+      <div class="home-grid">
+        <div class="home-panel">
+          <h3><a href="./experience.html">${escapeHtml(translations.common[lang].navExperience)}</a></h3>
+          <p>${escapeHtml(translations.page.home[lang].guideExperience)}</p>
+        </div>
+        <div class="home-panel">
+          <h3><a href="./projects.html">${escapeHtml(translations.common[lang].navProjects)}</a></h3>
+          <p>${escapeHtml(translations.page.home[lang].guideProjects)}</p>
+        </div>
+        <div class="home-panel">
+          <h3><a href="./publications.html">${escapeHtml(translations.common[lang].navPublications)}</a></h3>
+          <p>${escapeHtml(translations.page.home[lang].guidePublications)}</p>
+        </div>
+        <div class="home-panel">
+          <h3>${escapeHtml(translations.page.home[lang].guideFocus)}</h3>
+          <ul class="plain-list">${focusItems}</ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.home[lang].researchTitle)}</h2>
+      <p>${escapeHtml(getLangValue(shared, lang, "researchInterests"))}</p>
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.home[lang].skillsTitle)}</h2>
+      ${buildSkillBlocks(lang)}
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.home[lang].highlightsTitle)}</h2>
+      <ul class="plain-list">${highlightItems}</ul>
+    </section>
+  `;
+}
+
+function renderExperience(lang) {
+  const host = document.getElementById("page-content");
+  if (!host) return;
+  const shared = siteContent.shared || {};
+  const page = siteContent.experience || {};
+  host.innerHTML = `
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.experience[lang].researchTitle)}</h2>
+      <p>${escapeHtml(getLangValue(shared, lang, "researchInterests"))}</p>
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.experience[lang].skillsTitle)}</h2>
+      ${buildSkillBlocks(lang)}
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.experience[lang].industryTitle)}</h2>
+      ${buildEntries(page.industry || [], lang)}
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.experience[lang].researchExpTitle)}</h2>
+      ${buildEntries(page.research || [], lang)}
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.experience[lang].educationTitle)}</h2>
+      ${buildEntries(page.education || [], lang)}
+    </section>
+  `;
+}
+
+function renderProjects(lang) {
+  const host = document.getElementById("page-content");
+  if (!host) return;
+  const projects = siteContent.projects || {};
+  host.innerHTML = `
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.projects[lang].rankingTitle)}</h2>
+      <p class="section-note">${escapeHtml(translations.page.projects[lang].rankingNote)}</p>
+      <ol class="repo-list">${buildProjectList(projects.ranked || [], lang, true)}</ol>
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.projects[lang].allTitle)}</h2>
+      <p class="section-note">${escapeHtml(translations.page.projects[lang].allNote)}</p>
+      <ol class="repo-list">${buildProjectList(projects.all || [], lang, false)}</ol>
+    </section>
+  `;
+}
+
 function formatPublicationAuthors(authors) {
   if (!authors || authors.length === 0) return "";
 
@@ -189,9 +375,10 @@ function formatPublicationAuthors(authors) {
   return `${firstTwo}, et al., <span class="pub-highlight">Ziqian Bi</span>, et al.`;
 }
 
-function formatVenueAndYear(item) {
-  if (item.venue && item.year) return `${escapeHtml(item.venue)}, ${escapeHtml(item.year)}.`;
-  if (item.venue) return `${escapeHtml(item.venue)}.`;
+function formatVenueAndYear(item, lang) {
+  const venue = getLangValue(item, lang, "venue");
+  if (venue && item.year) return `${escapeHtml(venue)}, ${escapeHtml(item.year)}.`;
+  if (venue) return `${escapeHtml(venue)}.`;
   if (item.year) return `${escapeHtml(item.year)}.`;
   return "";
 }
@@ -229,8 +416,8 @@ function buildPublicationItem(item, lang) {
       <div class="pub-main">
         <div class="pub-line">
           <span class="pub-authors">${formatPublicationAuthors(item.authors)}</span>.
-          <em>${escapeHtml(item.title)}</em>.
-          ${formatVenueAndYear(item)}
+          <em>${escapeHtml(getLangValue(item, lang, "title"))}</em>.
+          ${formatVenueAndYear(item, lang)}
         </div>
       </div>
       <div class="pub-copy">
@@ -311,17 +498,18 @@ function renderPublications(lang) {
   preprint.sort(comparePublications);
   unpublished.sort(comparePublications);
 
-  published.forEach((item) => {
-    publishedHost.appendChild(buildPublicationItem(item, lang));
-  });
-  preprint.forEach((item) => {
-    preprintHost.appendChild(buildPublicationItem(item, lang));
-  });
-  unpublished.forEach((item) => {
-    unpublishedHost.appendChild(buildPublicationItem(item, lang));
-  });
+  published.forEach((item) => publishedHost.appendChild(buildPublicationItem(item, lang)));
+  preprint.forEach((item) => preprintHost.appendChild(buildPublicationItem(item, lang)));
+  unpublished.forEach((item) => unpublishedHost.appendChild(buildPublicationItem(item, lang)));
 
   bindCopyButtons(lang);
+}
+
+function renderPageContent(lang) {
+  if (pageKey === "home") renderHome(lang);
+  if (pageKey === "experience") renderExperience(lang);
+  if (pageKey === "projects") renderProjects(lang);
+  if (pageKey === "publications") renderPublications(lang);
 }
 
 function syncNavState() {
@@ -357,9 +545,15 @@ function applyLanguage(lang) {
     const value = page || common;
     if (value) node.textContent = value;
   });
+
+  if (pageTitles[pageKey]) {
+    document.title = pageTitles[pageKey][lang];
+  }
+
   if (langBtn) {
     langBtn.textContent = translations.common[lang].langToggle;
   }
+
   const dark = body.classList.contains("dark-theme");
   if (themeBtn) {
     themeBtn.textContent = dark
@@ -367,7 +561,7 @@ function applyLanguage(lang) {
       : translations.common[lang].themeToggleLight;
   }
 
-  renderPublications(lang);
+  renderPageContent(lang);
 }
 
 if (langBtn) {
