@@ -277,9 +277,25 @@ function formatProjectLanguage(language, lang) {
   return language || "";
 }
 
+function resolveProjectItem(item) {
+  const projects = siteContent.projects || {};
+  const catalog = projects.catalog || {};
+
+  if (typeof item === "string") {
+    return catalog[item] || { name: item };
+  }
+
+  if (item && item.name && catalog[item.name]) {
+    return { ...catalog[item.name], ...item };
+  }
+
+  return item || {};
+}
+
 function buildProjectList(items, lang, showUpdated) {
   return items
-    .map((item) => {
+    .map((rawItem) => {
+      const item = resolveProjectItem(rawItem);
       const language = formatProjectLanguage(item.language, lang);
       const meta = showUpdated && item.updated
         ? `${language} · ${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
