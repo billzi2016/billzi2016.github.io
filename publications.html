@@ -61,13 +61,24 @@
 
           <section>
             <h2 class="section-title" data-i18n="archiveTitle">All Publications</h2>
-            <p class="section-note" data-i18n="archiveNote">
-              The full publication list below is reformatted from the current BibTeX source
-              into a human-readable bibliography.
-            </p>
-            <ol id="all-publications" class="pub-list pub-list-rendered small"></ol>
-          </section>
-        </main>
+          <p class="section-note" data-i18n="archiveNote">
+            The full publication list below is reformatted from the current BibTeX source
+            into a human-readable bibliography.
+          </p>
+          <div class="pub-group">
+            <h3 class="pub-group-title" data-i18n="publishedGroupTitle">Published</h3>
+            <ol id="published-publications" class="pub-list pub-list-rendered small"></ol>
+          </div>
+          <div class="pub-group">
+            <h3 class="pub-group-title" data-i18n="preprintGroupTitle">arXiv / Preprint</h3>
+            <ol id="preprint-publications" class="pub-list pub-list-rendered small"></ol>
+          </div>
+          <div class="pub-group">
+            <h3 class="pub-group-title" data-i18n="unpublishedGroupTitle">Unpublished / In Preparation</h3>
+            <ol id="unpublished-publications" class="pub-list pub-list-rendered small"></ol>
+          </div>
+        </section>
+      </main>
       </div>
     </div>
 

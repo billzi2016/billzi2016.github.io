@@ -476,6 +476,17 @@ section {
   padding-left: 1.35rem;
 }
 
+.pub-group + .pub-group {
+  margin-top: 28px;
+}
+
+.pub-group-title {
+  margin: 0 0 12px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .pub-item {
   display: flex;
   align-items: flex-start;

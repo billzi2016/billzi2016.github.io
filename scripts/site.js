@@ -104,6 +104,9 @@ const translations = {
         archiveTitle: "All Publications",
         archiveNote:
           "The full publication list below is reformatted from the current BibTeX source into a human-readable bibliography.",
+        publishedGroupTitle: "Published",
+        preprintGroupTitle: "arXiv / Preprint",
+        unpublishedGroupTitle: "Unpublished / In Preparation",
       },
       zh: {
         pageTag: "先看代表性论文，后面是完整论文列表。",
@@ -112,6 +115,9 @@ const translations = {
           "这里优先按我当前方向的代表性排序：第一作者工作、正式发表论文，以及最贴近 AI / ML / LLM / 感知 / 医学 AI 求职方向的论文。",
         archiveTitle: "完整论文列表",
         archiveNote: "下面的完整论文列表由当前 BibTeX 源文件整理成人类可读格式，不再直接展示原始条目。",
+        publishedGroupTitle: "已发表",
+        preprintGroupTitle: "arXiv / 预印本",
+        unpublishedGroupTitle: "未发表 / 准备中",
       },
     },
   },
@@ -145,19 +151,41 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function normalizeAuthorName(author) {
+  const cleaned = String(author).trim();
+  if (!cleaned || cleaned.toLowerCase() === "others") return "";
+  if (!cleaned.includes(",")) return cleaned;
+
+  const parts = cleaned.split(",").map((part) => part.trim()).filter(Boolean);
+  if (parts.length < 2) return cleaned;
+  return `${parts.slice(1).join(" ")} ${parts[0]}`.trim();
+}
+
 function formatPublicationAuthors(authors) {
   if (!authors || authors.length === 0) return "";
-  if (authors.length < 3) {
-    return authors
-      .map((author) =>
-        author === "Bi, Ziqian"
-          ? `<span class="pub-highlight">${escapeHtml(author)}</span>`
-          : escapeHtml(author)
-      )
-      .join(", ");
+
+  const normalizedAuthors = authors
+    .map(normalizeAuthorName)
+    .filter(Boolean);
+
+  if (normalizedAuthors.length === 0) return "";
+
+  const highlight = (author) =>
+    author === "Ziqian Bi"
+      ? `<span class="pub-highlight">${escapeHtml(author)}</span>`
+      : escapeHtml(author);
+
+  if (normalizedAuthors.length < 3) {
+    return normalizedAuthors.map(highlight).join(", ");
   }
 
-  const firstTwo = authors.slice(0, 2).map(escapeHtml).join(", ");
+  const firstTwoAuthors = normalizedAuthors.slice(0, 2);
+  const firstTwo = firstTwoAuthors.map(highlight).join(", ");
+
+  if (firstTwoAuthors.includes("Ziqian Bi")) {
+    return `${firstTwo}, et al.`;
+  }
+
   return `${firstTwo}, et al., <span class="pub-highlight">Ziqian Bi</span>, et al.`;
 }
 
@@ -166,6 +194,32 @@ function formatVenueAndYear(item) {
   if (item.venue) return `${escapeHtml(item.venue)}.`;
   if (item.year) return `${escapeHtml(item.year)}.`;
   return "";
+}
+
+function getAuthorRank(item) {
+  const normalizedAuthors = (item.authors || [])
+    .map(normalizeAuthorName)
+    .filter(Boolean);
+  const index = normalizedAuthors.indexOf("Ziqian Bi");
+  return index === -1 ? 999 : index;
+}
+
+function getPublicationBucket(item) {
+  const venue = (item.venue || "").toLowerCase();
+  if (venue.includes("arxiv")) return "preprint";
+  if (venue) return "published";
+  return "unpublished";
+}
+
+function comparePublications(a, b) {
+  const rankDiff = getAuthorRank(a) - getAuthorRank(b);
+  if (rankDiff !== 0) return rankDiff;
+
+  const yearA = Number(a.year) || 0;
+  const yearB = Number(b.year) || 0;
+  if (yearA !== yearB) return yearB - yearA;
+
+  return (a.title || "").localeCompare(b.title || "");
 }
 
 function buildPublicationItem(item, lang) {
@@ -226,11 +280,15 @@ function renderPublications(lang) {
   if (pageKey !== "publications" || !window.publicationsData) return;
 
   const selectedHost = document.getElementById("selected-publications");
-  const allHost = document.getElementById("all-publications");
-  if (!selectedHost || !allHost) return;
+  const publishedHost = document.getElementById("published-publications");
+  const preprintHost = document.getElementById("preprint-publications");
+  const unpublishedHost = document.getElementById("unpublished-publications");
+  if (!selectedHost || !publishedHost || !preprintHost || !unpublishedHost) return;
 
   selectedHost.innerHTML = "";
-  allHost.innerHTML = "";
+  publishedHost.innerHTML = "";
+  preprintHost.innerHTML = "";
+  unpublishedHost.innerHTML = "";
 
   const byKey = new Map(window.publicationsData.map((item) => [item.key, item]));
   selectedPublicationKeys.forEach((key) => {
@@ -238,8 +296,29 @@ function renderPublications(lang) {
     if (item) selectedHost.appendChild(buildPublicationItem(item, lang));
   });
 
+  const published = [];
+  const preprint = [];
+  const unpublished = [];
+
   window.publicationsData.forEach((item) => {
-    allHost.appendChild(buildPublicationItem(item, lang));
+    const bucket = getPublicationBucket(item);
+    if (bucket === "published") published.push(item);
+    else if (bucket === "preprint") preprint.push(item);
+    else unpublished.push(item);
+  });
+
+  published.sort(comparePublications);
+  preprint.sort(comparePublications);
+  unpublished.sort(comparePublications);
+
+  published.forEach((item) => {
+    publishedHost.appendChild(buildPublicationItem(item, lang));
+  });
+  preprint.forEach((item) => {
+    preprintHost.appendChild(buildPublicationItem(item, lang));
+  });
+  unpublished.forEach((item) => {
+    unpublishedHost.appendChild(buildPublicationItem(item, lang));
   });
 
   bindCopyButtons(lang);
