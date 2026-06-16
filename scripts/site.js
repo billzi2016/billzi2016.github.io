@@ -1113,6 +1113,17 @@ function applyTheme(theme) {
   }
 }
 
+function ensureLanguageSwitchMarkup() {
+  if (!langBtn || langBtn.dataset.switchReady === "true") return;
+  langBtn.classList.add("language-switch");
+  langBtn.innerHTML = `
+    <span class="language-switch-option language-switch-option-zh">中文</span>
+    <span class="language-switch-option language-switch-option-en">EN</span>
+    <span class="language-switch-thumb"></span>
+  `;
+  langBtn.dataset.switchReady = "true";
+}
+
 function applyLanguage(lang) {
   localStorage.setItem("site-lang", lang);
   root.lang = lang === "zh" ? "zh-CN" : "en";
@@ -1129,7 +1140,10 @@ function applyLanguage(lang) {
   }
 
   if (langBtn) {
-    langBtn.textContent = translations.common[lang].langToggle;
+    ensureLanguageSwitchMarkup();
+    langBtn.dataset.lang = lang;
+    langBtn.setAttribute("aria-label", translations.common[lang].langToggle);
+    langBtn.setAttribute("title", translations.common[lang].langToggle);
   }
 
   const dark = body.classList.contains("dark-theme");
@@ -1161,6 +1175,7 @@ if (themeBtn) {
 
 syncNavState();
 initFloatingMusicWidget();
+ensureLanguageSwitchMarkup();
 applyTheme(localStorage.getItem("site-theme") || "light");
 applyLanguage(localStorage.getItem("site-lang") || "en");
 window.addEventListener("pagehide", saveMusicPlaybackState);
