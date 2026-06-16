@@ -9,7 +9,8 @@ const translations = {
       langToggle: "中文",
       themeToggleLight: "Dark",
       themeToggleDark: "Light",
-      contactSchool: "Indiana University",
+      contactSchoolOne: "Purdue University",
+      contactSchoolTwo: "Indiana University",
     },
     zh: {
       navHome: "首页",
@@ -19,7 +20,8 @@ const translations = {
       langToggle: "EN",
       themeToggleLight: "深色",
       themeToggleDark: "浅色",
-      contactSchool: "印第安纳大学",
+      contactSchoolOne: "普渡大学",
+      contactSchoolTwo: "印第安纳大学",
     },
   },
   page: {

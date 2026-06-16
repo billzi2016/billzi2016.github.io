@@ -24,9 +24,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 36%),
-    linear-gradient(180deg, var(--bg), var(--bg-deep));
+  background: var(--bg);
   color: var(--ink);
   font-family:
     "Avenir Next",
@@ -59,9 +57,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 24%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.16), transparent 28%);
+  background: rgba(255, 255, 255, 0.02);
   z-index: 0;
 }
 
@@ -283,7 +279,7 @@ main {
 section {
   margin-top: 28px;
   padding: 30px 34px 32px;
-  background: linear-gradient(180deg, var(--paper-strong), var(--paper));
+  background: var(--paper-strong);
   border: 1px solid var(--line);
   border-radius: 22px;
   box-shadow: var(--shadow);

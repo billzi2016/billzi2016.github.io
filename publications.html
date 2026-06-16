@@ -4,33 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ziqian Bi | Publications</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body data-page="publications">
+    <div id="light-particles" class="background-layer background-particles"></div>
+    <canvas id="dark-matrix" class="background-layer background-matrix" aria-hidden="true"></canvas>
+
+    <div class="page-shell">
     <div class="page">
-      <!-- 论文页先放代表性成果，再放完整 BibTeX 档案。 -->
+      <!-- 论文页先放代表性成果，再放完整且可读的论文列表。 -->
       <header class="site-header">
         <div class="header-bar">
           <div class="header-main">
-            <h1 class="name">Ziqian Bi</h1>
-            <div class="name-subline">毕梓仟</div>
+            <h1 class="name">
+              <span class="lang-en">Ziqian Bi</span>
+              <span class="lang-zh">毕梓仟</span>
+            </h1>
             <div class="contact-line">
-              <span>Indiana University</span>
+              <span data-i18n="contactSchoolOne">Purdue University</span>
+              <span data-i18n="contactSchoolTwo">Indiana University</span>
+              <a href="mailto:bi32@purdue.edu">bi32@purdue.edu</a>
               <a href="mailto:bizi@iu.edu">bizi@iu.edu</a>
               <a href="https://scholar.google.com/citations?user=4z9m238AAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
               <a href="https://github.com/billzi2016" target="_blank" rel="noreferrer">GitHub</a>
             </div>
-            <nav class="nav-line">
-              <a href="./index.html" data-i18n="navHome">Home</a>
-              <a href="./experience.html" data-i18n="navExperience">Experience</a>
-              <a href="./projects.html" data-i18n="navProjects">Projects</a>
-              <a href="./publications.html" data-i18n="navPublications">Publications</a>
+            <nav class="nav-line" aria-label="Primary">
+              <a class="nav-link" data-page="home" href="./index.html" data-i18n="navHome">Home</a>
+              <a class="nav-link" data-page="experience" href="./experience.html" data-i18n="navExperience">Experience</a>
+              <a class="nav-link" data-page="projects" href="./projects.html" data-i18n="navProjects">Projects</a>
+              <a class="nav-link" data-page="publications" href="./publications.html" data-i18n="navPublications">Publications</a>
             </nav>
           </div>
           <div class="header-actions">
@@ -38,7 +40,7 @@
             <button id="theme-toggle" class="control-btn" type="button">Dark</button>
           </div>
         </div>
-        <div class="page-tag" data-i18n="pageTag">Selected publications first, complete BibTeX archive after.</div>
+        <div class="page-tag" data-i18n="pageTag">Representative publications first, followed by the complete publication list.</div>
       </header>
 
       <main>
@@ -90,234 +92,113 @@
         </section>
 
         <section>
-          <h2 class="section-title" data-i18n="archiveTitle">Complete BibTeX Archive</h2>
+          <h2 class="section-title" data-i18n="archiveTitle">All Publications</h2>
           <p class="section-note" data-i18n="archiveNote">
-            The full bibliography below is reproduced directly from my current source
-            BibTeX file so that no entry is omitted.
+            The full publication list below is reformatted from the current BibTeX source
+            into a human-readable bibliography.
           </p>
-          <pre class="bibtex-block">@article{peng2024emerging,
-  title={Emerging techniques in vision-based human posture detection: Machine learning methods and applications},
-  author={Peng, Benji and Bi, Ziqian and Feng, Pohsun and Niu, Qian and Liu, Junyu and Chen, Keyu},
-  year={2024}
-}
-
-@article{wu2025autosurvey2,
-  title={AutoSurvey2: Empowering Researchers with Next Level Automated Literature Surveys},
-  author={Wu, Siyi and Liang, Chiaxin and Bi, Ziqian and Zhao, Leyi and Wang, Tianyang and Song, Junhao and Zhang, Yichao and Chen, Keyu and Peng, Benji and Song, Xinyuan},
-  journal={arXiv preprint arXiv:2510.26012},
-  year={2025}
-}
-
-@article{yu2025affective,
-  title={Affective multimodal agents with proactive knowledge grounding for emotionally aligned marketing dialogue},
-  author={Yu, Lin and Han, Xiaofei and Kang, Yifei and Tseng, Chiung-Yi and Zhang, Danyang and Bi, Ziqian and Han, Zhimo},
-  journal={arXiv preprint arXiv:2511.21728},
-  year={2025}
-}
-
-@article{song2025semantic,
-  title={Semantic segmentation for vision and intelligence},
-  author={Song, Junhao and Yang, Junjie and Jing, Bowen and Zhang, Yichao and Bi, Ziqian and Chen, Keyu and Li, Ming and Niu, Qian and Liu, Junyu and Peng, Benji and others},
-  year={2025}
-}
-
-@article{song2024transformer,
-  title={Transformer: A survey and application},
-  author={Song, Xinyuan and Chen, Keyu and Bi, Ziqian and Niu, Qian and Liu, Junyu and Peng, Benji and Zhang, Sen and Yuan, Zichen and Liu, Ming and Li, Ming and others},
-  year={2024}
-}
-
-@article{huang2025early,
-  title={Early Prediction of In-Hospital ICU Mortality Using Innovative First-Day Data: A Review},
-  author={Huang, Baozhu and Chen, Cheng and Hou, Xuanhe and Huang, Junmin and Wei, Zihan and Luo, Hongying and Chen, Lu and Xu, Yongzhi and Luo, Hejiao and Qin, Changqi and others},
-  journal={arXiv preprint arXiv:2505.12344},
-  year={2025}
-}
-
-@article{wang2024bench,
-  title={From Bench to Bedside: A Review of Clinical Trials in Drug Discovery and Development},
-  author={Wang, Tianyang and Liu, Ming and Peng, Benji and Song, Xinyuan and Zhang, Charles and Sun, Xintian and Niu, Qian and Liu, Junyu and Chen, Silin and Chen, Keyu and others},
-  journal={arXiv preprint arXiv:2412.09378},
-  year={2024}
-}
-
-@article{liang2025low,
-  title={Low-Rank Adaptation for Scalable Large Language Models: A Comprehensive Survey},
-  author={Liang, Chia Xin and Bi, Ziqian and Wang, Tianyang and Liu, Ming and Song, Xinyuan and Zhang, Yichao and Song, Junhao and Niu, Qian and Peng, Benji and Chen, Keyu and others},
-  year={2025}
-}
-
-@article{wang2025aleatoric,
-  title={From aleatoric to epistemic: Exploring uncertainty quantification techniques in artificial intelligence},
-  author={Wang, Tianyang and Wang, Yunze and Zhou, Jun and Peng, Benji and Song, Xinyuan and Zhang, Charles and Sun, Xintian and Niu, Qian and Liu, Junyu and Chen, Silin and others},
-  journal={arXiv preprint arXiv:2501.03282},
-  year={2025}
-}
-
-@article{hsieh2024deep,
-  title={Deep learning, machine learning, advancing big data analytics and management},
-  author={Hsieh, Weiche and Bi, Ziqian and Chen, Keyu and Peng, Benji and Zhang, Sen and Xu, Jiawei and Wang, Jinlang and Yin, Caitlyn Heqi and Zhang, Yichao and Feng, Pohsun and others},
-  journal={arXiv preprint arXiv:2412.02187},
-  year={2024}
-}
-
-@article{chen2024deep,
-  title={Deep learning and machine learning: Advancing big data analytics and management with design patterns},
-  author={Chen, Keyu and Bi, Ziqian and Wang, Tianyang and Wen, Yizhu and Feng, Pohsun and Niu, Qian and Liu, Junyu and Peng, Benji and Zhang, Sen and Li, Ming and others},
-  journal={arXiv preprint arXiv:2410.03795},
-  year={2024}
-}
-
-@article{bi2025gpt,
-  title={Is GPT-OSS Good? A Comprehensive Evaluation of OpenAI's Latest Open Source Models},
-  author={Bi, Ziqian and Chen, Keyu and Tseng, Chiung-Yi and Zhang, Danyang and Wang, Tianyang and Luo, Hongying and Chen, Lu and Huang, Junming and Guan, Jibin and Hao, Junfeng and others},
-  journal={arXiv preprint arXiv:2508.12461},
-  year={2025}
-}
-
-@article{ren2024deep,
-  title={Deep Learning and Machine Learning--Object Detection and Semantic Segmentation: From Theory to Applications},
-  author={Ren, Jintao and Bi, Ziqian and Niu, Qian and Song, Xinyuan and Jiang, Zekun and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Wang, Jinlang and others},
-  journal={arXiv preprint arXiv:2410.15584},
-  year={2024}
-}
-
-@article{yan2024large,
-  title={Large language model benchmarks in medical tasks},
-  author={Yan, Lawrence KQ and Niu, Qian and Li, Ming and Zhang, Yichao and Yin, Caitlyn Heqi and Fei, Cheng and Peng, Benji and Bi, Ziqian and Feng, Pohsun and Chen, Keyu and others},
-  journal={arXiv preprint arXiv:2410.21348},
-  year={2024}
-}
-
-@article{niu2024large,
-  title={Large language models and cognitive science: A comprehensive review of similarities, differences, and challenges},
-  author={Niu, Qian and Liu, Junyu and Bi, Ziqian and Feng, Pohsun and Peng, Benji and Chen, Keyu and Li, Ming and Yan, Lawrence KQ and Zhang, Yichao and Yin, Caitlyn Heqi and others},
-  journal={BIO Integration},
-  year={2024}
-}
-
-@article{chen2024deep,
-  title={Deep Learning and Machine Learning--Python Data Structures and Mathematics Fundamental: From Theory to Practice},
-  author={Chen, Silin and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Chen, Keyu and Yin, Caitlyn Heqi and others},
-  journal={arXiv preprint arXiv:2410.19849},
-  year={2024}
-}
-
-@article{bi2025gpt,
-  title={Is GPT-OSS All You Need? Benchmarking Large Language Models for Financial Intelligence and the Surprising Efficiency Paradox},
-  author={Bi, Ziqian and Zhang, Danyang and Song, Junhao and Tseng, Chiung-Yi},
-  journal={arXiv preprint arXiv:2512.14717},
-  year={2025}
-}
-
-@article{liu2024ethics,
-  title={Ethics and social implications of large language models},
-  author={Liu, Ming and Wang, Tianyang and Song, Xinyuan and Jing, Bowen and Yang, Junjie and Song, Junhao and Chen, Keyu and Chen, Silin and Li, Ming and Niu, Qian and others},
-  year={2024}
-}
-
-@article{zhang2025generating,
-  title={Generating a biometrically unique and realistic iris database},
-  author={Zhang, Jingxuan and Hart, Robert J and Bi, Ziqian and Fang, Shiaofen and Walsh, Susan},
-  journal={arXiv preprint arXiv:2503.11930},
-  year={2025}
-}
-
-@article{bi2024fmcw,
-  title={Fmcw radar principles and human activity recognition systems: Foundations, techniques, and applications},
-  author={Bi, Ziqian and Xu, Jiawei and Song, Xinyuan and Liu, Ming},
-  journal={arXiv preprint arXiv:2410.08483},
-  year={2024}
-}
-
-@article{li2024deep,
-  title={Deep learning and machine learning with gpgpu and cuda: Unlocking the power of parallel computing},
-  author={Li, Ming and Bi, Ziqian and Wang, Tianyang and Wen, Yizhu and Niu, Qian and Song, Xinyuan and Jiang, Zekun and Liu, Junyu and Peng, Benji and Zhang, Sen and others},
-  journal={arXiv preprint arXiv:2410.05686},
-  year={2024}
-}
-
-@inproceedings{xu2023mmlock,
-  title={mmlock: User leaving detection against data theft via high-quality mmwave radar imaging},
-  author={Xu, Jiawei and Bi, Ziqian and Singha, Amit and Li, Tao and Chen, Yimin and Zhang, Yanchao},
-  booktitle={2023 32nd International Conference on Computer Communications and Networks (ICCCN)},
-  pages={1--10},
-  year={2023},
-  organization={IEEE}
-}
-
-@article{peng2024jailbreaking,
-  title={Jailbreaking and mitigation of vulnerabilities in large language models},
-  author={Peng, Benji and Chen, Keyu and Niu, Qian and Bi, Ziqian and Liu, Ming and Feng, Pohsun and Wang, Tianyang and Yan, Lawrence KQ and Wen, Yizhu and Zhang, Yichao and others},
-  journal={arXiv preprint arXiv:2410.15236},
-  year={2024}
-}
-
-@article{song2024mastering,
-  title={Mastering reinforcement learning: Foundations, algorithms, and real-world applications},
-  author={Song, Xinyuan and Chen, Keyu and Bi, Ziqian and Niu, Qian and Song, Junhao and Liu, Junyu and Peng, Benji and Zhang, Sen and Liu, Ming and Li, Ming and others},
-  year={2024}
-}
-
-@article{bi2026exploring,
-  title={Exploring efficiency frontiers of thinking budget in medical reasoning: Scaling laws between computational resources and reasoning quality},
-  author={Bi, Ziqian and Chen, Lu and Luo, Hongying and Song, Junhao and Ge, Enze and Huang, Junmin and Wang, Tianyang and Chen, Keyu and Chia, Xin Liang and Wei, Zihan and others},
-  journal={Journal of Biomedical Informatics},
-  pages={105025},
-  year={2026},
-  publisher={Academic Press}
-}
-
-@article{lei2025comprehensive,
-  title={A Comprehensive Survey on Model Context Protocol: Architecture, Tool Integration, and the Future of AI Interoperability},
-  author={Lei, Yiming and Xu, Jiawei and Liang, Chia Xin and Bi, Ziqian and Li, Xiaoming and Zhang, Danyang and Song, Junhao and Yu, Zhenyu},
-  year={2025}
-}
-
-@article{niu2024text,
-  title={From text to multimodality: Exploring the evolution and impact of large language models in medical practice},
-  author={Niu, Qian and Chen, Keyu and Li, Ming and Feng, Pohsun and Bi, Ziqian and Yan, Lawrence KQ and Zhang, Yichao and Yin, Caitlyn Heqi and Fei, Cheng and Liu, Junyu and others},
-  journal={arXiv preprint arXiv:2410.01812},
-  year={2024}
-}
-
-@article{ding2026instruction,
-  title={Instruction Tuning for Large Language Models: RLHF, Supervised Fine-Tuning, and Alignment Strategies},
-  author={Ding, Yu and Han, Xudong and Yang, Junjie and Wang, Tianyang and Bi, Ziqian and Song, Xinyuan and Hao, Junfeng and Song, Junhao and Ge, Enze and Peng, Benji and others},
-  year={2026}
-}
-
-@inproceedings{bi2025physical,
-  title={Physical backdoor attacks against mmwave-based human activity recognition},
-  author={Bi, Ziqian and Singha, Amit and Xue, Hongfei and Li, Tao and Chen, Yimin and Zhang, Yanchao},
-  booktitle={2025 IEEE 45th International Conference on Distributed Computing Systems (ICDCS)},
-  pages={758--768},
-  year={2025},
-  organization={IEEE}
-}
-
-@article{zhang2025advanced,
-  title={Advanced deep learning methods for protein structure prediction and design},
-  author={Zhang, Yichao and Deng, Ningyuan and Song, Xinyuan and Bi, Ziqian and Wang, Tianyang and Yao, Zheyu and Chen, Keyu and Li, Ming and Niu, Qian and Liu, Junyu and others},
-  journal={arXiv preprint arXiv:2503.13522},
-  year={2025}
-}
-
-@article{feng2024mastering,
-  title={Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--AutoML from Basics to State-of-the-Art Techniques},
-  author={Feng, Pohsun and Bi, Ziqian and Wen, Yizhu and Peng, Benji and Liu, Junyu and Yin, Caitlyn Heqi and Wang, Tianyang and Chen, Keyu and Zhang, Sen and Li, Ming and others},
-  journal={arXiv preprint arXiv:2410.09596},
-  year={2024}
-}
-
-@article{yang2025feature,
-  title={Feature alignment and representation transfer in knowledge distillation for large language models},
-  author={Yang, Junjie and Song, Junhao and Han, Xudong and Bi, Ziqian and Wang, Tianyang and Liang, Chia Xin and Song, Xinyuan and Zhang, Yichao and Niu, Qian and Peng, Benji and others},
-  journal={arXiv preprint arXiv:2504.13825},
-  year={2025}
-}
-
-@article{hsieh2024deep,
+          <ol class="pub-list small">
+            <li><div class="pub-line">Peng, Benji, Bi, Ziqian, Feng, Pohsun, Niu, Qian, Liu, Junyu, Chen, Keyu. <em>Emerging techniques in vision-based human posture detection: Machine learning methods and applications</em>. 2024.</div></li>
+            <li><div class="pub-line">Wu, Siyi, Liang, Chiaxin, Bi, Ziqian, Zhao, Leyi, Wang, Tianyang, Song, Junhao, Zhang, Yichao, Chen, Keyu, Peng, Benji, Song, Xinyuan. <em>AutoSurvey2: Empowering Researchers with Next Level Automated Literature Surveys</em>. arXiv preprint arXiv:2510.26012, 2025.</div></li>
+            <li><div class="pub-line">Yu, Lin, Han, Xiaofei, Kang, Yifei, Tseng, Chiung-Yi, Zhang, Danyang, Bi, Ziqian, Han, Zhimo. <em>Affective multimodal agents with proactive knowledge grounding for emotionally aligned marketing dialogue</em>. arXiv preprint arXiv:2511.21728, 2025.</div></li>
+            <li><div class="pub-line">Song, Junhao, Yang, Junjie, Jing, Bowen, Zhang, Yichao, Bi, Ziqian, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, Peng, Benji, others. <em>Semantic segmentation for vision and intelligence</em>. 2025.</div></li>
+            <li><div class="pub-line">Song, Xinyuan, Chen, Keyu, Bi, Ziqian, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, Yuan, Zichen, Liu, Ming, Li, Ming, others. <em>Transformer: A survey and application</em>. 2024.</div></li>
+            <li><div class="pub-line">Huang, Baozhu, Chen, Cheng, Hou, Xuanhe, Huang, Junmin, Wei, Zihan, Luo, Hongying, Chen, Lu, Xu, Yongzhi, Luo, Hejiao, Qin, Changqi, others. <em>Early Prediction of In-Hospital ICU Mortality Using Innovative First-Day Data: A Review</em>. arXiv preprint arXiv:2505.12344, 2025.</div></li>
+            <li><div class="pub-line">Wang, Tianyang, Liu, Ming, Peng, Benji, Song, Xinyuan, Zhang, Charles, Sun, Xintian, Niu, Qian, Liu, Junyu, Chen, Silin, Chen, Keyu, others. <em>From Bench to Bedside: A Review of Clinical Trials in Drug Discovery and Development</em>. arXiv preprint arXiv:2412.09378, 2024.</div></li>
+            <li><div class="pub-line">Liang, Chia Xin, Bi, Ziqian, Wang, Tianyang, Liu, Ming, Song, Xinyuan, Zhang, Yichao, Song, Junhao, Niu, Qian, Peng, Benji, Chen, Keyu, others. <em>Low-Rank Adaptation for Scalable Large Language Models: A Comprehensive Survey</em>. 2025.</div></li>
+            <li><div class="pub-line">Wang, Tianyang, Wang, Yunze, Zhou, Jun, Peng, Benji, Song, Xinyuan, Zhang, Charles, Sun, Xintian, Niu, Qian, Liu, Junyu, Chen, Silin, others. <em>From aleatoric to epistemic: Exploring uncertainty quantification techniques in artificial intelligence</em>. arXiv preprint arXiv:2501.03282, 2025.</div></li>
+            <li><div class="pub-line">Hsieh, Weiche, Bi, Ziqian, Chen, Keyu, Peng, Benji, Zhang, Sen, Xu, Jiawei, Wang, Jinlang, Yin, Caitlyn Heqi, Zhang, Yichao, Feng, Pohsun, others. <em>Deep learning, machine learning, advancing big data analytics and management</em>. arXiv preprint arXiv:2412.02187, 2024.</div></li>
+            <li><div class="pub-line">Chen, Keyu, Bi, Ziqian, Wang, Tianyang, Wen, Yizhu, Feng, Pohsun, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, Li, Ming, others. <em>Deep learning and machine learning: Advancing big data analytics and management with design patterns</em>. arXiv preprint arXiv:2410.03795, 2024.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Chen, Keyu, Tseng, Chiung-Yi, Zhang, Danyang, Wang, Tianyang, Luo, Hongying, Chen, Lu, Huang, Junming, Guan, Jibin, Hao, Junfeng, others. <em>Is GPT-OSS Good? A Comprehensive Evaluation of OpenAI's Latest Open Source Models</em>. arXiv preprint arXiv:2508.12461, 2025.</div></li>
+            <li><div class="pub-line">Ren, Jintao, Bi, Ziqian, Niu, Qian, Song, Xinyuan, Jiang, Zekun, Liu, Junyu, Peng, Benji, Zhang, Sen, Pan, Xuanhe, Wang, Jinlang, others. <em>Deep Learning and Machine Learning--Object Detection and Semantic Segmentation: From Theory to Applications</em>. arXiv preprint arXiv:2410.15584, 2024.</div></li>
+            <li><div class="pub-line">Yan, Lawrence KQ, Niu, Qian, Li, Ming, Zhang, Yichao, Yin, Caitlyn Heqi, Fei, Cheng, Peng, Benji, Bi, Ziqian, Feng, Pohsun, Chen, Keyu, others. <em>Large language model benchmarks in medical tasks</em>. arXiv preprint arXiv:2410.21348, 2024.</div></li>
+            <li><div class="pub-line">Niu, Qian, Liu, Junyu, Bi, Ziqian, Feng, Pohsun, Peng, Benji, Chen, Keyu, Li, Ming, Yan, Lawrence KQ, Zhang, Yichao, Yin, Caitlyn Heqi, others. <em>Large language models and cognitive science: A comprehensive review of similarities, differences, and challenges</em>. BIO Integration, 2024.</div></li>
+            <li><div class="pub-line">Chen, Silin, Bi, Ziqian, Liu, Junyu, Peng, Benji, Zhang, Sen, Pan, Xuanhe, Xu, Jiawei, Wang, Jinlang, Chen, Keyu, Yin, Caitlyn Heqi, others. <em>Deep Learning and Machine Learning--Python Data Structures and Mathematics Fundamental: From Theory to Practice</em>. arXiv preprint arXiv:2410.19849, 2024.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Zhang, Danyang, Song, Junhao, Tseng, Chiung-Yi. <em>Is GPT-OSS All You Need? Benchmarking Large Language Models for Financial Intelligence and the Surprising Efficiency Paradox</em>. arXiv preprint arXiv:2512.14717, 2025.</div></li>
+            <li><div class="pub-line">Liu, Ming, Wang, Tianyang, Song, Xinyuan, Jing, Bowen, Yang, Junjie, Song, Junhao, Chen, Keyu, Chen, Silin, Li, Ming, Niu, Qian, others. <em>Ethics and social implications of large language models</em>. 2024.</div></li>
+            <li><div class="pub-line">Zhang, Jingxuan, Hart, Robert J, Bi, Ziqian, Fang, Shiaofen, Walsh, Susan. <em>Generating a biometrically unique and realistic iris database</em>. arXiv preprint arXiv:2503.11930, 2025.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Xu, Jiawei, Song, Xinyuan, Liu, Ming. <em>Fmcw radar principles and human activity recognition systems: Foundations, techniques, and applications</em>. arXiv preprint arXiv:2410.08483, 2024.</div></li>
+            <li><div class="pub-line">Li, Ming, Bi, Ziqian, Wang, Tianyang, Wen, Yizhu, Niu, Qian, Song, Xinyuan, Jiang, Zekun, Liu, Junyu, Peng, Benji, Zhang, Sen, others. <em>Deep learning and machine learning with gpgpu and cuda: Unlocking the power of parallel computing</em>. arXiv preprint arXiv:2410.05686, 2024.</div></li>
+            <li><div class="pub-line">Xu, Jiawei, Bi, Ziqian, Singha, Amit, Li, Tao, Chen, Yimin, Zhang, Yanchao. <em>mmlock: User leaving detection against data theft via high-quality mmwave radar imaging</em>. 2023 32nd International Conference on Computer Communications and Networks (ICCCN), 2023.</div></li>
+            <li><div class="pub-line">Peng, Benji, Chen, Keyu, Niu, Qian, Bi, Ziqian, Liu, Ming, Feng, Pohsun, Wang, Tianyang, Yan, Lawrence KQ, Wen, Yizhu, Zhang, Yichao, others. <em>Jailbreaking and mitigation of vulnerabilities in large language models</em>. arXiv preprint arXiv:2410.15236, 2024.</div></li>
+            <li><div class="pub-line">Song, Xinyuan, Chen, Keyu, Bi, Ziqian, Niu, Qian, Song, Junhao, Liu, Junyu, Peng, Benji, Zhang, Sen, Liu, Ming, Li, Ming, others. <em>Mastering reinforcement learning: Foundations, algorithms, and real-world applications</em>. 2024.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Chen, Lu, Luo, Hongying, Song, Junhao, Ge, Enze, Huang, Junmin, Wang, Tianyang, Chen, Keyu, Chia, Xin Liang, Wei, Zihan, others. <em>Exploring efficiency frontiers of thinking budget in medical reasoning: Scaling laws between computational resources and reasoning quality</em>. Journal of Biomedical Informatics, 2026.</div></li>
+            <li><div class="pub-line">Lei, Yiming, Xu, Jiawei, Liang, Chia Xin, Bi, Ziqian, Li, Xiaoming, Zhang, Danyang, Song, Junhao, Yu, Zhenyu. <em>A Comprehensive Survey on Model Context Protocol: Architecture, Tool Integration, and the Future of AI Interoperability</em>. 2025.</div></li>
+            <li><div class="pub-line">Niu, Qian, Chen, Keyu, Li, Ming, Feng, Pohsun, Bi, Ziqian, Yan, Lawrence KQ, Zhang, Yichao, Yin, Caitlyn Heqi, Fei, Cheng, Liu, Junyu, others. <em>From text to multimodality: Exploring the evolution and impact of large language models in medical practice</em>. arXiv preprint arXiv:2410.01812, 2024.</div></li>
+            <li><div class="pub-line">Ding, Yu, Han, Xudong, Yang, Junjie, Wang, Tianyang, Bi, Ziqian, Song, Xinyuan, Hao, Junfeng, Song, Junhao, Ge, Enze, Peng, Benji, others. <em>Instruction Tuning for Large Language Models: RLHF, Supervised Fine-Tuning, and Alignment Strategies</em>. 2026.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Singha, Amit, Xue, Hongfei, Li, Tao, Chen, Yimin, Zhang, Yanchao. <em>Physical backdoor attacks against mmwave-based human activity recognition</em>. 2025 IEEE 45th International Conference on Distributed Computing Systems (ICDCS), 2025.</div></li>
+            <li><div class="pub-line">Zhang, Yichao, Deng, Ningyuan, Song, Xinyuan, Bi, Ziqian, Wang, Tianyang, Yao, Zheyu, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, others. <em>Advanced deep learning methods for protein structure prediction and design</em>. arXiv preprint arXiv:2503.13522, 2025.</div></li>
+            <li><div class="pub-line">Feng, Pohsun, Bi, Ziqian, Wen, Yizhu, Peng, Benji, Liu, Junyu, Yin, Caitlyn Heqi, Wang, Tianyang, Chen, Keyu, Zhang, Sen, Li, Ming, others. <em>Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--AutoML from Basics to State-of-the-Art Techniques</em>. arXiv preprint arXiv:2410.09596, 2024.</div></li>
+            <li><div class="pub-line">Yang, Junjie, Song, Junhao, Han, Xudong, Bi, Ziqian, Wang, Tianyang, Liang, Chia Xin, Song, Xinyuan, Zhang, Yichao, Niu, Qian, Peng, Benji, others. <em>Feature alignment and representation transfer in knowledge distillation for large language models</em>. arXiv preprint arXiv:2504.13825, 2025.</div></li>
+            <li><div class="pub-line">Hsieh, Weiche, Bi, Ziqian, Liu, Junyu, Peng, Benji, Zhang, Sen, Pan, Xuanhe, Xu, Jiawei, Wang, Jinlang, Chen, Keyu, Yin, Caitlyn Heqi, others. <em>Deep Learning, Machine Learning--Digital Signal and Image Processing: From Theory to Application</em>. arXiv preprint arXiv:2410.20304, 2024.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Duan, Haonan, Xu, Jialu, Chia, XinLiang, Geng, Yiwen, Cui, Xuan, Du, Vincent, Zou, Xiaowei, Zhang, Xinyu, Zhang, Chunyang, others. <em>GeneralBench: A Comprehensive Benchmark Suite and Evaluation Platform for Large Language Models</em>. 2025.</div></li>
+            <li><div class="pub-line">Huang, Zhu, Luo, Hongying, Wen, Yizhu, Wang, Tianyang, Song, Junhao, Bi, Ziqian, Liu, Ming, Song, Xinyuan, Hao, Junfeng, Liang, Chia Xin. <em>Methodologies and Advances in Fine-Tuning Techniques for Large Language Models</em>. 2025.</div></li>
+            <li><div class="pub-line">Li, Ming, Chen, Keyu, Bi, Ziqian, Liu, Ming, Song, Xinyuan, Jiang, Zekun, Wang, Tianyang, Peng, Benji, Niu, Qian, Liu, Junyu, others. <em>Surveying the mllm landscape: A meta-review of current surveys</em>. arXiv preprint arXiv:2409.18991, 2024.</div></li>
+            <li><div class="pub-line">Xu, Jiawei, Liang, Chia Xin, Bi, Ziqian, Li, Xiaoming, Lei, Yiming, Song, Junhao, Yu, Zhenyu. <em>Large Language Models Empowering Small Language Models: A Comprehensive Survey on Collaboration, Knowledge Transfer, and Efficient Deployment</em>. 2025.</div></li>
+            <li><div class="pub-line">Wang, Tianyang, Bi, Ziqian, Zhang, Yichao, Liu, Ming, Hsieh, Weiche, Feng, Pohsun, Yan, Lawrence KQ, Wen, Yizhu, Peng, Benji, Liu, Junyu, others. <em>Deep learning model security: Threats and defenses</em>. arXiv preprint arXiv:2412.08969, 2024.</div></li>
+            <li><div class="pub-line">Wang, Jinlang, Bi, Ziqian, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, Liu, Ming, Xu, Jiawei, others. <em>Modern Data Systems: ML/DL-Driven Architecture for Big Data Management and Analytics</em>. 2025.</div></li>
+            <li><div class="pub-line">Korada, Amith, Chen, Yingying, Bi, Ziqian, Fu, Haoying, Lange, Michal A, Montgomery, Joreylis Michelle F, Rayanki, Chandrashekar, Guo, Changyong, Fang, Shiaofen, Ma, Yao-Ying. <em>Temporal and spatial patterns of secondary motor cortex calcium activity in cocaine self-administration: A study using miniScope imaging and machine learning</em>. Neuropharmacology, 2025.</div></li>
+            <li><div class="pub-line">Deng, Zechun, Li, Xiaoming, Bi, Ziqian, Lei, Yiming, Xu, Jiawei, Wang, Tianyang, Liang, Chia Xin, Song, Junhao, Yu, Zhenyu. <em>Multi-Agent Systems and Social Intelligence: A Comprehensive Survey on Collaboration, Communication, and Emergent Behaviors</em>. 2025.</div></li>
+            <li><div class="pub-line">Peng, Benji, Chen, Keyu, Li, Ming, Feng, Pohsun, Bi, Ziqian, Liu, Junyu, Song, Xinyuan, Niu, Qian. <em>Securing large language models: Addressing bias, misinformation, and prompt attacks</em>. arXiv preprint arXiv:2409.08087, 2024.</div></li>
+            <li><div class="pub-line">Pan, Pengyu, Li, Shiyuan, Yin, Wanru, Wang, Peng, Ma, Tongtong, Bi, Ziqian, Song, Junhao, Song, Xinyuan, Huang, Xin, Hao, Junfeng, others. <em>CD9-positive tumor-associated macrophages promote renal cell carcinoma progression by activating the orphan nuclear receptor Nor1/Nr4a3</em>. Cancer Cell International, 2025.</div></li>
+            <li><div class="pub-line">Chen, Silin, Wang, Tianyang, Song, Xinyuan, Jing, Bowen, Yang, Junjie, Song, Junhao, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, others. <em>Deep Learning and Machine Learning, Advancing Big Data Analytics and Management: Generative Models</em>. 2024.</div></li>
+            <li><div class="pub-line">Feng, Pohsun, Bi, Ziqian, Wen, Yizhu, Pan, Xuanhe, Peng, Benji, Liu, Ming, Xu, Jiawei, Chen, Keyu, Liu, Junyu, Yin, Caitlyn Heqi, others. <em>Deep Learning and Machine Learning, Advancing Big Data Analytics and Management: Unveiling AI's Potential Through Tools, Techniques, and Applications</em>. arXiv preprint arXiv:2410.01268, 2024.</div></li>
+            <li><div class="pub-line">Zhang, Charles, Peng, Benji, Sun, Xintian, Niu, Qian, Liu, Junyu, Chen, Keyu, Li, Ming, Feng, Pohsun, Bi, Ziqian, Liu, Ming, others. <em>From word vectors to multimodal embeddings: Techniques, applications, and future directions for large language models</em>. arXiv preprint arXiv:2411.05036, 2024.</div></li>
+            <li><div class="pub-line">Chen, Keyu, Bi, Ziqian, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, Liu, Ming, Song, Xinyuan, Jiang, Zekun, Wang, Tianyang, others. <em>Deep learning and machine learning, advancing big data analytics and management: Tensorflow pretrained models</em>. arXiv preprint arXiv:2409.13566, 2024.</div></li>
+            <li><div class="pub-line">Wang, Tianyang, Wang, Yunze, Song, Xinyuan, Zhang, Yichao, Chen, Silin, Bi, Ziqian, Liu, Ming, Zhou, Jun, Song, Junhao, Jing, Bowen, others. <em>Deep learning and machine learning-generative models: Foundations, techniques, and applications</em>. 2024.</div></li>
+            <li><div class="pub-line">Song, Junhao, Zhang, Yichao, Bi, Ziqian, Wang, Tianyang, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, others. <em>Generative adversarial networks bridging art and machine intelligence</em>. arXiv preprint arXiv:2502.04116, 2025.</div></li>
+            <li><div class="pub-line">Song, Xinyuan, HSIEH, WEI-CHE, Bi, Ziqian, Jiang, Chuanqi, Liu, Ming, Wang, Tianyang, Jing, Bowen, Yang, Junjie, Song, Junhao, Chen, Keyu, others. <em>Large Language Models in Nonprofit and Public Good Sectors</em>. 2024.</div></li>
+            <li><div class="pub-line">Tseng, Chiung-Yi, Song, Junhao, Bi, Ziqian, Wang, Tianyang, Liang, Chia Xin, Song, Xinyuan, Liu, Ming. <em>Active Learning Methods for Efficient Data Utilization and Model Performance Enhancement</em>. arXiv preprint arXiv:2504.16136, 2025.</div></li>
+            <li><div class="pub-line">Han, Xudong, Yang, Junjie, Wang, Tianyang, Bi, Ziqian, Song, Xinyuan, Hao, Junfeng, Song, Junhao. <em>Towards alignment-centric paradigm: A survey of instruction tuning in large language models</em>. arXiv preprint arXiv:2508.17184, 2025.</div></li>
+            <li><div class="pub-line">Tseng, Chiung-Yi, Zhang, Danyang, Wang, Tianyang, Luo, Hongying, Chen, Lu, Huang, Junming, Guan, Jibin, Hao, Junfeng, Song, Junhao, Song, Xinyuan, others. <em>47B Mixture-of-Experts Beats 671B Dense Models on Chinese Medical Examinations</em>. arXiv preprint arXiv:2511.21701, 2025.</div></li>
+            <li><div class="pub-line">Wu, Ruitong, Ge, Enze, Huang, Binhua, Bi, Ziqian, Wang, Tianyang, Hao, Junfeng, Wu, Zhiyuan. <em>From Correlation to Causation: The Foundations of Trustworthy Clinical AI</em>. 2025.</div></li>
+            <li><div class="pub-line">Wang, Tianyang, Bi, Ziqian, Chen, Keyu, Xu, Jiawei, Niu, Qian, Liu, Junyu, Peng, Benji, Li, Ming, Zhang, Sen, Pan, Xuanhe, others. <em>Deep learning and machine learning, advancing big data analytics and management: Object-oriented programming</em>. arXiv preprint arXiv:2409.19916, 2024.</div></li>
+            <li><div class="pub-line">Jing, Bowen, Song, Junhao, Yang, Junjie, Bi, Ziqian, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, others. <em>Transformative Approaches in Deep Learning and Image Semantic Segmentation: From Theory to Practice</em>. 2026.</div></li>
+            <li><div class="pub-line">Song, Xinyuan, Chen, Keyu, Bi, Ziqian, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, Liu, Ming, Li, Ming, Pan, Xuanhe, others. <em>Deep Learning and Machine Learning: Contrastive Learning, from scratch to application</em>. 2025.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Chen, Kaijie, Wang, Tianyang, Hao, Junfeng, Peng, Benji, Song, Xinyuan. <em>Cot-x: An adaptive framework for cross-model chain-of-thought transfer and optimization</em>. arXiv preprint arXiv:2511.05747, 2025.</div></li>
+            <li><div class="pub-line">Liu, Ziwei, Bi, Ziqian, Song, Junhao, Liang, Chia Xin, Wang, Tianyang, Zhang, Yichao. <em>Hardware accelerated foundations for multimodal medical ai systems: A comprehensive survey</em>. 2025.</div></li>
+            <li><div class="pub-line">Peng, Benji, Liang, Chia Xin, Bi, Ziqian, Liu, Ming, Zhang, Yichao, Wang, Tianyang, Chen, Keyu, Song, Xinyuan, Feng, Pohsun. <em>From noise to nuance: Advances in deep generative image models</em>. arXiv preprint arXiv:2412.09656, 2024.</div></li>
+            <li><div class="pub-line">Yao, Zheyu, Zhang, Yichao, Deng, Ningyuan, Song, Xinyuan, Bi, Ziqian, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, Peng, Benji, others. <em>Multimodal Embeddings for Representation Learning</em>. 2025.</div></li>
+            <li><div class="pub-line">Hao, Junfeng, Liu, Naiquan, Huang, Xin, Zhou, Hanlei, Li, Hanrong, Zhang, Yizhou, Yu, Bing, Bi, Ziqian, Song, Xinyuan, Li, Shunan, others. <em>Sirp-$\\alpha$ Antibody Inhibits Renal Cell Carcinoma Progression via Akt1/Akt2 Modulation in Tumor-Associated Macrophages</em>. Journal of Inflammation Research, 2025.</div></li>
+            <li><div class="pub-line">Peng, Benji, Pan, Xuanhe, Wen, Yizhu, Bi, Ziqian, Chen, Keyu, Li, Ming, Liu, Ming, Niu, Qian, Liu, Junyu, Wang, Jinlang, others. <em>Deep learning and machine learning, advancing big data analytics and management: Handy appetizer</em>. arXiv preprint arXiv:2409.17120, 2024.</div></li>
+            <li><div class="pub-line">Xu, Jiawei, Bi, Ziqian, Ge, Enze, Li, Xiao Ming, Lei, Yiming, Qiao, Jing. <em>AI-Driven Human-Robot Collaboration in Intralogistics Systems: A Comprehensive Survey</em>. 2026.</div></li>
+            <li><div class="pub-line">Xu, Jiawei, Liang, Chia Xin, Bi, Ziqian, Li, Xiaoming, Zhang, Danyang, Yu, Zhenyu. <em>A Comprehensive Survey on Distributed Deep Learning Training: Parallelism Strategies, Frameworks, and Network Interconnects</em>. 2025.</div></li>
+            <li><div class="pub-line">Wang, Han, He, Ruoyun, Lao, Guoguang, Liu, Ting, Luo, Hejiao, Qin, Changqi, Luo, Hongying, Huang, Junmin, Wei, Zihan, Chen, Lu, others. <em>Predicting ICU In-Hospital Mortality Using Adaptive Transformer Layer Fusion</em>. arXiv preprint arXiv:2506.04924, 2025.</div></li>
+            <li><div class="pub-line">Hsieh, Weiche, Bi, Ziqian, Jiang, Chuanqi, Liu, Junyu, Peng, Benji, Zhang, Sen, Pan, Xuanhe, Xu, Jiawei, Wang, Jinlang, Chen, Keyu, others. <em>A comprehensive guide to explainable AI: from classical models to LLMs</em>. arXiv preprint arXiv:2412.00800, 2024.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Gao, Raymond, Fang, Shiaofen. <em>A General Framework for Visualizing Machine Learning Models</em>. VISIGRAPP (1): GRAPP, HUCAPP, IVAPP, 2024.</div></li>
+            <li><div class="pub-line">Jin, Qihang, Ge, Enze, Xie, Yuhang, Luo, Hongying, Song, Junhao, Bi, Ziqian, Liang, Chia Xin, Guan, Jibin, Yeong, Joe, Song, Xinyuan, others. <em>Multimodal representation learning and fusion</em>. arXiv preprint arXiv:2506.20494, 2025.</div></li>
+            <li><div class="pub-line">Huang, Junmin, Chen, Lu, Luo, Hongying, Song, Junhao, Bi, Ziqian, Chen, Keyu, Chia, Xin Liang, Liu, Ming, Wang, Tianyang, Peng, Benji, others. <em>Use of machine learning models to predict mortality in dialysis patients</em>. Frontiers in Public Health, 2025.</div></li>
+            <li><div class="pub-line">Singha, Amit, Bi, Ziqian, Li, Tao, Chen, Yimin, Zhang, Yanchao. <em>Securing contrastive mmwave-based human activity recognition against adversarial label flipping</em>. Proceedings of the 17th ACM Conference on Security and Privacy in Wireless and Mobile Networks, 2024.</div></li>
+            <li><div class="pub-line">Tseng, Chiung-Yi, Zhang, Danyang, Song, Junhao, Bi, Ziqian. <em>Diffusion-based Large Language Models Survey</em>. 2025.</div></li>
+            <li><div class="pub-line">Liang, Chia Xin, Tian, Pu, Yin, Caitlyn Heqi, Yua, Yao, Wei, An-Hou, Li, Ming, Song, Xinyuan, Wang, Tianyang, Bi, Ziqian, Liu, Ming, others. <em>A comprehensive survey and guide to multimodal large language models in vision--language tasks</em>. Computation, 2026.</div></li>
+            <li><div class="pub-line">Deng, Zechun, Liu, Ziwei, Bi, Ziqian, Song, Junhao, Liang, Chia Xin, Yeong, Joe, Song, Xinyuan, Hao, Junfeng. <em>Achieving Trustworthy Real-Time Decision Support Systems with Low-Latency Interpretable AI Models</em>. arXiv preprint arXiv:2506.20018, 2025.</div></li>
+            <li><div class="pub-line">Zhang, Yichao, Yang, Junjie, Bi, Ziqian, Song, Junhao, Huang, Binhua. <em>Bridging Traditional and Deep Learning Approaches in Image Segmentation</em>. 2025.</div></li>
+            <li><div class="pub-line">Chen, Keyu, Fei, Cheng, Bi, Ziqian, Liu, Junyu, Peng, Benji, Zhang, Sen, Pan, Xuanhe, Xu, Jiawei, Wang, Jinlang, Yin, Caitlyn Heqi, others. <em>Deep Learning and Machine Learning--Natural Language Processing: From Theory to Application</em>. arXiv preprint arXiv:2411.05026, 2024.</div></li>
+            <li><div class="pub-line">Liu, Ting, He, Ruoyun, Tian, Ye, Chen, Weibang, Liu, Xiaoyu, Zhu, Lei, Cao, Fengxiang, Yu, Zizhong, Cui, Xueming, Wang, Peng, others. <em>Cochlear immunology and its therapeutic revolution</em>. Frontiers in Immunology, 2025.</div></li>
+            <li><div class="pub-line">Ge, Enze, Jin, Qihang, Xie, Yuhang, Luo, Hongying, Wang, Tianyang, Bi, Ziqian, Peng, Benji, Hao, Junfeng, Song, Junhao. <em>From Memory to Alignment: A Comprehensive Review of Large Language Model Optimization</em>. 2025.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Gao, Raymond, Fang, Shiaofen. <em>A Subspace Projection Based Technique for Visualizing Machine Learning Models</em>. The 20th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications, 2025.</div></li>
+            <li><div class="pub-line">Sun, Lifan, Zhang, Yichao, Song, Xinyuan, Bi, Ziqian, Chen, Keyu, Li, Ming, Niu, Qian, Liu, Junyu, Peng, Benji, Zhang, Sen, others. <em>Exploring Multimodal Embeddings for Text and Impact on Language Processing</em>. 2025.</div></li>
+            <li><div class="pub-line">Yi, Ho, Liang, Chia Xin, Bi, Ziqian, Huang, Yong-Sheng, Zhang, Yichao, Tian, Pu, Yua, Yao, Liu, Ming, Hao, Junfeng, Wang, Tianyang, others. <em>Mastering SLAM: Techniques, Algorithms, and Applications in Artificial Intelligence and Autonomous Systems</em>. 2025.</div></li>
+            <li><div class="pub-line">Wang, Tianyang, Chen, Silin, Wang, Yunze, Zhang, Yichao, Song, Xinyuan, Bi, Ziqian, Liu, Ming, Niu, Qian, Liu, Junyu, Feng, Pohsun, others. <em>From in silico to in vitro: a comprehensive guide to validating bioinformatics findings</em>. arXiv preprint arXiv:2502.03478, 2025.</div></li>
+            <li><div class="pub-line">Feng, Pohsun, Bi, Ziqian, Yan, Lawrence KQ, Wen, Yizhu, Peng, Benji, Liu, Junyu, Yin, Caitlyn Heqi, Wang, Tianyang, Chen, Keyu, Zhang, Sen, others. <em>Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--Blockchain and Applications</em>. arXiv preprint arXiv:2410.10110, 2024.</div></li>
+            <li><div class="pub-line">Xu, Shengkai, Kao, Hsiang Lun, Xu, Tianxiang, Zhang, Honghui, Wang, Junqiao, Ding, Runmeng, Liu, Guanyu, Shi, Tianyu, Yu, Zhenyu, Pan, Guofeng, others. <em>Adaptive Detector-Verifier Framework for Zero-Shot Polyp Detection in Open-World Settings</em>. arXiv preprint arXiv:2512.12492, 2025.</div></li>
+            <li><div class="pub-line">Sun, Xintian, Peng, Benji, Zhang, Charles, Jin, Fei, Niu, Qian, Liu, Junyu, Chen, Keyu, Li, Ming, Feng, Pohsun, Bi, Ziqian, others. <em>From pixels to prose: Advancing multi-modal language models for remote sensing</em>. arXiv preprint arXiv:2411.05826, 2024.</div></li>
+            <li><div class="pub-line">Luo, Hongying, Wei, Zihan, Song, Junhao, Bi, Ziqian, Wang, Tianyang, Liu, Ming, Huang, Junmin, Liang, Chia Xin, Guan, Jibin, Hao, Junfeng. <em>Representation Learning Under Limited Supervision Across Few-shot and Zero-shot Paradigms</em>. 2025.</div></li>
+            <li><div class="pub-line">Xu, Han, Bi, Ziqian, Tseng, Hong-ming, Song, Xinyuan, Feng, Pohsun. <em>From Transformers to the Future: An In-Depth Exploration of Modern Language Model Architectures</em>. 2024.</div></li>
+            <li><div class="pub-line">Zhang, Danyang, Song, Junhao, Bi, Ziqian, Song, Xinyuan, Yuan, Yingfang, Wang, Tianyang, Yeong, Joe, Hao, Junfeng. <em>Mixture of experts in large language models</em>. arXiv preprint arXiv:2507.11181, 2025.</div></li>
+            <li><div class="pub-line">Mo, Yang, Ge, Enze, Han, Xudong, Song, Junhao, Bi, Ziqian, Wang, Tianyang, Li, Yanliang, Huang, Binhua. <em>Towards Structured Reasoning: A Comprehensive Survey of Chain-of-Thought Reasoning in Large Language Models</em>. 2025.</div></li>
+            <li><div class="pub-line">Xu, Jiawei, Yu, Zhenyu, Bi, Ziqian, Pham, Minh Duc, Qu, Xiaoyi, Zhang, Danyang. <em>PRIME: Policy-Reinforced Iterative Multi-Agent Execution for Algorithmic Reasoning in Large Language Models</em>. 2026.</div></li>
+            <li><div class="pub-line">Chia, Xinliang, Bi, Ziqian, Yu, Zhenyu, Zhang, Danyang. <em>Post-Training of Large Language Models: A Comprehensive Survey</em>. 2025.</div></li>
+            <li><div class="pub-line">Bi, Ziqian, Li, Xiaoming, Ge, Enze, Song, Junhao, Lei, Yiming, Huang, Binhua. <em>Agentic AI and Autonomous Agents Development Strategies</em>. 2026.</div></li>
+            <li><div class="pub-line">Xiao, Jie, Chen, Meng, Ren, Qingnan, Jingwei, Song, Huang, Jiaqi, Deng, Yangshen, Tong, Chris, Chen, Wanyi, Wang, Suli, Bi, Ziqian, others. <em>ECHO-2: A Large Scale Distributed Rollout Framework for Cost-efficient Reinforcement Learning</em>. arXiv preprint arXiv:2602.02192, 2026.</div></li>
+            <li><div class="pub-line">Song, Junhao, Bi, Ziqian, Chia, Xinliang, Knottenbelt, William, Cao, Yudong. <em>Data Verification is the Future of Quantum Computing Copilots</em>. arXiv preprint arXiv:2602.04072, 2026.</div></li>
+            <li><div class="pub-line">Li, Longzhu, Lin, Zeqiong, Chen, LU, Huang, Junmin, Luo, Hongying, Bi, Ziqian, Wang, Tianyang, Xu, Yongzhi, Liu, Huafeng, Hao, Junfeng, others. <em>Renal Macrophage TLR7 Signaling in Lupus Nephritis: From Pathogenic Mechanisms to Therapeutic Opportunities</em>. Frontiers in Immunology, 2026.</div></li>
+            <li><div class="pub-line">Wei, Kangda, Bi, Ziqian, Molakalapalli, Ashish, Duan, Haonan, Zou, Xiaowei, Du, Vincent, Carter, Alex, Huang, Ruihong. <em>Predicting LLM Training and Inference Runtime: A Survey of Methods, Datasets, and Open Challenges</em>. 2026.</div></li>
+            <li><div class="pub-line">Sun, Xintian, Peng, Fushuo Huo Benji, Zhang, Charles, Jin, Fei, Niu, Qian, Liu, Junyu, Chen, Keyu, Li, Ming, Feng, Pohsun, Bi, Ziqian, others. <em>Advancing Multi-Modal Language Models for Remote Sensing: A Comprehensive Survey</em>. 2024.</div></li>
+            <li><div class="pub-line">Huang, Junmin, Li, Changheng, Wang, Yunan, Zhong, Zekun, Ma, Tongtong, Chen, Lu, Luo, Hongying, Bi, Ziqian, Wang, Tianyang, Liu, Huafeng, others. <em>The epigenetic basis of vascular calcification: focus on histone modifications</em>. European Journal of Medical Research, 2026.</div></li>
+            <li><div class="pub-line">Wang, Han, Lao, Guoguang, He, Ruoyun, Liu, Ting, Luo, Hejiao, Qin, Changqi, Luo, Hongying, Liu, Yingqi, Huang, Junmin, Wei, Zihan, others. <em>Predicting ICU in-hospital mortality from text-encoded structured EHR data using adaptive transformer layer fusion</em>. iScience, 2026.</div></li>
+            <li><div class="pub-line">LI, Longzhu, Liao, Jiacheng, Xin-tian, Chen, Lin, Zeqiong, Gong, Siqiao, Huang, Junmin, Bi, Ziqian, Wang, Tianyang, Chia, Xinliang, Chen, LU, others. <em>Integrating Machine Learning, Deep Learning, and Molecular Docking to Predict the Molecular Network Mechanism of Aristolochic Acid I-Induced Renal Cell Carcinoma</em>. Frontiers in Pharmacology, 2026.</div></li>
+          </ol>
   title={Deep Learning, Machine Learning--Digital Signal and Image Processing: From Theory to Application},
   author={Hsieh, Weiche and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Chen, Keyu and Yin, Caitlyn Heqi and others},
   journal={arXiv preprint arXiv:2410.20304},
@@ -794,6 +675,9 @@
         </section>
       </main>
     </div>
-    <script src="./site.js"></script>
+    </div>
+    <script src="./vendor/particles/particles.min.js"></script>
+    <script src="./scripts/backgrounds.js"></script>
+    <script src="./scripts/site.js"></script>
   </body>
 </html>

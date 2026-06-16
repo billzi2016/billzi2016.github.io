@@ -80,13 +80,32 @@
     if (!canvas || !matrixContext) return;
     matrixContext.fillStyle = "rgba(13, 20, 27, 0.065)";
     matrixContext.fillRect(0, 0, window.innerWidth, window.innerHeight);
-    matrixContext.font = "14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+    matrixContext.font = "13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
     matrixContext.fillStyle = "rgba(134, 222, 168, 0.16)";
-    const chars = "01アイウエオカキクケコサシスセソ0123456789";
+    const tokens = [
+      "int",
+      "void",
+      "class",
+      "const",
+      "struct",
+      "return",
+      "auto",
+      "for",
+      "if",
+      "while",
+      "switch",
+      "template",
+      "public",
+      "private",
+      "static",
+      "nullptr",
+      "using",
+      "#include",
+    ];
     matrixColumns = matrixColumns.map((y, index) => {
       const x = index * 18;
-      const char = chars[Math.floor(Math.random() * chars.length)];
-      matrixContext.fillText(char, x, y);
+      const token = tokens[Math.floor(Math.random() * tokens.length)];
+      matrixContext.fillText(token, x, y);
       if (y > window.innerHeight + Math.random() * 220) {
         return Math.random() * -140;
       }
