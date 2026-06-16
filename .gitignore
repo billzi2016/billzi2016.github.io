@@ -1,1 +1,2 @@
-assets/soundfonts/site-grand-piano/
+assets/soundfonts/site-grand-piano/*
+!assets/soundfonts/site-grand-piano/README.md
