@@ -12,38 +12,43 @@
     window.particlesJS("light-particles", {
       particles: {
         number: {
-          value: 52,
-          density: { enable: true, value_area: 1100 },
+          value: 96,
+          density: { enable: true, value_area: 900 },
         },
-        color: { value: "#556779" },
+        color: { value: "#415b76" },
         shape: { type: "circle" },
         opacity: {
-          value: 0.22,
+          value: 0.46,
           random: true,
         },
         size: {
-          value: 2.4,
+          value: 3.1,
           random: true,
         },
         line_linked: {
           enable: true,
-          distance: 134,
-          color: "#70849a",
-          opacity: 0.18,
-          width: 1,
+          distance: 176,
+          color: "#5b7894",
+          opacity: 0.42,
+          width: 1.2,
         },
         move: {
           enable: true,
-          speed: 1.2,
+          speed: 1.55,
           direction: "none",
           random: false,
           straight: false,
           out_mode: "out",
           bounce: false,
+          attract: {
+            enable: true,
+            rotateX: 900,
+            rotateY: 1400,
+          },
         },
       },
       interactivity: {
-        detect_on: "canvas",
+        detect_on: "window",
         events: {
           onhover: { enable: true, mode: "grab" },
           onclick: { enable: false, mode: "push" },
@@ -51,8 +56,8 @@
         },
         modes: {
           grab: {
-            distance: 120,
-            line_linked: { opacity: 0.24 },
+            distance: 240,
+            line_linked: { opacity: 0.9 },
           },
         },
       },

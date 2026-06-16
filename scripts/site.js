@@ -132,9 +132,11 @@ function applyTheme(theme) {
   body.classList.toggle("dark-theme", dark);
   localStorage.setItem("site-theme", dark ? "dark" : "light");
   const lang = localStorage.getItem("site-lang") || "en";
-  themeBtn.textContent = dark
-    ? translations.common[lang].themeToggleDark
-    : translations.common[lang].themeToggleLight;
+  if (themeBtn) {
+    themeBtn.textContent = dark
+      ? translations.common[lang].themeToggleDark
+      : translations.common[lang].themeToggleLight;
+  }
   if (window.SiteBackgrounds) {
     window.SiteBackgrounds.syncBackgrounds();
   }
@@ -150,22 +152,30 @@ function applyLanguage(lang) {
     const value = page || common;
     if (value) node.textContent = value;
   });
-  langBtn.textContent = translations.common[lang].langToggle;
+  if (langBtn) {
+    langBtn.textContent = translations.common[lang].langToggle;
+  }
   const dark = body.classList.contains("dark-theme");
-  themeBtn.textContent = dark
-    ? translations.common[lang].themeToggleDark
-    : translations.common[lang].themeToggleLight;
+  if (themeBtn) {
+    themeBtn.textContent = dark
+      ? translations.common[lang].themeToggleDark
+      : translations.common[lang].themeToggleLight;
+  }
 }
 
-langBtn.addEventListener("click", () => {
-  const current = localStorage.getItem("site-lang") || "en";
-  applyLanguage(current === "en" ? "zh" : "en");
-});
+if (langBtn) {
+  langBtn.addEventListener("click", () => {
+    const current = localStorage.getItem("site-lang") || "en";
+    applyLanguage(current === "en" ? "zh" : "en");
+  });
+}
 
-themeBtn.addEventListener("click", () => {
-  const current = localStorage.getItem("site-theme") || "light";
-  applyTheme(current === "light" ? "dark" : "light");
-});
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const current = localStorage.getItem("site-theme") || "light";
+    applyTheme(current === "light" ? "dark" : "light");
+  });
+}
 
 syncNavState();
 applyTheme(localStorage.getItem("site-theme") || "light");
