@@ -47,9 +47,9 @@ const translations = {
         guideFocus: "Current Focus",
         researchTitle: "Research Interests",
         skillsTitle: "Technical Skills",
-        aiSkillsTitle: "AI Skills",
+        aiSkillsTitle: "AI-Augmented Engineering Scope",
         aiSkillsNote:
-          "Different from vibe coding or casual exploration, this means coding and learning with AI tools through Test-Driven Development (TDD), Spec-Driven Development (SDD), verification, reproducible implementation, debugging, and maintainable production-grade engineering.",
+          "This is not vibe coding or casual exploration. It describes what I can build with agentic AI tools through Test-Driven Development (TDD), Spec-Driven Development (SDD), verification, reproducible implementation, debugging, and maintainable production-grade engineering. The Technical Skills section is a conservative baseline for technologies I can understand, inspect, debug, modify, and maintain directly; with agentic AI assistance, the practical implementation scope becomes broader, while my role shifts toward specification, verification, integration, and engineering review rather than memorizing every implementation detail.",
         highlightsTitle: "Selected Highlights",
       },
       zh: {
@@ -63,9 +63,9 @@ const translations = {
         guideFocus: "当前重点",
         researchTitle: "研究兴趣",
         skillsTitle: "技术技能",
-        aiSkillsTitle: "AI 技能",
+        aiSkillsTitle: "AI 辅助下的工程能力范围",
         aiSkillsNote:
-          "区别于 vibe coding 或随意探索，这里指通过测试驱动开发（Test-Driven Development, TDD）、规格驱动开发（Spec-Driven Development, SDD）、验证、复现、调试和可维护的工业级工程实现来使用 AI 工具辅助编程与学习。",
+          "这不是 vibe coding 或随意探索，而是说明在 agentic AI 工具辅助下我能够写出和交付什么：通过测试驱动开发（Test-Driven Development, TDD）、规格驱动开发（Spec-Driven Development, SDD）、验证、复现、调试和可维护的工业级工程实现来编程与学习。Technical Skills / 技术技能部分是更保守的个人基础能力边界：我能够直接理解、检查、调试、修改和维护这些技术；在 agentic AI 辅助下，实际可实现和交付的范围会更广，但我的角色重点会转向规格定义、验证、集成和工程审查，而不是记住每一个实现细节并全部手写。",
         highlightsTitle: "代表性亮点",
       },
     },
@@ -74,9 +74,9 @@ const translations = {
         pageTag: "Full CV-style experience page.",
         researchTitle: "Research Interests",
         skillsTitle: "Technical Skills",
-        aiSkillsTitle: "AI Skills",
+        aiSkillsTitle: "AI-Augmented Engineering Scope",
         aiSkillsNote:
-          "Different from vibe coding or casual exploration, this means coding and learning with AI tools through Test-Driven Development (TDD), Spec-Driven Development (SDD), verification, reproducible implementation, debugging, and maintainable production-grade engineering.",
+          "This is not vibe coding or casual exploration. It describes what I can build with agentic AI tools through Test-Driven Development (TDD), Spec-Driven Development (SDD), verification, reproducible implementation, debugging, and maintainable production-grade engineering. The Technical Skills section is a conservative baseline for technologies I can understand, inspect, debug, modify, and maintain directly; with agentic AI assistance, the practical implementation scope becomes broader, while my role shifts toward specification, verification, integration, and engineering review rather than memorizing every implementation detail.",
         industryTitle: "Industry Experience",
         researchExpTitle: "Research Experience",
         educationTitle: "Education",
@@ -85,9 +85,9 @@ const translations = {
         pageTag: "完整在线简历式经历页面。",
         researchTitle: "研究兴趣",
         skillsTitle: "技术技能",
-        aiSkillsTitle: "AI 技能",
+        aiSkillsTitle: "AI 辅助下的工程能力范围",
         aiSkillsNote:
-          "区别于 vibe coding 或随意探索，这里指通过测试驱动开发（Test-Driven Development, TDD）、规格驱动开发（Spec-Driven Development, SDD）、验证、复现、调试和可维护的工业级工程实现来使用 AI 工具辅助编程与学习。",
+          "这不是 vibe coding 或随意探索，而是说明在 agentic AI 工具辅助下我能够写出和交付什么：通过测试驱动开发（Test-Driven Development, TDD）、规格驱动开发（Spec-Driven Development, SDD）、验证、复现、调试和可维护的工业级工程实现来编程与学习。Technical Skills / 技术技能部分是更保守的个人基础能力边界：我能够直接理解、检查、调试、修改和维护这些技术；在 agentic AI 辅助下，实际可实现和交付的范围会更广，但我的角色重点会转向规格定义、验证、集成和工程审查，而不是记住每一个实现细节并全部手写。",
         industryTitle: "工业界经历",
         researchExpTitle: "研究经历",
         educationTitle: "教育背景",
