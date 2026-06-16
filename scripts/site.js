@@ -34,7 +34,7 @@ const translations = {
     home: {
       en: {
         lead:
-          "I am a Ph.D. candidate working across large language models, multimodal AI, medical AI, sensing security, and machine learning systems. I am most interested in roles that require both research depth and engineering execution: Research Engineer, Applied Scientist, ML Engineer, and LLM / AI Systems roles.",
+          "I am a Ph.D. candidate working across large language models, multimodal AI, medical AI, sensing security, embedded hardware, sensing platforms, intelligent manufacturing systems, machine learning systems, and end-to-end AI deployment. I am most interested in roles that require both research depth and engineering execution: Research Engineer, Applied Scientist, ML Engineer, LLM / AI Systems, hardware AI, and intelligent manufacturing systems roles. My background also combines model development, system optimization, retrieval pipelines, embedded integration, hardware-aware experimentation, and bilingual communication for AI products, intelligent systems, manufacturing, and research.",
         guideTitle: "Site Guide",
         guideExperience:
           "Full CV-style page with research interests, technical skills, industry experience, research experience, and education.",
@@ -47,11 +47,14 @@ const translations = {
         guideFocus: "Current Focus",
         researchTitle: "Research Interests",
         skillsTitle: "Technical Skills",
+        aiSkillsTitle: "AI Skills",
+        aiSkillsNote:
+          "Different from vibe coding or casual exploration, this means coding and learning with AI tools through Test-Driven Development (TDD), Spec-Driven Development (SDD), verification, reproducible implementation, debugging, and maintainable production-grade engineering.",
         highlightsTitle: "Selected Highlights",
       },
       zh: {
         lead:
-          "我目前是博士阶段学生，研究方向覆盖大语言模型、多模态 AI、医学 AI、感知安全和机器学习系统。我希望匹配的是同时要求研究深度与工程执行力的岗位，例如 Research Engineer、Applied Scientist、ML Engineer 和 LLM / AI Systems 相关职位。",
+          "我目前是博士阶段学生，研究方向覆盖大语言模型、多模态 AI、医学 AI、感知安全、嵌入式硬件、感知平台、智能制造系统、机器学习系统和端到端 AI 部署。我希望匹配的是同时要求研究深度与工程执行力的岗位，例如 Research Engineer、Applied Scientist、ML Engineer、LLM / AI Systems、硬件 AI 和智能制造系统相关职位。我的背景也结合了模型开发、系统优化、检索流水线、嵌入式集成、硬件感知实验，以及面向 AI 产品、智能系统、制造业和科研场景的中英文沟通能力。",
         guideTitle: "站点导览",
         guideExperience: "完整在线简历页面，包含研究兴趣、技术技能、工业经历、研究经历和教育背景。",
         guideProjects: "按重要性排序的 GitHub 项目索引，以及完整仓库列表。",
@@ -60,6 +63,9 @@ const translations = {
         guideFocus: "当前重点",
         researchTitle: "研究兴趣",
         skillsTitle: "技术技能",
+        aiSkillsTitle: "AI 技能",
+        aiSkillsNote:
+          "区别于 vibe coding 或随意探索，这里指通过测试驱动开发（Test-Driven Development, TDD）、规格驱动开发（Spec-Driven Development, SDD）、验证、复现、调试和可维护的工业级工程实现来使用 AI 工具辅助编程与学习。",
         highlightsTitle: "代表性亮点",
       },
     },
@@ -68,6 +74,9 @@ const translations = {
         pageTag: "Full CV-style experience page.",
         researchTitle: "Research Interests",
         skillsTitle: "Technical Skills",
+        aiSkillsTitle: "AI Skills",
+        aiSkillsNote:
+          "Different from vibe coding or casual exploration, this means coding and learning with AI tools through Test-Driven Development (TDD), Spec-Driven Development (SDD), verification, reproducible implementation, debugging, and maintainable production-grade engineering.",
         industryTitle: "Industry Experience",
         researchExpTitle: "Research Experience",
         educationTitle: "Education",
@@ -76,6 +85,9 @@ const translations = {
         pageTag: "完整在线简历式经历页面。",
         researchTitle: "研究兴趣",
         skillsTitle: "技术技能",
+        aiSkillsTitle: "AI 技能",
+        aiSkillsNote:
+          "区别于 vibe coding 或随意探索，这里指通过测试驱动开发（Test-Driven Development, TDD）、规格驱动开发（Spec-Driven Development, SDD）、验证、复现、调试和可维护的工业级工程实现来使用 AI 工具辅助编程与学习。",
         industryTitle: "工业界经历",
         researchExpTitle: "研究经历",
         educationTitle: "教育背景",
@@ -232,27 +244,75 @@ function getLangValue(item, lang, baseName) {
   return item[`${baseName}${suffix}`] || item[baseName] || "";
 }
 
+function splitTopLevelList(value) {
+  const text = String(value || "");
+  const items = [];
+  let current = "";
+  let depth = 0;
+
+  for (const char of text) {
+    if (char === "(" || char === "（") depth += 1;
+    if (char === ")" || char === "）") depth = Math.max(0, depth - 1);
+
+    if (depth === 0 && [",", "、", ";", "；"].includes(char)) {
+      const item = current.trim();
+      if (item) items.push(item);
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+
+  const last = current.trim();
+  if (last) items.push(last);
+  return items;
+}
+
+function buildPills(items, className) {
+  return `<div class="${className}">${items
+    .map((item) => `<span>${escapeHtml(item)}</span>`)
+    .join("")}</div>`;
+}
+
+function buildInterestPills(lang) {
+  const interests = getLangValue(siteContent.shared || {}, lang, "researchInterests");
+  const items = Array.isArray(interests) ? interests : splitTopLevelList(interests);
+  return buildPills(items, "interest-pills");
+}
+
 function buildSkillBlocks(lang) {
   const shared = siteContent.shared || {};
   const skillData = shared.skills || { left: [], right: [] };
+  const items = [...(skillData.left || []), ...(skillData.right || [])];
 
-  const renderColumn = (items) =>
-    items
-      .map(
-        (item) => `
-          <div><span class="skill-label">${escapeHtml(getLangValue(item, lang, "label"))}:</span> ${escapeHtml(
-            getLangValue(item, lang, "value"),
-          )}</div>
-        `,
-      )
-      .join("");
+  return `<div class="skill-list">${items
+    .map((item) => {
+      const label = getLangValue(item, lang, "label");
+      const values = splitTopLevelList(getLangValue(item, lang, "value"));
+      return `
+        <div class="skill-group">
+          <div class="skill-label">${escapeHtml(label)}</div>
+          ${buildPills(values, "skill-pills")}
+        </div>
+      `;
+    })
+    .join("")}</div>`;
+}
 
-  return `
-    <div class="two-column">
-      <div class="skill-block">${renderColumn(skillData.left || [])}</div>
-      <div class="skill-block">${renderColumn(skillData.right || [])}</div>
-    </div>
-  `;
+function buildAiSkillBlocks(lang) {
+  const items = siteContent.shared?.aiSkills || [];
+  return `<div class="skill-list ai-skill-list">${items
+    .map((item) => {
+      const label = getLangValue(item, lang, "label");
+      const values = splitTopLevelList(getLangValue(item, lang, "value"));
+      return `
+        <div class="skill-group">
+          <div class="skill-label">${escapeHtml(label)}</div>
+          ${buildPills(values, "skill-pills ai-skill-pills")}
+        </div>
+      `;
+    })
+    .join("")}</div>`;
 }
 
 function buildEntries(entries, lang) {
@@ -304,15 +364,17 @@ function buildProjectList(items, lang, showUpdated) {
     .map((rawItem) => {
       const item = resolveProjectItem(rawItem);
       const language = formatProjectLanguage(item.language, lang);
-      const meta = showUpdated && item.updated
-        ? `${language} · ${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
-        : language;
+      const updated = showUpdated && item.updated
+        ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
+        : "";
       const note = getLangValue(item, lang, "note");
       return `
         <li>
           <div class="repo-line"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(
             item.name,
-          )}</a> <span class="inline-meta">${escapeHtml(meta)}</span></div>
+          )}</a> <span class="project-language-pill">${escapeHtml(language)}</span>${
+            updated ? ` <span class="inline-meta">${escapeHtml(updated)}</span>` : ""
+          }</div>
           ${note ? `<div class="item-note">${escapeHtml(note)}</div>` : ""}
         </li>
       `;
@@ -356,7 +418,7 @@ function renderHome(lang) {
     </section>
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.home[lang].researchTitle)}</h2>
-      <p>${escapeHtml(getLangValue(shared, lang, "researchInterests"))}</p>
+      ${buildInterestPills(lang)}
     </section>
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.home[lang].skillsTitle)}</h2>
@@ -365,6 +427,11 @@ function renderHome(lang) {
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.home[lang].highlightsTitle)}</h2>
       <ul class="plain-list">${highlightItems}</ul>
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.home[lang].aiSkillsTitle)}</h2>
+      <p class="section-note">${escapeHtml(translations.page.home[lang].aiSkillsNote)}</p>
+      ${buildAiSkillBlocks(lang)}
     </section>
   `;
 }
@@ -377,7 +444,7 @@ function renderExperience(lang) {
   host.innerHTML = `
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.experience[lang].researchTitle)}</h2>
-      <p>${escapeHtml(getLangValue(shared, lang, "researchInterests"))}</p>
+      ${buildInterestPills(lang)}
     </section>
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.experience[lang].skillsTitle)}</h2>
@@ -394,6 +461,11 @@ function renderExperience(lang) {
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.experience[lang].educationTitle)}</h2>
       ${buildEntries(page.education || [], lang)}
+    </section>
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.experience[lang].aiSkillsTitle)}</h2>
+      <p class="section-note">${escapeHtml(translations.page.experience[lang].aiSkillsNote)}</p>
+      ${buildAiSkillBlocks(lang)}
     </section>
   `;
 }
@@ -1142,8 +1214,8 @@ function ensureLanguageSwitchMarkup() {
   if (!langBtn || langBtn.dataset.switchReady === "true") return;
   langBtn.classList.add("language-switch");
   langBtn.innerHTML = `
-    <span class="language-switch-option language-switch-option-zh">中文</span>
     <span class="language-switch-option language-switch-option-en">EN</span>
+    <span class="language-switch-option language-switch-option-zh">中文</span>
     <span class="language-switch-thumb"></span>
   `;
   langBtn.dataset.switchReady = "true";
