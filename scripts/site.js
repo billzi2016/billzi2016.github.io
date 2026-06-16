@@ -43,7 +43,7 @@ const translations = {
         guidePublications:
           "Representative publications first, followed by the complete publication list formatted for reading.",
         guideMusic:
-          "A local classical MIDI room with shuffled playback, lightweight controls, and a small listening queue.",
+          "A local classical audio room with shuffled playback, lightweight controls, and a small listening queue.",
         guideFocus: "Current Focus",
         researchTitle: "Research Interests",
         skillsTitle: "Technical Skills",
@@ -59,7 +59,7 @@ const translations = {
         guideExperience: "完整在线简历页面，包含研究兴趣、技术技能、工业经历、研究经历和教育背景。",
         guideProjects: "按重要性排序的 GitHub 项目索引，以及完整仓库列表。",
         guidePublications: "先展示代表性论文，再展示完整且可读的论文清单。",
-        guideMusic: "本地古典 MIDI 小播放器，支持随机播放、简单控制和轻量播放列表。",
+        guideMusic: "本地古典音频小播放器，支持随机播放、简单控制和轻量播放列表。",
         guideFocus: "当前重点",
         researchTitle: "研究兴趣",
         skillsTitle: "技术技能",
@@ -139,11 +139,11 @@ const translations = {
     },
     music: {
       en: {
-        pageTag: "A small listening room with a local shuffled MIDI playlist.",
+        pageTag: "A small listening room with a local shuffled audio playlist.",
         introTitle: "Listening Room",
         playlistTitle: "Playlist",
         playlistNote:
-          "All files are stored locally inside this site. Playback defaults to 20% volume and keeps shuffling after each piece finishes.",
+          "All audio files are stored locally inside this site. Playback defaults to 20% volume and keeps shuffling after each piece finishes.",
         nowPlaying: "Now Playing",
         volumeLabel: "Volume",
         randomLabel: "Shuffle Next",
@@ -151,11 +151,11 @@ const translations = {
         nextLabel: "Next",
       },
       zh: {
-        pageTag: "一个使用本地 MIDI 随机播放的小型听音房。",
+        pageTag: "一个使用本地音频随机播放的小型听音房。",
         introTitle: "听音房",
         playlistTitle: "播放列表",
         playlistNote:
-          "所有文件都保存在站点本地。默认音量为 20%，每首结束后会继续随机切换下一首。",
+          "所有音频文件都保存在站点本地。默认音量为 20%，每首结束后会继续随机切换下一首。",
         nowPlaying: "当前播放",
         volumeLabel: "音量",
         randomLabel: "随机下一首",
@@ -182,17 +182,15 @@ const musicLibrary = window.musicLibrary || { tracks: [] };
 const musicState = {
   currentIndex: Number(localStorage.getItem("site-music-index") || "0"),
   volume: Number(localStorage.getItem("site-midi-volume") || "0.2"),
-  trackGain: 1,
-  audioChainReady: false,
   widgetOpen: false,
   widgetInitialized: false,
   restoreTime: 0,
   shouldResume: false,
   saveTimer: null,
 };
-const localGrandPianoSoundfont = "./assets/soundfonts/site-grand-piano";
 const musicPlaybackStorageKey = "site-music-playback";
 const sharedHeaderPath = "./partials/header.html";
+const mobileMediaQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
 const selectedPublicationKeys = [
   "bi2025physical",
   "bi2026exploring",
@@ -497,7 +495,30 @@ function getMusicComposerLabel(track, lang) {
 }
 
 function getActiveMidiPlayer() {
-  return document.getElementById("floating-midi-player") || document.getElementById("midi-player");
+  return document.getElementById("floating-audio-player") || document.getElementById("audio-player");
+}
+
+function shouldDisableMusicWidget() {
+  return mobileMediaQuery.matches || pageKey === "music";
+}
+
+function destroyFloatingMusicWidget() {
+  const widget = document.getElementById("music-widget");
+  const player = document.getElementById("floating-audio-player");
+
+  if (player && !player.paused) {
+    player.pause();
+  }
+  if (musicState.saveTimer) {
+    window.clearInterval(musicState.saveTimer);
+    musicState.saveTimer = null;
+  }
+  if (widget) {
+    widget.remove();
+  }
+
+  musicState.widgetInitialized = false;
+  musicState.widgetOpen = false;
 }
 
 function readSavedMusicPlayback() {
@@ -517,7 +538,7 @@ function saveMusicPlaybackState() {
   const payload = {
     index: musicState.currentIndex,
     time: Number(player.currentTime || 0),
-    playing: Boolean(player.playing),
+    playing: Boolean(!player.paused),
     volume: musicState.volume,
     savedAt: Date.now(),
   };
@@ -552,85 +573,12 @@ function setMidiVolume(level) {
 }
 
 function updateMidiOutputLevel() {
-  const finalLevel = Math.min(1.1, Math.max(0, musicState.volume * musicState.trackGain));
+  const finalLevel = Math.min(1, Math.max(0, musicState.volume));
+  const player = getActiveMidiPlayer();
 
-  if (musicState.outputGainNode) {
-    musicState.outputGainNode.gain.value = finalLevel;
-    return;
+  if (player && "volume" in player) {
+    player.volume = finalLevel;
   }
-
-  if (!window.Tone || !window.Tone.Destination || !window.Tone.Destination.volume) return;
-
-  if (finalLevel <= 0) {
-    window.Tone.Destination.volume.value = -60;
-    return;
-  }
-
-  window.Tone.Destination.volume.value = 20 * Math.log10(finalLevel);
-}
-
-function ensureMidiAudioChain() {
-  if (musicState.audioChainReady || !window.Tone) return;
-
-  const rawContext = window.Tone.getContext?.().rawContext || window.Tone.context?.rawContext;
-  const destinationOutput = window.Tone.Destination?.output;
-  if (!rawContext || !destinationOutput || typeof destinationOutput.connect !== "function") {
-    musicState.audioChainReady = true;
-    return;
-  }
-
-  try {
-    const compressor = rawContext.createDynamicsCompressor();
-    // 把压缩做得更柔和，避免音头过硬、尾音被压得太短。
-    compressor.threshold.value = -21;
-    compressor.knee.value = 24;
-    compressor.ratio.value = 1.9;
-    compressor.attack.value = 0.02;
-    compressor.release.value = 0.52;
-
-    // 留一点增益余量，避免强音刚进来就被“拍扁”成电子感。
-    const outputGain = rawContext.createGain();
-    outputGain.gain.value = musicState.volume * 0.94;
-
-    destinationOutput.disconnect();
-    destinationOutput.connect(compressor);
-    compressor.connect(outputGain);
-    outputGain.connect(rawContext.destination);
-
-    musicState.outputGainNode = outputGain;
-  } catch (error) {
-    console.warn("Failed to install MIDI compressor chain.", error);
-  }
-
-  musicState.audioChainReady = true;
-}
-
-function estimateTrackGain(noteSequence) {
-  const notes = noteSequence && Array.isArray(noteSequence.notes) ? noteSequence.notes : [];
-  if (!notes.length) return 1;
-
-  const totalTime =
-    Number(noteSequence.totalTime) ||
-    notes.reduce((max, note) => Math.max(max, Number(note.endTime) || 0), 0) ||
-    1;
-
-  const totalDuration = notes.reduce(
-    (sum, note) => sum + Math.max(0, (Number(note.endTime) || 0) - (Number(note.startTime) || 0)),
-    0,
-  );
-  const velocityEnergy =
-    notes.reduce((sum, note) => {
-      const velocity = Number(note.velocity) || 80;
-      const normalized = velocity / 127;
-      return sum + normalized * normalized;
-    }, 0) / notes.length;
-
-  const averagePolyphony = totalDuration / Math.max(totalTime, 0.25);
-  const noteDensity = notes.length / Math.max(totalTime, 0.25);
-  const loudnessScore =
-    Math.sqrt(velocityEnergy) * (0.78 + averagePolyphony * 0.22) * (0.82 + noteDensity * 0.015);
-
-  return Math.min(1.35, Math.max(0.72, 0.94 / Math.max(loudnessScore, 0.18)));
 }
 
 function pickRandomTrackIndex() {
@@ -676,15 +624,15 @@ function switchMusicTrack(index, autoplay) {
   const nextSrc = tracks[index].file;
   const startPlayback = () => {
     if (autoplay) {
-      player.start().catch?.(() => {});
+      player.play().catch?.(() => {});
     }
   };
 
-  player.stop();
+  player.pause();
   player.src = nextSrc;
-  player.reload();
+  player.load();
   player.addEventListener(
-    "load",
+    "loadedmetadata",
     () => {
       musicState.restoreTime = 0;
       musicState.shouldResume = false;
@@ -699,6 +647,7 @@ function switchMusicTrack(index, autoplay) {
 }
 
 function ensureFloatingMusicWidget() {
+  if (shouldDisableMusicWidget()) return null;
   if (!musicLibrary.tracks || musicLibrary.tracks.length === 0) return null;
 
   let widget = document.getElementById("music-widget");
@@ -726,8 +675,9 @@ function ensureFloatingMusicWidget() {
           <span id="music-volume-value" class="music-volume-value">20%</span>
         </div>
         <ol id="music-mini-playlist" class="playlist-list music-mini-playlist"></ol>
+        <p id="music-source-note" class="music-source-note"></p>
       </div>
-      <midi-player id="floating-midi-player" class="music-core-player"></midi-player>
+      <audio id="floating-audio-player" class="music-core-player" preload="metadata"></audio>
     </div>
   `;
   document.body.appendChild(widget);
@@ -747,7 +697,7 @@ function updateMusicPlayButton(lang) {
   const player = getActiveMidiPlayer();
   if (!button) return;
 
-  const isPlaying = Boolean(player && player.playing);
+  const isPlaying = Boolean(player && !player.paused);
   button.textContent = isPlaying
     ? lang === "zh"
       ? "暂停"
@@ -776,6 +726,11 @@ function renderFloatingPlaylist(lang) {
 }
 
 function updateFloatingMusicWidget(lang) {
+  if (shouldDisableMusicWidget()) {
+    destroyFloatingMusicWidget();
+    return;
+  }
+
   const widget = ensureFloatingMusicWidget();
   if (!widget) return;
 
@@ -783,11 +738,16 @@ function updateFloatingMusicWidget(lang) {
   const nowPlaying = document.getElementById("music-widget-nowplaying-label");
   const volumeLabel = document.getElementById("music-volume-label");
   const randomButton = document.getElementById("music-random");
+  const sourceNote = document.getElementById("music-source-note");
 
   if (title) title.textContent = translations.common[lang].navMusic;
   if (nowPlaying) nowPlaying.textContent = translations.page.music[lang].nowPlaying;
   if (volumeLabel) volumeLabel.textContent = translations.page.music[lang].volumeLabel;
   if (randomButton) randomButton.textContent = translations.page.music[lang].randomLabel;
+  if (sourceNote) {
+    sourceNote.textContent =
+      lang === "zh" ? musicLibrary.sourceNoteZh || "" : musicLibrary.sourceNoteEn || "";
+  }
 
   renderFloatingPlaylist(lang);
   updateMusicPanel(lang);
@@ -795,6 +755,11 @@ function updateFloatingMusicWidget(lang) {
 }
 
 function initFloatingMusicWidget() {
+  if (shouldDisableMusicWidget()) {
+    destroyFloatingMusicWidget();
+    return;
+  }
+
   if (musicState.widgetInitialized) return;
 
   const widget = ensureFloatingMusicWidget();
@@ -810,22 +775,19 @@ function initFloatingMusicWidget() {
     musicState.currentIndex = 0;
   }
 
-  const player = document.getElementById("floating-midi-player");
+  const player = document.getElementById("floating-audio-player");
   const playToggle = document.getElementById("music-play-toggle");
   const randomBtn = document.getElementById("music-random");
   const volumeSlider = document.getElementById("music-volume");
 
-  ensureMidiAudioChain();
-  // 统一切到本地钢琴音源，避免默认电子合成器音色过重。
-  player.soundFont = localGrandPianoSoundfont;
   player.src = tracks[musicState.currentIndex].file;
-  player.reload();
+  player.load();
   setMidiVolume(musicState.volume);
   setMusicWidgetOpen(true);
 
   playToggle?.addEventListener("click", () => {
-    if (player.playing) player.stop();
-    else player.start().catch?.(() => {});
+    if (player.paused) player.play().catch?.(() => {});
+    else player.pause();
   });
 
   randomBtn?.addEventListener("click", () => {
@@ -847,36 +809,38 @@ function initFloatingMusicWidget() {
     switchMusicTrack(index, true);
   });
 
-  player.addEventListener("load", () => {
-    musicState.trackGain = estimateTrackGain(player.noteSequence);
+  player.addEventListener("loadedmetadata", () => {
     updateMidiOutputLevel();
     if (musicState.restoreTime > 0) {
       player.currentTime = musicState.restoreTime;
     }
     if (musicState.shouldResume) {
-      player.start().catch?.(() => {});
+      player.play().catch?.(() => {});
       musicState.shouldResume = false;
     }
     updateMusicPanel(localStorage.getItem("site-lang") || "en");
   });
 
-  player.addEventListener("start", () => {
+  player.addEventListener("play", () => {
     if (musicState.saveTimer) window.clearInterval(musicState.saveTimer);
     musicState.saveTimer = window.setInterval(saveMusicPlaybackState, 1000);
     saveMusicPlaybackState();
     updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
   });
 
-  player.addEventListener("stop", (event) => {
+  player.addEventListener("pause", () => {
     if (musicState.saveTimer) {
       window.clearInterval(musicState.saveTimer);
       musicState.saveTimer = null;
     }
     saveMusicPlaybackState();
     updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
-    if (event.detail && event.detail.finished) {
-      switchMusicTrack(pickRandomTrackIndex(), true);
-    }
+  });
+
+  player.addEventListener("ended", () => {
+    saveMusicPlaybackState();
+    updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
+    switchMusicTrack(pickRandomTrackIndex(), true);
   });
 
   musicState.widgetInitialized = true;
@@ -890,13 +854,11 @@ function bindMusicPage(lang) {
     musicState.currentIndex = 0;
   }
 
-  const player = document.getElementById("midi-player");
+  const player = document.getElementById("audio-player");
   if (!player) return;
 
-  ensureMidiAudioChain();
-  player.soundFont = null;
   player.src = tracks[musicState.currentIndex].file;
-  player.reload();
+  player.load();
   setMidiVolume(musicState.volume);
   updateMusicPanel(lang);
 
@@ -933,14 +895,11 @@ function bindMusicPage(lang) {
     });
   });
 
-  player.addEventListener("stop", (event) => {
-    if (event.detail && event.detail.finished) {
-      switchMusicTrack(pickRandomTrackIndex(), true);
-    }
+  player.addEventListener("ended", () => {
+    switchMusicTrack(pickRandomTrackIndex(), true);
   });
 
-  player.addEventListener("load", () => {
-    musicState.trackGain = estimateTrackGain(player.noteSequence);
+  player.addEventListener("loadedmetadata", () => {
     updateMidiOutputLevel();
   });
 }
@@ -977,8 +936,7 @@ function renderMusic(lang) {
             <div id="music-current-meta" class="music-current-meta"></div>
           </div>
           <div class="music-player-wrap">
-            <midi-player id="midi-player"></midi-player>
-            <midi-visualizer id="midi-visualizer" type="piano-roll"></midi-visualizer>
+            <audio id="audio-player" class="music-page-audio" controls preload="metadata"></audio>
           </div>
           <div class="music-controls">
             <button id="music-prev" class="pub-copy-btn" type="button">${escapeHtml(
@@ -1003,6 +961,9 @@ function renderMusic(lang) {
           <h3 class="pub-group-title">${escapeHtml(translations.page.music[lang].playlistTitle)}</h3>
           <p class="section-note">${escapeHtml(translations.page.music[lang].playlistNote)}</p>
           <ol class="playlist-list">${playlist}</ol>
+          <p class="music-source-note">${escapeHtml(
+            lang === "zh" ? musicLibrary.sourceNoteZh || "" : musicLibrary.sourceNoteEn || "",
+          )}</p>
         </div>
       </div>
     </section>
@@ -1181,6 +1142,7 @@ function renderPageContent(lang) {
   if (pageKey === "experience") renderExperience(lang);
   if (pageKey === "projects") renderProjects(lang);
   if (pageKey === "publications") renderPublications(lang);
+  if (pageKey === "music") renderMusic(lang);
 }
 
 function syncNavState() {

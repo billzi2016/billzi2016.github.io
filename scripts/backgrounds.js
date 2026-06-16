@@ -5,13 +5,46 @@
   let matrixContext = null;
   let matrixAnimation = 0;
   let matrixColumns = [];
+  const mobileBackgroundMedia = window.matchMedia(
+    "(max-width: 760px), (hover: none) and (pointer: coarse)",
+  );
   const pointerState = {
     x: 0,
     y: 0,
     active: false,
   };
 
+  function shouldDisableBackgrounds() {
+    return mobileBackgroundMedia.matches;
+  }
+
+  function clearParticles() {
+    if (!particlesReady) return;
+
+    const particleSystem = window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS;
+    if (particleSystem?.fn?.vendors?.destroypJS) {
+      particleSystem.fn.vendors.destroypJS();
+    }
+    const host = document.getElementById("light-particles");
+    if (host) host.innerHTML = "";
+    particlesReady = false;
+  }
+
+  function clearMatrix() {
+    const canvas = document.getElementById("dark-matrix");
+    if (matrixContext && canvas) {
+      matrixContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+    matrixContext = null;
+    matrixColumns = [];
+  }
+
   function animateParticleMagnet() {
+    if (shouldDisableBackgrounds()) {
+      particleMagnetAnimation = 0;
+      return;
+    }
+
     const particleSystem = window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS;
     if (
       particleSystem &&
@@ -42,6 +75,7 @@
   }
 
   function buildParticles() {
+    if (shouldDisableBackgrounds()) return;
     if (particlesReady || typeof window.particlesJS !== "function") return;
     const host = document.getElementById("light-particles");
     if (!host) return;
@@ -106,6 +140,7 @@
   }
 
   function resizeMatrix() {
+    if (shouldDisableBackgrounds()) return;
     const canvas = document.getElementById("dark-matrix");
     if (!canvas) return;
     const ratio = Math.max(window.devicePixelRatio || 1, 1);
@@ -120,6 +155,12 @@
   }
 
   function drawMatrix() {
+    if (shouldDisableBackgrounds()) {
+      stopMatrix();
+      clearMatrix();
+      return;
+    }
+
     const canvas = document.getElementById("dark-matrix");
     if (!canvas || !matrixContext) return;
     // 加重每帧的淡出覆盖，缩短残影停留时间，避免积出明显竖条。
@@ -143,6 +184,7 @@
   }
 
   function startMatrix() {
+    if (shouldDisableBackgrounds()) return;
     if (matrixAnimation) return;
     resizeMatrix();
     drawMatrix();
@@ -155,6 +197,13 @@
   }
 
   function syncBackgrounds() {
+    if (shouldDisableBackgrounds()) {
+      stopMatrix();
+      clearMatrix();
+      clearParticles();
+      return;
+    }
+
     const dark = document.body.classList.contains("dark-theme");
     buildParticles();
     if (dark) {
@@ -165,16 +214,24 @@
   }
 
   window.addEventListener("resize", () => {
+    if (shouldDisableBackgrounds()) {
+      syncBackgrounds();
+      return;
+    }
+
     if (document.body.classList.contains("dark-theme")) {
       resizeMatrix();
     }
   });
 
   window.addEventListener("pointermove", (event) => {
+    if (shouldDisableBackgrounds()) return;
     pointerState.x = event.clientX;
     pointerState.y = event.clientY;
     pointerState.active = true;
   });
+
+  mobileBackgroundMedia.addEventListener("change", syncBackgrounds);
 
   window.addEventListener("mouseout", (event) => {
     if (!event.relatedTarget) {
