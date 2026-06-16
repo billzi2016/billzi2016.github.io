@@ -122,38 +122,22 @@
   function drawMatrix() {
     const canvas = document.getElementById("dark-matrix");
     if (!canvas || !matrixContext) return;
-    matrixContext.fillStyle = "rgba(13, 20, 27, 0.065)";
+    // 加重每帧的淡出覆盖，缩短残影停留时间，避免积出明显竖条。
+    matrixContext.fillStyle = "rgba(13, 20, 27, 0.12)";
     matrixContext.fillRect(0, 0, window.innerWidth, window.innerHeight);
     matrixContext.font = "13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
-    matrixContext.fillStyle = "rgba(134, 222, 168, 0.16)";
-    const tokens = [
-      "int",
-      "void",
-      "class",
-      "const",
-      "struct",
-      "return",
-      "auto",
-      "for",
-      "if",
-      "while",
-      "switch",
-      "template",
-      "public",
-      "private",
-      "static",
-      "nullptr",
-      "using",
-      "#include",
-    ];
+    matrixContext.fillStyle = "rgba(122, 255, 158, 0.44)";
+    const glyphs =
+      "intvoidclassconststructreturnautoforifwhileswitchtemplatepublicprivatestaticnullptrusinginclude0123456789<>{}();:*&#_";
     matrixColumns = matrixColumns.map((y, index) => {
       const x = index * 18;
-      const token = tokens[Math.floor(Math.random() * tokens.length)];
-      matrixContext.fillText(token, x, y);
+      const glyph = glyphs[Math.floor(Math.random() * glyphs.length)];
+      matrixContext.fillText(glyph, x, y);
       if (y > window.innerHeight + Math.random() * 220) {
         return Math.random() * -140;
       }
-      return y + 15 + Math.random() * 4;
+      // 放慢下落速度，让背景更稳一点，不会显得太躁。
+      return y + 5 + Math.random() * 1.2;
     });
     matrixAnimation = window.requestAnimationFrame(drawMatrix);
   }

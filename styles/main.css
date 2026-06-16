@@ -82,7 +82,7 @@ body.dark-theme .background-particles {
 }
 
 body.dark-theme .background-matrix {
-  opacity: 0.12;
+  opacity: 0.3;
 }
 
 a {
@@ -259,12 +259,16 @@ html[lang="zh-CN"] .lang-zh {
 }
 
 body.dark-theme .contact-chip {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(191, 217, 245, 0.08);
+  border-color: rgba(191, 217, 245, 0.26);
+  color: #eef3f8;
   box-shadow: none;
 }
 
 body.dark-theme .contact-chip:hover,
 body.dark-theme .contact-chip:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
   color: #0d141b;
 }
 
@@ -307,8 +311,17 @@ body.dark-theme .contact-chip:focus-visible {
 }
 
 body.dark-theme .nav-link {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(191, 217, 245, 0.06);
+  border-color: rgba(191, 217, 245, 0.22);
+  color: #eef3f8;
   box-shadow: none;
+}
+
+body.dark-theme .nav-link:hover,
+body.dark-theme .nav-link:focus-visible {
+  background: rgba(191, 217, 245, 0.18);
+  border-color: rgba(191, 217, 245, 0.5);
+  color: #ffffff;
 }
 
 .nav-link.is-active {
@@ -319,7 +332,10 @@ body.dark-theme .nav-link {
 }
 
 body.dark-theme .nav-link.is-active {
-  color: #0d141b;
+  background: rgba(191, 217, 245, 0.28);
+  border-color: rgba(191, 217, 245, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(191, 217, 245, 0.1), 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
 .lead {
