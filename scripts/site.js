@@ -165,8 +165,6 @@ const pageTitles = {
 const root = document.documentElement;
 const body = document.body;
 const pageKey = body.dataset.page;
-const langBtn = document.getElementById("lang-toggle");
-const themeBtn = document.getElementById("theme-toggle");
 const siteContent = window.siteContent || {};
 const musicLibrary = window.musicLibrary || { tracks: [] };
 const musicState = {
@@ -182,6 +180,7 @@ const musicState = {
 };
 const localGrandPianoSoundfont = "./assets/soundfonts/site-grand-piano";
 const musicPlaybackStorageKey = "site-music-playback";
+const sharedHeaderPath = "./partials/header.html";
 const selectedPublicationKeys = [
   "bi2025physical",
   "bi2026exploring",
@@ -203,6 +202,14 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function getLangBtn() {
+  return document.getElementById("lang-toggle");
+}
+
+function getThemeBtn() {
+  return document.getElementById("theme-toggle");
 }
 
 function normalizeAuthorName(author) {
@@ -1117,6 +1124,7 @@ function applyTheme(theme) {
   body.classList.toggle("dark-theme", dark);
   localStorage.setItem("site-theme", dark ? "dark" : "light");
   const lang = localStorage.getItem("site-lang") || "en";
+  const themeBtn = getThemeBtn();
   if (themeBtn) {
     const label = dark
       ? translations.common[lang].themeToggleDark
@@ -1130,6 +1138,7 @@ function applyTheme(theme) {
 }
 
 function ensureLanguageSwitchMarkup() {
+  const langBtn = getLangBtn();
   if (!langBtn || langBtn.dataset.switchReady === "true") return;
   langBtn.classList.add("language-switch");
   langBtn.innerHTML = `
@@ -1155,6 +1164,7 @@ function applyLanguage(lang) {
     document.title = pageTitles[pageKey][lang];
   }
 
+  const langBtn = getLangBtn();
   if (langBtn) {
     ensureLanguageSwitchMarkup();
     langBtn.dataset.lang = lang;
@@ -1163,6 +1173,7 @@ function applyLanguage(lang) {
   }
 
   const dark = body.classList.contains("dark-theme");
+  const themeBtn = getThemeBtn();
   if (themeBtn) {
     const label = dark
       ? translations.common[lang].themeToggleDark
@@ -1175,24 +1186,55 @@ function applyLanguage(lang) {
   updateFloatingMusicWidget(lang);
 }
 
-if (langBtn) {
-  langBtn.addEventListener("click", () => {
-    const current = localStorage.getItem("site-lang") || "en";
-    applyLanguage(current === "en" ? "zh" : "en");
-  });
+// 页头改成通过 partial 动态加载后，按钮绑定需要在插入 DOM 之后再做。
+function bindHeaderControls() {
+  const langBtn = getLangBtn();
+  const themeBtn = getThemeBtn();
+
+  if (langBtn && langBtn.dataset.bound !== "true") {
+    langBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("site-lang") || "en";
+      applyLanguage(current === "en" ? "zh" : "en");
+    });
+    langBtn.dataset.bound = "true";
+  }
+
+  if (themeBtn && themeBtn.dataset.bound !== "true") {
+    themeBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("site-theme") || "light";
+      applyTheme(current === "light" ? "dark" : "light");
+    });
+    themeBtn.dataset.bound = "true";
+  }
 }
 
-if (themeBtn) {
-  themeBtn.addEventListener("click", () => {
-    const current = localStorage.getItem("site-theme") || "light";
-    applyTheme(current === "light" ? "dark" : "light");
-  });
+// 通过 localhost 运行时，统一从 partial 加载页头，避免每个页面重复维护。
+async function loadSharedHeader() {
+  const slot = document.getElementById("shared-header-slot");
+  if (!slot || slot.dataset.loaded === "true") return;
+
+  try {
+    const response = await fetch(sharedHeaderPath, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Failed to load shared header: ${response.status}`);
+    }
+    slot.innerHTML = await response.text();
+    slot.dataset.loaded = "true";
+  } catch (error) {
+    console.error("Failed to load shared header partial.", error);
+  }
 }
 
-syncNavState();
-initFloatingMusicWidget();
-ensureLanguageSwitchMarkup();
-applyTheme(localStorage.getItem("site-theme") || "light");
-applyLanguage(localStorage.getItem("site-lang") || "en");
+async function bootstrapSite() {
+  await loadSharedHeader();
+  bindHeaderControls();
+  syncNavState();
+  initFloatingMusicWidget();
+  ensureLanguageSwitchMarkup();
+  applyTheme(localStorage.getItem("site-theme") || "light");
+  applyLanguage(localStorage.getItem("site-lang") || "en");
+}
+
+bootstrapSite();
 window.addEventListener("pagehide", saveMusicPlaybackState);
 window.addEventListener("beforeunload", saveMusicPlaybackState);

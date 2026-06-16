@@ -18,73 +18,7 @@
       <div class="page">
         <!-- 首页负责总览和导流，避免一上来就堆满所有细节。 -->
         <header class="site-header">
-          <div class="header-bar">
-            <div class="header-main">
-              <h1 class="name">
-                <span class="lang-en">Ziqian Bi</span>
-                <span class="lang-zh">毕梓仟</span>
-              </h1>
-              <div class="contact-line">
-                <div class="contact-meta">
-                  <span data-i18n="contactSchoolOne">Purdue University</span>
-                  (<a href="mailto:bi32@purdue.edu">bi32@purdue.edu</a>)
-                  &middot;
-                  <span data-i18n="contactSchoolTwo">Indiana University</span>
-                  (<a href="mailto:bizi@iu.edu">bizi@iu.edu</a>)
-                </div>
-                <div class="contact-actions">
-                  <a class="contact-chip" href="https://scholar.google.com/citations?user=4z9m238AAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-                  <a class="contact-chip" href="https://github.com/billzi2016" target="_blank" rel="noreferrer">GitHub</a>
-                  <a class="contact-chip" href="https://www.linkedin.com/in/ziqian-bi/" target="_blank" rel="noreferrer">LinkedIn</a>
-                </div>
-              </div>
-              <nav class="nav-line" aria-label="Primary">
-                <a class="nav-link" data-page="home" href="./index.html" data-i18n="navHome">Home</a>
-                <a class="nav-link" data-page="experience" href="./experience.html" data-i18n="navExperience">Experience</a>
-                <a class="nav-link" data-page="projects" href="./projects.html" data-i18n="navProjects">Projects</a>
-                <a class="nav-link" data-page="publications" href="./publications.html" data-i18n="navPublications">Publications</a>
-              </nav>
-            </div>
-            <div class="header-actions">
-              <button id="lang-toggle" class="language-switch" type="button" aria-label="Switch language">
-                <span class="language-switch-option language-switch-option-zh">中文</span>
-                <span class="language-switch-option language-switch-option-en">EN</span>
-                <span class="language-switch-thumb"></span>
-              </button>
-              <button id="theme-toggle" class="theme-switch" type="button" aria-label="Switch theme">
-                <span class="theme-switch-track">
-                  <span class="theme-switch-glow theme-switch-glow-one"></span>
-                  <span class="theme-switch-glow theme-switch-glow-two"></span>
-                  <span class="theme-switch-glow theme-switch-glow-three"></span>
-                  <span class="theme-switch-scene theme-switch-scene-day">
-                    <span class="theme-switch-cloudbank theme-switch-cloudbank-back"></span>
-                    <span class="theme-switch-cloudbank theme-switch-cloudbank-front"></span>
-                  </span>
-                  <span class="theme-switch-scene theme-switch-scene-night">
-                    <span class="theme-switch-stars">
-                      <span class="theme-switch-star theme-switch-star-one"></span>
-                      <span class="theme-switch-star theme-switch-star-two"></span>
-                      <span class="theme-switch-star theme-switch-star-three"></span>
-                      <span class="theme-switch-star theme-switch-star-four"></span>
-                      <span class="theme-switch-star theme-switch-star-five"></span>
-                      <span class="theme-switch-star theme-switch-star-six"></span>
-                      <span class="theme-switch-star theme-switch-star-seven"></span>
-                      <span class="theme-switch-star theme-switch-star-eight"></span>
-                      <span class="theme-switch-star theme-switch-star-nine"></span>
-                    </span>
-                  </span>
-                  <span class="theme-switch-thumb">
-                    <span class="theme-switch-thumb-sun"></span>
-                    <span class="theme-switch-thumb-moon">
-                      <span class="theme-switch-crater theme-switch-crater-one"></span>
-                      <span class="theme-switch-crater theme-switch-crater-two"></span>
-                      <span class="theme-switch-crater theme-switch-crater-three"></span>
-                    </span>
-                  </span>
-                </span>
-              </button>
-            </div>
-          </div>
+          <div id="shared-header-slot"></div>
           <p class="lead" data-i18n="lead">
             I am a Ph.D. candidate working across large language models, multimodal AI,
             medical AI, sensing security, and machine learning systems. I am most interested
