@@ -6,6 +6,7 @@ const translations = {
       navExperience: "Experience",
       navProjects: "Projects",
       navPublications: "Publications",
+      navMusic: "Music",
       citePaper: "Cite this paper",
       copied: "Copied",
       langToggle: "中文",
@@ -19,6 +20,7 @@ const translations = {
       navExperience: "经历",
       navProjects: "项目",
       navPublications: "论文",
+      navMusic: "音乐",
       citePaper: "引用这篇论文",
       copied: "已复制",
       langToggle: "EN",
@@ -40,6 +42,8 @@ const translations = {
           "Ranked GitHub repository index, from the most job-relevant AI / systems work to the full repository archive.",
         guidePublications:
           "Representative publications first, followed by the complete publication list formatted for reading.",
+        guideMusic:
+          "A local classical MIDI room with shuffled playback, lightweight controls, and a small listening queue.",
         guideFocus: "Current Focus",
         researchTitle: "Research Interests",
         skillsTitle: "Technical Skills",
@@ -52,6 +56,7 @@ const translations = {
         guideExperience: "完整在线简历页面，包含研究兴趣、技术技能、工业经历、研究经历和教育背景。",
         guideProjects: "按重要性排序的 GitHub 项目索引，以及完整仓库列表。",
         guidePublications: "先展示代表性论文，再展示完整且可读的论文清单。",
+        guideMusic: "本地古典 MIDI 小播放器，支持随机播放、简单控制和轻量播放列表。",
         guideFocus: "当前重点",
         researchTitle: "研究兴趣",
         skillsTitle: "技术技能",
@@ -120,6 +125,32 @@ const translations = {
         unpublishedGroupTitle: "未发表 / 准备中",
       },
     },
+    music: {
+      en: {
+        pageTag: "A small listening room with a local shuffled MIDI playlist.",
+        introTitle: "Listening Room",
+        playlistTitle: "Playlist",
+        playlistNote:
+          "All files are stored locally inside this site. Playback defaults to 20% volume and keeps shuffling after each piece finishes.",
+        nowPlaying: "Now Playing",
+        volumeLabel: "Volume",
+        randomLabel: "Shuffle Next",
+        prevLabel: "Previous",
+        nextLabel: "Next",
+      },
+      zh: {
+        pageTag: "一个使用本地 MIDI 随机播放的小型听音房。",
+        introTitle: "听音房",
+        playlistTitle: "播放列表",
+        playlistNote:
+          "所有文件都保存在站点本地。默认音量为 20%，每首结束后会继续随机切换下一首。",
+        nowPlaying: "当前播放",
+        volumeLabel: "音量",
+        randomLabel: "随机下一首",
+        prevLabel: "上一首",
+        nextLabel: "下一首",
+      },
+    },
   },
 };
 
@@ -128,6 +159,7 @@ const pageTitles = {
   experience: { en: "Ziqian Bi | Experience", zh: "毕梓仟 | 经历" },
   projects: { en: "Ziqian Bi | Projects", zh: "毕梓仟 | 项目" },
   publications: { en: "Ziqian Bi | Publications", zh: "毕梓仟 | 论文" },
+  music: { en: "Ziqian Bi | Music", zh: "毕梓仟 | 音乐" },
 };
 
 const root = document.documentElement;
@@ -136,6 +168,15 @@ const pageKey = body.dataset.page;
 const langBtn = document.getElementById("lang-toggle");
 const themeBtn = document.getElementById("theme-toggle");
 const siteContent = window.siteContent || {};
+const musicLibrary = window.musicLibrary || { tracks: [] };
+const musicState = {
+  currentIndex: Number(localStorage.getItem("site-music-index") || "0"),
+  volume: Number(localStorage.getItem("site-midi-volume") || "0.2"),
+  trackGain: 1,
+  audioChainReady: false,
+  widgetOpen: false,
+  widgetInitialized: false,
+};
 const selectedPublicationKeys = [
   "bi2025physical",
   "bi2026exploring",
@@ -347,6 +388,453 @@ function renderProjects(lang) {
   `;
 }
 
+function getMusicTrackLabel(track, lang) {
+  return lang === "zh" ? track.titleZh || track.titleEn : track.titleEn;
+}
+
+function getMusicComposerLabel(track, lang) {
+  return lang === "zh" ? track.composerZh || track.composerEn : track.composerEn;
+}
+
+function getActiveMidiPlayer() {
+  return document.getElementById("floating-midi-player") || document.getElementById("midi-player");
+}
+
+function setMidiVolume(level) {
+  musicState.volume = Math.min(1, Math.max(0, level));
+  localStorage.setItem("site-midi-volume", String(musicState.volume));
+
+  updateMidiOutputLevel();
+}
+
+function updateMidiOutputLevel() {
+  const finalLevel = Math.min(1.1, Math.max(0, musicState.volume * musicState.trackGain));
+
+  if (musicState.outputGainNode) {
+    musicState.outputGainNode.gain.value = finalLevel;
+    return;
+  }
+
+  if (!window.Tone || !window.Tone.Destination || !window.Tone.Destination.volume) return;
+
+  if (finalLevel <= 0) {
+    window.Tone.Destination.volume.value = -60;
+    return;
+  }
+
+  window.Tone.Destination.volume.value = 20 * Math.log10(finalLevel);
+}
+
+function ensureMidiAudioChain() {
+  if (musicState.audioChainReady || !window.Tone) return;
+
+  const rawContext = window.Tone.getContext?.().rawContext || window.Tone.context?.rawContext;
+  const destinationOutput = window.Tone.Destination?.output;
+  if (!rawContext || !destinationOutput || typeof destinationOutput.connect !== "function") {
+    musicState.audioChainReady = true;
+    return;
+  }
+
+  try {
+    const compressor = rawContext.createDynamicsCompressor();
+    compressor.threshold.value = -26;
+    compressor.knee.value = 18;
+    compressor.ratio.value = 3.2;
+    compressor.attack.value = 0.01;
+    compressor.release.value = 0.22;
+
+    const outputGain = rawContext.createGain();
+    outputGain.gain.value = musicState.volume;
+
+    destinationOutput.disconnect();
+    destinationOutput.connect(compressor);
+    compressor.connect(outputGain);
+    outputGain.connect(rawContext.destination);
+
+    musicState.outputGainNode = outputGain;
+  } catch (error) {
+    console.warn("Failed to install MIDI compressor chain.", error);
+  }
+
+  musicState.audioChainReady = true;
+}
+
+function estimateTrackGain(noteSequence) {
+  const notes = noteSequence && Array.isArray(noteSequence.notes) ? noteSequence.notes : [];
+  if (!notes.length) return 1;
+
+  const totalTime =
+    Number(noteSequence.totalTime) ||
+    notes.reduce((max, note) => Math.max(max, Number(note.endTime) || 0), 0) ||
+    1;
+
+  const totalDuration = notes.reduce(
+    (sum, note) => sum + Math.max(0, (Number(note.endTime) || 0) - (Number(note.startTime) || 0)),
+    0,
+  );
+  const velocityEnergy =
+    notes.reduce((sum, note) => {
+      const velocity = Number(note.velocity) || 80;
+      const normalized = velocity / 127;
+      return sum + normalized * normalized;
+    }, 0) / notes.length;
+
+  const averagePolyphony = totalDuration / Math.max(totalTime, 0.25);
+  const noteDensity = notes.length / Math.max(totalTime, 0.25);
+  const loudnessScore =
+    Math.sqrt(velocityEnergy) * (0.78 + averagePolyphony * 0.22) * (0.82 + noteDensity * 0.015);
+
+  return Math.min(1.35, Math.max(0.72, 0.94 / Math.max(loudnessScore, 0.18)));
+}
+
+function pickRandomTrackIndex() {
+  const tracks = musicLibrary.tracks || [];
+  if (tracks.length <= 1) return 0;
+
+  let nextIndex = musicState.currentIndex;
+  while (nextIndex === musicState.currentIndex) {
+    nextIndex = Math.floor(Math.random() * tracks.length);
+  }
+  return nextIndex;
+}
+
+function updateMusicPanel(lang) {
+  const tracks = musicLibrary.tracks || [];
+  const current = tracks[musicState.currentIndex];
+  if (!current) return;
+
+  const titleHost = document.getElementById("music-current-title");
+  const metaHost = document.getElementById("music-current-meta");
+  const slider = document.getElementById("music-volume");
+  const volumeValue = document.getElementById("music-volume-value");
+
+  if (titleHost) titleHost.textContent = getMusicTrackLabel(current, lang);
+  if (metaHost) metaHost.textContent = getMusicComposerLabel(current, lang);
+  if (slider) slider.value = String(Math.round(musicState.volume * 100));
+  if (volumeValue) volumeValue.textContent = `${Math.round(musicState.volume * 100)}%`;
+
+  document.querySelectorAll(".playlist-item").forEach((button, index) => {
+    button.classList.toggle("is-active", index === musicState.currentIndex);
+    button.setAttribute("aria-pressed", index === musicState.currentIndex ? "true" : "false");
+  });
+}
+
+function switchMusicTrack(index, autoplay) {
+  const tracks = musicLibrary.tracks || [];
+  const player = getActiveMidiPlayer();
+  if (!player || !tracks[index]) return;
+
+  musicState.currentIndex = index;
+  localStorage.setItem("site-music-index", String(index));
+
+  const nextSrc = tracks[index].file;
+  const startPlayback = () => {
+    if (autoplay) {
+      player.start().catch?.(() => {});
+    }
+  };
+
+  player.stop();
+  player.src = nextSrc;
+  player.reload();
+  player.addEventListener("load", startPlayback, { once: true });
+
+  const lang = localStorage.getItem("site-lang") || "en";
+  updateMusicPanel(lang);
+}
+
+function ensureFloatingMusicWidget() {
+  if (!musicLibrary.tracks || musicLibrary.tracks.length === 0) return null;
+
+  let widget = document.getElementById("music-widget");
+  if (widget) return widget;
+
+  widget = document.createElement("aside");
+  widget.id = "music-widget";
+  widget.className = "music-widget";
+  widget.innerHTML = `
+    <div class="music-widget-panel">
+      <div class="music-widget-head">
+        <div id="music-widget-title" class="music-widget-title">Music</div>
+      </div>
+      <div class="music-widget-body">
+        <div id="music-widget-nowplaying-label" class="music-label">Now Playing</div>
+        <div id="music-current-title" class="music-current-title"></div>
+        <div id="music-current-meta" class="music-current-meta"></div>
+        <div class="music-mini-controls">
+          <button id="music-play-toggle" class="pub-copy-btn" type="button">Play</button>
+          <button id="music-random" class="pub-copy-btn" type="button">Shuffle Next</button>
+        </div>
+        <div class="music-volume-row">
+          <label id="music-volume-label" class="music-volume-label" for="music-volume">Volume</label>
+          <input id="music-volume" class="music-volume" type="range" min="0" max="100" step="1" value="20" />
+          <span id="music-volume-value" class="music-volume-value">20%</span>
+        </div>
+        <ol id="music-mini-playlist" class="playlist-list music-mini-playlist"></ol>
+      </div>
+      <midi-player id="floating-midi-player" class="music-core-player"></midi-player>
+    </div>
+  `;
+  document.body.appendChild(widget);
+  return widget;
+}
+
+function setMusicWidgetOpen(open) {
+  const widget = document.getElementById("music-widget");
+  if (!widget) return;
+
+  musicState.widgetOpen = open;
+  widget.classList.toggle("is-collapsed", !open);
+}
+
+function updateMusicPlayButton(lang) {
+  const button = document.getElementById("music-play-toggle");
+  const player = getActiveMidiPlayer();
+  if (!button) return;
+
+  const isPlaying = Boolean(player && player.playing);
+  button.textContent = isPlaying
+    ? lang === "zh"
+      ? "暂停"
+      : "Pause"
+    : lang === "zh"
+      ? "播放"
+      : "Play";
+}
+
+function renderFloatingPlaylist(lang) {
+  const host = document.getElementById("music-mini-playlist");
+  if (!host) return;
+
+  host.innerHTML = (musicLibrary.tracks || [])
+    .map(
+      (track, index) => `
+        <li>
+          <button class="playlist-item playlist-item-compact" type="button" data-index="${index}">
+            <span class="playlist-title">${escapeHtml(getMusicTrackLabel(track, lang))}</span>
+            <span class="playlist-meta">${escapeHtml(getMusicComposerLabel(track, lang))}</span>
+          </button>
+        </li>
+      `,
+    )
+    .join("");
+}
+
+function updateFloatingMusicWidget(lang) {
+  const widget = ensureFloatingMusicWidget();
+  if (!widget) return;
+
+  const title = document.getElementById("music-widget-title");
+  const nowPlaying = document.getElementById("music-widget-nowplaying-label");
+  const volumeLabel = document.getElementById("music-volume-label");
+  const randomButton = document.getElementById("music-random");
+
+  if (title) title.textContent = translations.common[lang].navMusic;
+  if (nowPlaying) nowPlaying.textContent = translations.page.music[lang].nowPlaying;
+  if (volumeLabel) volumeLabel.textContent = translations.page.music[lang].volumeLabel;
+  if (randomButton) randomButton.textContent = translations.page.music[lang].randomLabel;
+
+  renderFloatingPlaylist(lang);
+  updateMusicPanel(lang);
+  updateMusicPlayButton(lang);
+}
+
+function initFloatingMusicWidget() {
+  if (musicState.widgetInitialized) return;
+
+  const widget = ensureFloatingMusicWidget();
+  const tracks = musicLibrary.tracks || [];
+  if (!widget || !tracks.length) return;
+
+  if (!Number.isFinite(musicState.currentIndex) || musicState.currentIndex >= tracks.length) {
+    musicState.currentIndex = 0;
+  }
+
+  const player = document.getElementById("floating-midi-player");
+  const playToggle = document.getElementById("music-play-toggle");
+  const randomBtn = document.getElementById("music-random");
+  const volumeSlider = document.getElementById("music-volume");
+
+  ensureMidiAudioChain();
+  player.soundFont = null;
+  player.src = tracks[musicState.currentIndex].file;
+  player.reload();
+  setMidiVolume(musicState.volume);
+  setMusicWidgetOpen(true);
+
+  playToggle?.addEventListener("click", () => {
+    if (player.playing) player.stop();
+    else player.start().catch?.(() => {});
+  });
+
+  randomBtn?.addEventListener("click", () => {
+    switchMusicTrack(pickRandomTrackIndex(), true);
+  });
+
+  volumeSlider?.addEventListener("input", (event) => {
+    const level = Number(event.target.value || "20") / 100;
+    setMidiVolume(level);
+    updateMusicPanel(localStorage.getItem("site-lang") || "en");
+  });
+
+  widget.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    const button = target.closest(".playlist-item-compact");
+    if (!(button instanceof HTMLElement)) return;
+    const index = Number(button.dataset.index || "0");
+    switchMusicTrack(index, true);
+  });
+
+  player.addEventListener("load", () => {
+    musicState.trackGain = estimateTrackGain(player.noteSequence);
+    updateMidiOutputLevel();
+    updateMusicPanel(localStorage.getItem("site-lang") || "en");
+  });
+
+  player.addEventListener("start", () => {
+    updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
+  });
+
+  player.addEventListener("stop", (event) => {
+    updateMusicPlayButton(localStorage.getItem("site-lang") || "en");
+    if (event.detail && event.detail.finished) {
+      switchMusicTrack(pickRandomTrackIndex(), true);
+    }
+  });
+
+  musicState.widgetInitialized = true;
+}
+
+function bindMusicPage(lang) {
+  const tracks = musicLibrary.tracks || [];
+  if (!tracks.length) return;
+
+  if (!Number.isFinite(musicState.currentIndex) || musicState.currentIndex >= tracks.length) {
+    musicState.currentIndex = 0;
+  }
+
+  const player = document.getElementById("midi-player");
+  if (!player) return;
+
+  ensureMidiAudioChain();
+  player.soundFont = null;
+  player.src = tracks[musicState.currentIndex].file;
+  player.reload();
+  setMidiVolume(musicState.volume);
+  updateMusicPanel(lang);
+
+  const prevBtn = document.getElementById("music-prev");
+  const nextBtn = document.getElementById("music-next");
+  const randomBtn = document.getElementById("music-random");
+  const volumeSlider = document.getElementById("music-volume");
+
+  prevBtn?.addEventListener("click", () => {
+    const nextIndex =
+      musicState.currentIndex === 0 ? tracks.length - 1 : musicState.currentIndex - 1;
+    switchMusicTrack(nextIndex, true);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    const nextIndex = (musicState.currentIndex + 1) % tracks.length;
+    switchMusicTrack(nextIndex, true);
+  });
+
+  randomBtn?.addEventListener("click", () => {
+    switchMusicTrack(pickRandomTrackIndex(), true);
+  });
+
+  volumeSlider?.addEventListener("input", (event) => {
+    const level = Number(event.target.value || "20") / 100;
+    setMidiVolume(level);
+    updateMusicPanel(localStorage.getItem("site-lang") || "en");
+  });
+
+  document.querySelectorAll(".playlist-item").forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.index || "0");
+      switchMusicTrack(index, true);
+    });
+  });
+
+  player.addEventListener("stop", (event) => {
+    if (event.detail && event.detail.finished) {
+      switchMusicTrack(pickRandomTrackIndex(), true);
+    }
+  });
+
+  player.addEventListener("load", () => {
+    musicState.trackGain = estimateTrackGain(player.noteSequence);
+    updateMidiOutputLevel();
+  });
+}
+
+function renderMusic(lang) {
+  const host = document.getElementById("page-content");
+  if (!host) return;
+
+  const tracks = musicLibrary.tracks || [];
+  const playlist = tracks
+    .map(
+      (track, index) => `
+        <li>
+          <button class="playlist-item" type="button" data-index="${index}">
+            <span class="playlist-title">${escapeHtml(getMusicTrackLabel(track, lang))}</span>
+            <span class="playlist-meta">${escapeHtml(getMusicComposerLabel(track, lang))}</span>
+          </button>
+        </li>
+      `,
+    )
+    .join("");
+
+  host.innerHTML = `
+    <section>
+      <h2 class="section-title">${escapeHtml(translations.page.music[lang].introTitle)}</h2>
+      <p class="section-note">${escapeHtml(
+        lang === "zh" ? musicLibrary.introZh || "" : musicLibrary.introEn || "",
+      )}</p>
+      <div class="music-layout">
+        <div class="music-stage">
+          <div class="music-nowplaying">
+            <div class="music-label">${escapeHtml(translations.page.music[lang].nowPlaying)}</div>
+            <div id="music-current-title" class="music-current-title"></div>
+            <div id="music-current-meta" class="music-current-meta"></div>
+          </div>
+          <div class="music-player-wrap">
+            <midi-player id="midi-player"></midi-player>
+            <midi-visualizer id="midi-visualizer" type="piano-roll"></midi-visualizer>
+          </div>
+          <div class="music-controls">
+            <button id="music-prev" class="pub-copy-btn" type="button">${escapeHtml(
+              translations.page.music[lang].prevLabel,
+            )}</button>
+            <button id="music-random" class="pub-copy-btn" type="button">${escapeHtml(
+              translations.page.music[lang].randomLabel,
+            )}</button>
+            <button id="music-next" class="pub-copy-btn" type="button">${escapeHtml(
+              translations.page.music[lang].nextLabel,
+            )}</button>
+          </div>
+          <div class="music-volume-row">
+            <label class="music-volume-label" for="music-volume">${escapeHtml(
+              translations.page.music[lang].volumeLabel,
+            )}</label>
+            <input id="music-volume" class="music-volume" type="range" min="0" max="100" step="1" value="20" />
+            <span id="music-volume-value" class="music-volume-value">20%</span>
+          </div>
+        </div>
+        <div class="music-playlist">
+          <h3 class="pub-group-title">${escapeHtml(translations.page.music[lang].playlistTitle)}</h3>
+          <p class="section-note">${escapeHtml(translations.page.music[lang].playlistNote)}</p>
+          <ol class="playlist-list">${playlist}</ol>
+        </div>
+      </div>
+    </section>
+  `;
+
+  bindMusicPage(lang);
+}
+
 function formatPublicationAuthors(authors) {
   if (!authors || authors.length === 0) return "";
 
@@ -383,6 +871,13 @@ function formatVenueAndYear(item, lang) {
   return "";
 }
 
+function getPublicationTitle(item, lang) {
+  if (lang === "zh" && window.publicationTitleTranslations) {
+    return window.publicationTitleTranslations[item.title] || item.title || "";
+  }
+  return item.title || "";
+}
+
 function getAuthorRank(item) {
   const normalizedAuthors = (item.authors || [])
     .map(normalizeAuthorName)
@@ -416,7 +911,7 @@ function buildPublicationItem(item, lang) {
       <div class="pub-main">
         <div class="pub-line">
           <span class="pub-authors">${formatPublicationAuthors(item.authors)}</span>.
-          <em>${escapeHtml(getLangValue(item, lang, "title"))}</em>.
+          <em>${escapeHtml(getPublicationTitle(item, lang))}</em>.
           ${formatVenueAndYear(item, lang)}
         </div>
       </div>
@@ -562,6 +1057,7 @@ function applyLanguage(lang) {
   }
 
   renderPageContent(lang);
+  updateFloatingMusicWidget(lang);
 }
 
 if (langBtn) {
@@ -579,5 +1075,6 @@ if (themeBtn) {
 }
 
 syncNavState();
+initFloatingMusicWidget();
 applyTheme(localStorage.getItem("site-theme") || "light");
 applyLanguage(localStorage.getItem("site-lang") || "en");

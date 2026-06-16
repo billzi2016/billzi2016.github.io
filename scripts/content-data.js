@@ -88,7 +88,7 @@ window.siteContent = {
         en: "Published or contributed to work spanning ICDCS, ICCCN, Journal of Biomedical Informatics, BIO Integration, Computation, and multiple domain journals.",
         zh: "已发表或参与发表的工作覆盖 ICDCS、ICCCN、Journal of Biomedical Informatics、BIO Integration、Computation 等会议与期刊。",
       },
-    ],
+    ]
   },
   experience: {
     industry: [
