@@ -1,0 +1,478 @@
+/* 全站样式改为本地文件，避免依赖 CDN。 */
+:root {
+  --bg: #f1eee8;
+  --bg-deep: #e7e2d9;
+  --paper: rgba(255, 253, 249, 0.9);
+  --paper-strong: rgba(255, 255, 255, 0.96);
+  --ink: #1b2027;
+  --muted: #5f6874;
+  --line: rgba(55, 68, 84, 0.14);
+  --line-strong: rgba(36, 54, 75, 0.22);
+  --accent: #22384f;
+  --accent-strong: #16293d;
+  --accent-soft: rgba(34, 56, 79, 0.08);
+  --shadow: 0 18px 52px rgba(23, 34, 46, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 36%),
+    linear-gradient(180deg, var(--bg), var(--bg-deep));
+  color: var(--ink);
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    sans-serif;
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+body.dark-theme {
+  --bg: #0d141b;
+  --bg-deep: #121c26;
+  --paper: rgba(19, 28, 37, 0.88);
+  --paper-strong: rgba(17, 24, 33, 0.94);
+  --ink: #eef3f8;
+  --muted: #afbbc8;
+  --line: rgba(184, 210, 236, 0.12);
+  --line-strong: rgba(184, 210, 236, 0.2);
+  --accent: #bfd9f5;
+  --accent-strong: #d8e9fb;
+  --accent-soft: rgba(191, 217, 245, 0.1);
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 24%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.16), transparent 28%);
+  z-index: 0;
+}
+
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-particles {
+  opacity: 0.32;
+}
+
+.background-matrix {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+body.dark-theme .background-particles {
+  opacity: 0;
+}
+
+body.dark-theme .background-matrix {
+  opacity: 0.12;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.page {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 34px 28px 84px;
+}
+
+.site-header {
+  position: relative;
+  padding: 0 0 26px;
+}
+
+.header-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.header-main {
+  min-width: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* 控制按钮做成实体按钮，避免不明显。 */
+.control-btn {
+  appearance: none;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 12px 26px rgba(34, 56, 79, 0.18);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.control-btn:hover,
+.control-btn:focus-visible {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(34, 56, 79, 0.22);
+}
+
+body.dark-theme .control-btn {
+  color: #0d141b;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
+}
+
+.name {
+  margin: 0;
+  font-family:
+    "Iowan Old Style",
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.lang-en,
+.lang-zh {
+  display: none;
+}
+
+html[lang="en"] .lang-en {
+  display: inline;
+}
+
+html[lang="zh-CN"] .lang-zh {
+  display: inline;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.contact-line a {
+  color: inherit;
+}
+
+/* 导航做成明显按钮，并高亮当前页面。 */
+.nav-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 20px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(25, 36, 48, 0.06);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(34, 56, 79, 0.18);
+}
+
+body.dark-theme .nav-link {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: none;
+}
+
+.nav-link.is-active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 14px 28px rgba(34, 56, 79, 0.18);
+}
+
+body.dark-theme .nav-link.is-active {
+  color: #0d141b;
+}
+
+.lead {
+  max-width: 62rem;
+  margin: 28px 0 0;
+  font-size: 1.18rem;
+  color: var(--ink);
+}
+
+.page-tag {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+main {
+  margin-top: 34px;
+}
+
+section {
+  margin-top: 28px;
+  padding: 30px 34px 32px;
+  background: linear-gradient(180deg, var(--paper-strong), var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  margin: 0 0 18px;
+  padding-left: 16px;
+  border-left: 4px solid var(--accent);
+  font-family:
+    "Iowan Old Style",
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+  font-size: 1.82rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.section-note {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.plain-list,
+.compact-list,
+.repo-list,
+.pub-list {
+  margin: 0;
+  padding-left: 1.22rem;
+}
+
+.plain-list li,
+.compact-list li,
+.repo-list li,
+.pub-list li {
+  margin: 0 0 10px;
+}
+
+.entry {
+  padding: 16px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.entry-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.entry-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.entry-role {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.entry ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+.entry ul li {
+  margin-bottom: 8px;
+}
+
+.two-column,
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 34px;
+}
+
+.skill-block,
+.home-panel {
+  padding-top: 8px;
+}
+
+.home-panel {
+  border-top: 1px solid var(--line);
+}
+
+.home-panel h3 {
+  margin: 0 0 8px;
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+
+.skill-label {
+  font-weight: 700;
+}
+
+.repo-list li,
+.pub-list li {
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--line);
+}
+
+.repo-list li:last-child,
+.pub-list li:last-child {
+  border-bottom: none;
+}
+
+.repo-line,
+.pub-line {
+  display: block;
+}
+
+.inline-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.item-note {
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+.small {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .header-bar {
+    display: block;
+  }
+
+  .header-actions {
+    justify-content: flex-start;
+    margin-top: 18px;
+  }
+
+  .two-column,
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 17px;
+  }
+
+  .page {
+    padding: 24px 16px 64px;
+  }
+
+  section {
+    padding: 24px 20px 24px;
+    border-radius: 18px;
+  }
+
+  .entry-heading {
+    display: block;
+  }
+
+  .entry-meta {
+    display: block;
+    margin-top: 4px;
+    white-space: normal;
+  }
+
+  .nav-line {
+    gap: 10px;
+  }
+
+  .nav-link {
+    min-width: calc(50% - 5px);
+  }
+}

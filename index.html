@@ -6,130 +6,127 @@
     <title>Ziqian Bi | Home</title>
     <meta
       name="description"
-      content="Ziqian Bi (毕梓仟): personal academic homepage for AI, ML, LLM, multimodal AI, medical AI, and ML systems roles."
+      content="Ziqian Bi personal academic homepage for AI, ML, LLM, multimodal AI, medical AI, and ML systems roles."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body data-page="home">
-    <div class="page">
-      <!-- 首页保留单列主结构，但增加控制按钮和更清晰的章节感。 -->
-      <header class="site-header">
-        <div class="header-bar">
-          <div class="header-main">
-            <h1 class="name">Ziqian Bi</h1>
-            <div class="name-subline">毕梓仟</div>
-            <div class="contact-line">
-              <span>Indiana University</span>
-              <a href="mailto:bizi@iu.edu">bizi@iu.edu</a>
-              <a href="https://scholar.google.com/citations?user=4z9m238AAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-              <a href="https://github.com/billzi2016" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-            <nav class="nav-line">
-              <a href="./index.html" data-i18n="navHome">Home</a>
-              <a href="./experience.html" data-i18n="navExperience">Experience</a>
-              <a href="./projects.html" data-i18n="navProjects">Projects</a>
-              <a href="./publications.html" data-i18n="navPublications">Publications</a>
-            </nav>
-          </div>
-          <div class="header-actions">
-            <button id="lang-toggle" class="control-btn" type="button">中文</button>
-            <button id="theme-toggle" class="control-btn" type="button">Dark</button>
-          </div>
-        </div>
-        <p class="lead">
-          <span data-i18n="lead">
-          I am a Ph.D. candidate working across large language models, multimodal AI,
-          medical AI, sensing security, and machine learning systems. I am most interested
-          in roles that require both research depth and engineering execution: Research
-          Engineer, Applied Scientist, ML Engineer, and LLM / AI Systems roles.
-          </span>
-        </p>
-      </header>
+    <div id="light-particles" class="background-layer background-particles"></div>
+    <canvas id="dark-matrix" class="background-layer background-matrix" aria-hidden="true"></canvas>
 
-      <main>
-        <!-- 站点导览，告诉访问者去哪里看完整内容。 -->
-        <section>
-          <h2 class="section-title" data-i18n="guideTitle">Site Guide</h2>
-          <div class="home-grid">
-            <div class="home-panel">
-              <h3><a href="./experience.html" data-i18n="navExperience">Experience</a></h3>
-              <p data-i18n="guideExperience">
-                Full CV-style page with research interests, technical skills, industry
-                experience, research experience, and education.
-              </p>
+    <div class="page-shell">
+      <div class="page">
+        <!-- 首页负责总览和导流，避免一上来就堆满所有细节。 -->
+        <header class="site-header">
+          <div class="header-bar">
+            <div class="header-main">
+              <h1 class="name">
+                <span class="lang-en">Ziqian Bi</span>
+                <span class="lang-zh">毕梓仟</span>
+              </h1>
+              <div class="contact-line">
+                <span data-i18n="contactSchool">Indiana University</span>
+                <a href="mailto:bizi@iu.edu">bizi@iu.edu</a>
+                <a href="https://scholar.google.com/citations?user=4z9m238AAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+                <a href="https://github.com/billzi2016" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+              <nav class="nav-line" aria-label="Primary">
+                <a class="nav-link" data-page="home" href="./index.html" data-i18n="navHome">Home</a>
+                <a class="nav-link" data-page="experience" href="./experience.html" data-i18n="navExperience">Experience</a>
+                <a class="nav-link" data-page="projects" href="./projects.html" data-i18n="navProjects">Projects</a>
+                <a class="nav-link" data-page="publications" href="./publications.html" data-i18n="navPublications">Publications</a>
+              </nav>
             </div>
-            <div class="home-panel">
-              <h3><a href="./projects.html" data-i18n="navProjects">Projects</a></h3>
-              <p data-i18n="guideProjects">
-                Ranked GitHub repository index, from the most job-relevant AI / systems
-                work to supporting repositories and exploratory builds.
-              </p>
-            </div>
-            <div class="home-panel">
-              <h3><a href="./publications.html" data-i18n="navPublications">Publications</a></h3>
-              <p data-i18n="guidePublications">
-                Selected publications first, followed by the full bibliography archive
-                derived from my current BibTeX source.
-              </p>
-            </div>
-            <div class="home-panel">
-              <h3 data-i18n="guideFocus">Current Focus</h3>
-              <ul class="plain-list">
-                <li>LLM evaluation, reasoning, and post-training</li>
-                <li>Multimodal and medical AI systems</li>
-                <li>Security and robustness for sensing and model pipelines</li>
-                <li>From-scratch learning projects and systems implementation</li>
-              </ul>
+            <div class="header-actions">
+              <button id="lang-toggle" class="control-btn" type="button">中文</button>
+              <button id="theme-toggle" class="control-btn" type="button">Dark</button>
             </div>
           </div>
-        </section>
-
-        <section>
-          <h2 class="section-title" data-i18n="researchTitle">Research Interests</h2>
-          <p>
-            Large Language Models; Multimodal Large Language Models; Natural Language
-            Processing; Generative Models; Diffusion Models; Computer Vision; Medical AI;
-            Model Security and Robustness; Model Interpretability; mmWave Sensing; Sensors;
-            Embedded Systems.
+          <p class="lead" data-i18n="lead">
+            I am a Ph.D. candidate working across large language models, multimodal AI,
+            medical AI, sensing security, and machine learning systems. I am most interested
+            in roles that require both research depth and engineering execution: Research
+            Engineer, Applied Scientist, ML Engineer, and LLM / AI Systems roles.
           </p>
-        </section>
+        </header>
 
-        <section>
-          <h2 class="section-title" data-i18n="skillsTitle">Technical Skills</h2>
-          <div class="two-column">
-            <div class="skill-block">
-              <div><span class="skill-label">Programming Languages:</span> Python, C, C++, CUDA, MATLAB, SQL</div>
-              <div><span class="skill-label">Frameworks:</span> PyTorch, TensorFlow, DeepSpeed, Transformers, Diffusers, LangChain, LangGraph, Pydantic-AI, FastAPI, Django</div>
-              <div><span class="skill-label">Specialized Models:</span> LLM, MLLM, DiT, Stable Diffusion, CLIP, ViT, ResNet, YOLO, RetinaFace, Point Transformer, SimCLR, 3D VQGAN</div>
+        <main>
+          <section>
+            <h2 class="section-title" data-i18n="guideTitle">Site Guide</h2>
+            <div class="home-grid">
+              <div class="home-panel">
+                <h3><a href="./experience.html" data-i18n="navExperience">Experience</a></h3>
+                <p data-i18n="guideExperience">
+                  Full CV-style page with research interests, technical skills, industry
+                  experience, research experience, and education.
+                </p>
+              </div>
+              <div class="home-panel">
+                <h3><a href="./projects.html" data-i18n="navProjects">Projects</a></h3>
+                <p data-i18n="guideProjects">
+                  Ranked GitHub repository index, from the most job-relevant AI / systems
+                  work to the full repository archive.
+                </p>
+              </div>
+              <div class="home-panel">
+                <h3><a href="./publications.html" data-i18n="navPublications">Publications</a></h3>
+                <p data-i18n="guidePublications">
+                  Representative publications first, followed by the complete publication
+                  list formatted for reading.
+                </p>
+              </div>
+              <div class="home-panel">
+                <h3 data-i18n="guideFocus">Current Focus</h3>
+                <ul class="plain-list">
+                  <li>LLM evaluation, reasoning, and post-training</li>
+                  <li>Multimodal and medical AI systems</li>
+                  <li>Security and robustness for sensing and model pipelines</li>
+                  <li>From-scratch learning projects and systems implementation</li>
+                </ul>
+              </div>
             </div>
-            <div class="skill-block">
-              <div><span class="skill-label">Tools and Platforms:</span> Docker, Vertex AI, Ollama, vLLM, FAISS, RAG systems, PostgreSQL, Git</div>
-              <div><span class="skill-label">Hardware:</span> TI IWR6843 / 1843, Cascade EVM, STM32, ESP8266 / ESP32, I2C / SPI / UART / RS-485 / Modbus, GPU / CUDA optimization</div>
-              <div><span class="skill-label">Libraries:</span> NumPy, Pandas, Scikit-learn, XGBoost, AutoGluon, OpenCV, VTK, Mayavi</div>
+          </section>
+
+          <section>
+            <h2 class="section-title" data-i18n="researchTitle">Research Interests</h2>
+            <p>
+              Large Language Models; Multimodal Large Language Models; Natural Language
+              Processing; Generative Models; Diffusion Models; Computer Vision; Medical AI;
+              Model Security and Robustness; Model Interpretability; mmWave Sensing; Sensors;
+              Embedded Systems.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="section-title" data-i18n="skillsTitle">Technical Skills</h2>
+            <div class="two-column">
+              <div class="skill-block">
+                <div><span class="skill-label">Programming Languages:</span> Python, C, C++, CUDA, MATLAB, SQL</div>
+                <div><span class="skill-label">Frameworks:</span> PyTorch, TensorFlow, DeepSpeed, Transformers, Diffusers, LangChain, LangGraph, Pydantic-AI, FastAPI, Django</div>
+                <div><span class="skill-label">Specialized Models:</span> LLM, MLLM, DiT, Stable Diffusion, CLIP, ViT, ResNet, YOLO, RetinaFace, Point Transformer, SimCLR, 3D VQGAN</div>
+              </div>
+              <div class="skill-block">
+                <div><span class="skill-label">Tools and Platforms:</span> Docker, Vertex AI, Ollama, vLLM, FAISS, RAG systems, PostgreSQL, Git</div>
+                <div><span class="skill-label">Hardware:</span> TI IWR6843 / 1843, Cascade EVM, STM32, ESP8266 / ESP32, I2C / SPI / UART / RS-485 / Modbus, GPU / CUDA optimization</div>
+                <div><span class="skill-label">Libraries:</span> NumPy, Pandas, Scikit-learn, XGBoost, AutoGluon, OpenCV, VTK, Mayavi</div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section>
-          <h2 class="section-title" data-i18n="highlightsTitle">Selected Highlights</h2>
-          <ul class="plain-list">
-            <li>Improved BERT validation measurements from 10<sup>-6</sup> to 10<sup>-12</sup> at Xperf through automated optimization.</li>
-            <li>Built full-stack LLM and retrieval systems supporting 500+ queries per second during my Infraeo internship.</li>
-            <li>Published or contributed to work spanning ICDCS, ICCCN, Journal of Biomedical Informatics, BIO Integration, Computation, and multiple domain journals.</li>
-          </ul>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        This site is designed as a simple academic and job-search homepage, not a product landing page.
-      </footer>
+          <section>
+            <h2 class="section-title" data-i18n="highlightsTitle">Selected Highlights</h2>
+            <ul class="plain-list">
+              <li>Improved BERT validation measurements from 10<sup>-6</sup> to 10<sup>-12</sup> at Xperf through automated optimization.</li>
+              <li>Built full-stack LLM and retrieval systems supporting 500+ queries per second during my Infraeo internship.</li>
+              <li>Published or contributed to work spanning ICDCS, ICCCN, Journal of Biomedical Informatics, BIO Integration, Computation, and multiple domain journals.</li>
+            </ul>
+          </section>
+        </main>
+      </div>
     </div>
-    <script src="./site.js"></script>
+
+    <script src="./vendor/particles/particles.min.js"></script>
+    <script src="./scripts/backgrounds.js"></script>
+    <script src="./scripts/site.js"></script>
   </body>
 </html>
