@@ -1102,9 +1102,11 @@ function applyTheme(theme) {
   localStorage.setItem("site-theme", dark ? "dark" : "light");
   const lang = localStorage.getItem("site-lang") || "en";
   if (themeBtn) {
-    themeBtn.textContent = dark
+    const label = dark
       ? translations.common[lang].themeToggleDark
       : translations.common[lang].themeToggleLight;
+    themeBtn.setAttribute("aria-label", label);
+    themeBtn.setAttribute("title", label);
   }
   if (window.SiteBackgrounds) {
     window.SiteBackgrounds.syncBackgrounds();
@@ -1132,9 +1134,11 @@ function applyLanguage(lang) {
 
   const dark = body.classList.contains("dark-theme");
   if (themeBtn) {
-    themeBtn.textContent = dark
+    const label = dark
       ? translations.common[lang].themeToggleDark
       : translations.common[lang].themeToggleLight;
+    themeBtn.setAttribute("aria-label", label);
+    themeBtn.setAttribute("title", label);
   }
 
   renderPageContent(lang);
