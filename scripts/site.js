@@ -6,6 +6,8 @@ const translations = {
       navExperience: "Experience",
       navProjects: "Projects",
       navPublications: "Publications",
+      citePaper: "Cite this paper",
+      copied: "Copied",
       langToggle: "中文",
       themeToggleLight: "Dark",
       themeToggleDark: "Light",
@@ -17,6 +19,8 @@ const translations = {
       navExperience: "经历",
       navProjects: "项目",
       navPublications: "论文",
+      citePaper: "引用这篇论文",
+      copied: "已复制",
       langToggle: "EN",
       themeToggleLight: "深色",
       themeToggleDark: "浅色",
@@ -118,6 +122,128 @@ const body = document.body;
 const pageKey = body.dataset.page;
 const langBtn = document.getElementById("lang-toggle");
 const themeBtn = document.getElementById("theme-toggle");
+const selectedPublicationKeys = [
+  "bi2025physical",
+  "bi2026exploring",
+  "bi2025generalbench",
+  "xu2023mmlock",
+  "bi2025subspace",
+  "niu2024large",
+  "liang2026comprehensive",
+  "korada2025temporal",
+  "pan2025cd9",
+  "huang2025use",
+  "singha2024securing",
+  "wang2026predicting",
+];
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function formatPublicationAuthors(authors) {
+  if (!authors || authors.length === 0) return "";
+  if (authors.length < 3) {
+    return authors
+      .map((author) =>
+        author === "Bi, Ziqian"
+          ? `<span class="pub-highlight">${escapeHtml(author)}</span>`
+          : escapeHtml(author)
+      )
+      .join(", ");
+  }
+
+  const firstTwo = authors.slice(0, 2).map(escapeHtml).join(", ");
+  return `${firstTwo}, et al., <span class="pub-highlight">Ziqian Bi</span>, et al.`;
+}
+
+function formatVenueAndYear(item) {
+  if (item.venue && item.year) return `${escapeHtml(item.venue)}, ${escapeHtml(item.year)}.`;
+  if (item.venue) return `${escapeHtml(item.venue)}.`;
+  if (item.year) return `${escapeHtml(item.year)}.`;
+  return "";
+}
+
+function buildPublicationItem(item, lang) {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-line">
+          <span class="pub-authors">${formatPublicationAuthors(item.authors)}</span>.
+          <em>${escapeHtml(item.title)}</em>.
+          ${formatVenueAndYear(item)}
+        </div>
+      </div>
+      <div class="pub-copy">
+        <button class="pub-copy-btn" type="button" data-bibtex="${escapeHtml(item.bibtex)}">
+          ${escapeHtml(translations.common[lang].citePaper)}
+        </button>
+      </div>
+    </div>
+  `;
+  return li;
+}
+
+function bindCopyButtons(lang) {
+  document.querySelectorAll(".pub-copy-btn").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const bibtex = button.getAttribute("data-bibtex");
+      if (!bibtex) return;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(bibtex);
+        } else {
+          const helper = document.createElement("textarea");
+          helper.value = bibtex;
+          helper.setAttribute("readonly", "readonly");
+          helper.style.position = "fixed";
+          helper.style.opacity = "0";
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+        }
+        button.textContent = translations.common[lang].copied;
+        button.classList.add("is-copied");
+        window.setTimeout(() => {
+          const currentLang = localStorage.getItem("site-lang") || "en";
+          button.textContent = translations.common[currentLang].citePaper;
+          button.classList.remove("is-copied");
+        }, 1400);
+      } catch (error) {
+        console.error("Failed to copy BibTeX.", error);
+      }
+    });
+  });
+}
+
+function renderPublications(lang) {
+  if (pageKey !== "publications" || !window.publicationsData) return;
+
+  const selectedHost = document.getElementById("selected-publications");
+  const allHost = document.getElementById("all-publications");
+  if (!selectedHost || !allHost) return;
+
+  selectedHost.innerHTML = "";
+  allHost.innerHTML = "";
+
+  const byKey = new Map(window.publicationsData.map((item) => [item.key, item]));
+  selectedPublicationKeys.forEach((key) => {
+    const item = byKey.get(key);
+    if (item) selectedHost.appendChild(buildPublicationItem(item, lang));
+  });
+
+  window.publicationsData.forEach((item) => {
+    allHost.appendChild(buildPublicationItem(item, lang));
+  });
+
+  bindCopyButtons(lang);
+}
 
 function syncNavState() {
   document.querySelectorAll(".nav-link").forEach((link) => {
@@ -161,6 +287,8 @@ function applyLanguage(lang) {
       ? translations.common[lang].themeToggleDark
       : translations.common[lang].themeToggleLight;
   }
+
+  renderPublications(lang);
 }
 
 if (langBtn) {

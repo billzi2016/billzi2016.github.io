@@ -1,9 +1,45 @@
 // 背景效果分为两套：浅色主题用粒子网络，深色主题用极浅的矩阵雨。
 (function () {
   let particlesReady = false;
+  let particleMagnetAnimation = 0;
   let matrixContext = null;
   let matrixAnimation = 0;
   let matrixColumns = [];
+  const pointerState = {
+    x: 0,
+    y: 0,
+    active: false,
+  };
+
+  function animateParticleMagnet() {
+    const particleSystem = window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS;
+    if (
+      particleSystem &&
+      pointerState.active &&
+      !document.body.classList.contains("dark-theme")
+    ) {
+      const particles = particleSystem.particles.array || [];
+      const radius = 220;
+      const innerRadius = 26;
+
+      particles.forEach((particle) => {
+        const dx = pointerState.x - particle.x;
+        const dy = pointerState.y - particle.y;
+        const distanceSq = dx * dx + dy * dy;
+
+        if (distanceSq >= radius * radius || distanceSq <= innerRadius * innerRadius) {
+          return;
+        }
+
+        const distance = Math.sqrt(distanceSq);
+        const pull = (1 - distance / radius) * 0.035;
+        particle.x += dx * pull;
+        particle.y += dy * pull;
+      });
+    }
+
+    particleMagnetAnimation = window.requestAnimationFrame(animateParticleMagnet);
+  }
 
   function buildParticles() {
     if (particlesReady || typeof window.particlesJS !== "function") return;
@@ -57,13 +93,16 @@
         modes: {
           grab: {
             distance: 240,
-            line_linked: { opacity: 0.9 },
+            line_linked: { opacity: 0.58 },
           },
         },
       },
       retina_detect: true,
     });
     particlesReady = true;
+    if (!particleMagnetAnimation) {
+      animateParticleMagnet();
+    }
   }
 
   function resizeMatrix() {
@@ -144,6 +183,18 @@
   window.addEventListener("resize", () => {
     if (document.body.classList.contains("dark-theme")) {
       resizeMatrix();
+    }
+  });
+
+  window.addEventListener("pointermove", (event) => {
+    pointerState.x = event.clientX;
+    pointerState.y = event.clientY;
+    pointerState.active = true;
+  });
+
+  window.addEventListener("mouseout", (event) => {
+    if (!event.relatedTarget) {
+      pointerState.active = false;
     }
   });
 

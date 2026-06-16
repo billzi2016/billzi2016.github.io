@@ -69,7 +69,7 @@ body::before {
 }
 
 .background-particles {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .background-matrix {
@@ -472,6 +472,78 @@ section {
   display: block;
 }
 
+.pub-list-rendered {
+  padding-left: 1.35rem;
+}
+
+.pub-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pub-copy {
+  flex: 0 0 auto;
+}
+
+.pub-copy-btn {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(25, 36, 48, 0.08);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.pub-copy-btn:hover,
+.pub-copy-btn:focus-visible {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+body.dark-theme .pub-copy-btn {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+body.dark-theme .pub-copy-btn:hover,
+body.dark-theme .pub-copy-btn:focus-visible {
+  color: #0d141b;
+}
+
+.pub-copy-btn.is-copied {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+body.dark-theme .pub-copy-btn.is-copied {
+  color: #0d141b;
+}
+
+.pub-authors {
+  color: var(--ink);
+}
+
+.pub-highlight {
+  font-weight: 700;
+}
+
 .inline-meta {
   color: var(--muted);
   font-size: 0.95rem;
@@ -533,5 +605,13 @@ section {
 
   .nav-link {
     min-width: calc(50% - 5px);
+  }
+
+  .pub-item {
+    display: block;
+  }
+
+  .pub-copy {
+    margin-top: 10px;
   }
 }
