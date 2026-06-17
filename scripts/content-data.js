@@ -157,8 +157,8 @@ window.siteContent = {
       {
         labelEn: "Frontend",
         labelZh: "前端",
-        valueEn: "HTML, JavaScript, CSS, Tailwind CSS, Bootstrap, React, Vue",
-        valueZh: "HTML、JavaScript、CSS、Tailwind CSS、Bootstrap、React、Vue",
+        valueEn: "HTML, JavaScript, CSS, Tailwind CSS, Bootstrap, React, Vue, React Native",
+        valueZh: "HTML、JavaScript、CSS、Tailwind CSS、Bootstrap、React、Vue、React Native",
       },
       {
         labelEn: "Backend",
