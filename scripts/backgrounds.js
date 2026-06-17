@@ -178,7 +178,7 @@
         return Math.random() * -140;
       }
       // 放慢下落速度，让背景更稳一点，不会显得太躁。
-      return y + 5 + Math.random() * 1.2;
+      return y + 1;
     });
     matrixAnimation = window.requestAnimationFrame(drawMatrix);
   }
