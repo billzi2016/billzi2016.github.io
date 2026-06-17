@@ -75,9 +75,9 @@ window.siteContent = {
           labelEn: "Libraries",
           labelZh: "库",
           valueEn:
-            "NumPy, SciPy, Pandas, Polars, Scikit-learn, XGBoost, AutoGluon, SHAP, Optuna, MLflow, OpenCV, SimpleITK, NiBabel, VTK, Mayavi, MONAI",
+            "NumPy, Pandas, Scikit-learn, XGBoost, AutoGluon, SHAP, OpenCV, VTK, Mayavi",
           valueZh:
-            "NumPy、SciPy、Pandas、Polars、Scikit-learn、XGBoost、AutoGluon、SHAP、Optuna、MLflow、OpenCV、SimpleITK、NiBabel、VTK、Mayavi、MONAI",
+            "NumPy、Pandas、Scikit-learn、XGBoost、AutoGluon、SHAP、OpenCV、VTK、Mayavi",
         },
       ],
     },
@@ -135,8 +135,14 @@ window.siteContent = {
       {
         labelEn: "Medical Imaging and Neuroimaging Tools",
         labelZh: "医学影像与神经影像工具",
-        valueEn: "FreeSurfer, FSL",
-        valueZh: "FreeSurfer、FSL",
+        valueEn: "FreeSurfer, FSL, SimpleITK, NiBabel, MONAI",
+        valueZh: "FreeSurfer、FSL、SimpleITK、NiBabel、MONAI",
+      },
+      {
+        labelEn: "AI-Augmented Data Science and MLOps",
+        labelZh: "AI 辅助数据科学与 MLOps",
+        valueEn: "Polars, SciPy, Optuna, MLflow, Grafana, Prometheus",
+        valueZh: "Polars、SciPy、Optuna、MLflow、Grafana、Prometheus",
       },
       {
         labelEn: "Machine Learning Methods",
