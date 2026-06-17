@@ -4,7 +4,7 @@
 用途：
 1. 直接在 `billzi2016.github.io` 目录下启动一个本地 HTTP 服务。
 2. 解决 `file://` 打开时 MIDI 文件和前端脚本可能被浏览器拦截的问题。
-3. 让你可以用 `http://localhost:8000` 这种地址稳定预览整个网站。
+3. 让你可以用 `http://localhost:6324` 这种地址稳定预览整个网站。
 
 使用方式：
     python3 server.py
@@ -34,7 +34,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     这里只暴露两个最常用参数：
     - host：监听地址，默认本机 localhost
-    - port：监听端口，默认 8000
+    - port：监听端口，默认 6324
     """
 
     parser = argparse.ArgumentParser(description="启动个人网站的本地静态服务器。")
@@ -46,8 +46,8 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--port",
         type=int,
-        default=8000,
-        help="要监听的端口，默认是 8000。",
+        default=6324,
+        help="要监听的端口，默认是 6324。",
     )
     return parser
 

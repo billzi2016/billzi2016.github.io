@@ -6,6 +6,7 @@ const translations = {
       navExperience: "Experience",
       navProjects: "Projects",
       navPublications: "Publications",
+      navPersonalIntro: "Personal Intro",
       navMusic: "Music",
       citePaper: "Cite this paper",
       copied: "Copied",
@@ -20,6 +21,7 @@ const translations = {
       navExperience: "经历",
       navProjects: "项目",
       navPublications: "论文",
+      navPersonalIntro: "个人介绍",
       navMusic: "音乐",
       citePaper: "引用这篇论文",
       copied: "已复制",
@@ -138,6 +140,388 @@ const translations = {
         unpublishedGroupTitle: "未发表 / 准备中",
       },
     },
+    personal: {
+      en: {
+        pageTag: "A personal page beyond research and projects.",
+        personalIntroTitle: "Personal Intro",
+        hobbyTitle: "Hobby",
+        hobbyNavItems: [
+          { href: "#electronics-making", label: "Electronics Making" },
+          { href: "#piano", label: "Piano" },
+          { href: "#cheese", label: "Cheese" },
+          { href: "#juice-forward-drinks", label: "Juice-Forward Drinks" },
+        ],
+        electronicsTitle: "Electronics Making",
+        electronicsText:
+          "My electronics work ranges from discrete transistor logic to relay-driven mechanisms and CM600HA-24H IGBT-module-driven DRSSTC systems. I like discrete-component circuits with many visible parts, clean physical structure, and the visual order that comes from components arranged neatly.",
+        electronicsProjects: [
+          {
+            title: "Hardware Music Box",
+            text:
+              "A hardware music box built entirely from transistors, without integrated circuits. The interest is in making timing, switching, and sound generation work through discrete components instead of hiding the logic inside chips.",
+          },
+          {
+            title: "Relay Mechanical Clock",
+            text:
+              "A relay-based clock that uses transistors for driving and flyback diodes for relay protection, so the relays can switch reliably without damaging the driving circuit.",
+            images: [
+              {
+                src: "./assets/images/relay-clock/hexadecimal-counter-board.png",
+                caption: "Hexadecimal Counter board",
+              },
+              {
+                src: "./assets/images/relay-clock/bcd-display-decoder-board.png",
+                caption: "BCD display decoder board",
+              },
+              {
+                src: "./assets/images/relay-clock/one-hz-clock-source-board.png",
+                caption: "1 Hz clock source board",
+              },
+              {
+                src: "./assets/images/relay-clock/and-not-logic-board.png",
+                caption: "A&B / NOTA relay logic board",
+              },
+              {
+                src: "./assets/images/relay-clock/clock-adjuster-board.png",
+                caption: "Clock adjuster board",
+              },
+              {
+                src: "./assets/images/relay-clock/power-distribution-board.png",
+                caption: "Power distribution board",
+              },
+            ],
+          },
+          {
+            title: "Relay ALU",
+            text:
+              "A relay-based ALU project where Arduino handles the remaining CPU-side control while the ALU itself is implemented with relays. ULN2803 driver arrays are used to drive the relay coils cleanly from logic-level control signals.",
+            images: [
+              {
+                src: "./assets/images/relay-alu/relay-alu-front.png",
+                caption: "4-bit relay ALU PCB front side",
+              },
+              {
+                src: "./assets/images/relay-alu/relay-alu-back.png",
+                caption: "4-bit relay ALU PCB back side",
+              },
+            ],
+          },
+          {
+            title: "CM600HA-24H DRSSTC",
+            text:
+              "A Dual Resonant Solid State Tesla Coil built around CM600HA-24H IGBT modules. This project involves high-voltage resonance, power electronics, gate driving, protection circuits, tuning, and real hardware debugging.",
+          },
+        ],
+        pianoTitle: "Piano",
+        pianoIntro:
+          "I like Romantic piano music, especially Chopin and Liszt. I tend to enjoy music with a clear singing line, dramatic contrast, and enough technical brilliance to feel alive without losing lyricism.",
+        pianoGroups: [
+          {
+            title: "Mozart",
+            items: [
+              "Piano Sonata No. 11 in A major, K. 331",
+              "Piano Sonata No. 16 in C major, K. 545",
+              "Lacrimosa from Requiem, K. 626",
+            ],
+          },
+          {
+            title: "Beethoven",
+            items: [
+              "Beethoven - Piano Sonata No. 8 in C minor, Op. 13 (Pathetique)",
+              "Beethoven - Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2 (Moonlight)",
+              "Beethoven - Piano Sonata No. 17 in D minor, Op. 31 No. 2 (Tempest)",
+            ],
+          },
+          {
+            title: "Chopin",
+            items: [
+              "Nocturne Op. 9 No. 2",
+              "Nocturne Op. 9 No. 1",
+              "Nocturne Op. 55",
+              "Chopin - Nocturne Op. 48 No. 1",
+              "Waltz Op. 34",
+              "Chopin - Waltz Op. 64 No. 1",
+              "Chopin - Waltz Op. 64 No. 2",
+              "Chopin - Waltz in A minor, B. 150, Op. posth.",
+              "Grande Valse Brillante Op. 18",
+              "Fantaisie-Impromptu Op. 66",
+              "Ballade No. 1 Op. 23",
+              "Chopin - Etude Op. 10 No. 5 (Black Key)",
+              "Chopin - Etude Op. 25 No. 5 (Wrong Note)",
+              "Chopin - Etude Op. 10 No. 12 (Revolutionary)",
+              "Chopin - Etude Op. 10 No. 4 (Torrent)",
+              "Chopin - Etude Op. 10 No. 1 (Waterfall)",
+            ],
+          },
+          {
+            title: "Liszt",
+            items: [
+              "Liebestraum No. 3",
+              "Un Sospiro",
+              "Consolation No. 3",
+              "Liszt - Grandes Etudes de Paganini No. 3 (La Campanella)",
+              "Hungarian Rhapsody No. 2",
+              "Liszt - Transcendental Etude No. 4 (Mazeppa)",
+            ],
+          },
+          {
+            title: "Ragtime",
+            items: [
+              "Scott Joplin - Maple Leaf Rag",
+              "Scott Joplin - The Entertainer",
+              "Scott Joplin - Peacherine Rag",
+              "Scott Joplin - Magnetic Rag",
+              "Temptation Rag",
+              "Jelly Roll Morton - The Crave",
+              "Randy Newman - You've Got a Friend in Me",
+              "Alan Menken - Friend Like Me",
+            ],
+          },
+        ],
+        cheeseTitle: "Cheese",
+        hobbyText:
+          "One thing I enjoy is going to Kroger and looking through different cheeses. I have tried a lot, and honestly many of them taste closer to each other than people make them sound, but I still like noticing the small differences. Most of the time I use cheese for sandwiches, and I usually prefer clean, original flavors or slightly sweet ones. My current favorites are aged cheddar and Swiss.",
+        krogerCheeseTitle: "Kroger Cheese Notes",
+        krogerCheeseItems: [
+          "Aged Cheddar / Extra Sharp Cheddar: sharp, dense, nutty, and sometimes a little crystalline when aged. This is one of my current favorites.",
+          "Swiss / Emmental: mild, nutty, and easy to use in sandwiches. The classic holes make it recognizable, but I mostly like its clean taste.",
+          "Gruyere: a stronger Alpine-style cheese with nutty, savory flavor and excellent melting texture.",
+          "Brie: soft, creamy, and mild, with an edible bloomy rind. Good when paired with crackers, honey, or jam.",
+          "Gouda / Aged Gouda: young Gouda is smooth and slightly sweet; aged Gouda can become firmer, nuttier, and more caramel-like.",
+          "Parmesan / Parmigiano-Reggiano: hard, salty, and umami-heavy. I see it more as a finishing cheese for pasta, salad, or soup than a sandwich cheese.",
+          "Raclette: built for melting, rich and savory, good with potatoes or grilled sandwiches.",
+          "Fontina: mild, creamy, and very melt-friendly, useful as a base when I want a softer sandwich texture.",
+          "Goat Cheese / Chevre: tangy, soft, and fresh-tasting. Better with honey, fruit, or salad than in my usual sandwich routine.",
+          "Fresh Mozzarella / Burrata: milky and fresh; burrata is creamier inside and works best with tomato, olive oil, and basil.",
+          "Feta: salty, crumbly, and tangy, more Mediterranean-style than sandwich-style for me.",
+          "Oaxaca: stringy and melty, useful for quesadillas or hot sandwiches.",
+          "Havarti: soft, mild, and creamy, an easy everyday sandwich cheese.",
+          "Dubliner / Irish-style Cheddar: sharper and nuttier than basic cheddar, with a slight sweetness.",
+        ],
+        festivalCheeseTitle: "Cheese Festival Trial",
+        festivalCheeseItems: [
+          "Blue Cheese: I tried this at a cheese festival, not as a Kroger regular. The blue-green mold veins make it salty, funky, and much more intense. I can appreciate it, but it is too expensive and not my everyday sandwich choice.",
+        ],
+        drinkTitle: "Juice-Forward Drinks",
+        drinkIntro:
+          "I also like making light, sparkling, juice-forward drinks at home. I usually buy sparkling wine or mixers from Costco, then make something refreshing myself. The point is not heavy alcohol; I prefer drinks that taste like fruit juice first, with only a small amount of alcohol when I use it.",
+        drinkGroups: [
+          {
+            title: "Salt and Citrus",
+            items: [
+              "Paloma: tequila, lime, grapefruit soda, and a salt rim. I like the grapefruit bitterness, citrus, salt, and bubbles together.",
+              "Salty Dog: vodka or gin with grapefruit juice and a heavy salt rim. The salt makes the grapefruit taste cleaner and hides the alcohol edge.",
+              "Margarita: tequila, lime, orange liqueur, and a salt rim. I like it more as a bright citrus drink than as a strong cocktail.",
+            ],
+          },
+          {
+            title: "Sugar Rim and Sweet-Sour Balance",
+            items: [
+              "Lemon Drop Martini: vodka, lemon juice, syrup, and a sugar rim. It tastes close to a polished lemon candy when made lightly.",
+              "Sidecar: cognac, orange liqueur, lemon juice, and a sugar rim. I like the orange-jam direction, though I would still make it lighter.",
+            ],
+          },
+          {
+            title: "Fruit and Low-Alcohol",
+            items: [
+              "Yuzushu: yuzu-based Japanese fruit liqueur. It is close to umeshu in spirit, but brighter and more citrus-forward.",
+              "Sangria: wine, fruit, and sometimes soda. This fits my preference well because it is fruit-first, easy to dilute, and good for sharing.",
+              "Sparkling wine spritz: Costco sparkling wine plus fruit juice or citrus soda. This is the most practical version for me at home.",
+            ],
+          },
+        ],
+      },
+      zh: {
+        pageTag: "研究和项目之外的一点个人介绍。",
+        personalIntroTitle: "个人介绍",
+        hobbyTitle: "Hobby",
+        hobbyNavItems: [
+          { href: "#electronics-making", label: "电子制作" },
+          { href: "#piano", label: "钢琴" },
+          { href: "#cheese", label: "奶酪" },
+          { href: "#juice-forward-drinks", label: "果汁型饮料和气泡酒" },
+        ],
+        electronicsTitle: "电子制作",
+        electronicsText:
+          "我的电子制作从分立三极管逻辑、继电器机械结构，到 CM600HA-24H IGBT 模块驱动的 DRSSTC 都有涉及。我喜欢做那种分立式、有元器件数量之美、元件整齐排列的电路。",
+        electronicsProjects: [
+          {
+            title: "硬件八音盒",
+            text:
+              "全三极管实现的硬件八音盒，没有使用任何集成电路。重点是用分立元件完成时序、开关和发声逻辑，而不是把逻辑藏在芯片里。",
+          },
+          {
+            title: "纯继电器机械表",
+            text:
+              "以继电器为核心的机械表，同时使用三极管做驱动、二极管做续流保护，避免继电器切换时反冲电压损坏驱动电路。",
+            images: [
+              {
+                src: "./assets/images/relay-clock/hexadecimal-counter-board.png",
+                caption: "Hexadecimal Counter 分频 / 计数板",
+              },
+              {
+                src: "./assets/images/relay-clock/bcd-display-decoder-board.png",
+                caption: "BCD 显示译码板",
+              },
+              {
+                src: "./assets/images/relay-clock/one-hz-clock-source-board.png",
+                caption: "1 Hz 晶振时钟源板",
+              },
+              {
+                src: "./assets/images/relay-clock/and-not-logic-board.png",
+                caption: "A&B / NOTA 继电器逻辑板",
+              },
+              {
+                src: "./assets/images/relay-clock/clock-adjuster-board.png",
+                caption: "调表板",
+              },
+              {
+                src: "./assets/images/relay-clock/power-distribution-board.png",
+                caption: "电源分配板",
+              },
+            ],
+          },
+          {
+            title: "继电器 ALU",
+            text:
+              "用 Arduino 完成 CPU 其他部分的控制，ALU 本体由继电器实现，并使用 ULN2803 做继电器线圈驱动，把逻辑控制信号和继电器负载更稳定地接起来。",
+            images: [
+              {
+                src: "./assets/images/relay-alu/relay-alu-front.png",
+                caption: "4-bit 继电器 ALU PCB 正面",
+              },
+              {
+                src: "./assets/images/relay-alu/relay-alu-back.png",
+                caption: "4-bit 继电器 ALU PCB 反面",
+              },
+            ],
+          },
+          {
+            title: "CM600HA-24H DRSSTC",
+            text:
+              "围绕 CM600HA-24H IGBT 模块驱动的 DRSSTC（Dual Resonant Solid State Tesla Coil）。这类项目涉及高压谐振、电力电子、门极驱动、保护电路、调谐和实机调试。",
+          },
+        ],
+        pianoTitle: "钢琴",
+        pianoIntro:
+          "我喜欢浪漫派钢琴，尤其是 Chopin 和 Liszt。相比单纯炫技，我更喜欢旋律线清楚、情绪有起伏、技术感和歌唱性同时存在的作品。",
+        pianoGroups: [
+          {
+            title: "Mozart",
+            items: [
+              "Piano Sonata No. 11 in A major, K. 331",
+              "Piano Sonata No. 16 in C major, K. 545",
+              "Lacrimosa from Requiem, K. 626",
+            ],
+          },
+          {
+            title: "Beethoven",
+            items: [
+              "Beethoven - Piano Sonata No. 8 in C minor, Op. 13 (Pathetique)",
+              "Beethoven - Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2 (Moonlight)",
+              "Beethoven - Piano Sonata No. 17 in D minor, Op. 31 No. 2 (Tempest)",
+            ],
+          },
+          {
+            title: "Chopin",
+            items: [
+              "Nocturne Op. 9 No. 2",
+              "Nocturne Op. 9 No. 1",
+              "Nocturne Op. 55",
+              "Chopin - Nocturne Op. 48 No. 1",
+              "Waltz Op. 34",
+              "Chopin - Waltz Op. 64 No. 1",
+              "Chopin - Waltz Op. 64 No. 2",
+              "Chopin - Waltz in A minor, B. 150, Op. posth.",
+              "Grande Valse Brillante Op. 18",
+              "Fantaisie-Impromptu Op. 66",
+              "Ballade No. 1 Op. 23",
+              "Chopin - Etude Op. 10 No. 5 (Black Key)",
+              "Chopin - Etude Op. 25 No. 5 (Wrong Note)",
+              "Chopin - Etude Op. 10 No. 12 (Revolutionary)",
+              "Chopin - Etude Op. 10 No. 4 (Torrent)",
+              "Chopin - Etude Op. 10 No. 1 (Waterfall)",
+            ],
+          },
+          {
+            title: "Liszt",
+            items: [
+              "Liebestraum No. 3",
+              "Un Sospiro",
+              "Consolation No. 3",
+              "Liszt - Grandes Etudes de Paganini No. 3 (La Campanella)",
+              "Hungarian Rhapsody No. 2",
+              "Liszt - Transcendental Etude No. 4 (Mazeppa)",
+            ],
+          },
+          {
+            title: "Ragtime",
+            items: [
+              "Scott Joplin - Maple Leaf Rag",
+              "Scott Joplin - The Entertainer",
+              "Scott Joplin - Peacherine Rag",
+              "Scott Joplin - Magnetic Rag",
+              "Temptation Rag",
+              "Jelly Roll Morton - The Crave",
+              "Randy Newman - You've Got a Friend in Me",
+              "Alan Menken - Friend Like Me",
+            ],
+          },
+        ],
+        cheeseTitle: "奶酪",
+        hobbyText:
+          "我喜欢做的一件事情是去 Kroger 看各种各样的奶酪。我吃过不少，但说实话很多吃起来区别没有别人描述得那么夸张；不过我还是喜欢观察它们之间细微的差别。我大多数时候都是拿奶酪做三明治，所以最后还是更喜欢原味、干净一点的风味，或者带一点微甜的类型。目前最喜欢的是 Aged Cheddar 和 Swiss。",
+        krogerCheeseTitle: "Kroger 奶酪笔记",
+        krogerCheeseItems: [
+          "Aged Cheddar / Extra Sharp Cheddar：味道 sharp、浓、偏坚果香，陈年后有时会有一点结晶感。这是我目前最喜欢的类型之一。",
+          "Swiss / Emmental：温和、带坚果香，很适合做三明治。洞眼很有辨识度，但我主要喜欢它干净的味道。",
+          "Gruyere：更进阶一点的 Alpine 风格奶酪，坚果香和咸鲜感更明显，融化效果很好。",
+          "Brie：软质白霉奶酪，奶油感强，外皮可以吃，适合配 crackers、蜂蜜或果酱。",
+          "Gouda / Aged Gouda：年轻 Gouda 更顺滑、微甜；陈年 Gouda 会更硬，焦糖感和坚果感更明显。",
+          "Parmesan / Parmigiano-Reggiano：硬质、咸鲜、umami 很强。我更把它当成刨在 pasta、沙拉或汤上的 finishing cheese。",
+          "Raclette：典型融化型奶酪，热起来香，适合土豆或 grilled sandwich。",
+          "Fontina：温和、奶香、很会融化，适合当三明治里的柔和基底。",
+          "Goat Cheese / Chevre：羊奶酪，酸感更明显，质地柔软，适合配蜂蜜、水果或沙拉。",
+          "Fresh Mozzarella / Burrata：新鲜、奶感强；Burrata 里面更 creamy，适合番茄、橄榄油和 basil。",
+          "Feta：咸、碎、酸感明显，更偏 Mediterranean 风味，不太是我日常三明治路线。",
+          "Oaxaca：拉丝感强，适合 quesadilla 或热三明治。",
+          "Havarti：柔软、温和、奶香，是很容易接受的日常三明治奶酪。",
+          "Dubliner / Irish-style Cheddar：比普通 cheddar 更 sharp、更坚果香，还有一点微甜。",
+        ],
+        festivalCheeseTitle: "奶酪节尝试过",
+        festivalCheeseItems: [
+          "Blue Cheese / 青霉菌奶酪：这个是我在奶酪节吃到的，不算 Kroger 日常清单。蓝绿色霉纹让它更咸、更冲、更 funky。我能理解它的特点，但它太贵了，也不是我日常做三明治会优先选的类型。",
+        ],
+        drinkTitle: "果汁型饮料和气泡酒",
+        drinkIntro:
+          "我也喜欢在家自己调一点清爽、带气泡、偏果汁型的饮料。一般是从 Costco 买气泡酒、苏打或果汁类材料回来自己调。我的偏好不是重酒精，而是像果汁饮料一样好入口；就算放酒精，也通常只放很少。",
+        drinkGroups: [
+          {
+            title: "盐与柑橘",
+            items: [
+              "Paloma：龙舌兰、青柠、西柚苏打和盐边。重点是西柚的微苦、柑橘酸、盐和气泡感，不是追求酒精感。",
+              "Salty Dog：伏特加或金酒、西柚汁和厚盐边。盐会让西柚更清爽，也能把酒精边缘压下去。",
+              "Margarita：龙舌兰、青柠、橙皮利口酒和盐边。我更把它当成明亮的柑橘饮料，而不是很烈的鸡尾酒。",
+            ],
+          },
+          {
+            title: "糖边与酸甜平衡",
+            items: [
+              "Lemon Drop Martini：伏特加、柠檬汁、糖浆和糖边。调轻一点时像高级柠檬硬糖，酸甜、干净、好入口。",
+              "Sidecar：干邑、橙皮利口酒、柠檬汁和糖边。它有橘子果酱一样的酸甜方向，但我会更喜欢低酒精版本。",
+            ],
+          },
+          {
+            title: "果香与微醺",
+            items: [
+              "Yuzushu：日本柚子酒，和梅子酒是类似方向，但更清爽、更柑橘。我喜欢这种自然果香。",
+              "Sangria：红酒、水果块，有时加一点苏打。它很符合我的偏好，因为是水果优先，也容易稀释，适合分享。",
+              "Sparkling wine spritz：Costco 买的气泡酒加果汁或柑橘苏打，这是我在家最实用的版本。",
+            ],
+          },
+        ],
+      },
+    },
     music: {
       en: {
         pageTag: "A small listening room with a local shuffled audio playlist.",
@@ -172,6 +556,7 @@ const pageTitles = {
   experience: { en: "Ziqian Bi | Experience", zh: "毕梓仟 | 经历" },
   projects: { en: "Ziqian Bi | Projects", zh: "毕梓仟 | 项目" },
   publications: { en: "Ziqian Bi | Publications", zh: "毕梓仟 | 论文" },
+  personal: { en: "Ziqian Bi | Personal Intro", zh: "毕梓仟 | 个人介绍" },
   music: { en: "Ziqian Bi | Music", zh: "毕梓仟 | 音乐" },
 };
 
@@ -431,6 +816,117 @@ function renderHome(lang) {
       <h2 class="section-title">${escapeHtml(translations.page.home[lang].aiSkillsTitle)}</h2>
       <p class="section-note">${escapeHtml(translations.page.home[lang].aiSkillsNote)}</p>
       ${buildAiSkillBlocks(lang)}
+    </section>
+  `;
+}
+
+function renderPersonal(lang) {
+  const host = document.getElementById("page-content");
+  if (!host) return;
+  const page = translations.page.personal[lang];
+  const krogerCheeseItems = page.krogerCheeseItems
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join("");
+  const festivalCheeseItems = page.festivalCheeseItems
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join("");
+  const hobbyNavItems = page.hobbyNavItems
+    .map(
+      (item) => `
+        <li><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>
+      `,
+    )
+    .join("");
+  const electronicsProjects = page.electronicsProjects
+    .map((project) => {
+      const projectImages = project.images
+        ? `
+          <div class="project-image-grid">
+            ${project.images
+              .map(
+                (image) => `
+                  <figure class="project-image">
+                    <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.caption)}" loading="lazy" />
+                    <figcaption>${escapeHtml(image.caption)}</figcaption>
+                  </figure>
+                `,
+              )
+              .join("")}
+          </div>
+        `
+        : "";
+      return `
+        <div class="home-panel">
+          <h3>${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.text)}</p>
+          ${projectImages}
+        </div>
+      `;
+    })
+    .join("");
+  const pianoGroups = page.pianoGroups
+    .map(
+      (group) => `
+        <div class="home-panel">
+          <h3>${escapeHtml(group.title)}</h3>
+          <ul class="plain-list">
+            ${group.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+      `,
+    )
+    .join("");
+  const drinkGroups = page.drinkGroups
+    .map(
+      (group) => `
+        <div class="home-panel">
+          <h3>${escapeHtml(group.title)}</h3>
+          <ul class="plain-list">
+            ${group.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+      `,
+    )
+    .join("");
+  host.innerHTML = `
+    <section>
+      <h2 class="section-title">${escapeHtml(page.hobbyTitle)}</h2>
+      <div class="home-panel">
+        <ul class="hobby-nav-list">${hobbyNavItems}</ul>
+      </div>
+    </section>
+    <section id="electronics-making">
+      <h2 class="section-title">${escapeHtml(page.electronicsTitle)}</h2>
+      <div class="home-panel">
+        <p>${escapeHtml(page.electronicsText)}</p>
+      </div>
+      <div class="home-grid">${electronicsProjects}</div>
+    </section>
+    <section id="piano">
+      <h2 class="section-title">${escapeHtml(page.pianoTitle)}</h2>
+      <div class="home-panel">
+        <p>${escapeHtml(page.pianoIntro)}</p>
+      </div>
+      <div class="home-grid">${pianoGroups}</div>
+    </section>
+    <section id="cheese">
+      <h2 class="section-title">${escapeHtml(page.cheeseTitle)}</h2>
+      <div class="home-panel">
+        <h3>${escapeHtml(page.krogerCheeseTitle)}</h3>
+        <p>${escapeHtml(page.hobbyText)}</p>
+        <ul class="plain-list">${krogerCheeseItems}</ul>
+      </div>
+      <div class="home-panel">
+        <h3>${escapeHtml(page.festivalCheeseTitle)}</h3>
+        <ul class="plain-list">${festivalCheeseItems}</ul>
+      </div>
+    </section>
+    <section id="juice-forward-drinks">
+      <h2 class="section-title">${escapeHtml(page.drinkTitle)}</h2>
+      <div class="home-panel">
+        <p>${escapeHtml(page.drinkIntro)}</p>
+      </div>
+      <div class="home-grid">${drinkGroups}</div>
     </section>
   `;
 }
@@ -1143,6 +1639,7 @@ function renderPageContent(lang) {
   if (pageKey === "experience") renderExperience(lang);
   if (pageKey === "projects") renderProjects(lang);
   if (pageKey === "publications") renderPublications(lang);
+  if (pageKey === "personal") renderPersonal(lang);
   if (pageKey === "music") renderMusic(lang);
 }
 
