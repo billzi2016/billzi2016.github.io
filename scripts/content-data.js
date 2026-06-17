@@ -141,8 +141,8 @@ window.siteContent = {
       {
         labelEn: "AI-Augmented Data Science and MLOps",
         labelZh: "AI 辅助数据科学与 MLOps",
-        valueEn: "Polars, SciPy, Optuna, MLflow, Grafana, Prometheus",
-        valueZh: "Polars、SciPy、Optuna、MLflow、Grafana、Prometheus",
+        valueEn: "Polars, SciPy, Optuna, MLflow, Streamlit, Gradio, Grafana, Prometheus",
+        valueZh: "Polars、SciPy、Optuna、MLflow、Streamlit、Gradio、Grafana、Prometheus",
       },
       {
         labelEn: "Machine Learning Methods",
