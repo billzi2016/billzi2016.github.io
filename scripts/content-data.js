@@ -97,6 +97,14 @@ window.siteContent = {
         valueZh: "LangChain、LangGraph、Pydantic-AI、Pydantic Graph",
       },
       {
+        labelEn: "API and Real-Time Communication",
+        labelZh: "API 与实时通信",
+        valueEn:
+          "GraphQL, gRPC, tRPC, RESTful API, Swagger / OpenAPI, WebRTC, WebSocket",
+        valueZh:
+          "GraphQL、gRPC、tRPC、RESTful API、Swagger / OpenAPI、WebRTC、WebSocket",
+      },
+      {
         labelEn: "Large Language Model (LLM) Deployment and Model Runtime",
         labelZh: "大语言模型（Large Language Model, LLM）部署与模型运行时",
         valueEn:
