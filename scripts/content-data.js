@@ -74,8 +74,10 @@ window.siteContent = {
         {
           labelEn: "Libraries",
           labelZh: "库",
-          valueEn: "NumPy, Pandas, Scikit-learn, XGBoost, AutoGluon, OpenCV, VTK, Mayavi",
-          valueZh: "NumPy、Pandas、Scikit-learn、XGBoost、AutoGluon、OpenCV、VTK、Mayavi",
+          valueEn:
+            "NumPy, SciPy, Pandas, Polars, Scikit-learn, XGBoost, AutoGluon, SHAP, Optuna, MLflow, OpenCV, SimpleITK, NiBabel, VTK, Mayavi, MONAI",
+          valueZh:
+            "NumPy、SciPy、Pandas、Polars、Scikit-learn、XGBoost、AutoGluon、SHAP、Optuna、MLflow、OpenCV、SimpleITK、NiBabel、VTK、Mayavi、MONAI",
         },
       ],
     },
@@ -112,23 +114,37 @@ window.siteContent = {
         labelEn: "Neural Network and Vision Architectures",
         labelZh: "神经网络与视觉架构",
         valueEn:
-          "ResNet, VGG, YOLO, ViT, CLIP, BLIP, SAM, Point Transformer, Diffusion Transformer (DiT), Latent Diffusion Model (LDM), U-Net, Transformer, Mamba, RWKV, NeRF, SLAM, 3D Gaussian Splatting",
+          "ResNet, VGG, YOLO, ViT, CLIP, BLIP, SAM, Point Transformer, Diffusion Transformer (DiT), Latent Diffusion Model (LDM), U-Net, Transformer, Mamba, RWKV, MoE, Masked Autoencoder (MAE), Vision Mamba, Swin Transformer, ConvNeXt, NeRF, SLAM, 3D Gaussian Splatting",
         valueZh:
-          "ResNet、VGG、YOLO、ViT、CLIP、BLIP、SAM、Point Transformer、Diffusion Transformer（DiT）、Latent Diffusion Model（LDM）、U-Net、Transformer、Mamba、RWKV、NeRF、SLAM、3D Gaussian Splatting",
+          "ResNet、VGG、YOLO、ViT、CLIP、BLIP、SAM、Point Transformer、Diffusion Transformer（DiT）、Latent Diffusion Model（LDM）、U-Net、Transformer、Mamba、RWKV、MoE、Masked Autoencoder（MAE）、Vision Mamba、Swin Transformer、ConvNeXt、NeRF、SLAM、3D Gaussian Splatting",
       },
       {
         labelEn: "Foundation Models and LLM Families",
         labelZh: "基础模型与大模型家族",
         valueEn:
-          "Llama, DeepSeek, Qwen, Kimi, GPT, Claude, Gemini, Mistral, Mixtral, GLM, InternLM, Yi, Phi, Gemma, Stable Diffusion",
+          "Llama, DeepSeek, Qwen, Kimi, GPT, Claude, Gemini, Mistral, Mixtral, GLM, InternLM, Yi, Phi, Gemma, Stable Diffusion, MiniMax, Nemotron, LLaVA, Qwen-VL, InternVL, DeepSeek-OCR, GLM-OCR",
         valueZh:
-          "Llama、DeepSeek、Qwen、Kimi、GPT、Claude、Gemini、Mistral、Mixtral、GLM、InternLM、Yi、Phi、Gemma、Stable Diffusion",
+          "Llama、DeepSeek、Qwen、Kimi、GPT、Claude、Gemini、Mistral、Mixtral、GLM、InternLM、Yi、Phi、Gemma、Stable Diffusion、MiniMax、Nemotron、LLaVA、Qwen-VL、InternVL、DeepSeek-OCR、GLM-OCR",
       },
       {
         labelEn: "Acceleration and AI Compute",
         labelZh: "加速与 AI 计算",
-        valueEn: "CUDA, CANN",
-        valueZh: "CUDA、CANN",
+        valueEn: "CUDA, CANN, MPS, Multi-processing, DeepSpeed, Ray",
+        valueZh: "CUDA、CANN、MPS、多进程、DeepSpeed、Ray",
+      },
+      {
+        labelEn: "Medical Imaging and Neuroimaging Tools",
+        labelZh: "医学影像与神经影像工具",
+        valueEn: "FreeSurfer, FSL",
+        valueZh: "FreeSurfer、FSL",
+      },
+      {
+        labelEn: "Machine Learning Methods",
+        labelZh: "机器学习方法",
+        valueEn:
+          "Linear Regression, Logistic Regression, Support Vector Machine (SVM), k-Nearest Neighbors (k-NN), Naive Bayes, Decision Tree, Random Forest, Gradient Boosting, XGBoost, LightGBM, CatBoost, PCA, t-SNE, UMAP, K-Means, DBSCAN",
+        valueZh:
+          "线性回归、逻辑回归、支持向量机（SVM）、k 近邻（k-NN）、朴素贝叶斯、决策树、随机森林、梯度提升、XGBoost、LightGBM、CatBoost、PCA、t-SNE、UMAP、K-Means、DBSCAN",
       },
       {
         labelEn: "AI-Assisted Learning and Development",
