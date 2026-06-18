@@ -154,7 +154,9 @@ const translations = {
         ],
         aiArchitectTitle: "AI Full-Stack Architect",
         aiArchitectText:
-          "One of my current long-term hobbies is training myself into an AI full-stack architect: using AI-assisted engineering through TDD, SDD, and verification-driven workflows, rather than vibe coding or intuition-only programming, to produce industrial-grade code and to design, build, verify, and maintain complete internet technology infrastructure end to end, from product logic and frontend interfaces to backend services, deployment, observability, automation, and long-term operations.",
+          "One of my current long-term hobbies is training myself into an AI full-stack architect: using AI-assisted engineering through TDD, SDD, and verification-driven workflows, rather than vibe coding or intuition-only programming, to produce industrial-grade code and to design, build, verify, and maintain complete internet technology infrastructure end to end, from product logic and frontend interfaces to backend services, deployment, observability, automation, and long-term operations. Since May 2025, I have used AI tools at high intensity and built substantial AI-Augmented Engineering Scope collaboration experience. I have directly encountered many recurring failure modes in AI-assisted engineering, so my focus is on clear specifications, careful review, debugging, integration, and verification instead of simply accepting generated code.",
+        aiArchitectTokenCaption:
+          "Monthly token usage on my personal account since May 2025, reflecting sustained AI-augmented engineering practice.",
         electronicsTitle: "Electronics Making",
         electronicsText:
           "My electronics work ranges from discrete transistor logic to relay-driven mechanisms and CM600HA-24H IGBT-module-driven DRSSTC systems. I like discrete-component circuits with many visible parts, clean physical structure, and the visual order that comes from components arranged neatly.",
@@ -404,7 +406,9 @@ const translations = {
         ],
         aiArchitectTitle: "AI 全栈架构师",
         aiArchitectText:
-          "我现在的一个长期爱好，是把自己训练成 AI 全栈架构师：借助 AI 辅助工程能力，通过 TDD、SDD 和验证驱动的工程流程，而不是 vibe coding 或凭感觉编程，产出工业级代码，并从产品逻辑、前端界面、后端服务、部署、可观测性、自动化到长期运维，完成整套互联网技术设施的设计、搭建、验证和维护。",
+          "我现在的一个长期爱好，是把自己训练成 AI 全栈架构师：借助 AI 辅助工程能力，通过 TDD、SDD 和验证驱动的工程流程，而不是 vibe coding 或凭感觉编程，产出工业级代码，并从产品逻辑、前端界面、后端服务、部署、可观测性、自动化到长期运维，完成整套互联网技术设施的设计、搭建、验证和维护。从 2025 年 5 月开始，我就以高强度方式使用 AI 工具，积累了充分的 AI-Augmented Engineering Scope 合作经验。很多 AI 辅助工程中常见的问题和失效模式，我都已经在实际协作中反复遇到过，因此我的重点不是简单接受生成代码，而是进行清晰规格定义、审查、调试、集成和验证。",
+        aiArchitectTokenCaption:
+          "自 2025 年 5 月以来个人账号的月度 token 使用量，体现持续的 AI 辅助工程实践。",
         electronicsTitle: "电子制作",
         electronicsText:
           "我的电子制作从分立三极管逻辑、继电器机械结构，到 CM600HA-24H IGBT 模块驱动的 DRSSTC 都有涉及。我喜欢做那种分立式、有元器件数量之美、元件整齐排列的电路。",
@@ -1038,6 +1042,14 @@ function renderPersonal(lang) {
       <h2 class="section-title">${escapeHtml(page.aiArchitectTitle)}</h2>
       <div class="home-panel">
         <p>${escapeHtml(page.aiArchitectText)}</p>
+        <figure class="project-image ai-token-image">
+          <button class="project-image-button" type="button" data-lightbox-src="./assets/images/token-by-month.png" data-lightbox-caption="${escapeHtml(
+            page.aiArchitectTokenCaption,
+          )}" aria-label="${escapeHtml(page.aiArchitectTokenCaption)}">
+            <img src="./assets/images/token-by-month.png" alt="${escapeHtml(page.aiArchitectTokenCaption)}" loading="lazy" />
+          </button>
+          <figcaption>${escapeHtml(page.aiArchitectTokenCaption)}</figcaption>
+        </figure>
       </div>
     </section>
     <section id="piano">

@@ -1084,6 +1084,15 @@ section {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.ai-token-image {
+  max-width: 680px;
+  margin-top: 18px;
+}
+
+.ai-token-image .project-image-button img {
+  aspect-ratio: auto;
+}
+
 .project-image-button:focus-visible img {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
