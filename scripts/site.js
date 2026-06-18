@@ -189,6 +189,26 @@ const translations = {
                 src: "./assets/images/relay-clock/power-distribution-board.png",
                 caption: "Power distribution board",
               },
+              {
+                src: "./assets/images/relay-clock/1.jpg",
+                caption: "Relay clock top view with display and adjuster boards",
+              },
+              {
+                src: "./assets/images/relay-clock/2.jpg",
+                caption: "Stacked relay clock assembly side view",
+              },
+              {
+                src: "./assets/images/relay-clock/3.jpg",
+                caption: "Front view of the relay clock module stack",
+              },
+              {
+                src: "./assets/images/relay-clock/4.jpg",
+                caption: "Relay clock running inside the acrylic enclosure",
+              },
+              {
+                src: "./assets/images/relay-clock/5.jpg",
+                caption: "Relay clock powered on inside the acrylic enclosure",
+              },
             ],
           },
           {
@@ -378,6 +398,26 @@ const translations = {
               {
                 src: "./assets/images/relay-clock/power-distribution-board.png",
                 caption: "电源分配板",
+              },
+              {
+                src: "./assets/images/relay-clock/1.jpg",
+                caption: "继电器机械表显示板与调表板俯视图",
+              },
+              {
+                src: "./assets/images/relay-clock/2.jpg",
+                caption: "继电器机械表多层结构侧视图",
+              },
+              {
+                src: "./assets/images/relay-clock/3.jpg",
+                caption: "继电器机械表模块堆叠正面图",
+              },
+              {
+                src: "./assets/images/relay-clock/4.jpg",
+                caption: "透明亚克力外壳内的通电运行状态",
+              },
+              {
+                src: "./assets/images/relay-clock/5.jpg",
+                caption: "透明亚克力外壳内通电运行的继电器机械表",
               },
             ],
           },
