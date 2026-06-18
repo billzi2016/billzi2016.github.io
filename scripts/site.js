@@ -230,6 +230,32 @@ const translations = {
             title: "CM600HA-24H DRSSTC",
             text:
               "A Dual Resonant Solid State Tesla Coil built around CM600HA-24H IGBT modules. This project involves high-voltage resonance, power electronics, gate driving, protection circuits, tuning, and real hardware debugging.",
+            images: [
+              {
+                src: "./assets/images/drsstc/1.jpg",
+                caption: "Full DRSSTC assembly with toroidal top load and secondary coil",
+              },
+              {
+                src: "./assets/images/drsstc/2.jpg",
+                caption: "Full-height DRSSTC view showing the large toroid and base assembly",
+              },
+              {
+                src: "./assets/images/drsstc/3.jpg",
+                caption: "Heavy power stage with IGBT module, heatsink, breaker, and analog meters",
+              },
+              {
+                src: "./assets/images/drsstc/4.jpg",
+                caption: "DC bus section with large electrolytic capacitors and heavy wiring",
+              },
+              {
+                src: "./assets/images/drsstc/5.jpg",
+                caption: "Dawn / Tianming DTR resonant capacitor bank with copper busbars",
+              },
+              {
+                src: "./assets/images/drsstc/6.jpg",
+                caption: "Primary power wiring with busbars, gate-drive wiring, and current transformer",
+              },
+            ],
           },
         ],
         pianoTitle: "Piano",
@@ -440,6 +466,32 @@ const translations = {
             title: "CM600HA-24H DRSSTC",
             text:
               "围绕 CM600HA-24H IGBT 模块驱动的 DRSSTC（Dual Resonant Solid State Tesla Coil）。这类项目涉及高压谐振、电力电子、门极驱动、保护电路、调谐和实机调试。",
+            images: [
+              {
+                src: "./assets/images/drsstc/1.jpg",
+                caption: "带环形顶端负载和次级线圈的 DRSSTC 整机",
+              },
+              {
+                src: "./assets/images/drsstc/2.jpg",
+                caption: "展示大型顶端负载和底座结构的 DRSSTC 全高视图",
+              },
+              {
+                src: "./assets/images/drsstc/3.jpg",
+                caption: "包含 IGBT 模块、散热器、断路器和指针表的重型功率级",
+              },
+              {
+                src: "./assets/images/drsstc/4.jpg",
+                caption: "大型电解电容和重载布线组成的直流母线区域",
+              },
+              {
+                src: "./assets/images/drsstc/5.jpg",
+                caption: "使用铜排连接的天明 DTR 谐振电容组",
+              },
+              {
+                src: "./assets/images/drsstc/6.jpg",
+                caption: "包含铜排、门极驱动线和电流互感器的初级功率布线",
+              },
+            ],
           },
         ],
         pianoTitle: "钢琴",
