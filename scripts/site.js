@@ -227,6 +227,11 @@ const translations = {
             ],
           },
           {
+            title: "IRFP260N ZVS High-Frequency Driver",
+            text:
+              "A ZVS high-frequency driver built with IRFP260N TO-247 power MOSFETs, used for high-current resonant drive and induction-heating-style experiments. The project focuses on power device selection, resonant tank behavior, thermal handling, and heavy-current wiring.",
+          },
+          {
             title: "CM600HA-24H DRSSTC",
             text:
               "A Dual Resonant Solid State Tesla Coil built around CM600HA-24H IGBT modules. This project involves high-voltage resonance, power electronics, gate driving, protection circuits, tuning, and real hardware debugging.",
@@ -256,6 +261,11 @@ const translations = {
                 caption: "Primary power wiring with busbars, gate-drive wiring, and current transformer",
               },
             ],
+          },
+          {
+            title: "CM600HA-24H VVVF",
+            text:
+              "A VVVF inverter project based on CM600HA-24H IGBT modules, covering three-phase inversion, PWM modulation, DC bus power, gate driving, and motor-control debugging. This project leans toward heavy industrial power electronics.",
           },
         ],
         pianoTitle: "Piano",
@@ -463,6 +473,11 @@ const translations = {
             ],
           },
           {
+            title: "IRFP260N ZVS 高频驱动",
+            text:
+              "基于 IRFP260N TO-247 封装功率 MOSFET 的 ZVS 高频驱动电路，用于大电流谐振驱动和感应加热类实验。这个项目重点在功率器件选型、谐振网络、散热和大电流布线。",
+          },
+          {
             title: "CM600HA-24H DRSSTC",
             text:
               "围绕 CM600HA-24H IGBT 模块驱动的 DRSSTC（Dual Resonant Solid State Tesla Coil）。这类项目涉及高压谐振、电力电子、门极驱动、保护电路、调谐和实机调试。",
@@ -492,6 +507,11 @@ const translations = {
                 caption: "包含铜排、门极驱动线和电流互感器的初级功率布线",
               },
             ],
+          },
+          {
+            title: "CM600HA-24H VVVF",
+            text:
+              "基于 CM600HA-24H IGBT 模块的 VVVF 变频驱动项目，围绕三相逆变、PWM 调制、母线供电、门极驱动和电机控制调试展开。这个项目更偏向重型工业功率电子设备。",
           },
         ],
         pianoTitle: "钢琴",
@@ -938,7 +958,13 @@ function renderPersonal(lang) {
               .map(
                 (image) => `
                   <figure class="project-image">
-                    <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.caption)}" loading="lazy" />
+                    <button class="project-image-button" type="button" data-lightbox-src="${escapeHtml(
+                      image.src,
+                    )}" data-lightbox-caption="${escapeHtml(image.caption)}" aria-label="${escapeHtml(
+                      image.caption,
+                    )}">
+                      <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.caption)}" loading="lazy" />
+                    </button>
                     <figcaption>${escapeHtml(image.caption)}</figcaption>
                   </figure>
                 `,
@@ -947,10 +973,16 @@ function renderPersonal(lang) {
           </div>
         `
         : "";
+      const donatedNote = project.images
+        ? ""
+        : `<p class="project-donation-note">${
+            lang === "zh" ? "已捐赠给北京工业大学" : "Donated to Beijing University of Technology."
+          }</p>`;
       return `
         <div class="home-panel">
           <h3>${escapeHtml(project.title)}</h3>
           <p>${escapeHtml(project.text)}</p>
+          ${donatedNote}
           ${projectImages}
         </div>
       `;
@@ -1170,6 +1202,50 @@ function updateMidiOutputLevel() {
   }
 }
 
+function formatMusicTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+
+  const totalSeconds = Math.floor(seconds);
+  const minutes = Math.floor(totalSeconds / 60);
+  const remainingSeconds = totalSeconds % 60;
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
+function updateMusicProgress() {
+  const player = getActiveMidiPlayer();
+  const progress = document.getElementById("music-progress");
+  const elapsed = document.getElementById("music-progress-elapsed");
+  const duration = document.getElementById("music-progress-duration");
+
+  if (!player || !progress) return;
+
+  const trackDuration = Number.isFinite(player.duration) ? player.duration : 0;
+  const currentTime = Number.isFinite(player.currentTime) ? player.currentTime : 0;
+  progress.max = trackDuration > 0 ? String(Math.floor(trackDuration)) : "0";
+  progress.value = trackDuration > 0 ? String(Math.min(Math.floor(currentTime), Math.floor(trackDuration))) : "0";
+
+  if (elapsed) elapsed.textContent = formatMusicTime(currentTime);
+  if (duration) duration.textContent = formatMusicTime(trackDuration);
+}
+
+function bindMusicProgressControls() {
+  const progress = document.getElementById("music-progress");
+  const player = getActiveMidiPlayer();
+  if (!progress || !player || progress.dataset.bound === "true") return;
+
+  progress.addEventListener("input", (event) => {
+    const nextTime = Number(event.target.value || "0");
+    if (Number.isFinite(nextTime)) {
+      player.currentTime = nextTime;
+      updateMusicProgress();
+      saveMusicPlaybackState();
+    }
+  });
+
+  progress.dataset.bound = "true";
+  updateMusicProgress();
+}
+
 function pickRandomTrackIndex() {
   const tracks = musicLibrary.tracks || [];
   if (tracks.length <= 1) return 0;
@@ -1195,6 +1271,7 @@ function updateMusicPanel(lang) {
   if (metaHost) metaHost.textContent = getMusicComposerLabel(current, lang);
   if (slider) slider.value = String(Math.round(musicState.volume * 100));
   if (volumeValue) volumeValue.textContent = `${Math.round(musicState.volume * 100)}%`;
+  updateMusicProgress();
 
   document.querySelectorAll(".playlist-item").forEach((button, index) => {
     button.classList.toggle("is-active", index === musicState.currentIndex);
@@ -1257,6 +1334,11 @@ function ensureFloatingMusicWidget() {
         <div class="music-mini-controls">
           <button id="music-play-toggle" class="pub-copy-btn" type="button">Play</button>
           <button id="music-random" class="pub-copy-btn" type="button">Shuffle Next</button>
+        </div>
+        <div class="music-progress-row">
+          <span id="music-progress-elapsed" class="music-progress-time music-progress-elapsed">0:00</span>
+          <input id="music-progress" class="music-progress" type="range" min="0" max="0" step="1" value="0" aria-label="Playback progress" />
+          <span id="music-progress-duration" class="music-progress-time">0:00</span>
         </div>
         <div class="music-volume-row">
           <label id="music-volume-label" class="music-volume-label" for="music-volume">Volume</label>
@@ -1372,6 +1454,7 @@ function initFloatingMusicWidget() {
   player.src = tracks[musicState.currentIndex].file;
   player.load();
   setMidiVolume(musicState.volume);
+  bindMusicProgressControls();
   setMusicWidgetOpen(true);
 
   playToggle?.addEventListener("click", () => {
@@ -1408,7 +1491,11 @@ function initFloatingMusicWidget() {
       musicState.shouldResume = false;
     }
     updateMusicPanel(localStorage.getItem("site-lang") || "en");
+    updateMusicProgress();
   });
+
+  player.addEventListener("timeupdate", updateMusicProgress);
+  player.addEventListener("durationchange", updateMusicProgress);
 
   player.addEventListener("play", () => {
     if (musicState.saveTimer) window.clearInterval(musicState.saveTimer);
@@ -1449,6 +1536,7 @@ function bindMusicPage(lang) {
   player.src = tracks[musicState.currentIndex].file;
   player.load();
   setMidiVolume(musicState.volume);
+  bindMusicProgressControls();
   updateMusicPanel(lang);
 
   const prevBtn = document.getElementById("music-prev");
@@ -1490,7 +1578,10 @@ function bindMusicPage(lang) {
 
   player.addEventListener("loadedmetadata", () => {
     updateMidiOutputLevel();
+    updateMusicProgress();
   });
+  player.addEventListener("timeupdate", updateMusicProgress);
+  player.addEventListener("durationchange", updateMusicProgress);
 }
 
 function renderMusic(lang) {
@@ -1526,6 +1617,11 @@ function renderMusic(lang) {
           </div>
           <div class="music-player-wrap">
             <audio id="audio-player" class="music-page-audio" controls preload="metadata"></audio>
+            <div class="music-progress-row">
+              <span id="music-progress-elapsed" class="music-progress-time">0:00</span>
+              <input id="music-progress" class="music-progress" type="range" min="0" max="0" step="1" value="0" aria-label="Playback progress" />
+              <span id="music-progress-duration" class="music-progress-time">0:00</span>
+            </div>
           </div>
           <div class="music-controls">
             <button id="music-prev" class="pub-copy-btn" type="button">${escapeHtml(
@@ -2013,6 +2109,7 @@ function applyLanguage(lang) {
   }
 
   renderPageContent(lang);
+  bindProjectImageButtons();
   updateFloatingMusicWidget(lang);
   updateSiteSearchLanguage(lang);
 }
@@ -2039,6 +2136,79 @@ function bindHeaderControls() {
   }
 }
 
+function closeProjectImageLightbox() {
+  const lightbox = document.querySelector(".project-lightbox");
+  if (!lightbox) return;
+  lightbox.remove();
+  document.body.classList.remove("project-lightbox-open");
+}
+
+function openProjectImageLightbox(src, caption) {
+  closeProjectImageLightbox();
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "project-lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.style.cssText =
+    "position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:56px 24px 24px;background:rgba(10,14,18,0.9);cursor:zoom-out;overflow:hidden;";
+  lightbox.innerHTML = `
+    <button class="project-lightbox-close" type="button" aria-label="Close image" style="position:fixed;top:16px;right:16px;z-index:2147483647;width:64px;height:64px;border:1px solid rgba(255,255,255,0.48);border-radius:999px;color:#fff;background:rgba(0,0,0,0.42);font-size:3rem;line-height:1;cursor:pointer;">×</button>
+    <figure class="project-lightbox-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:calc(100vw - 48px);max-height:calc(100vh - 80px);margin:0;cursor:auto;">
+      <img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}" style="display:block;width:auto;height:auto;max-width:100%;max-height:calc(100vh - 112px);object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.95);" />
+      <figcaption style="display:block;flex:0 0 auto;max-width:100%;margin-top:12px;color:#fff;font-size:1rem;line-height:1.4;text-align:center;overflow-wrap:anywhere;">${escapeHtml(caption)}</figcaption>
+    </figure>
+  `;
+  document.body.appendChild(lightbox);
+  document.body.classList.add("project-lightbox-open");
+}
+
+function bindProjectImageButtons() {
+  document.querySelectorAll(".project-image-button").forEach((button) => {
+    if (button.dataset.lightboxBound === "true") return;
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openProjectImageLightbox(button.dataset.lightboxSrc, button.dataset.lightboxCaption);
+    });
+    button.dataset.lightboxBound = "true";
+  });
+}
+
+function initProjectImageLightbox() {
+  if (document.body.dataset.projectLightboxBound === "true") return;
+
+  document.addEventListener("click", (event) => {
+    const imageButton = event.target.closest(".project-image-button");
+    if (imageButton) {
+      openProjectImageLightbox(imageButton.dataset.lightboxSrc, imageButton.dataset.lightboxCaption);
+      return;
+    }
+
+    if (event.target.closest(".project-lightbox-close")) {
+      closeProjectImageLightbox();
+      return;
+    }
+
+    const lightbox = event.target.closest(".project-lightbox");
+    if (!lightbox) return;
+
+    const clickedMedia = event.target.closest(".project-lightbox-content img, .project-lightbox-content figcaption");
+    if (!clickedMedia) {
+      closeProjectImageLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeProjectImageLightbox();
+    }
+  });
+
+  document.body.dataset.projectLightboxBound = "true";
+}
+
 // 通过 localhost 运行时，统一从 partial 加载页头，避免每个页面重复维护。
 async function loadSharedHeader() {
   const slot = document.getElementById("shared-header-slot");
@@ -2061,6 +2231,7 @@ async function bootstrapSite() {
   bindHeaderControls();
   syncNavState();
   initFloatingMusicWidget();
+  initProjectImageLightbox();
   ensureLanguageSwitchMarkup();
   applyTheme(localStorage.getItem("site-theme") || "light");
   applyLanguage(localStorage.getItem("site-lang") || "en");
