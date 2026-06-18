@@ -1445,7 +1445,7 @@ body.dark-theme .pub-copy-btn.is-copied {
 .music-widget .music-progress-row,
 .music-widget .music-volume-row {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr) 38px;
+  grid-template-columns: 56px minmax(0, 1fr) 38px;
   align-items: center;
   gap: 8px;
 }
