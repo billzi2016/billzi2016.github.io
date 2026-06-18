@@ -1743,6 +1743,10 @@ body.dark-theme .music-player-wrap {
   accent-color: var(--accent);
 }
 
+.music-progress {
+  accent-color: #38bdf8;
+}
+
 .playlist-list {
   margin: 0;
   padding-left: 0;

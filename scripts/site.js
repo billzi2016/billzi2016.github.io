@@ -146,11 +146,15 @@ const translations = {
         personalIntroTitle: "Personal Intro",
         hobbyTitle: "Hobby",
         hobbyNavItems: [
+          { href: "#ai-full-stack-architect", label: "AI Full-Stack Architect" },
           { href: "#electronics-making", label: "Electronics Making" },
           { href: "#piano", label: "Piano" },
           { href: "#cheese", label: "Cheese" },
           { href: "#juice-forward-drinks", label: "Juice-Forward Drinks" },
         ],
+        aiArchitectTitle: "AI Full-Stack Architect",
+        aiArchitectText:
+          "One of my current long-term hobbies is becoming an AI full-stack architect: using AI-assisted engineering to design, build, verify, and maintain complete internet technology infrastructure end to end, from product logic and frontend interfaces to backend services, deployment, observability, automation, and long-term operations.",
         electronicsTitle: "Electronics Making",
         electronicsText:
           "My electronics work ranges from discrete transistor logic to relay-driven mechanisms and CM600HA-24H IGBT-module-driven DRSSTC systems. I like discrete-component circuits with many visible parts, clean physical structure, and the visual order that comes from components arranged neatly.",
@@ -392,11 +396,15 @@ const translations = {
         personalIntroTitle: "个人介绍",
         hobbyTitle: "Hobby",
         hobbyNavItems: [
+          { href: "#ai-full-stack-architect", label: "AI 全栈架构师" },
           { href: "#electronics-making", label: "电子制作" },
           { href: "#piano", label: "钢琴" },
           { href: "#cheese", label: "奶酪" },
           { href: "#juice-forward-drinks", label: "果汁型饮料和气泡酒" },
         ],
+        aiArchitectTitle: "AI 全栈架构师",
+        aiArchitectText:
+          "我现在的一个长期爱好，是把自己训练成 AI 全栈架构师：借助 AI 辅助工程能力，从产品逻辑、前端界面、后端服务、部署、可观测性、自动化到长期运维，完成整套互联网技术设施的设计、搭建、验证和维护。",
         electronicsTitle: "电子制作",
         electronicsText:
           "我的电子制作从分立三极管逻辑、继电器机械结构，到 CM600HA-24H IGBT 模块驱动的 DRSSTC 都有涉及。我喜欢做那种分立式、有元器件数量之美、元件整齐排列的电路。",
@@ -1017,6 +1025,12 @@ function renderPersonal(lang) {
       <h2 class="section-title">${escapeHtml(page.hobbyTitle)}</h2>
       <div class="home-panel">
         <ul class="hobby-nav-list">${hobbyNavItems}</ul>
+      </div>
+    </section>
+    <section id="ai-full-stack-architect">
+      <h2 class="section-title">${escapeHtml(page.aiArchitectTitle)}</h2>
+      <div class="home-panel">
+        <p>${escapeHtml(page.aiArchitectText)}</p>
       </div>
     </section>
     <section id="electronics-making">
