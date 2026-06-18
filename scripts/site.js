@@ -36,7 +36,7 @@ const translations = {
     home: {
       en: {
         lead:
-          "I am a Ph.D. candidate working across Large Language Models (LLMs), multimodal Artificial Intelligence (AI), medical AI, sensing security, embedded hardware, sensing platforms, intelligent manufacturing systems, Machine Learning (ML) systems, and end-to-end AI deployment. I am most interested in roles that require both research depth and engineering execution: Research Engineer, Applied Scientist, ML Engineer, LLM / AI Systems, hardware AI, and intelligent manufacturing systems roles. My background also combines model development, system optimization, retrieval pipelines, embedded integration, hardware-aware experimentation, and bilingual communication for AI products, intelligent systems, manufacturing, and research.",
+          'I am a Ph.D. candidate working across <strong>Large Language Models (LLMs)</strong>, <strong>multimodal Artificial Intelligence (AI)</strong>, medical AI, sensing security, embedded hardware, sensing platforms, <strong>intelligent manufacturing systems</strong>, Machine Learning (ML) systems, and end-to-end AI deployment. <span class="lead-role-line"><strong>Target roles:</strong> Research Engineer, Applied Scientist, ML Engineer, LLM / AI Systems, hardware AI, and intelligent manufacturing systems roles.</span> My background also combines model development, system optimization, retrieval pipelines, embedded integration, hardware-aware experimentation, and bilingual communication for AI products, intelligent systems, manufacturing, and research.',
         guideTitle: "Site Guide",
         guideExperience:
           "Full CV-style page with research interests, technical skills, industry experience, research experience, and education.",
@@ -56,7 +56,7 @@ const translations = {
       },
       zh: {
         lead:
-          "我目前是博士阶段学生，研究方向覆盖大语言模型（Large Language Models, LLMs）、多模态人工智能（Artificial Intelligence, AI）、医学 AI、感知安全、嵌入式硬件、感知平台、智能制造系统、机器学习（Machine Learning, ML）系统和端到端 AI 部署。我希望匹配的是同时要求研究深度与工程执行力的岗位，例如 Research Engineer、Applied Scientist、ML Engineer、LLM / AI Systems、硬件 AI 和智能制造系统相关职位。我的背景也结合了模型开发、系统优化、检索流水线、嵌入式集成、硬件感知实验，以及面向 AI 产品、智能系统、制造业和科研场景的中英文沟通能力。",
+          '我目前是博士阶段学生，研究方向覆盖<strong>大语言模型（Large Language Models, LLMs）</strong>、<strong>多模态人工智能（Artificial Intelligence, AI）</strong>、医学 AI、感知安全、嵌入式硬件、感知平台、<strong>智能制造系统</strong>、机器学习（Machine Learning, ML）系统和端到端 AI 部署。 <span class="lead-role-line"><strong>目标岗位：</strong>Research Engineer、Applied Scientist、ML Engineer、LLM / AI Systems、硬件 AI 和智能制造系统相关职位。</span> 我的背景也结合了模型开发、系统优化、检索流水线、嵌入式集成、硬件感知实验，以及面向 AI 产品、智能系统、制造业和科研场景的中英文沟通能力。',
         guideTitle: "站点导览",
         guideExperience: "完整在线简历页面，包含研究兴趣、技术技能、工业经历、研究经历和教育背景。",
         guideProjects: "按重要性排序的 GitHub 项目索引，以及完整仓库列表。",
@@ -2097,7 +2097,11 @@ function applyLanguage(lang) {
     const common = translations.common[lang][key];
     const page = translations.page[pageKey] && translations.page[pageKey][lang][key];
     const value = page || common;
-    if (value) node.textContent = value;
+    if (value && node.dataset.i18nRich === "true") {
+      node.innerHTML = value;
+    } else if (value) {
+      node.textContent = value;
+    }
   });
 
   if (pageTitles[pageKey]) {
