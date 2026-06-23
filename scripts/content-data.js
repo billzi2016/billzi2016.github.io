@@ -274,8 +274,8 @@ window.siteContent = {
         ],
         bullets: [
           {
-            en: "Built a China Post customer-service intelligent assistant using Django, django-ninja, Server-Sent Events (SSE), Bootstrap 5, and Tailwind CSS for the Web/API layer, with Ollama serving local large language models for domain-specific dialogue and ticket-generation workflows.",
-            zh: "构建中国邮政客服智能助手，使用 Django、django-ninja、Server-Sent Events（SSE）、Bootstrap 5 和 Tailwind CSS 完成 Web/API 层，并通过 Ollama 调用本地大语言模型，支撑邮政领域客服对话与工单生成流程。",
+            en: "Built a China Post customer-service intelligent assistant with Django, django-ninja, Server-Sent Events (SSE), Bootstrap 5, and Tailwind CSS for the Web/API and streaming-response layer; used Ollama as the model-provider adapter, with support for switching to vLLM, SGLang, OpenRouter, or OpenAI API backends for domain dialogue and ticket-generation workflows.",
+            zh: "构建中国邮政客服智能助手，使用 Django、django-ninja、Server-Sent Events（SSE）、Bootstrap 5 和 Tailwind CSS 完成 Web/API 与流式响应层；以 Ollama 作为模型 provider 适配层，并支持切换 vLLM、SGLang、OpenRouter、OpenAI API 等后端模型服务，支撑邮政领域对话与工单生成流程。",
           },
           {
             en: "Cleaned and expanded CSDS general customer-service data, filtered 5,376 postal multi-turn dialogues with a semantic-embedding and gpt-oss-20b multi-class Agent pipeline, and constructed 8,217 postal instruction-tuning samples after data augmentation and EDA analysis.",
@@ -290,8 +290,8 @@ window.siteContent = {
             zh: "设计对话生成与工单生成双任务复用架构，通过系统提示词切换实现功能隔离，并采用 4-bit 量化 LoRA 在小显存条件下微调，将训练压缩到 10 秒以内，同时通过三级防过拟合机制保证泛化能力。",
           },
           {
-            en: "Implemented a tiered-trigger RAG knowledge base for postal domain knowledge with PostgreSQL + pgvector, FAISS, and SQLite, supporting high-risk query retrieval under 200 ms, JSON validation, batch export, and enterprise-backend integration.",
-            zh: "使用 PostgreSQL + pgvector、FAISS 和 SQLite 实现邮政领域分级触发 RAG 知识库，支持高风险查询检索小于 200 ms、JSON 校验、批量导出和企业后台对接。",
+            en: "Implemented a tiered-trigger RAG knowledge base for postal domain knowledge with PostgreSQL + pgvector as the vector-storage layer, plus FAISS and SQLite for local retrieval/indexing workflows, supporting high-risk query retrieval under 200 ms, JSON validation, batch export, and enterprise-backend integration.",
+            zh: "以 PostgreSQL + pgvector 作为向量存储层，并结合 FAISS 与 SQLite 支撑本地检索和索引流程，实现邮政领域分级触发 RAG 知识库，支持高风险查询检索小于 200 ms、JSON 校验、批量导出和企业后台对接。",
           },
           {
             en: "Accelerated system inference with torch.compile, pre-cached prefix KV cache, and context caching, reaching roughly 1.2 s dialogue inference and 1.7 s ticket generation while keeping output structure stable.",
