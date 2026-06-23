@@ -849,7 +849,9 @@ function buildEntries(entries, lang) {
       const links = (entry.links || [])
         .map(
           (link) =>
-            `<a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
+            `<a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(
+              getLangValue(link, lang, "label") || link.label || link.url,
+            )}</a>`,
         )
         .join("");
       const images = (entry.images || [])

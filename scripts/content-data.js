@@ -260,7 +260,8 @@ window.siteContent = {
         roleZh: "AI 算法工程师（大模型方向）",
         links: [
           {
-            label: "chinapost-internship",
+            labelEn: "GitHub link: chinapost-internship",
+            labelZh: "GitHub 链接：chinapost-internship",
             url: "https://github.com/billzi2016/chinapost-internship",
           },
         ],

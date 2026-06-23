@@ -1115,7 +1115,7 @@ section {
 }
 
 .entry-image-grid {
-  grid-template-columns: minmax(260px, 680px);
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .entry-image-grid .project-image-button img {
