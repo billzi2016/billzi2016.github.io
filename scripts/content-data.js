@@ -253,6 +253,56 @@ window.siteContent = {
   experience: {
     industry: [
       {
+        titleEn: "China Post (Internship)",
+        titleZh: "中国邮政（实习）",
+        meta: "Jan 2026 - Feb 2026",
+        roleEn: "AI Algorithm Engineer, Large Language Model Direction",
+        roleZh: "AI 算法工程师（大模型方向）",
+        links: [
+          {
+            label: "chinapost-internship",
+            url: "https://github.com/billzi2016/chinapost-internship",
+          },
+        ],
+        images: [
+          {
+            src: "https://raw.githubusercontent.com/billzi2016/chinapost-internship/main/django_week2.png",
+            captionEn: "China Post customer-service intelligent assistant interface and RAG workflow.",
+            captionZh: "中国邮政客服智能助手界面与 RAG 工作流。",
+          },
+        ],
+        bullets: [
+          {
+            en: "Built a China Post customer-service intelligent assistant using Django, django-ninja, Server-Sent Events (SSE), Bootstrap 5, and Tailwind CSS for the Web/API layer, with Ollama serving local large language models for domain-specific dialogue and ticket-generation workflows.",
+            zh: "构建中国邮政客服智能助手，使用 Django、django-ninja、Server-Sent Events（SSE）、Bootstrap 5 和 Tailwind CSS 完成 Web/API 层，并通过 Ollama 调用本地大语言模型，支撑邮政领域客服对话与工单生成流程。",
+          },
+          {
+            en: "Cleaned and expanded CSDS general customer-service data, filtered 5,376 postal multi-turn dialogues with a semantic-embedding and gpt-oss-20b multi-class Agent pipeline, and constructed 8,217 postal instruction-tuning samples after data augmentation and EDA analysis.",
+            zh: "清洗 CSDS 通用客服数据集，基于语义 Embedding 与 gpt-oss-20b 多分类 Agent 筛选 5,376 条邮政相关多轮对话，并经数据增强与 EDA 分析构建 8,217 条邮政专属指令微调样本。",
+          },
+          {
+            en: "Compared Qwen2.5-3B/7B, Qwen3, Llama 4, DeepSeek-V3/R1, gpt-oss-20b, and other open-source models across Chinese customer-service fit, JSON-structured output, small-data trainability, and deployment cost; selected Qwen2.5-7B-Instruct for SFT and used gpt-oss-20b as a JSON AI Agent tool for standardized ticket generation.",
+            zh: "横向评估 Qwen2.5-3B/7B、Qwen3、Llama 4、DeepSeek-V3/R1、gpt-oss-20b 等开源模型，按中文客服适配度、JSON 结构化输出、小数据可训练性和部署成本选型；选定 Qwen2.5-7B-Instruct 作为 SFT 主力模型，并使用 gpt-oss-20b 作为 JSON AI Agent 工具生成标准化工单。",
+          },
+          {
+            en: "Designed a reusable dual-task architecture for dialogue generation and ticket generation, separated functions through system-prompt switching, and fine-tuned with 4-bit quantized LoRA for a small GPU budget, reducing training time to under 10 seconds and preserving generalization with a three-level anti-overfitting mechanism.",
+            zh: "设计对话生成与工单生成双任务复用架构，通过系统提示词切换实现功能隔离，并采用 4-bit 量化 LoRA 在小显存条件下微调，将训练压缩到 10 秒以内，同时通过三级防过拟合机制保证泛化能力。",
+          },
+          {
+            en: "Implemented a tiered-trigger RAG knowledge base for postal domain knowledge with PostgreSQL + pgvector, FAISS, and SQLite, supporting high-risk query retrieval under 200 ms, JSON validation, batch export, and enterprise-backend integration.",
+            zh: "使用 PostgreSQL + pgvector、FAISS 和 SQLite 实现邮政领域分级触发 RAG 知识库，支持高风险查询检索小于 200 ms、JSON 校验、批量导出和企业后台对接。",
+          },
+          {
+            en: "Accelerated system inference with torch.compile, pre-cached prefix KV cache, and context caching, reaching roughly 1.2 s dialogue inference and 1.7 s ticket generation while keeping output structure stable.",
+            zh: "通过 torch.compile、预缓存前缀 KV cache 和上下文缓存加速系统推理，将对话推理控制在约 1.2 秒、工单生成控制在约 1.7 秒，并保持结构化输出稳定。",
+          },
+          {
+            en: "Established a business-semantics evaluation protocol: single-turn dialogue accuracy reached 92.3%, multi-turn context understanding 87.6%, core ticket-field extraction 93.5%, hallucination rate 2.8%, expected labor cost reduction 30%, and ticket-triage efficiency improvement 80%.",
+            zh: "建立业务语义准确率评估体系，单轮对话准确率达到 92.3%、多轮上下文理解 87.6%、工单核心字段提取 93.5%、幻觉率 2.8%，预计降低人力成本 30%、提升工单整理效率 80%。",
+          },
+        ],
+      },
+      {
         titleEn: "Xperf (Internship)",
         titleZh: "Xperf（实习）",
         meta: "Sep 2025 - Dec 2025",

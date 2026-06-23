@@ -846,6 +846,27 @@ function buildEntries(entries, lang) {
         .map((bullet) => `<li>${escapeHtml(getLangValue(bullet, lang, ""))}</li>`)
         .join("");
       const note = getLangValue(entry, lang, "note");
+      const links = (entry.links || [])
+        .map(
+          (link) =>
+            `<a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
+        )
+        .join("");
+      const images = (entry.images || [])
+        .map((image) => {
+          const caption = getLangValue(image, lang, "caption") || image.caption || "";
+          return `
+            <figure class="project-image">
+              <button class="project-image-button" type="button" data-lightbox-src="${escapeHtml(
+                image.src,
+              )}" data-lightbox-caption="${escapeHtml(caption)}" aria-label="${escapeHtml(caption)}">
+                <img src="${escapeHtml(image.src)}" alt="${escapeHtml(caption)}" loading="lazy" />
+              </button>
+              <figcaption>${escapeHtml(caption)}</figcaption>
+            </figure>
+          `;
+        })
+        .join("");
       return `
         <div class="entry">
           <div class="entry-heading">
@@ -853,8 +874,10 @@ function buildEntries(entries, lang) {
             <div class="entry-meta">${escapeHtml(entry.meta || "")}</div>
           </div>
           <div class="entry-role">${escapeHtml(getLangValue(entry, lang, "role"))}</div>
+          ${links ? `<div class="entry-links">${links}</div>` : ""}
           ${bullets ? `<ul>${bullets}</ul>` : ""}
           ${note ? `<div class="item-note">${escapeHtml(note)}</div>` : ""}
+          ${images ? `<div class="project-image-grid entry-image-grid">${images}</div>` : ""}
         </div>
       `;
     })
