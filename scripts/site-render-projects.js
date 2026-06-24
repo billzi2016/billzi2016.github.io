@@ -20,6 +20,12 @@ function resolveProjectItem(item) {
   return item || {};
 }
 
+function getProjectKey(item) {
+  if (typeof item === "string") return item;
+  if (item && item.name) return item.name;
+  return "";
+}
+
 function buildProjectList(items, lang, showUpdated) {
   return items
     .map((rawItem) => {
@@ -48,16 +54,19 @@ function renderProjects(lang) {
   const host = document.getElementById("page-content");
   if (!host) return;
   const projects = siteContent.projects || {};
+  const rankedItems = projects.ranked || [];
+  const rankedKeys = new Set(rankedItems.map(getProjectKey).filter(Boolean));
+  const remainingItems = (projects.all || []).filter((item) => !rankedKeys.has(getProjectKey(item)));
   host.innerHTML = `
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.projects[lang].rankingTitle)}</h2>
       <p class="section-note">${escapeHtml(translations.page.projects[lang].rankingNote)}</p>
-      <ol class="repo-list">${buildProjectList(projects.ranked || [], lang, true)}</ol>
+      <ol class="repo-list">${buildProjectList(rankedItems, lang, true)}</ol>
     </section>
     <section>
       <h2 class="section-title">${escapeHtml(translations.page.projects[lang].allTitle)}</h2>
       <p class="section-note">${escapeHtml(translations.page.projects[lang].allNote)}</p>
-      <ol class="repo-list">${buildProjectList(projects.all || [], lang, false)}</ol>
+      <ol class="repo-list">${buildProjectList(remainingItems, lang, false)}</ol>
     </section>
   `;
 }
