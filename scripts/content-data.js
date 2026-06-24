@@ -1261,6 +1261,93 @@ window.siteContent = {
         noteEn: "A notebook collection for real-time vision experiments with YOLO, including static images, live camera streams, and multi-object tracking. It is a useful applied-computer-vision repository that shows I can connect models to live input and operational loops.",
         noteZh: "这是一个围绕 YOLO 的实时视觉实验仓库，覆盖静态图像、摄像头视频流和多目标跟踪。它是比较典型的应用型计算机视觉项目，能体现我不仅会跑模型，还会把模型接到真实输入和持续运行场景里。",
       },
+      "Batch-MRI-Quality-Control": {
+        name: "Batch-MRI-Quality-Control",
+        url: "https://github.com/billzi2016/Batch-MRI-Quality-Control",
+        language: "Python",
+        noteEn: "A local Django and django-ninja application for high-throughput MRI quality-control screening. It supports large local or mounted MRI folders, paged NIfTI/DICOM/image previews, slice and axis navigation, rotation, bulk selection, and export of selected MRI paths for downstream filtering workflows.",
+        noteZh: "这是一个基于 Django 和 django-ninja 的本地 MRI 批量质控筛选平台，面向本地或挂载盘上的大规模 MRI 数据。它支持分页预览 NIfTI / DICOM / 图片文件、切换轴向和切片、旋转预览、批量勾选，并把筛选出的 MRI 路径导出给后续流程使用。",
+        images: [
+          {
+            src: "./assets/images/projects/batch-mri-quality-control-demo.png",
+            captionEn: "Batch MRI QC browser with paged MRI previews and bulk selection controls.",
+            captionZh: "Batch MRI QC 浏览器界面，支持分页 MRI 预览与批量筛选控制。",
+          },
+        ],
+      },
+      "distributed-paxos-raft-lab": {
+        name: "distributed-paxos-raft-lab",
+        url: "https://github.com/billzi2016/distributed-paxos-raft-lab",
+        language: "Vue",
+        noteEn: "A distributed consensus teaching lab using FastAPI backend nodes and a Vue dashboard to visualize Raft-style leader election, heartbeats, crash simulation, restart behavior, and cluster state across a 5 x 7 node control panel.",
+        noteZh: "这是一个分布式共识算法教学实验平台，使用 FastAPI 模拟后端节点，并用 Vue 仪表盘可视化 Raft 风格的 Leader 选举、心跳、宕机、重启和 5 x 7 集群状态。",
+        images: [
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab-demo.png",
+            captionEn: "Raft lab dashboard showing node state and cluster control behavior.",
+            captionZh: "Raft 实验仪表盘，展示节点状态与集群控制过程。",
+          },
+        ],
+      },
+      "Industrial-Query-Agent": {
+        name: "Industrial-Query-Agent",
+        url: "https://github.com/billzi2016/Industrial-Query-Agent",
+        language: "Python",
+        noteEn: "A local-first RAG workspace for industrial documents, compliance references, standards, datasheets, and manuals. The working FAISS version combines Django, HDF5, Celery, SSE, SQLite, and local or routed LLM providers to support document upload, embedding, retrieval, and interactive question answering.",
+        noteZh: "这是一个面向工业文档、合规资料、标准、数据手册和说明书的本地优先 RAG 工作台。FAISS 版本整合 Django、HDF5、Celery、SSE、SQLite 以及本地或路由式大模型 provider，用于文档上传、embedding、检索和交互式问答。",
+        images: [
+          {
+            src: "./assets/images/projects/industrial-query-agent-webui.png",
+            captionEn: "Industrial Query Agent Web UI for local document retrieval and question answering.",
+            captionZh: "Industrial Query Agent Web UI，用于本地工业文档检索与问答。",
+          },
+        ],
+      },
+      "LLM-SFT-PEFT-Preference-RL-Quantization-Inference-Deployment": {
+        name: "LLM-SFT-PEFT-Preference-RL-Quantization-Inference-Deployment",
+        url: "https://github.com/billzi2016/LLM-SFT-PEFT-Preference-RL-Quantization-Inference-Deployment",
+        language: "Jupyter Notebook",
+        noteEn: "A notebook-centered LLM training and deployment study repository covering SFT, LoRA/QLoRA, preference optimization, reward-oriented RL data formats, quantization, inference, and deployment workflows for Qwen2.5-7B-Instruct and gpt-oss-20b.",
+        noteZh: "这是一个以 Notebook 为核心的大模型训练与部署学习仓库，覆盖 SFT、LoRA / QLoRA、偏好优化、奖励优化数据格式、量化、推理和部署流程，并围绕 Qwen2.5-7B-Instruct 与 gpt-oss-20b 分成两套实践路线。",
+      },
+      "maze-algorithms": {
+        name: "maze-algorithms",
+        url: "https://github.com/billzi2016/maze-algorithms",
+        language: "JavaScript",
+        noteEn: "A pure frontend maze-algorithm visualization project built with HTML, CSS, and JavaScript. It compares BFS, DFS, A*, right-hand rule, Tremaux, ACO, and SMA on the same generated perfect maze, with synchronized animation controls, explanation panels, parameters, and runtime statistics.",
+        noteZh: "这是一个纯前端迷宫算法可视化项目，使用 HTML、CSS 和 JavaScript 在同一座生成的完美迷宫上对比 BFS、DFS、A*、右手定则、Tremaux、蚁群算法和黏菌算法，并同步展示动画控制、算法讲解、参数和运行统计。",
+        images: [
+          {
+            src: "./assets/images/projects/maze-algorithms-demo.png",
+            captionEn: "Maze algorithm visualizer comparing multiple search strategies on one generated maze.",
+            captionZh: "迷宫算法可视化界面，在同一座迷宫上对比多种搜索策略。",
+          },
+        ],
+      },
+      "whitebox-ml-dl-algo": {
+        name: "whitebox-ml-dl-algo",
+        url: "https://github.com/billzi2016/whitebox-ml-dl-algo",
+        language: "Python",
+        noteEn: "A collection of whitebox machine-learning and deep-learning algorithm animations. Instead of only calling libraries for final outputs, it exposes the internal optimization steps behind SVMs, K-Means, t-SNE, UMAP, DBSCAN, PCA, Random Forests, XGBoost, and optimizers through visual demos.",
+        noteZh: "这是一个白盒机器学习 / 深度学习算法动画集合，重点不是调用库得到最终结果，而是把 SVM、K-Means、t-SNE、UMAP、DBSCAN、PCA、随机森林、XGBoost 和优化器等算法的内部迭代过程可视化出来。",
+        images: [
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-pca-demo.png",
+            captionEn: "PCA demo showing power iteration and principal-direction convergence.",
+            captionZh: "PCA 演示图，展示幂迭代与主方向收敛过程。",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-tsne-demo.png",
+            captionEn: "t-SNE demo visualizing attraction and repulsion during embedding optimization.",
+            captionZh: "t-SNE 演示图，展示嵌入优化中的吸引与排斥过程。",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-kmeans-demo.png",
+            captionEn: "K-Means demo showing assignment and center-update dynamics.",
+            captionZh: "K-Means 演示图，展示样本分配与中心更新过程。",
+          },
+        ],
+      },
       "AI-Chat": {
         name: "AI-Chat",
         url: "https://github.com/billzi2016/AI-Chat",
@@ -1385,6 +1472,12 @@ window.siteContent = {
       "advanced-search-data-structures",
       "llm-auto-rag-survey",
       "real-time-yolo-vision-intelligence-lab",
+      "Batch-MRI-Quality-Control",
+      "distributed-paxos-raft-lab",
+      "Industrial-Query-Agent",
+      "LLM-SFT-PEFT-Preference-RL-Quantization-Inference-Deployment",
+      "maze-algorithms",
+      "whitebox-ml-dl-algo",
       "AI-Chat",
     ],
   },

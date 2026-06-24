@@ -886,51 +886,6 @@ function buildEntries(entries, lang) {
     .join("");
 }
 
-function formatProjectLanguage(language, lang) {
-  if (language === "none") {
-    return lang === "zh" ? "未标注主要语言" : "No primary language listed";
-  }
-  return language || "";
-}
-
-function resolveProjectItem(item) {
-  const projects = siteContent.projects || {};
-  const catalog = projects.catalog || {};
-
-  if (typeof item === "string") {
-    return catalog[item] || { name: item };
-  }
-
-  if (item && item.name && catalog[item.name]) {
-    return { ...catalog[item.name], ...item };
-  }
-
-  return item || {};
-}
-
-function buildProjectList(items, lang, showUpdated) {
-  return items
-    .map((rawItem) => {
-      const item = resolveProjectItem(rawItem);
-      const language = formatProjectLanguage(item.language, lang);
-      const updated = showUpdated && item.updated
-        ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
-        : "";
-      const note = getLangValue(item, lang, "note");
-      return `
-        <li>
-          <div class="repo-line"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(
-            item.name,
-          )}</a> <span class="project-language-pill">${escapeHtml(language)}</span>${
-            updated ? ` <span class="inline-meta">${escapeHtml(updated)}</span>` : ""
-          }</div>
-          ${note ? `<div class="item-note">${escapeHtml(note)}</div>` : ""}
-        </li>
-      `;
-    })
-    .join("");
-}
-
 function renderHome(lang) {
   const host = document.getElementById("page-content");
   if (!host) return;
@@ -1173,24 +1128,6 @@ function renderExperience(lang) {
       <h2 class="section-title">${escapeHtml(translations.page.experience[lang].aiSkillsTitle)}</h2>
       <p class="section-note">${escapeHtml(translations.page.experience[lang].aiSkillsNote)}</p>
       ${buildAiSkillBlocks(lang)}
-    </section>
-  `;
-}
-
-function renderProjects(lang) {
-  const host = document.getElementById("page-content");
-  if (!host) return;
-  const projects = siteContent.projects || {};
-  host.innerHTML = `
-    <section>
-      <h2 class="section-title">${escapeHtml(translations.page.projects[lang].rankingTitle)}</h2>
-      <p class="section-note">${escapeHtml(translations.page.projects[lang].rankingNote)}</p>
-      <ol class="repo-list">${buildProjectList(projects.ranked || [], lang, true)}</ol>
-    </section>
-    <section>
-      <h2 class="section-title">${escapeHtml(translations.page.projects[lang].allTitle)}</h2>
-      <p class="section-note">${escapeHtml(translations.page.projects[lang].allNote)}</p>
-      <ol class="repo-list">${buildProjectList(projects.all || [], lang, false)}</ol>
     </section>
   `;
 }
@@ -2226,79 +2163,6 @@ function bindHeaderControls() {
     });
     themeBtn.dataset.bound = "true";
   }
-}
-
-function closeProjectImageLightbox() {
-  const lightbox = document.querySelector(".project-lightbox");
-  if (!lightbox) return;
-  lightbox.remove();
-  document.body.classList.remove("project-lightbox-open");
-}
-
-function openProjectImageLightbox(src, caption) {
-  closeProjectImageLightbox();
-
-  const lightbox = document.createElement("div");
-  lightbox.className = "project-lightbox";
-  lightbox.setAttribute("role", "dialog");
-  lightbox.setAttribute("aria-modal", "true");
-  lightbox.style.cssText =
-    "position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:56px 24px 24px;background:rgba(10,14,18,0.9);cursor:zoom-out;overflow:hidden;";
-  lightbox.innerHTML = `
-    <button class="project-lightbox-close" type="button" aria-label="Close image" style="position:fixed;top:16px;right:16px;z-index:2147483647;width:64px;height:64px;border:1px solid rgba(255,255,255,0.48);border-radius:999px;color:#fff;background:rgba(0,0,0,0.42);font-size:3rem;line-height:1;cursor:pointer;">×</button>
-    <figure class="project-lightbox-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:calc(100vw - 48px);max-height:calc(100vh - 80px);margin:0;cursor:auto;">
-      <img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}" style="display:block;width:auto;height:auto;max-width:100%;max-height:calc(100vh - 112px);object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.95);" />
-      <figcaption style="display:block;flex:0 0 auto;max-width:100%;margin-top:12px;color:#fff;font-size:1rem;line-height:1.4;text-align:center;overflow-wrap:anywhere;">${escapeHtml(caption)}</figcaption>
-    </figure>
-  `;
-  document.body.appendChild(lightbox);
-  document.body.classList.add("project-lightbox-open");
-}
-
-function bindProjectImageButtons() {
-  document.querySelectorAll(".project-image-button").forEach((button) => {
-    if (button.dataset.lightboxBound === "true") return;
-
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      openProjectImageLightbox(button.dataset.lightboxSrc, button.dataset.lightboxCaption);
-    });
-    button.dataset.lightboxBound = "true";
-  });
-}
-
-function initProjectImageLightbox() {
-  if (document.body.dataset.projectLightboxBound === "true") return;
-
-  document.addEventListener("click", (event) => {
-    const imageButton = event.target.closest(".project-image-button");
-    if (imageButton) {
-      openProjectImageLightbox(imageButton.dataset.lightboxSrc, imageButton.dataset.lightboxCaption);
-      return;
-    }
-
-    if (event.target.closest(".project-lightbox-close")) {
-      closeProjectImageLightbox();
-      return;
-    }
-
-    const lightbox = event.target.closest(".project-lightbox");
-    if (!lightbox) return;
-
-    const clickedMedia = event.target.closest(".project-lightbox-content img, .project-lightbox-content figcaption");
-    if (!clickedMedia) {
-      closeProjectImageLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeProjectImageLightbox();
-    }
-  });
-
-  document.body.dataset.projectLightboxBound = "true";
 }
 
 // 通过 localhost 运行时，统一从 partial 加载页头，避免每个页面重复维护。
