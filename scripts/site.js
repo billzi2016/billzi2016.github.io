@@ -153,7 +153,6 @@ function applyLanguage(lang) {
   }
 
   renderPageContent(lang);
-  bindProjectImageButtons();
   updateFloatingMusicWidget(lang);
   updateSiteSearchLanguage(lang);
 }

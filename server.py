@@ -23,10 +23,20 @@ import socketserver
 from pathlib import Path
 
 
-class ReusableTCPServer(socketserver.TCPServer):
-    """允许快速重启服务时复用端口，避免短时间内端口被占用。"""
+class ReusableTCPServer(socketserver.ThreadingTCPServer):
+    """支持并发静态请求，并允许快速重启服务时复用端口。"""
 
     allow_reuse_address = True
+
+
+class QuietHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+    """静默处理浏览器提前断开连接导致的 BrokenPipe 日志。"""
+
+    def handle(self) -> None:
+        try:
+            super().handle()
+        except (BrokenPipeError, ConnectionResetError):
+            pass
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -60,7 +70,7 @@ def run_server(host: str, port: int) -> None:
 
     # Python 3.7+ 的 SimpleHTTPRequestHandler 支持 directory 参数，
     # 可以明确指定服务目录，而不需要改全局工作目录。
-    handler = lambda *args, **kwargs: http.server.SimpleHTTPRequestHandler(  # noqa: E731
+    handler = lambda *args, **kwargs: QuietHTTPRequestHandler(  # noqa: E731
         *args,
         directory=str(site_root),
         **kwargs,
