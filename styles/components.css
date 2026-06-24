@@ -138,8 +138,7 @@
 .project-image-button img {
   display: block;
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: contain;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.72);
@@ -148,10 +147,6 @@
 .ai-token-image {
   max-width: 680px;
   margin-top: 18px;
-}
-
-.ai-token-image .project-image-button img {
-  aspect-ratio: auto;
 }
 
 .project-image-button:focus-visible img {
@@ -168,10 +163,6 @@
 
 .entry-image-grid {
   grid-template-columns: minmax(0, 1fr);
-}
-
-.entry-image-grid .project-image-button img {
-  aspect-ratio: 16 / 9;
 }
 
 .project-donation-note {
@@ -410,4 +401,3 @@ body.dark-theme .pub-copy-btn.is-copied {
 .pub-highlight {
   font-weight: 700;
 }
-
