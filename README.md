@@ -1,69 +1,85 @@
 # billzi2016.github.io
 
-This repository contains the source code for Ziqian Bi's personal academic website.
+Source code for Ziqian Bi's personal academic website.
 
 Website: [https://billzi2016.github.io/](https://billzi2016.github.io/)
 
+Chinese documentation: [README_CN.md](README_CN.md)
+
 ## Overview
 
-This site presents Ziqian Bi's background, research interests, projects, publications, and selected experience. It is a static website designed to serve as a personal homepage and academic portfolio.
+This is a static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, and a small music page.
 
 ## Pages
 
-- `index.html`: Home page
-- `experience.html`: Experience
-- `projects.html`: Projects
+- `index.html`: Home
+- `experience.html`: Experience and education
+- `projects.html`: Project portfolio
 - `publications.html`: Publications
-- `music.html`: Built-in music page
+- `personal.html`: Personal introduction
+- `music.html`: Music page
 
-## Tech Stack
+## Structure
 
-- HTML
-- CSS
-- JavaScript
+- `partials/header.html`: Shared site header loaded by JavaScript.
+- `templates/head.html`: Shared `<head>` template used by the page generator.
+- `styles/`: Split CSS files imported by `styles/main.css`.
+- `scripts/data/`: Split content data files by domain.
+- `scripts/content-data.js`: Thin aggregator that exposes `window.siteContent`.
+- `scripts/site-*.js`: Page renderers and runtime behavior.
+- `tools/`: Maintenance scripts for generated static fragments and cache-busting versions.
 
 ## Local Preview
 
-You can preview the site locally with:
-
 ```bash
 python3 server.py
 ```
 
-Then open `http://localhost:8000/` in your browser.
+Then open `http://localhost:8000/`.
 
----
+## Maintenance Tools
 
-# 中文翻译
-
-本仓库包含毕梓仟个人学术网站的源代码。
-
-网站地址：[https://billzi2016.github.io/](https://billzi2016.github.io/)
-
-## 概述
-
-这个网站展示了毕梓仟的个人背景、研究兴趣、项目、论文和部分经历。它是一个静态网站，用作个人主页与学术作品集。
-
-## 页面
-
-- `index.html`：主页
-- `experience.html`：经历
-- `projects.html`：项目
-- `publications.html`：论文
-- `music.html`：内置音乐页面
-
-## 技术栈
-
-- HTML
-- CSS
-- JavaScript
-
-## 本地预览
-
-可以使用下面的命令在本地预览网站：
+Regenerate repeated page `<head>` blocks after editing `templates/head.html` or page metadata in `tools/generate_pages.py`:
 
 ```bash
-python3 server.py
+python3 tools/generate_pages.py
 ```
 
-然后在浏览器中打开 `http://localhost:8000/`。
+Update the stylesheet cache-busting version across all static pages:
+
+```bash
+python3 tools/bump_css_version.py 20260624-1
+```
+
+## Development Workflow
+
+For normal content edits, update the relevant file under `scripts/data/`, then keep `scripts/content-data.js` as the thin aggregation layer.
+
+When changing page metadata or shared `<head>` content, edit `templates/head.html` or the page metadata in `tools/generate_pages.py`, then run:
+
+```bash
+python3 tools/generate_pages.py
+```
+
+When changing `styles/main.css` imports or needing a fresh browser cache key, run:
+
+```bash
+python3 tools/bump_css_version.py 20260624-1
+```
+
+Before committing structural changes, run a lightweight syntax check:
+
+```bash
+node --check scripts/content-data.js
+```
+
+## Data Organization
+
+Main content data is split into:
+
+- `scripts/data/shared-data.js`
+- `scripts/data/home-data.js`
+- `scripts/data/experience-data.js`
+- `scripts/data/projects-data.js`
+
+The static HTML pages load those files first, then load `scripts/content-data.js`, which assembles the single runtime object used by the renderers.
