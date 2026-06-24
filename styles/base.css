@@ -1,0 +1,103 @@
+/* 全站样式改为本地文件，避免依赖 CDN。 */
+:root {
+  --bg: #f1eee8;
+  --bg-deep: #e7e2d9;
+  --paper: rgba(255, 253, 249, 0.9);
+  --paper-strong: rgba(255, 255, 255, 0.96);
+  --ink: #1b2027;
+  --muted: #5f6874;
+  --line: rgba(55, 68, 84, 0.14);
+  --line-strong: rgba(36, 54, 75, 0.22);
+  --accent: #22384f;
+  --accent-strong: #16293d;
+  --accent-soft: rgba(34, 56, 79, 0.08);
+  --shadow: 0 18px 52px rgba(23, 34, 46, 0.08);
+  --theme-transition: 4.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    sans-serif;
+  font-size: 18px;
+  line-height: 1.78;
+  transition:
+    background var(--theme-transition),
+    color var(--theme-transition);
+}
+
+body.dark-theme {
+  --bg: #0d141b;
+  --bg-deep: #121c26;
+  --paper: rgba(19, 28, 37, 0.88);
+  --paper-strong: rgba(17, 24, 33, 0.94);
+  --ink: #eef3f8;
+  --muted: #afbbc8;
+  --line: rgba(184, 210, 236, 0.12);
+  --line-strong: rgba(184, 210, 236, 0.2);
+  --accent: #bfd9f5;
+  --accent-strong: #d8e9fb;
+  --accent-soft: rgba(191, 217, 245, 0.1);
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: 0;
+  transition: background var(--theme-transition);
+}
+
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-particles {
+  opacity: 0.5;
+  transition: opacity var(--theme-transition);
+}
+
+.background-matrix {
+  opacity: 0;
+  transition: opacity var(--theme-transition);
+}
+
+body.dark-theme .background-particles {
+  opacity: 0;
+}
+
+body.dark-theme .background-matrix {
+  opacity: 0.3;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--theme-transition);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+

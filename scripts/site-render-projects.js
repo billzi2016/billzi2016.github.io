@@ -28,21 +28,7 @@ function buildProjectList(items, lang, showUpdated) {
       const updated =
         showUpdated && item.updated ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}` : "";
       const note = getLangValue(item, lang, "note");
-      const images = (item.images || [])
-        .map((image) => {
-          const caption = getLangValue(image, lang, "caption") || image.caption || "";
-          return `
-            <figure class="project-image">
-              <button class="project-image-button" type="button" data-lightbox-src="${escapeHtml(
-                image.src,
-              )}" data-lightbox-caption="${escapeHtml(caption)}" aria-label="${escapeHtml(caption)}">
-                <img src="${escapeHtml(image.src)}" alt="${escapeHtml(caption)}" loading="lazy" />
-              </button>
-              <figcaption>${escapeHtml(caption)}</figcaption>
-            </figure>
-          `;
-        })
-        .join("");
+      const images = renderProjectImageGrid(item.images || [], lang);
       return `
         <li>
           <div class="repo-line"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(
@@ -51,7 +37,7 @@ function buildProjectList(items, lang, showUpdated) {
             updated ? ` <span class="inline-meta">${escapeHtml(updated)}</span>` : ""
           }</div>
           ${note ? `<div class="item-note">${escapeHtml(note)}</div>` : ""}
-          ${images ? `<div class="project-image-grid">${images}</div>` : ""}
+          ${images}
         </li>
       `;
     })

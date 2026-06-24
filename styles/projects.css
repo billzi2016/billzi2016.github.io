@@ -1,0 +1,34 @@
+.project-language-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 3px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+body.dark-theme .project-language-pill {
+  background: rgba(191, 217, 245, 0.12);
+  border-color: rgba(191, 217, 245, 0.3);
+}
+
+.item-note {
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 0.98rem;
+  transition: color var(--theme-transition);
+}
+
+.small {
+  font-size: 0.95rem;
+}
+
