@@ -45,11 +45,19 @@ python3 server.py
 python3 tools/generate_pages.py
 ```
 
-批量更新所有静态页面中的 CSS 缓存版本号：
+批量更新所有静态页面和 head 模板中的本地 CSS / JavaScript 缓存版本号：
 
 ```bash
-python3 tools/bump_css_version.py 20260624-1
+python3 tools/bump_asset_version.py 20260624-1
 ```
+
+回退最近一次本地资源版本号修改：
+
+```bash
+python3 tools/bump_asset_version.py --rollback
+```
+
+每次资源版本号更新都会把本地回退日志写入 `.asset-version-log.jsonl`；该文件已加入 `.gitignore`，不会提交到 Git。
 
 ## 开发流程
 
@@ -61,11 +69,13 @@ python3 tools/bump_css_version.py 20260624-1
 python3 tools/generate_pages.py
 ```
 
-修改 `styles/main.css` 的引入关系，或需要刷新浏览器缓存版本号时，运行：
+修改带 `?v=...` 引用的 CSS 或 JavaScript 文件后，需要刷新浏览器缓存版本号时，运行：
 
 ```bash
-python3 tools/bump_css_version.py 20260624-1
+python3 tools/bump_asset_version.py 20260624-1
 ```
+
+该工具会在 `.asset-version-log.jsonl` 中记录本地回退日志，这个文件不会进入版本控制。
 
 提交结构性修改前，可以先做轻量语法检查：
 

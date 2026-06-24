@@ -34,6 +34,7 @@ function renderPublications(lang) {
   unpublishedHost.innerHTML = "";
 
   const byKey = new Map(window.publicationsData.map((item) => [item.key, item]));
+  const selectedKeySet = new Set(selectedPublicationKeys);
   selectedPublicationKeys.forEach((key) => {
     const item = byKey.get(key);
     if (item) selectedHost.appendChild(buildPublicationItem(item, lang));
@@ -44,6 +45,7 @@ function renderPublications(lang) {
   const unpublished = [];
 
   window.publicationsData.forEach((item) => {
+    if (selectedKeySet.has(item.key)) return;
     const bucket = getPublicationBucket(item);
     if (bucket === "published") published.push(item);
     else if (bucket === "preprint") preprint.push(item);

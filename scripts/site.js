@@ -62,7 +62,12 @@ function renderProjectImageFigure(image, lang, figureClass = "") {
 
 function renderProjectImageGrid(images, lang, extraClass = "") {
   if (!images || images.length === 0) return "";
-  const className = ["project-image-grid", extraClass].filter(Boolean).join(" ");
+  const countClass = `project-image-grid-count-${Math.min(images.length, 3)}`;
+  const fourImageClass = images.length === 4 ? "project-image-grid-four" : "";
+  const sixImageClass = images.length === 6 ? "project-image-grid-six" : "";
+  const className = ["project-image-grid", countClass, fourImageClass, sixImageClass, extraClass]
+    .filter(Boolean)
+    .join(" ");
   return `<div class="${escapeHtml(className)}">${images
     .map((image) => renderProjectImageFigure(image, lang))
     .join("")}</div>`;

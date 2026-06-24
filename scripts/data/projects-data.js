@@ -332,8 +332,8 @@ window.siteProjectsContent = {
         name: "Autograd-Compiler-Engine",
         url: "https://github.com/billzi2016/Autograd-Compiler-Engine",
         language: "Python",
-        noteEn: "An automatic-differentiation engine that intercepts scalar formulas, builds DAGs implicitly, and backpropagates analytic gradients. It is a good example of how I like to rebuild core ML math machinery directly instead of treating frameworks as black boxes.",
-        noteZh: "这是一个自动微分引擎，会把普通标量公式隐式编织成有向无环图，再通过反向传播求解析梯度。它很能代表我做项目的方式：尽量把深度学习框架底层的数学和机制亲手重建，而不是只把框架当黑盒使用。",
+        noteEn: "An AI-assisted automatic-differentiation prototype that turns scalar formulas into computational graphs and visualizes backpropagation behavior. It presents autograd-style mechanics, graph organization, and explanatory visual outputs in a compact engineering demo.",
+        noteZh: "这是一个 AI 辅助实现的自动微分原型，会把标量公式组织成计算图，并可视化反向传播过程。项目以紧凑的工程 demo 形式展示 autograd 风格机制、图结构组织和解释性可视化输出。",
         images: [
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_graph.png",
@@ -498,7 +498,22 @@ window.siteProjectsContent = {
           {
             src: "./assets/images/projects/Metropolitan-Routing-Algorithm/map__gallery__Chicago.jpg",
             captionEn: "Chicago",
-            captionZh: "Chicago",
+            captionZh: "芝加哥",
+          },
+          {
+            src: "./assets/images/projects/Metropolitan-Routing-Algorithm/map__gallery__New_York.jpg",
+            captionEn: "New York",
+            captionZh: "纽约",
+          },
+          {
+            src: "./assets/images/projects/Metropolitan-Routing-Algorithm/map__gallery__London.jpg",
+            captionEn: "London",
+            captionZh: "伦敦",
+          },
+          {
+            src: "./assets/images/projects/Metropolitan-Routing-Algorithm/map__gallery__Seoul.jpg",
+            captionEn: "Seoul",
+            captionZh: "首尔",
           },
         ],
       },

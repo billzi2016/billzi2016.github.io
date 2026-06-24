@@ -45,11 +45,19 @@ Regenerate repeated page `<head>` blocks after editing `templates/head.html` or 
 python3 tools/generate_pages.py
 ```
 
-Update the stylesheet cache-busting version across all static pages:
+Update local CSS and JavaScript cache-busting versions across all static pages and the head template:
 
 ```bash
-python3 tools/bump_css_version.py 20260624-1
+python3 tools/bump_asset_version.py 20260624-1
 ```
+
+Roll back the latest local asset-version change:
+
+```bash
+python3 tools/bump_asset_version.py --rollback
+```
+
+Each asset-version update writes a local rollback log to `.asset-version-log.jsonl`; this file is ignored by Git.
 
 ## Development Workflow
 
@@ -61,11 +69,13 @@ When changing page metadata or shared `<head>` content, edit `templates/head.htm
 python3 tools/generate_pages.py
 ```
 
-When changing `styles/main.css` imports or needing a fresh browser cache key, run:
+When changing CSS or JavaScript files that are referenced with `?v=...`, refresh the browser cache key with:
 
 ```bash
-python3 tools/bump_css_version.py 20260624-1
+python3 tools/bump_asset_version.py 20260624-1
 ```
+
+The tool records a local rollback log in `.asset-version-log.jsonl`, which is intentionally excluded from version control.
 
 Before committing structural changes, run a lightweight syntax check:
 

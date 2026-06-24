@@ -95,40 +95,40 @@ window.siteTranslations = {
           "Complete public GitHub repository list, ordered by importance first. Some entries are reproductions or reimplementations of older or classic projects rather than original projects.",
         rankingTitle: "Repository Ranking",
         rankingNote:
-          "The first section is ordered by current relevance to my Artificial Intelligence (AI) / Machine Learning (ML) / research-engineering profile. The complete repository index below includes every public repository I was able to read from GitHub.",
-        allTitle: "Complete Repository Index",
+          "The first section is ordered by current relevance to my Artificial Intelligence (AI) / Machine Learning (ML) / research-engineering profile. The remaining repository index below excludes projects already shown in this selected section.",
+        allTitle: "Remaining Repository Index",
         allNote:
-          "Every public repository visible in the current GitHub readout. This list follows the latest successful read.",
+          "The list below excludes the selected projects already shown above and keeps the remaining public repositories in the latest successful GitHub read order.",
       },
       zh: {
         pageTag: "完整公开 GitHub 仓库列表，前面先按重要性排序。部分项目是对旧项目或经典项目的复现 / 重新实现，并不是原始项目。",
         rankingTitle: "项目重要性排序",
         rankingNote:
-          "前一部分按照我当前人工智能（Artificial Intelligence, AI）/ 机器学习（Machine Learning, ML）/ 研究工程方向的相关性排序。后一部分保留本次成功读取到的全部公开仓库。",
-        allTitle: "完整仓库索引",
-        allNote: "下面保留本次 GitHub 读取中可见的全部公开仓库，并按读取顺序列出。",
+          "前一部分按照我当前人工智能（Artificial Intelligence, AI）/ 机器学习（Machine Learning, ML）/ 研究工程方向的相关性排序。后一部分会排除上方已经展示过的精选项目。",
+        allTitle: "其余仓库索引",
+        allNote: "下面列表已排除上方精选项目，并保留其余公开仓库在最近一次成功 GitHub 读取中的顺序。",
       },
     },
     publications: {
       en: {
-        pageTag: "Representative publications first, followed by the complete publication list.",
+        pageTag: "Representative publications first, followed by the remaining publication list without duplicates.",
         selectedTitle: "Selected Publications",
         selectedNote:
           "This section is ordered by representative value for my current profile: first-author work, formally published work, and papers most relevant to Artificial Intelligence (AI) / Machine Learning (ML) / Large Language Model (LLM) / sensing / medical AI roles.",
-        archiveTitle: "All Publications",
+        archiveTitle: "Remaining Publications",
         archiveNote:
-          "The full publication list below is reformatted from the current BibTeX source into a human-readable bibliography.",
+          "The list below excludes the selected publications already shown above and is reformatted from the current BibTeX source into a human-readable bibliography.",
         publishedGroupTitle: "Published",
         preprintGroupTitle: "arXiv / Preprint",
         unpublishedGroupTitle: "Unpublished / In Preparation",
       },
       zh: {
-        pageTag: "先看代表性论文，后面是完整论文列表。",
+        pageTag: "先看代表性论文，后面是已排除精选论文的其余论文列表。",
         selectedTitle: "代表性论文",
         selectedNote:
           "这里优先按我当前方向的代表性排序：第一作者工作、正式发表论文，以及最贴近人工智能（Artificial Intelligence, AI）/ 机器学习（Machine Learning, ML）/ 大语言模型（Large Language Model, LLM）/ 感知 / 医学 AI 求职方向的论文。",
-        archiveTitle: "完整论文列表",
-        archiveNote: "下面的完整论文列表由当前 BibTeX 源文件整理成人类可读格式，不再直接展示原始条目。",
+        archiveTitle: "其余论文列表",
+        archiveNote: "下面列表已排除上方精选论文，并由当前 BibTeX 源文件整理成人类可读格式，不再直接展示原始条目。",
         publishedGroupTitle: "已发表",
         preprintGroupTitle: "arXiv / 预印本",
         unpublishedGroupTitle: "未发表 / 准备中",

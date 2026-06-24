@@ -34,7 +34,7 @@ function buildProjectList(items, lang, showUpdated) {
       const updated =
         showUpdated && item.updated ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}` : "";
       const note = getLangValue(item, lang, "note");
-      const images = renderProjectImageGrid(item.images || [], lang);
+      const images = renderProjectImageGrid(item.images || [], lang, "repo-image-grid");
       return `
         <li>
           <div class="repo-line"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(

@@ -3,3 +3,5 @@ assets/soundfonts/site-grand-piano/*
 
 __pycache__/
 *.py[cod]
+
+.asset-version-log.jsonl

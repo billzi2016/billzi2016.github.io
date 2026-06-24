@@ -186,11 +186,21 @@ function switchMusicTrack(index, autoplay) {
   const player = getActiveMidiPlayer();
   if (!player || !tracks[index]) return;
 
+  const nextSrc = tracks[index].file;
+  const isSameTrack = index === musicState.currentIndex && player.getAttribute("src") === nextSrc;
+  if (isSameTrack) {
+    if (autoplay) player.play().catch?.(() => {});
+    return;
+  }
+
   musicState.currentIndex = index;
+  musicState.restoreTime = 0;
+  musicState.shouldResume = false;
   localStorage.setItem("site-music-index", String(index));
 
-  const nextSrc = tracks[index].file;
   const startPlayback = () => {
+    player.currentTime = 0;
+    updateMusicProgress();
     if (autoplay) {
       player.play().catch?.(() => {});
     }
@@ -558,4 +568,3 @@ function renderMusic(lang) {
 
   bindMusicPage(lang);
 }
-

@@ -175,7 +175,7 @@ function renderPersonal(lang) {
     .join("");
   const electronicsProjects = page.electronicsProjects
     .map((project) => {
-      const projectImages = project.images ? renderProjectImageGrid(project.images, lang) : "";
+      const projectImages = project.images ? renderProjectImageGrid(project.images, lang, "panel-image-grid") : "";
       const donatedNote = project.images
         ? ""
         : `<p class="project-donation-note">${
