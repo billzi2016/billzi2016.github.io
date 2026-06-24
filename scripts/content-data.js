@@ -447,12 +447,12 @@ window.siteContent = {
             zh: "原始中科院实现保留在研究所封闭电脑环境中，无法直接拷贝出来；链接的公开仓库是后续自实现复现版本，用于保留系统架构、数据流和监测行为，同时不暴露内部代码与部署细节。",
           },
           {
-            en: "Designed the reproduced data path so simulated testing and production acquisition share the same backend contract: mock_server.py --feed writes 320 Redis keys per second for 20 gateways x 16 sensors with TTL=10s under monitor:sensor:{ip}:{index}, and Django RedisReader consumes the same keys for live frontend display.",
-            zh: "在复现系统中设计测试流与生产采集共用同一后端契约：mock_server.py --feed 每秒写入 320 个 Redis key（20 个网关 x 16 个传感器），TTL=10s，key 格式为 monitor:sensor:{ip}:{index}，再由 Django RedisReader 读取并实时展示到前端。",
+            en: "Designed the reproduced data path so simulated testing and production acquisition share the same backend contract: mock_server.py --feed writes 320 Redis keys per second for 20 gateways x 16 sensors with TTL=10s under monitor:sensor:{ip}:{index}, and Django RedisReader consumes the same keys for live frontend display; at the demonstrated update rate, the backend pipeline corresponds to tens of millions of sensor updates per day.",
+            zh: "在复现系统中设计测试流与生产采集共用同一后端契约：mock_server.py --feed 每秒写入 320 个 Redis key（20 个网关 x 16 个传感器），TTL=10s，key 格式为 monitor:sensor:{ip}:{index}，再由 Django RedisReader 读取并实时展示到前端；按该展示更新速率估算，后端数据链路对应每天数千万次传感器更新。",
           },
           {
-            en: "For the production path, RS485 sensors feed collector/modbus_client.py, which writes the same Redis key format used by the mock flow; RedisReader and the frontend remain unchanged, making the system easier to validate, swap between test and field data, and deploy as a reliable industrial monitoring platform.",
-            zh: "生产路径中，RS485 传感器数据进入 collector/modbus_client.py，并写入与 mock 流完全相同的 Redis key 格式；RedisReader 与前端代码保持不变，从而便于测试验证、切换真实现场数据，并部署为可靠的工业监测平台。",
+            en: "For the production path, RS485 sensors feed collector/modbus_client.py, which writes the same Redis key format used by the mock flow; Redis handles most real-time caching and aggregation work as a high-performance layer, while the distributed Modbus gateway and acquisition-worker design is theoretically scalable to thousands to tens of thousands of sensors by adding more gateway devices and collector instances.",
+            zh: "生产路径中，RS485 传感器数据进入 collector/modbus_client.py，并写入与 mock 流完全相同的 Redis key 格式；Redis 作为高性能实时缓存与汇聚层承担绝大部分缓存任务，而分布式 Modbus 网关与采集 worker 设计在理论上可通过增加网关设备和采集实例承载千级到万级传感器。",
           },
         ],
       },
