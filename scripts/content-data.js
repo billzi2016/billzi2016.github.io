@@ -9,6 +9,9 @@ window.siteContent = {
         "Generative Models",
         "Diffusion Models",
         "Computer Vision",
+        "Process Defect Detection",
+        "Yield Inspection",
+        "Production-Line Optimization",
         "Medical AI",
         "Model Security and Robustness",
         "Model Interpretability",
@@ -23,6 +26,9 @@ window.siteContent = {
         "生成式模型",
         "扩散模型",
         "计算机视觉",
+        "工艺缺陷检测",
+        "良品率检测",
+        "流水线优化",
         "医学人工智能",
         "模型安全与鲁棒性",
         "模型可解释性",
@@ -67,9 +73,9 @@ window.siteContent = {
           labelEn: "Hardware",
           labelZh: "硬件",
           valueEn:
-            "mmWave radar (TI IWR6843 / 1843, Cascade EVM), STM32, ESP8266 / ESP32, I2C / SPI / UART / RS-485 / Modbus, GPU / CUDA optimization",
+            "mmWave radar (TI IWR6843 / 1843, Cascade EVM), STM32, ESP8266 / ESP32, I2C / SPI / UART / RS-485 / Modbus, oscilloscope, logic analyzer, digital LCR meter, waveform generator, hot-air rework station, GPU / CUDA optimization",
           valueZh:
-            "毫米波雷达（TI IWR6843 / 1843、Cascade EVM）、STM32、ESP8266 / ESP32、I2C / SPI / UART / RS-485 / Modbus、GPU / CUDA 优化",
+            "毫米波雷达（TI IWR6843 / 1843、Cascade EVM）、STM32、ESP8266 / ESP32、I2C / SPI / UART / RS-485 / Modbus、示波器、逻辑分析仪、数字电桥、波形发生器、热风焊台、GPU / CUDA 优化",
         },
         {
           labelEn: "Libraries",
@@ -255,7 +261,7 @@ window.siteContent = {
       {
         titleEn: "China Post (Internship)",
         titleZh: "中国邮政（实习）",
-        meta: "Jan 2026 - Feb 2026",
+        meta: "Jan 2026 - Mar 2026",
         roleEn: "AI Algorithm Engineer, Large Language Model Direction",
         roleZh: "AI 算法工程师（大模型方向）",
         links: [
@@ -310,7 +316,7 @@ window.siteContent = {
       {
         titleEn: "Xperf (Internship)",
         titleZh: "Xperf（实习）",
-        meta: "Sep 2025 - Dec 2025",
+        meta: "Aug 2025 - Jan 2026",
         roleEn: "AI Research and AI/ML Optimization Engineer",
         roleZh: "AI 研究与 AI/ML 优化工程师",
         bullets: [
@@ -339,7 +345,7 @@ window.siteContent = {
       {
         titleEn: "Infraeo (Internship)",
         titleZh: "Infraeo（实习）",
-        meta: "May 2025 - Dec 2025",
+        meta: "May 2025 - Jan 2026",
         roleEn: "Machine Learning and Deep Learning Engineer",
         roleZh: "机器学习与深度学习工程师",
         links: [
@@ -391,8 +397,8 @@ window.siteContent = {
         roleZh: "研发硬件工程师",
         bullets: [
           {
-            en: "Developed a smart wireless weather monitoring system integrating STM32, LCD2004, SPI OLED, air-pressure sensors, temperature and humidity modules, seven-segment displays, UART GPS, WiFi modules, and anemometer components.",
-            zh: "开发了智能无线气象监测系统，集成 STM32、LCD2004、SPI OLED、气压传感器、温湿度模块、数码管、UART GPS、WiFi 模块和风速仪组件。",
+            en: "Developed a smart wireless weather monitoring system integrating STM32, LCD2004 / 12864 SPI OLED, air-pressure sensors, temperature and humidity modules, seven-segment displays, UART GPS, ESP8266 WiFi modules, Bluetooth modules, SMS modules, I2C/IIC sensors, anemometer components, lithium-battery and power-management modules, and an ultra-low-power mode.",
+            zh: "开发了智能无线气象监测系统，集成 STM32、LCD2004 / 12864 SPI OLED、气压传感器、温湿度模块、数码管、UART GPS、ESP8266 WiFi 模块、蓝牙模块、SMS 模块、I2C/IIC 传感器、风速仪组件、锂电池和电源管理模块，并实现极限省电模式。",
           },
           {
             en: "Supported embedded hardware integration and system bring-up across sensing, communication, and display modules for field-oriented monitoring applications.",
