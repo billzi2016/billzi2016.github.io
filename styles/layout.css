@@ -216,53 +216,16 @@ body.dark-theme .language-switch {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
   pointer-events: none;
   will-change: transform;
   transition:
     transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.theme-switch-scene::before,
-.theme-switch-scene::after {
-  content: "";
-  position: absolute;
-  transition: transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 .theme-switch-scene-day {
   top: 0;
   transform: translateY(0);
-  background:
-    radial-gradient(circle at 14% 50%, rgba(255, 255, 255, 0.1) 0 34%, transparent 35%),
-    radial-gradient(circle at 38% 50%, rgba(255, 255, 255, 0.08) 0 31%, transparent 32%),
-    radial-gradient(circle at 61% 50%, rgba(255, 255, 255, 0.06) 0 27%, transparent 28%);
-}
-
-.theme-switch-scene-day::before {
-  right: -11px;
-  width: 28px;
-  height: 28px;
-  bottom: 8px;
-  background: rgba(171, 208, 244, 0.78);
-  border-radius: 999px;
-  box-shadow:
-    -17px 12px 0 7px rgba(171, 208, 244, 0.78),
-    -40px 23px 0 0 rgba(171, 208, 244, 0.78),
-    -63px 26px 0 -2px rgba(171, 208, 244, 0.78);
-  transform: translate(-4px, 3px) rotate(-2.61deg);
-}
-
-.theme-switch-scene-day::after {
-  right: -13px;
-  width: 30px;
-  height: 30px;
-  bottom: 0;
-  background: #f3fdff;
-  border-radius: 999px;
-  box-shadow:
-    -14px 12px 0 4px #f3fdff,
-    -38px 20px 0 -1px #f3fdff,
-    -62px 21px 0 -3px #f3fdff;
 }
 
 .theme-switch-scene-night {
@@ -271,24 +234,11 @@ body.dark-theme .language-switch {
   background: #202934;
 }
 
-.theme-switch-scene-night::before {
-  inset: -14px auto -14px 33px;
-  width: 62px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow:
-    -16px 0 0 rgba(255, 255, 255, 0.06),
-    17px 0 0 rgba(255, 255, 255, 0.12);
-}
-
-.theme-switch-scene-night::after {
-  display: none;
-}
-
 .theme-switch-glow {
   position: absolute;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
   transition:
     left 4.8s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 4.8s cubic-bezier(0.22, 1, 0.36, 1);
@@ -332,23 +282,24 @@ body.dark-theme .language-switch {
 }
 
 .theme-switch-cloudbank-back {
-  left: 13px;
-  width: 22px;
-  bottom: -14px;
-  height: 22px;
+  left: 22px;
+  width: 30px;
+  bottom: -26px;
+  height: 30px;
   background: rgba(171, 208, 244, 0.72);
-  transform: translate(7px, -2px) rotate(-2.61deg);
+  transform: translate(-3px, -3px) rotate(-25deg);
+  transform-origin: 50% 50%;
   opacity: 0.9;
 }
 
 .theme-switch-cloudbank-back::before {
-  width: 26px;
-  height: 26px;
-  left: 20px;
-  bottom: 1px;
+  width: 34px;
+  height: 34px;
+  left: 22px;
+  bottom: -1px;
   box-shadow:
-    23px 1px 0 -5px rgba(171, 208, 244, 0.72),
-    43px -6px 0 -5px rgba(171, 208, 244, 0.72);
+    25px 0 0 -4px rgba(171, 208, 244, 0.72),
+    49px -7px 0 -1px rgba(171, 208, 244, 0.72);
 }
 
 .theme-switch-cloudbank-back::after {
@@ -356,21 +307,23 @@ body.dark-theme .language-switch {
 }
 
 .theme-switch-cloudbank-front {
-  left: 10px;
-  bottom: -15px;
-  width: 24px;
-  height: 24px;
+  left: 22px;
+  bottom: -28px;
+  width: 32px;
+  height: 32px;
   background: #f3fdff;
+  transform: rotate(-25deg);
+  transform-origin: 50% 50%;
 }
 
 .theme-switch-cloudbank-front::before {
-  width: 27px;
-  height: 27px;
-  left: 21px;
-  bottom: 0;
+  width: 34px;
+  height: 34px;
+  left: 22px;
+  bottom: -1px;
   box-shadow:
-    24px 0 0 -6px #f3fdff,
-    44px -7px 0 -6px #f3fdff;
+    25px 0 0 -4px #f3fdff,
+    49px -7px 0 -1px #f3fdff;
 }
 
 .theme-switch-cloudbank-front::after {
@@ -461,6 +414,7 @@ body.dark-theme .language-switch {
   left: 2px;
   width: 32px;
   height: 32px;
+  z-index: 2;
   border-radius: 999px;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25))
     drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.25));
@@ -546,11 +500,11 @@ body.dark-theme .theme-switch-glow-one {
 }
 
 body.dark-theme .theme-switch-glow-two {
-  left: 39px;
+  left: 37px;
 }
 
 body.dark-theme .theme-switch-glow-three {
-  left: 28px;
+  left: 26px;
 }
 
 body.dark-theme .theme-switch-thumb {
@@ -569,11 +523,15 @@ body.dark-theme .theme-switch-thumb-moon {
 
 body.dark-theme .theme-switch-cloudbank-back,
 body.dark-theme .theme-switch-cloudbank-front {
-  transform: translateY(40px) rotate(-2.61deg);
+  transform: translateY(40px);
+}
+
+body.dark-theme .theme-switch-cloudbank-back {
+  transform: translate(-3px, 37px) rotate(-25deg);
 }
 
 body.dark-theme .theme-switch-cloudbank-front {
-  transform: translateY(42px);
+  transform: translateY(42px) rotate(-25deg);
 }
 
 body.dark-theme .theme-switch-stars {
