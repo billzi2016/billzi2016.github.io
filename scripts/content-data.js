@@ -621,6 +621,13 @@ window.siteContent = {
         updated: "2026-06-08",
         noteEn: "A full-stack ReAct AI agent system built with Python, Django, SSE streaming, and Docker sandboxing for algorithmic problem solving. It combines reasoning-and-acting loops, runtime control, safe code execution, phased trace visualization, and web interaction. The project is closer to agent engineering and systems integration than to a simple prompt wrapper.",
         noteZh: "这是一个基于 Python、Django、SSE 和 Docker 沙箱的全栈 ReAct AI Agent 系统，用于算法题求解。项目把 reasoning-and-acting 闭环、运行时控制、安全执行、过程可视化和 Web 交互放在同一个系统里完成，更接近真正的 agent engineering 与 systems integration，而不是简单的提示词封装。",
+        images: [
+          {
+            src: "./assets/images/projects/ReAct-AI-Agent/127.0.0.1_8080_.png",
+            captionEn: "界面截图",
+            captionZh: "界面截图",
+          },
+        ],
       },
       "AI-Agent": {
         name: "AI-Agent",
@@ -826,6 +833,13 @@ window.siteContent = {
         language: "Python",
         noteEn: "A profiling-oriented project that connects training-side instrumentation with a Django-based dashboard for Apple Silicon workflows. It reflects my interest in observability and practical system measurement, especially when running ML workloads on local hardware rather than cloud GPUs.",
         noteZh: "这是一个面向 Apple Silicon 工作流的性能剖析项目，把训练侧埋点和 Django 看板连接起来。它体现了我对可观测性和实际系统测量的兴趣，尤其是在本地硬件上跑 ML 任务时，如何把指标和开发体验真正结合起来。",
+        images: [
+          {
+            src: "./assets/images/projects/Apple-Silicon-Profiler/localhost_6324_.png",
+            captionEn: "dashboard",
+            captionZh: "dashboard",
+          },
+        ],
       },
       "Visual-Basic-Core-Compiler": {
         name: "Visual-Basic-Core-Compiler",
@@ -868,6 +882,13 @@ window.siteContent = {
         language: "JavaScript",
         noteEn: "A collection of experiments around classic chaotic systems and attractors. It is valuable as a mathematically flavored simulation project and as evidence that I enjoy building small exploratory environments, not only production-oriented AI systems.",
         noteZh: "这是一个围绕经典混沌系统和吸引子实验的仓库。它的价值在于展示我对数学建模和可视化模拟的兴趣，也说明我不仅做生产导向的 AI 系统，还会认真搭建小型探索型实验环境。",
+        images: [
+          {
+            src: "./assets/images/projects/chaos-algorithms/lorenz-chaos__lorenz_trajectory.gif",
+            captionEn: "洛伦兹吸引子轨迹",
+            captionZh: "洛伦兹吸引子轨迹",
+          },
+        ],
       },
       "cordic-fixedpoint-algorithm": {
         name: "cordic-fixedpoint-algorithm",
@@ -882,6 +903,33 @@ window.siteContent = {
         language: "Python",
         noteEn: "An automatic-differentiation engine that intercepts scalar formulas, builds DAGs implicitly, and backpropagates analytic gradients. It is a good example of how I like to rebuild core ML math machinery directly instead of treating frameworks as black boxes.",
         noteZh: "这是一个自动微分引擎，会把普通标量公式隐式编织成有向无环图，再通过反向传播求解析梯度。它很能代表我做项目的方式：尽量把深度学习框架底层的数学和机制亲手重建，而不是只把框架当黑盒使用。",
+        images: [
+          {
+            src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_graph.png",
+            captionEn: "ACE Graph",
+            captionZh: "ACE Graph",
+          },
+          {
+            src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_mega_graph.png",
+            captionEn: "ACE Mega Graph",
+            captionZh: "ACE Mega Graph",
+          },
+          {
+            src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_deep_graph.png",
+            captionEn: "ACE Deep Graph",
+            captionZh: "ACE Deep Graph",
+          },
+          {
+            src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_wide_graph.png",
+            captionEn: "ACE Wide Graph",
+            captionZh: "ACE Wide Graph",
+          },
+          {
+            src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_ultimate_graph.png",
+            captionEn: "ACE Ultimate Graph",
+            captionZh: "ACE Ultimate Graph",
+          },
+        ],
       },
       "Automatic-Differentiation-From-Scratch": {
         name: "Automatic-Differentiation-From-Scratch",
@@ -924,6 +972,13 @@ window.siteContent = {
         language: "Python",
         noteEn: "A real-time industrial sensing system built with Python, Django, Django Ninja, Redis, and RS485/Modbus communication flows for concrete-sensor monitoring. The repository covers protocol handling, backend API services, data acquisition modes, and live monitoring paths, making it much closer to an industrial telemetry platform than to a simple polling script.",
         noteZh: "这是一个基于 Python、Django、Django Ninja、Redis 和 RS485 / Modbus 通信链路的工业感知系统，用于混凝土传感器实时监测。项目覆盖协议处理、后端 API 服务、数据采集模式和实时监控路径，整体上更接近工业遥测平台，而不是简单的轮询采集脚本。",
+        images: [
+          {
+            src: "./assets/images/projects/RS485-Modbus-Concrete-Sensor-Monitor/platform-demo.png",
+            captionEn: "Platform demo",
+            captionZh: "Platform demo",
+          },
+        ],
       },
       "Custom-Style-AI-Chat": {
         name: "Custom-Style-AI-Chat",
@@ -1008,6 +1063,13 @@ window.siteContent = {
         language: "Python",
         noteEn: "A route-planning and city-network visualization platform built around real street graphs. It combines algorithmic routing with high-resolution city rendering, so it is both an algorithms project and a visualization/storytelling project about urban structure.",
         noteZh: "这是一个基于真实城市路网的路由算法与可视化平台，把最短路径类算法和高清城市渲染结合在一起。它既是算法项目，也是一个很强的可视化叙事项目，能说明我会把抽象结构做成真正可感知的系统展示。",
+        images: [
+          {
+            src: "./assets/images/projects/Metropolitan-Routing-Algorithm/map__gallery__Chicago.jpg",
+            captionEn: "Chicago",
+            captionZh: "Chicago",
+          },
+        ],
       },
       "ESP32-Prometheus-PC-Monitor": {
         name: "ESP32-Prometheus-PC-Monitor",
@@ -1197,6 +1259,38 @@ window.siteContent = {
         language: "Python",
         noteEn: "A Python simulator for mesh-based MIMO FMCW radar scenes with front-facing visibility filtering, signal-generation logic, and multiprocessing acceleration. The repository connects 3D geometry, radar signal modeling, parallel simulation, and sensing-oriented experimentation, which aligns closely with my mmWave and radar-security research background.",
         noteZh: "这是一个面向网格化 MIMO FMCW 雷达场景的 Python 模拟器，包含前向可见面筛选、信号生成逻辑和多进程加速。项目把 3D 几何、雷达信号建模、并行模拟和感知实验连接起来，与我的毫米波和雷达安全研究背景高度一致。",
+        images: [
+          {
+            src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/fmcw-2243-cascade.png",
+            captionEn: "Simulated target object",
+            captionZh: "Simulated target object",
+          },
+          {
+            src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__summary_heatmaps.png",
+            captionEn: "Summary heatmaps",
+            captionZh: "Summary heatmaps",
+          },
+          {
+            src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__range_doppler_heatmap.png",
+            captionEn: "Range-Doppler heatmap",
+            captionZh: "Range-Doppler heatmap",
+          },
+          {
+            src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__range_angle_heatmap.png",
+            captionEn: "Range-Angle heatmap",
+            captionZh: "Range-Angle heatmap",
+          },
+          {
+            src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__doppler_angle_heatmap.png",
+            captionEn: "Doppler-Angle heatmap",
+            captionZh: "Doppler-Angle heatmap",
+          },
+          {
+            src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__range_chirp_heatmap.png",
+            captionEn: "Range-Chirp heatmap",
+            captionZh: "Range-Chirp heatmap",
+          },
+        ],
       },
       "automl-autodl": {
         name: "automl-autodl",
@@ -1269,9 +1363,14 @@ window.siteContent = {
         noteZh: "这是一个基于 Django 和 django-ninja 的本地 MRI 批量质控筛选平台，面向本地或挂载盘上的大规模 MRI 数据。它支持分页预览 NIfTI / DICOM / 图片文件、切换轴向和切片、旋转预览、批量勾选，并把筛选出的 MRI 路径导出给后续流程使用。",
         images: [
           {
-            src: "./assets/images/projects/batch-mri-quality-control-demo.png",
-            captionEn: "Batch MRI QC browser with paged MRI previews and bulk selection controls.",
-            captionZh: "Batch MRI QC 浏览器界面，支持分页 MRI 预览与批量筛选控制。",
+            src: "./assets/images/projects/Batch-MRI-Quality-Control/demo.png",
+            captionEn: "Batch MRI QC demo",
+            captionZh: "Batch MRI QC demo",
+          },
+          {
+            src: "./assets/images/projects/Batch-MRI-Quality-Control/swagger.png",
+            captionEn: "Swagger UI",
+            captionZh: "Swagger UI",
           },
         ],
       },
@@ -1283,9 +1382,29 @@ window.siteContent = {
         noteZh: "这是一个分布式共识算法教学实验平台，使用 FastAPI 模拟后端节点，并用 Vue 仪表盘可视化 Raft 风格的 Leader 选举、心跳、宕机、重启和 5 x 7 集群状态。",
         images: [
           {
-            src: "./assets/images/projects/distributed-paxos-raft-lab-demo.png",
-            captionEn: "Raft lab dashboard showing node state and cluster control behavior.",
-            captionZh: "Raft 实验仪表盘，展示节点状态与集群控制过程。",
+            src: "./assets/images/projects/distributed-paxos-raft-lab/images__raft-demo.png",
+            captionEn: "Raft dashboard demo",
+            captionZh: "Raft dashboard demo",
+          },
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab/images__start.png",
+            captionEn: "Backend start",
+            captionZh: "Backend start",
+          },
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab/images__vue-log.png",
+            captionEn: "Vue log",
+            captionZh: "Vue log",
+          },
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab/images__build.png",
+            captionEn: "Build output",
+            captionZh: "Build output",
+          },
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab/images__stopping.png",
+            captionEn: "Stopping services",
+            captionZh: "Stopping services",
           },
         ],
       },
@@ -1297,9 +1416,9 @@ window.siteContent = {
         noteZh: "这是一个面向工业文档、合规资料、标准、数据手册和说明书的本地优先 RAG 工作台。FAISS 版本整合 Django、HDF5、Celery、SSE、SQLite 以及本地或路由式大模型 provider，用于文档上传、embedding、检索和交互式问答。",
         images: [
           {
-            src: "./assets/images/projects/industrial-query-agent-webui.png",
-            captionEn: "Industrial Query Agent Web UI for local document retrieval and question answering.",
-            captionZh: "Industrial Query Agent Web UI，用于本地工业文档检索与问答。",
+            src: "./assets/images/projects/Industrial-Query-Agent/v1_faiss__WebUI.png",
+            captionEn: "Industrial Query Agent Web UI",
+            captionZh: "Industrial Query Agent Web UI",
           },
         ],
       },
@@ -1318,9 +1437,9 @@ window.siteContent = {
         noteZh: "这是一个纯前端迷宫算法可视化项目，使用 HTML、CSS 和 JavaScript 在同一座生成的完美迷宫上对比 BFS、DFS、A*、右手定则、Tremaux、蚁群算法和黏菌算法，并同步展示动画控制、算法讲解、参数和运行统计。",
         images: [
           {
-            src: "./assets/images/projects/maze-algorithms-demo.png",
-            captionEn: "Maze algorithm visualizer comparing multiple search strategies on one generated maze.",
-            captionZh: "迷宫算法可视化界面，在同一座迷宫上对比多种搜索策略。",
+            src: "./assets/images/projects/maze-algorithms/maze-demo.png",
+            captionEn: "迷宫算法可视化页面截图",
+            captionZh: "迷宫算法可视化页面截图",
           },
         ],
       },
@@ -1332,19 +1451,59 @@ window.siteContent = {
         noteZh: "这是一个白盒机器学习 / 深度学习算法动画集合，重点不是调用库得到最终结果，而是把 SVM、K-Means、t-SNE、UMAP、DBSCAN、PCA、随机森林、XGBoost 和优化器等算法的内部迭代过程可视化出来。",
         images: [
           {
-            src: "./assets/images/projects/whitebox-ml-dl-pca-demo.png",
-            captionEn: "PCA demo showing power iteration and principal-direction convergence.",
-            captionZh: "PCA 演示图，展示幂迭代与主方向收敛过程。",
+            src: "./assets/images/projects/whitebox-ml-dl-algo/svm_linear__svm_linear-demo.png",
+            captionEn: "Linear SVM optimization demo",
+            captionZh: "Linear SVM optimization demo",
           },
           {
-            src: "./assets/images/projects/whitebox-ml-dl-tsne-demo.png",
-            captionEn: "t-SNE demo visualizing attraction and repulsion during embedding optimization.",
-            captionZh: "t-SNE 演示图，展示嵌入优化中的吸引与排斥过程。",
+            src: "./assets/images/projects/whitebox-ml-dl-algo/svm_rbf__svm_rbf-demo.png",
+            captionEn: "RBF SVM windmill XOR demo",
+            captionZh: "RBF SVM windmill XOR demo",
           },
           {
-            src: "./assets/images/projects/whitebox-ml-dl-kmeans-demo.png",
-            captionEn: "K-Means demo showing assignment and center-update dynamics.",
-            captionZh: "K-Means 演示图，展示样本分配与中心更新过程。",
+            src: "./assets/images/projects/whitebox-ml-dl-algo/kmeans__kmeans-demo.png",
+            captionEn: "K-Means optimization demo",
+            captionZh: "K-Means optimization demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/tsne__tsne-demo.png",
+            captionEn: "t-SNE geometric point cloud demo",
+            captionZh: "t-SNE geometric point cloud demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/umap__umap-demo.png",
+            captionEn: "UMAP neighborhood optimization demo",
+            captionZh: "UMAP neighborhood optimization demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/dbscan__dbscan-demo.png",
+            captionEn: "DBSCAN density expansion demo",
+            captionZh: "DBSCAN density expansion demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/pca__pca-demo.png",
+            captionEn: "PCA power iteration demo",
+            captionZh: "PCA power iteration demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/random_forest__rf-demo.png",
+            captionEn: "Random Forest construction demo",
+            captionZh: "Random Forest construction demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/xgboost__xgboost-demo.png",
+            captionEn: "XGBoost-style boosting demo",
+            captionZh: "XGBoost-style boosting demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/linear_regression__lr-demo.png",
+            captionEn: "Linear Regression gradient descent demo",
+            captionZh: "Linear Regression gradient descent demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-algo/optimizers__op-demo.png",
+            captionEn: "Optimizer trajectories demo",
+            captionZh: "Optimizer trajectories demo",
           },
         ],
       },
