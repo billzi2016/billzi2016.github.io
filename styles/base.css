@@ -43,6 +43,13 @@ body {
     color var(--theme-transition);
 }
 
+html.theme-preload,
+html.theme-preload *,
+html.theme-preload *::before,
+html.theme-preload *::after {
+  transition: none !important;
+}
+
 html.dark-theme,
 body.dark-theme {
   --bg: #0d141b;

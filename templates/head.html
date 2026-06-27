@@ -4,6 +4,7 @@
     <title>{{ title }}</title>
 {{ description }}    <link rel="icon" type="image/png" href="./assets/images/images.png" />
     <script>
+      document.documentElement.classList.add("theme-preload");
       try {
         if (localStorage.getItem("site-theme") === "dark") {
           document.documentElement.classList.add("dark-theme");
@@ -12,5 +13,5 @@
         document.documentElement.classList.remove("dark-theme");
       }
     </script>
-    <link rel="stylesheet" href="./styles/main.css?v=20260624-15" />
+    <link rel="stylesheet" href="./styles/main.css?v=20260627-2" />
   </head>

@@ -203,15 +203,18 @@ async function loadSharedHeader() {
 }
 
 async function bootstrapSite() {
+  applyTheme(localStorage.getItem("site-theme") || "light");
   await loadSharedHeader();
   bindHeaderControls();
   syncNavState();
   initFloatingMusicWidget();
   initProjectImageLightbox();
   ensureLanguageSwitchMarkup();
-  applyTheme(localStorage.getItem("site-theme") || "light");
   applyLanguage(localStorage.getItem("site-lang") || "en");
   initSiteSearch();
+  requestAnimationFrame(() => {
+    root.classList.remove("theme-preload");
+  });
 }
 
 bootstrapSite();
