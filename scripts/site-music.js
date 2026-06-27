@@ -88,6 +88,20 @@ function applySavedMusicPlayback() {
   musicState.shouldResume = Boolean(saved.playing);
 }
 
+function restoreMusicPlaybackOnMetadata(player, { resume = true } = {}) {
+  updateMidiOutputLevel();
+  if (musicState.restoreTime > 0) {
+    player.currentTime = musicState.restoreTime;
+    musicState.restoreTime = 0;
+  }
+  if (resume && musicState.shouldResume) {
+    player.play().catch?.(() => {});
+    musicState.shouldResume = false;
+  }
+  updateMusicPanel(localStorage.getItem("site-lang") || "en");
+  updateMusicProgress();
+}
+
 function setMidiVolume(level) {
   musicState.volume = Math.min(1, Math.max(0, level));
   localStorage.setItem("site-midi-volume", String(musicState.volume));
@@ -260,7 +274,7 @@ function ensureFloatingMusicWidget() {
         <ol id="music-mini-playlist" class="playlist-list music-mini-playlist"></ol>
         <p id="music-source-note" class="music-source-note"></p>
       </div>
-      <audio id="floating-audio-player" class="music-core-player" preload="metadata"></audio>
+      <audio id="floating-audio-player" class="music-core-player" preload="auto"></audio>
     </div>
   `;
   document.body.appendChild(widget);
@@ -394,16 +408,7 @@ function initFloatingMusicWidget() {
   });
 
   player.addEventListener("loadedmetadata", () => {
-    updateMidiOutputLevel();
-    if (musicState.restoreTime > 0) {
-      player.currentTime = musicState.restoreTime;
-    }
-    if (musicState.shouldResume) {
-      player.play().catch?.(() => {});
-      musicState.shouldResume = false;
-    }
-    updateMusicPanel(localStorage.getItem("site-lang") || "en");
-    updateMusicProgress();
+    restoreMusicPlaybackOnMetadata(player);
   });
 
   player.addEventListener("timeupdate", updateMusicProgress);
@@ -444,6 +449,11 @@ function bindMusicPage(lang) {
 
   const player = document.getElementById("audio-player");
   if (!player) return;
+
+  applySavedMusicPlayback();
+  if (!Number.isFinite(musicState.currentIndex) || musicState.currentIndex >= tracks.length) {
+    musicState.currentIndex = 0;
+  }
 
   player.src = tracks[musicState.currentIndex].file;
   player.load();
@@ -489,8 +499,7 @@ function bindMusicPage(lang) {
   });
 
   player.addEventListener("loadedmetadata", () => {
-    updateMidiOutputLevel();
-    updateMusicProgress();
+    restoreMusicPlaybackOnMetadata(player);
   });
   player.addEventListener("timeupdate", updateMusicProgress);
   player.addEventListener("durationchange", updateMusicProgress);

@@ -90,6 +90,16 @@ function syncNavState() {
   });
 }
 
+function bindNavigationPlaybackSave() {
+  document.querySelectorAll("a[href]").forEach((link) => {
+    if (link.dataset.musicSaveBound === "true") return;
+    link.addEventListener("click", () => {
+      saveMusicPlaybackState();
+    });
+    link.dataset.musicSaveBound = "true";
+  });
+}
+
 function applyTheme(theme) {
   const dark = theme === "dark";
   root.classList.toggle("dark-theme", dark);
@@ -204,10 +214,11 @@ async function loadSharedHeader() {
 
 async function bootstrapSite() {
   applyTheme(localStorage.getItem("site-theme") || "light");
+  initFloatingMusicWidget();
   await loadSharedHeader();
   bindHeaderControls();
   syncNavState();
-  initFloatingMusicWidget();
+  bindNavigationPlaybackSave();
   initProjectImageLightbox();
   ensureLanguageSwitchMarkup();
   applyLanguage(localStorage.getItem("site-lang") || "en");
