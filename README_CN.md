@@ -93,3 +93,41 @@ node --check scripts/content-data.js
 - `scripts/data/projects-data.js`
 
 静态 HTML 页面会先加载这些数据文件，再加载 `scripts/content-data.js`，由它组装出渲染器使用的统一运行时对象。
+
+## 演示图片
+
+### 中文主页深色主题
+
+![中文主页深色主题](demo/cn-dark.png)
+
+### 中文主页浅色主题
+
+![中文主页浅色主题](demo/cn-light.png)
+
+### 英文主页深色主题
+
+![英文主页深色主题](demo/en-dark.png)
+
+### 英文主页浅色主题
+
+![英文主页浅色主题](demo/en-light.png)
+
+### 工业经历详情
+
+![工业经历详情](demo/exp.png)
+
+### 科研经历与监测平台
+
+![科研经历与监测平台](demo/exp-2.png)
+
+### 个人介绍与硬件项目
+
+![个人介绍与硬件项目](demo/introd.png)
+
+### 论文页面
+
+![论文页面](demo/paper.png)
+
+### 项目页面
+
+![项目页面](demo/proj.png)

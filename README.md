@@ -93,3 +93,41 @@ Main content data is split into:
 - `scripts/data/projects-data.js`
 
 The static HTML pages load those files first, then load `scripts/content-data.js`, which assembles the single runtime object used by the renderers.
+
+## Demo Gallery
+
+### Chinese Homepage in Dark Theme
+
+![Chinese Homepage in Dark Theme](demo/cn-dark.png)
+
+### Chinese Homepage in Light Theme
+
+![Chinese Homepage in Light Theme](demo/cn-light.png)
+
+### English Homepage in Dark Theme
+
+![English Homepage in Dark Theme](demo/en-dark.png)
+
+### English Homepage in Light Theme
+
+![English Homepage in Light Theme](demo/en-light.png)
+
+### Industry Experience Detail
+
+![Industry Experience Detail](demo/exp.png)
+
+### Research Experience and Monitoring Platform
+
+![Research Experience and Monitoring Platform](demo/exp-2.png)
+
+### Personal Introduction and Hardware Projects
+
+![Personal Introduction and Hardware Projects](demo/introd.png)
+
+### Publications Page
+
+![Publications Page](demo/paper.png)
+
+### Projects Page
+
+![Projects Page](demo/proj.png)
