@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ziqian Bi | Experience</title>
     <link rel="icon" type="image/png" href="./assets/images/images.png" />
+    <script>
+      try {
+        if (localStorage.getItem("site-theme") === "dark") {
+          document.documentElement.classList.add("dark-theme");
+        }
+      } catch (error) {
+        document.documentElement.classList.remove("dark-theme");
+      }
+    </script>
     <link rel="stylesheet" href="./styles/main.css?v=20260624-15" />
   </head>
   <body data-page="experience">

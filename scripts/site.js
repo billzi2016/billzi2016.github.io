@@ -92,6 +92,7 @@ function syncNavState() {
 
 function applyTheme(theme) {
   const dark = theme === "dark";
+  root.classList.toggle("dark-theme", dark);
   body.classList.toggle("dark-theme", dark);
   localStorage.setItem("site-theme", dark ? "dark" : "light");
   const lang = localStorage.getItem("site-lang") || "en";

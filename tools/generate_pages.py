@@ -35,7 +35,7 @@ PAGES = {
         "title": "Ziqian Bi | Publications",
     },
     "personal.html": {
-        "title": "Ziqian Bi | Personal Intro",
+        "title": "Ziqian Bi | Personal Introduction",
     },
     "music.html": {
         "title": "Ziqian Bi | Music",

@@ -6,6 +6,15 @@
     <title>Ziqian Bi | Home</title>
     <meta name="description" content="Ziqian Bi personal academic homepage for AI, ML, LLM, multimodal AI, medical AI, and ML systems roles." />
     <link rel="icon" type="image/png" href="./assets/images/images.png" />
+    <script>
+      try {
+        if (localStorage.getItem("site-theme") === "dark") {
+          document.documentElement.classList.add("dark-theme");
+        }
+      } catch (error) {
+        document.documentElement.classList.remove("dark-theme");
+      }
+    </script>
     <link rel="stylesheet" href="./styles/main.css?v=20260624-15" />
   </head>
   <body data-page="home">

@@ -21,6 +21,8 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
+  transition: background var(--theme-transition);
 }
 
 body {
@@ -41,6 +43,7 @@ body {
     color var(--theme-transition);
 }
 
+html.dark-theme,
 body.dark-theme {
   --bg: #0d141b;
   --bg-deep: #121c26;
@@ -100,4 +103,3 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
