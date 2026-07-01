@@ -169,7 +169,7 @@ window.siteExperienceContent = {
       {
         titleEn: "Chinese Academy of Sciences, Institute of Electrical Engineering (Internship)",
         titleZh: "中国科学院电工研究所（实习）",
-        meta: "Sep 2017 - Oct 2017",
+        meta: "Sep 2017 - Nov 2017",
         roleEn: "Smart Systems Solutions and Development Engineer",
         roleZh: "智能系统解决方案与开发工程师",
         links: [
