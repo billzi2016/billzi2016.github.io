@@ -27,7 +27,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/billzi2016/github.png",
-            captionEn: "GitHub profile overview",
+            captionEn: "GitHub Profile Overview",
             captionZh: "GitHub 主页概览",
           },
         ],
@@ -42,7 +42,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/LLM-Benchmark-Studio/demo-v2.png",
-            captionEn: "LLM Benchmark Studio dashboard",
+            captionEn: "LLM Benchmark Studio Dashboard",
             captionZh: "LLM Benchmark Studio 仪表盘",
           },
         ],
@@ -65,7 +65,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/ReAct-AI-Agent/127.0.0.1_8080_.png",
-            captionEn: "Web interface screenshot",
+            captionEn: "Web Interface Screenshot",
             captionZh: "界面截图",
           },
         ],
@@ -116,17 +116,17 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/professional-agentic-learning/sql-1.png",
-            captionEn: "SQL learning session",
+            captionEn: "SQL Learning Session",
             captionZh: "SQL 学习会话",
           },
           {
             src: "./assets/images/projects/professional-agentic-learning/python-2.png",
-            captionEn: "Python learning session",
+            captionEn: "Python Learning Session",
             captionZh: "Python 学习会话",
           },
           {
             src: "./assets/images/projects/professional-agentic-learning/terraform-1.png",
-            captionEn: "Terraform learning session",
+            captionEn: "Terraform Learning Session",
             captionZh: "Terraform 学习会话",
           },
         ],
@@ -261,13 +261,13 @@ window.siteProjectsContent = {
         name: "vlm-hybrid-gallery",
         url: "https://github.com/billzi2016/vlm-hybrid-gallery",
         language: "Python",
-        noteEn: "A hybrid VLM gallery project that combines image understanding, embedding generation, FAISS-style indexing, and a web-facing interaction layer. It represents an end-to-end multimodal systems mindset: model inference, retrieval, representation, and UI are treated as one integrated pipeline rather than isolated components.",
-        noteZh: "这是一个混合型 VLM 展示项目，把图像理解、embedding 生成、向量索引和网页交互层整合到一起。它体现的是端到端多模态系统思路：模型推理、检索、表示学习和前端呈现被当成同一条 pipeline 来设计，而不是彼此割裂的模块。",
+        noteEn: "A hybrid VLM gallery system that turns a local image collection into a searchable multimodal workflow with image understanding, embedding generation, FAISS-style indexing, and a web-facing interaction layer. It is a concrete end-to-end system project covering ingestion, representation, retrieval, and interface delivery rather than a standalone model demo.",
+        noteZh: "这是一个混合型 VLM 图库系统，把本地图片集合做成可搜索的多模态工作流，整合了图像理解、embedding 生成、向量索引和网页交互层。它强调的是从图片接入、表示生成、检索到前端交付的完整系统，而不是单个模型 demo。注：下方示意图中的部分图片内容因版权与隐私原因进行了色块遮挡，项目图片本身可正常显示。",
         images: [
           {
             src: "./assets/images/projects/vlm-hybrid-gallery/demo.png",
-            captionEn: "VLM hybrid gallery demo",
-            captionZh: "VLM 混合图库 demo",
+            captionEn: "VLM Hybrid Gallery Interface",
+            captionZh: "VLM 混合图库界面",
           },
         ],
       },
@@ -281,17 +281,17 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/FlashcardsAPP/Snipaste_2026-06-30_23-40-39.png",
-            captionEn: "Flashcards home layout",
+            captionEn: "Flashcards Home Layout",
             captionZh: "Flashcards 首页布局",
           },
           {
             src: "./assets/images/projects/FlashcardsAPP/Snipaste_2026-06-30_23-46-29.png",
-            captionEn: "Flashcards interaction detail",
+            captionEn: "Flashcards Interaction Detail",
             captionZh: "Flashcards 交互细节",
           },
           {
             src: "./assets/images/projects/FlashcardsAPP/Snipaste_2026-06-30_23-52-53.png",
-            captionEn: "Flashcards full page state",
+            captionEn: "Flashcards Full Page State",
             captionZh: "Flashcards 完整页面状态",
           },
         ],
@@ -354,8 +354,8 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/Apple-Silicon-Profiler/localhost_6324_.png",
-            captionEn: "dashboard",
-            captionZh: "dashboard",
+            captionEn: "Dashboard",
+            captionZh: "Dashboard",
           },
         ],
       },
@@ -403,7 +403,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/chaos-algorithms/lorenz-chaos__lorenz_trajectory.gif",
-            captionEn: "Lorenz attractor trajectory",
+            captionEn: "Lorenz Attractor Trajectory",
             captionZh: "洛伦兹吸引子轨迹",
           },
         ],
@@ -419,33 +419,33 @@ window.siteProjectsContent = {
         name: "Autograd-Compiler-Engine",
         url: "https://github.com/billzi2016/Autograd-Compiler-Engine",
         language: "Python",
-        noteEn: "An AI-assisted automatic-differentiation prototype that turns scalar formulas into computational graphs and visualizes backpropagation behavior. It presents autograd-style mechanics, graph organization, and explanatory visual outputs in a compact engineering demo.",
-        noteZh: "这是一个 AI 辅助实现的自动微分原型，会把标量公式组织成计算图，并可视化反向传播过程。项目以紧凑的工程 demo 形式展示 autograd 风格机制、图结构组织和解释性可视化输出。",
+        noteEn: "An automatic-differentiation engine that traces scalar formulas into explicit computation graphs, computes analytical gradients, and exports graph structures as visual artifacts. The repository is useful because it shows the actual graph-building and gradient-flow results directly, instead of describing autodiff only at the concept level.",
+        noteZh: "这是一个自动微分引擎项目，会把标量公式显式组织成计算图，计算解析梯度，并把图结构导出成可视化结果。它的价值在于直接展示建图结果和梯度传播结构，而不是只停留在自动微分概念说明层面。",
         images: [
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_graph.png",
-            captionEn: "ACE Graph",
-            captionZh: "ACE Graph",
+            captionEn: "Formula Graph Overview",
+            captionZh: "基础公式计算图",
           },
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_mega_graph.png",
-            captionEn: "ACE Mega Graph",
-            captionZh: "ACE Mega Graph",
+            captionEn: "Large Formula Graph",
+            captionZh: "大型公式计算图",
           },
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_deep_graph.png",
-            captionEn: "ACE Deep Graph",
-            captionZh: "ACE Deep Graph",
+            captionEn: "Deep Dependency Graph",
+            captionZh: "深层依赖计算图",
           },
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_wide_graph.png",
-            captionEn: "ACE Wide Graph",
-            captionZh: "ACE Wide Graph",
+            captionEn: "Wide Branching Graph",
+            captionZh: "宽分支计算图",
           },
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_ultimate_graph.png",
-            captionEn: "ACE Ultimate Graph",
-            captionZh: "ACE Ultimate Graph",
+            captionEn: "Full Composite Graph",
+            captionZh: "综合计算图",
           },
         ],
       },
@@ -493,7 +493,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/RS485-Modbus-Concrete-Sensor-Monitor/platform-demo.png",
-            captionEn: "Platform demo",
+            captionEn: "Platform Demo",
             captionZh: "Platform demo",
           },
         ],
@@ -795,33 +795,33 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/fmcw-2243-cascade.png",
-            captionEn: "Simulated target object",
-            captionZh: "Simulated target object",
+            captionEn: "Simulated Target Object",
+            captionZh: "Simulated Target Object",
           },
           {
             src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__summary_heatmaps.png",
-            captionEn: "Summary heatmaps",
-            captionZh: "Summary heatmaps",
+            captionEn: "Summary Heatmaps",
+            captionZh: "Summary Heatmaps",
           },
           {
             src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__range_doppler_heatmap.png",
-            captionEn: "Range-Doppler heatmap",
-            captionZh: "Range-Doppler heatmap",
+            captionEn: "Range-Doppler Heatmap",
+            captionZh: "Range-Doppler Heatmap",
           },
           {
             src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__range_angle_heatmap.png",
-            captionEn: "Range-Angle heatmap",
-            captionZh: "Range-Angle heatmap",
+            captionEn: "Range-Angle Heatmap",
+            captionZh: "Range-Angle Heatmap",
           },
           {
             src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__doppler_angle_heatmap.png",
-            captionEn: "Doppler-Angle heatmap",
-            captionZh: "Doppler-Angle heatmap",
+            captionEn: "Doppler-Angle Heatmap",
+            captionZh: "Doppler-Angle Heatmap",
           },
           {
             src: "./assets/images/projects/MIMO-FMCW-Radar-Simulator-Multiprocess/examples__plot__output__range_chirp_heatmap.png",
-            captionEn: "Range-Chirp heatmap",
-            captionZh: "Range-Chirp heatmap",
+            captionEn: "Range-Chirp Heatmap",
+            captionZh: "Range-Chirp Heatmap",
           },
         ],
       },
@@ -897,7 +897,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/Batch-MRI-Quality-Control/demo.png",
-            captionEn: "Batch MRI QC demo",
+            captionEn: "Batch MRI QC Demo",
             captionZh: "Batch MRI QC demo",
           },
           {
@@ -916,27 +916,27 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/distributed-paxos-raft-lab/images__raft-demo.png",
-            captionEn: "Raft dashboard demo",
-            captionZh: "Raft dashboard demo",
+            captionEn: "Raft Dashboard Demo",
+            captionZh: "Raft Dashboard Demo",
           },
           {
             src: "./assets/images/projects/distributed-paxos-raft-lab/images__start.png",
-            captionEn: "Backend start",
-            captionZh: "Backend start",
+            captionEn: "Backend Start",
+            captionZh: "Backend Start",
           },
           {
             src: "./assets/images/projects/distributed-paxos-raft-lab/images__vue-log.png",
-            captionEn: "Vue log",
-            captionZh: "Vue log",
+            captionEn: "Vue Log",
+            captionZh: "Vue Log",
           },
           {
             src: "./assets/images/projects/distributed-paxos-raft-lab/images__build.png",
-            captionEn: "Build output",
-            captionZh: "Build output",
+            captionEn: "Build Output",
+            captionZh: "Build Output",
           },
           {
             src: "./assets/images/projects/distributed-paxos-raft-lab/images__stopping.png",
-            captionEn: "Stopping services",
+            captionEn: "Stopping Services",
             captionZh: "Stopping services",
           },
         ],
@@ -971,7 +971,7 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/maze-algorithms/maze-demo.png",
-            captionEn: "Maze algorithm visualization screenshot",
+            captionEn: "Maze Algorithm Visualization Screenshot",
             captionZh: "迷宫算法可视化页面截图",
           },
         ],
@@ -985,58 +985,58 @@ window.siteProjectsContent = {
         images: [
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/svm_linear__svm_linear-demo.png",
-            captionEn: "Linear SVM optimization demo",
-            captionZh: "Linear SVM optimization demo",
+            captionEn: "Linear SVM Optimization Demo",
+            captionZh: "Linear SVM Optimization Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/svm_rbf__svm_rbf-demo.png",
-            captionEn: "RBF SVM windmill XOR demo",
-            captionZh: "RBF SVM windmill XOR demo",
+            captionEn: "RBF SVM Windmill XOR Demo",
+            captionZh: "RBF SVM Windmill XOR Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/kmeans__kmeans-demo.png",
-            captionEn: "K-Means optimization demo",
-            captionZh: "K-Means optimization demo",
+            captionEn: "K-Means Optimization Demo",
+            captionZh: "K-Means Optimization Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/tsne__tsne-demo.png",
-            captionEn: "t-SNE geometric point cloud demo",
-            captionZh: "t-SNE geometric point cloud demo",
+            captionEn: "t-SNE Geometric Point Cloud Demo",
+            captionZh: "t-SNE Geometric Point Cloud Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/umap__umap-demo.png",
-            captionEn: "UMAP neighborhood optimization demo",
-            captionZh: "UMAP neighborhood optimization demo",
+            captionEn: "UMAP Neighborhood Optimization Demo",
+            captionZh: "UMAP Neighborhood Optimization Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/dbscan__dbscan-demo.png",
-            captionEn: "DBSCAN density expansion demo",
-            captionZh: "DBSCAN density expansion demo",
+            captionEn: "DBSCAN Density Expansion Demo",
+            captionZh: "DBSCAN Density Expansion Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/pca__pca-demo.png",
-            captionEn: "PCA power iteration demo",
-            captionZh: "PCA power iteration demo",
+            captionEn: "PCA Power Iteration Demo",
+            captionZh: "PCA Power Iteration Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/random_forest__rf-demo.png",
-            captionEn: "Random Forest construction demo",
-            captionZh: "Random Forest construction demo",
+            captionEn: "Random Forest Construction Demo",
+            captionZh: "Random Forest Construction Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/xgboost__xgboost-demo.png",
-            captionEn: "XGBoost-style boosting demo",
-            captionZh: "XGBoost-style boosting demo",
+            captionEn: "XGBoost-Style Boosting Demo",
+            captionZh: "XGBoost-Style Boosting Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/linear_regression__lr-demo.png",
-            captionEn: "Linear Regression gradient descent demo",
-            captionZh: "Linear Regression gradient descent demo",
+            captionEn: "Linear Regression Gradient Descent Demo",
+            captionZh: "Linear Regression Gradient Descent Demo",
           },
           {
             src: "./assets/images/projects/whitebox-ml-dl-algo/optimizers__op-demo.png",
-            captionEn: "Optimizer trajectories demo",
-            captionZh: "Optimizer trajectories demo",
+            captionEn: "Optimizer Trajectories Demo",
+            captionZh: "Optimizer Trajectories Demo",
           },
         ],
       },
