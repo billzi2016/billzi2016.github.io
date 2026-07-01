@@ -419,8 +419,8 @@ window.siteProjectsContent = {
         name: "Autograd-Compiler-Engine",
         url: "https://github.com/billzi2016/Autograd-Compiler-Engine",
         language: "Python",
-        noteEn: "An automatic-differentiation engine that traces scalar formulas into explicit computation graphs, computes analytical gradients, and exports graph structures as visual artifacts. The repository is useful because it shows the actual graph-building and gradient-flow results directly, instead of describing autodiff only at the concept level.",
-        noteZh: "这是一个自动微分引擎项目，会把标量公式显式组织成计算图，计算解析梯度，并把图结构导出成可视化结果。它的价值在于直接展示建图结果和梯度传播结构，而不是只停留在自动微分概念说明层面。",
+        noteEn: "An AI-assisted automatic-differentiation engine that traces scalar formulas into explicit computation graphs, computes analytical gradients, and exports graph structures as visual artifacts. The repository is useful because it directly shows graph construction and gradient-flow results rather than describing autodiff only at the concept level.",
+        noteZh: "这是一个 AI 辅助实现的自动微分引擎项目，会把标量公式显式组织成计算图，计算解析梯度，并把图结构导出成可视化结果。它的价值在于直接展示建图结果和梯度传播结构，而不是只停留在自动微分概念说明层面。",
         images: [
           {
             src: "./assets/images/projects/Autograd-Compiler-Engine/examples__ace_graph.png",
