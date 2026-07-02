@@ -190,6 +190,15 @@
   margin-top: 18px;
 }
 
+.ai-usage-grid,
+.ai-showcase-grid {
+  margin-top: 18px;
+}
+
+.ai-architect-showcase-intro {
+  margin-top: 18px;
+}
+
 .project-image-button:focus-visible img {
   outline: 3px solid var(--accent);
   outline-offset: 3px;

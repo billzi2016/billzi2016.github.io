@@ -1,5 +1,31 @@
 #!/usr/bin/env python3
-"""Regenerate repeated static HTML fragments."""
+"""Tool: regenerate page-level <head> blocks from one shared template.
+
+Purpose:
+- Keep all top-level static pages aligned on the same favicon, stylesheet link,
+  shared script tags, and common metadata structure.
+- Allow page-specific title / description values to be injected from one local
+  config map instead of hand-editing each HTML file.
+
+Inputs:
+- templates/head.html as the single shared head fragment template.
+- The PAGES mapping in this file, which declares title / description per page.
+
+Outputs:
+- Rewrites the first <head>...</head> block in each configured top-level HTML
+  page under the repository root.
+
+Scope and boundaries:
+- This tool only updates page head metadata and repeated head markup.
+- It does not generate body content.
+- It does not bump CSS / JS cache-busting versions.
+- It does not touch external URLs beyond what already exists in the template.
+
+Operational properties:
+- Idempotent: running it repeatedly should not introduce extra diffs when files
+  are already up to date.
+- Single-block replacement: exactly one head block is expected per page.
+"""
 
 from __future__ import annotations
 
@@ -8,15 +34,16 @@ import re
 from pathlib import Path
 
 
-# ROOT 指向仓库根目录，而不是 tools/ 目录本身。
-# 这样无论从仓库根目录还是其它目录执行脚本，都能稳定找到模板和页面文件。
+# Tool root: always resolve against the repository root instead of the current
+# working directory, so this script behaves the same no matter where it is run.
 ROOT = Path(__file__).resolve().parents[1]
 
-# 公共 head 模板只维护一份；具体页面标题和 description 由下面的 PAGES 配置注入。
+# Shared input template. The tool treats this file as the canonical source for
+# repeated head markup, then injects page-specific metadata from PAGES below.
 HEAD_TEMPLATE = (ROOT / "templates" / "head.html").read_text()
 
-# 每个静态页面的 head 元数据配置。
-# 只有确实需要 SEO/分享摘要的页面才写 description；没有 description 的页面会生成更简洁的 head。
+# Per-page metadata contract for head regeneration.
+# Only pages that need SEO / sharing summary text should provide description.
 PAGES = {
     "index.html": {
         "title": "Ziqian Bi | Home",
@@ -45,8 +72,8 @@ PAGES = {
 
 
 def render_description(value: str | None) -> str:
-    # description 需要 HTML escape，避免引号或特殊字符破坏 meta 标签。
-    # 返回值末尾带换行，是为了模板里的下一行 link 保持正常缩进。
+    # Escape attribute content before injecting it into <meta>.
+    # The trailing newline preserves indentation for the next template line.
     if not value:
         return ""
     escaped = html.escape(value, quote=True)
@@ -54,8 +81,8 @@ def render_description(value: str | None) -> str:
 
 
 def render_head(config: dict[str, str]) -> str:
-    # 用最简单的字符串替换即可，不引入模板引擎，保持这个静态站的工具链轻量。
-    # rstrip() 用来去掉模板文件末尾换行，保证重复运行脚本时不会不断插入空行。
+    # Keep the toolchain lightweight: simple placeholder replacement is enough.
+    # rstrip() avoids accumulating blank-line diffs across repeated executions.
     return (
         HEAD_TEMPLATE.replace("{{ title }}", html.escape(config["title"], quote=True))
         .replace("{{ description }}", render_description(config.get("description")))
@@ -65,12 +92,12 @@ def render_head(config: dict[str, str]) -> str:
 
 def replace_head(path: Path, head_html: str) -> bool:
     original = path.read_text()
-    # 只替换第一个 <head>...</head> 区块，并吞掉后面可能已有的空行。
-    # 这样脚本是幂等的：连续运行多次，不会制造重复换行或额外 diff。
+    # Replace only the first <head>...</head> block and consume trailing blank
+    # lines so repeated runs remain idempotent.
     updated, count = re.subn(r"  <head>.*?  </head>\n*", f"{head_html}\n", original, count=1, flags=re.S)
     if count != 1:
         raise RuntimeError(f"Could not replace head in {path}")
-    # 返回 False 表示页面本来就是最新状态，调用方可以据此输出更清楚的结果。
+    # False means the file already matches the rendered template output.
     if updated == original:
         return False
     path.write_text(updated)
@@ -78,7 +105,8 @@ def replace_head(path: Path, head_html: str) -> bool:
 
 
 def main() -> None:
-    # 批量处理 PAGES 里的静态页面。新增页面时，只需要在 PAGES 里补一项。
+    # Batch-update every configured top-level page. Adding a new page only
+    # requires extending PAGES with its target filename and metadata.
     changed = []
     for filename, config in PAGES.items():
         if replace_head(ROOT / filename, render_head(config)):

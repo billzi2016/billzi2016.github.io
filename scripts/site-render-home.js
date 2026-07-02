@@ -69,6 +69,10 @@ function buildAiSkillBlocks(lang) {
     .join("")}</div>`;
 }
 
+function buildParagraphBlock(paragraphs) {
+  return (paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
+}
+
 function buildEntries(entries, lang) {
   return entries
     .map((entry) => {
@@ -204,6 +208,17 @@ function renderPersonal(lang) {
     )
     .join("");
   const catImages = renderProjectImageGrid(page.catImages, lang);
+  const aiArchitectParagraphs = buildParagraphBlock(page.aiArchitectParagraphs || [page.aiArchitectText].filter(Boolean));
+  const aiArchitectUsageImages = renderProjectImageGrid(
+    page.aiArchitectUsageImages || [],
+    lang,
+    "repo-image-grid ai-usage-grid",
+  );
+  const aiArchitectShowcaseImages = renderProjectImageGrid(
+    page.aiArchitectShowcaseImages || [],
+    lang,
+    "repo-image-grid ai-showcase-grid",
+  );
   const drinkGroups = page.drinkGroups
     .map(
       (group) => `
@@ -233,8 +248,11 @@ function renderPersonal(lang) {
     <section id="ai-full-stack-architect">
       <h2 class="section-title">${escapeHtml(page.aiArchitectTitle)}</h2>
       <div class="home-panel">
-        <p>${escapeHtml(page.aiArchitectText)}</p>
-${renderProjectImageFigure({ src: "./assets/images/token-by-month.png", caption: page.aiArchitectTokenCaption }, lang, "ai-token-image")}
+        ${aiArchitectParagraphs}
+${renderProjectImageFigure({ src: "./assets/images/ai-usage/token-by-month.png", caption: page.aiArchitectTokenCaption }, lang, "ai-token-image")}
+        ${aiArchitectUsageImages}
+        <p class="section-note ai-architect-showcase-intro">${escapeHtml(page.aiArchitectShowcaseIntro)}</p>
+        ${aiArchitectShowcaseImages}
       </div>
     </section>
     <section id="cat">
