@@ -212,12 +212,12 @@ function renderPersonal(lang) {
   const aiArchitectUsageImages = renderProjectImageGrid(
     page.aiArchitectUsageImages || [],
     lang,
-    "repo-image-grid ai-usage-grid",
+    "ai-usage-grid ai-single-column-grid",
   );
   const aiArchitectShowcaseImages = renderProjectImageGrid(
     page.aiArchitectShowcaseImages || [],
     lang,
-    "repo-image-grid ai-showcase-grid",
+    "ai-showcase-grid ai-single-column-grid",
   );
   const drinkGroups = page.drinkGroups
     .map(

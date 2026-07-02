@@ -195,6 +195,10 @@
   margin-top: 18px;
 }
 
+.ai-single-column-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
 .ai-architect-showcase-intro {
   margin-top: 18px;
 }
