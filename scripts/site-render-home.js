@@ -73,6 +73,12 @@ function buildParagraphBlock(paragraphs) {
   return (paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
 }
 
+function buildFigureStack(images, lang, figureClass = "") {
+  return (images || [])
+    .map((image) => renderProjectImageFigure(image, lang, figureClass))
+    .join("");
+}
+
 function buildEntries(entries, lang) {
   return entries
     .map((entry) => {
@@ -209,16 +215,8 @@ function renderPersonal(lang) {
     .join("");
   const catImages = renderProjectImageGrid(page.catImages, lang);
   const aiArchitectParagraphs = buildParagraphBlock(page.aiArchitectParagraphs || [page.aiArchitectText].filter(Boolean));
-  const aiArchitectUsageImages = renderProjectImageGrid(
-    page.aiArchitectUsageImages || [],
-    lang,
-    "ai-usage-grid ai-single-column-grid",
-  );
-  const aiArchitectShowcaseImages = renderProjectImageGrid(
-    page.aiArchitectShowcaseImages || [],
-    lang,
-    "ai-showcase-grid ai-single-column-grid",
-  );
+  const aiArchitectUsageImages = buildFigureStack(page.aiArchitectUsageImages || [], lang, "ai-stacked-image");
+  const aiArchitectShowcaseImages = buildFigureStack(page.aiArchitectShowcaseImages || [], lang, "ai-stacked-image");
   const drinkGroups = page.drinkGroups
     .map(
       (group) => `
@@ -250,9 +248,9 @@ function renderPersonal(lang) {
       <div class="home-panel">
         ${aiArchitectParagraphs}
 ${renderProjectImageFigure({ src: "./assets/images/ai-usage/token-by-month.png", caption: page.aiArchitectTokenCaption }, lang, "ai-token-image")}
-        ${aiArchitectUsageImages}
+        <div class="ai-stacked-gallery">${aiArchitectUsageImages}</div>
         <p class="section-note ai-architect-showcase-intro">${escapeHtml(page.aiArchitectShowcaseIntro)}</p>
-        ${aiArchitectShowcaseImages}
+        <div class="ai-stacked-gallery">${aiArchitectShowcaseImages}</div>
       </div>
     </section>
     <section id="cat">

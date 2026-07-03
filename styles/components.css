@@ -195,8 +195,15 @@
   margin-top: 18px;
 }
 
-.ai-single-column-grid {
-  grid-template-columns: minmax(0, 1fr) !important;
+.ai-stacked-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.ai-stacked-image {
+  max-width: none;
 }
 
 .ai-architect-showcase-intro {
@@ -210,8 +217,9 @@
 
 .project-image figcaption {
   margin-top: 6px;
-  color: var(--muted);
-  font-size: 0.86rem;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 800;
   line-height: 1.35;
 }
 
