@@ -1,1 +1,0 @@
-../../specs/module-map_CN.md

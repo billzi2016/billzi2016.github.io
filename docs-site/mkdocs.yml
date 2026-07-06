@@ -4,48 +4,80 @@ site_url: https://billzi2016.github.io/docs/
 repo_url: https://github.com/billzi2016/billzi2016.github.io
 repo_name: billzi2016.github.io
 
-docs_dir: .
+docs_dir: docs
 site_dir: ../public/docs
 use_directory_urls: true
 
 theme:
-  name: mkdocs
-  locale: en
-  navigation_depth: 3
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue
+      accent: cyan
 
 extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
   - styles/extra.css
 
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: zh
+          name: 简体中文
+          build: true
+          default: true
+          site_name: billzi2016.github.io 维护文档
+        - locale: en
+          name: English
+          build: true
+          site_name: billzi2016.github.io Maintenance Docs
+          nav_translations:
+            首页: Home
+            维护文档: Maintenance Docs
+            Agent 指南: Agent Guide
+            维护方案: Maintenance Plan
+            Astro 迁移方案: Astro Migration Plan
+            工程原则: Engineering Principles
+            模块地图: Module Map
+            PRD: PRDs
+            MkDocs PRD: MkDocs PRD
+            GitHub Actions PRD: GitHub Actions PRD
+
 nav:
-  - Home: index.md
-  - '<i class="fa-solid fa-language" aria-hidden="true"></i><span class="sr-only"> Language</span>':
-      - 中文入口: cn/README_CN.md
-      - English Entry: en/README.md
-  - 中文:
-      - Agent 维护指南: cn/AGENTS.md
-      - 维护方案: cn/maintenance-plan_CN.md
-      - Astro 迁移方案: cn/astro-migration-plan_CN.md
-      - 工程原则: cn/engineering-principles_CN.md
-      - 模块地图: cn/module-map_CN.md
-  - English:
-      - Agent Maintenance Guide: en/AGENTS.md
-      - Maintenance Plan: en/maintenance-plan.md
-      - Astro Migration Plan: en/astro-migration-plan.md
-      - Engineering Principles: en/engineering-principles.md
-      - Module Map: en/module-map.md
-  - PRDs:
-      - MkDocs PRD: specs/mkdocs_prd.md
-      - MkDocs PRD 中文: specs/mkdocs_prd.cn.md
-      - GitHub Actions PRD: specs/github_action_prd.md
-      - GitHub Actions PRD 中文: specs/github_action_prd.cn.md
+  - 首页: index.md
+  - 维护文档:
+      - Agent 指南: AGENTS.md
+      - 维护方案: maintenance-plan.md
+      - Astro 迁移方案: astro-migration-plan.md
+      - 工程原则: engineering-principles.md
+      - 模块地图: module-map.md
+  - PRD:
+      - MkDocs PRD: mkdocs_prd.md
+      - GitHub Actions PRD: github_action_prd.md
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
   - toc:
       permalink: true
   - tables
-  - fenced_code
 
 validation:
   nav:

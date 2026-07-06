@@ -12,9 +12,9 @@
 - 英文文档：[README.md](README.md)
 - AI 维护指南：[AGENTS.md](AGENTS.md)
 - 维护文档站源码：[docs-site/](docs-site/)
-- 中文维护入口：[docs-site/cn/](docs-site/cn/)
-- 英文维护入口：[docs-site/en/](docs-site/en/)
-- 文档站 PRD：[docs-site/specs/](docs-site/specs/)
+- 中文维护入口：[docs-site/docs/zh/](docs-site/docs/zh/)
+- 英文维护入口：[docs-site/docs/en/](docs-site/docs/en/)
+- 文档站 PRD：[docs-site/docs/specs/](docs-site/docs/specs/)
 
 ## 概述
 

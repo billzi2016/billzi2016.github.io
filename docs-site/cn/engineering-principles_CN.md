@@ -1,1 +1,0 @@
-../../specs/engineering-principles_CN.md

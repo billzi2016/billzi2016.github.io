@@ -12,9 +12,9 @@ Source code for my personal academic website.
 - Chinese documentation: [README_CN.md](README_CN.md)
 - AI maintenance guide: [AGENTS.md](AGENTS.md)
 - Maintenance documentation site source: [docs-site/](docs-site/)
-- Chinese maintenance entry: [docs-site/cn/](docs-site/cn/)
-- English maintenance entry: [docs-site/en/](docs-site/en/)
-- Documentation-site PRDs: [docs-site/specs/](docs-site/specs/)
+- Chinese maintenance entry: [docs-site/docs/zh/](docs-site/docs/zh/)
+- English maintenance entry: [docs-site/docs/en/](docs-site/docs/en/)
+- Documentation-site PRDs: [docs-site/docs/specs/](docs-site/docs/specs/)
 
 ## Overview
 

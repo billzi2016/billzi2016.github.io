@@ -1,0 +1,31 @@
+:root {
+  --md-primary-fg-color: #1f5f86;
+  --md-primary-fg-color--dark: #174967;
+  --md-accent-fg-color: #0f7aa8;
+}
+
+.md-grid {
+  max-width: 78rem;
+}
+
+.md-header__title {
+  font-weight: 700;
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 650;
+}
+
+.md-typeset a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+}
+
+.md-nav__title {
+  font-weight: 700;
+}
+
+.md-footer-meta {
+  display: none;
+}
