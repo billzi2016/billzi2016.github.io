@@ -1,0 +1,55 @@
+---
+import { musicLibrary } from "../data/generated/musicLibrary";
+import { siteTranslations } from "../data/generated/siteI18n";
+import { defaultLang } from "../utils/content";
+
+const lang = defaultLang;
+const page = siteTranslations.page.music[lang];
+const tracks = musicLibrary.tracks || [];
+---
+<section>
+  <h2 class="section-title">{page.introTitle}</h2>
+  <p class="section-note">{musicLibrary.introEn || ""}</p>
+  <div class="music-layout">
+    <div class="music-stage">
+      <div class="music-nowplaying">
+        <div class="music-label">{page.nowPlaying}</div>
+        <div id="music-current-title" class="music-current-title"></div>
+        <div id="music-current-meta" class="music-current-meta"></div>
+      </div>
+      <div class="music-player-wrap">
+        <audio id="audio-player" class="music-page-audio" controls preload="metadata"></audio>
+        <div class="music-progress-row">
+          <span id="music-progress-elapsed" class="music-progress-time">0:00</span>
+          <input id="music-progress" class="music-progress" type="range" min="0" max="0" step="1" value="0" aria-label="Playback progress" />
+          <span id="music-progress-duration" class="music-progress-time">0:00</span>
+        </div>
+      </div>
+      <div class="music-controls">
+        <button id="music-prev" class="pub-copy-btn" type="button">{page.prevLabel}</button>
+        <button id="music-random" class="pub-copy-btn" type="button">{page.randomLabel}</button>
+        <button id="music-next" class="pub-copy-btn" type="button">{page.nextLabel}</button>
+      </div>
+      <div class="music-volume-row">
+        <label class="music-volume-label" for="music-volume">{page.volumeLabel}</label>
+        <input id="music-volume" class="music-volume" type="range" min="0" max="100" step="1" value="20" />
+        <span id="music-volume-value" class="music-volume-value">20%</span>
+      </div>
+    </div>
+    <div class="music-playlist">
+      <h3 class="pub-group-title">{page.playlistTitle}</h3>
+      <p class="section-note">{page.playlistNote}</p>
+      <ol class="playlist-list">
+        {tracks.map((track, index) => (
+          <li>
+            <button class="playlist-item" type="button" data-index={index}>
+              <span class="playlist-title">{track.titleEn}</span>
+              <span class="playlist-meta">{track.composerEn}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <p class="music-source-note">{musicLibrary.sourceNoteEn || ""}</p>
+    </div>
+  </div>
+</section>

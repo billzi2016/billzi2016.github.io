@@ -1,0 +1,28 @@
+---
+import { defaultLang, getLangValue, type Lang } from "../utils/content";
+
+const {
+  image,
+  lang = defaultLang,
+  figureClass = "",
+} = Astro.props as {
+  image: any;
+  lang?: Lang;
+  figureClass?: string;
+};
+
+const caption = getLangValue(image, lang, "caption") || image.caption || "";
+const className = ["project-image", figureClass].filter(Boolean).join(" ");
+---
+<figure class={className}>
+  <button
+    class="project-image-button"
+    type="button"
+    data-lightbox-src={image.src}
+    data-lightbox-caption={caption}
+    aria-label={caption}
+  >
+    <img src={image.src} alt={caption} loading="lazy" />
+  </button>
+  <figcaption>{caption}</figcaption>
+</figure>

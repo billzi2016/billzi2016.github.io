@@ -1,0 +1,154 @@
+---
+import { publicationsData } from "../data/generated/publicationsData";
+import { siteTranslations } from "../data/generated/siteI18n";
+import {
+  comparePublications,
+  defaultLang,
+  getPublicationBucket,
+  normalizeAuthorName,
+  selectedPublicationKeys,
+} from "../utils/content";
+
+const lang = defaultLang;
+const page = siteTranslations.page.publications[lang];
+const common = siteTranslations.common[lang];
+const byKey = new Map(publicationsData.map((item) => [item.key, item]));
+const selectedKeySet = new Set(selectedPublicationKeys);
+const selected = selectedPublicationKeys.map((key) => byKey.get(key)).filter(Boolean);
+const groups = {
+  published: [] as any[],
+  preprint: [] as any[],
+  unpublished: [] as any[],
+};
+
+publicationsData.forEach((item) => {
+  if (selectedKeySet.has(item.key)) return;
+  groups[getPublicationBucket(item)].push(item);
+});
+
+groups.published.sort(comparePublications);
+groups.preprint.sort(comparePublications);
+groups.unpublished.sort(comparePublications);
+
+function authorParts(authors: string[]) {
+  const normalizedAuthors = (authors || []).map(normalizeAuthorName).filter(Boolean);
+  if (normalizedAuthors.length < 3) return normalizedAuthors;
+  const firstTwo = normalizedAuthors.slice(0, 2);
+  if (firstTwo.includes("Ziqian Bi")) return [...firstTwo, "et al."];
+  return [...firstTwo, "et al.", "Ziqian Bi", "et al."];
+}
+
+function venueAndYear(item: any) {
+  if (item.venue && item.year) return `${item.venue}, ${item.year}.`;
+  if (item.venue) return `${item.venue}.`;
+  if (item.year) return `${item.year}.`;
+  return "";
+}
+---
+<section>
+  <h2 class="section-title" data-i18n="selectedTitle">{page.selectedTitle}</h2>
+  <p class="section-note" data-i18n="selectedNote">{page.selectedNote}</p>
+  <ol id="selected-publications" class="pub-list">
+    {selected.map((item) => (
+      <li>
+        <div class="pub-item">
+          <div class="pub-main">
+            <div class="pub-line">
+              <span class="pub-authors">
+                {authorParts(item.authors).map((author, index, parts) => (
+                  <>
+                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
+                    {index < parts.length - 1 && ", "}
+                  </>
+                ))}
+              </span>
+              . <em>{item.title}</em>. {venueAndYear(item)}
+            </div>
+          </div>
+          <div class="pub-copy">
+            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+<section>
+  <h2 class="section-title" data-i18n="archiveTitle">{page.archiveTitle}</h2>
+  <p class="section-note" data-i18n="archiveNote">{page.archiveNote}</p>
+  <h3 class="pub-group-title" data-i18n="publishedGroupTitle">{page.publishedGroupTitle}</h3>
+  <ol id="published-publications" class="pub-list">
+    {groups.published.map((item) => (
+      <li>
+        <div class="pub-item">
+          <div class="pub-main">
+            <div class="pub-line">
+              <span class="pub-authors">
+                {authorParts(item.authors).map((author, index, parts) => (
+                  <>
+                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
+                    {index < parts.length - 1 && ", "}
+                  </>
+                ))}
+              </span>
+              . <em>{item.title}</em>. {venueAndYear(item)}
+            </div>
+          </div>
+          <div class="pub-copy">
+            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <h3 class="pub-group-title" data-i18n="preprintGroupTitle">{page.preprintGroupTitle}</h3>
+  <ol id="preprint-publications" class="pub-list">
+    {groups.preprint.map((item) => (
+      <li>
+        <div class="pub-item">
+          <div class="pub-main">
+            <div class="pub-line">
+              <span class="pub-authors">
+                {authorParts(item.authors).map((author, index, parts) => (
+                  <>
+                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
+                    {index < parts.length - 1 && ", "}
+                  </>
+                ))}
+              </span>
+              . <em>{item.title}</em>. {venueAndYear(item)}
+            </div>
+          </div>
+          <div class="pub-copy">
+            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <h3 class="pub-group-title" data-i18n="unpublishedGroupTitle">{page.unpublishedGroupTitle}</h3>
+  <ol id="unpublished-publications" class="pub-list">
+    {groups.unpublished.map((item) => (
+      <li>
+        <div class="pub-item">
+          <div class="pub-main">
+            <div class="pub-line">
+              <span class="pub-authors">
+                {authorParts(item.authors).map((author, index, parts) => (
+                  <>
+                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
+                    {index < parts.length - 1 && ", "}
+                  </>
+                ))}
+              </span>
+              . <em>{item.title}</em>. {venueAndYear(item)}
+            </div>
+          </div>
+          <div class="pub-copy">
+            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

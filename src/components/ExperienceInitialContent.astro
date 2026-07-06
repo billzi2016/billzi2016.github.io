@@ -1,0 +1,44 @@
+---
+import EntryList from "./EntryList.astro";
+import InterestPills from "./InterestPills.astro";
+import SkillBlocks from "./SkillBlocks.astro";
+import { siteExperienceContent } from "../data/generated/experienceContent";
+import { siteSharedContent } from "../data/generated/sharedContent";
+import { siteTranslations } from "../data/generated/siteI18n";
+import { defaultLang } from "../utils/content";
+
+const lang = defaultLang;
+const page = siteTranslations.page.experience[lang];
+const home = siteTranslations.page.home[lang];
+const skillItems = [...(siteSharedContent.skills.left || []), ...(siteSharedContent.skills.right || [])];
+---
+<section>
+  <h2 class="section-title">{page.researchTitle}</h2>
+  <InterestPills interests={siteSharedContent.researchInterests} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{page.skillsTitle}</h2>
+  <SkillBlocks items={skillItems} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{page.industryTitle}</h2>
+  <EntryList entries={siteExperienceContent.industry || []} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{page.researchExpTitle}</h2>
+  <EntryList entries={siteExperienceContent.research || []} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{page.educationTitle}</h2>
+  <EntryList entries={siteExperienceContent.education || []} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{home.aiSkillsTitle}</h2>
+  <p class="section-note">{home.aiSkillsNote}</p>
+  <SkillBlocks
+    items={siteSharedContent.aiSkills}
+    lang={lang}
+    className="skill-list ai-skill-list"
+    pillClassName="skill-pills ai-skill-pills"
+  />
+</section>

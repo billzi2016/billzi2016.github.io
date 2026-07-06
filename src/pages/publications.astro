@@ -1,7 +1,10 @@
 ---
 import { pageMeta } from "../data/pageMeta";
+import PublicationsInitialContent from "../components/PublicationsInitialContent.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 const meta = pageMeta.publications;
 ---
-<SiteLayout title={meta.title} page="publications" pageTag={meta.pageTag} />
+<SiteLayout title={meta.title} page="publications" pageTag={meta.pageTag}>
+  <PublicationsInitialContent />
+</SiteLayout>

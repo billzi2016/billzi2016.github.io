@@ -1,5 +1,6 @@
 ---
 import { pageMeta } from "../data/pageMeta";
+import MusicInitialContent from "../components/MusicInitialContent.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 const meta = pageMeta.music;
@@ -9,4 +10,6 @@ const meta = pageMeta.music;
   description={meta.description}
   page="music"
   pageTag={meta.pageTag}
-/>
+>
+  <MusicInitialContent />
+</SiteLayout>

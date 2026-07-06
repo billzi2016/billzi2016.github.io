@@ -1,0 +1,60 @@
+---
+import InterestPills from "./InterestPills.astro";
+import SkillBlocks from "./SkillBlocks.astro";
+import { siteHomeContent } from "../data/generated/homeContent";
+import { siteSharedContent } from "../data/generated/sharedContent";
+import { siteTranslations } from "../data/generated/siteI18n";
+import { defaultLang, getLangValue } from "../utils/content";
+
+const lang = defaultLang;
+const page = siteTranslations.page.home[lang];
+const common = siteTranslations.common[lang];
+const skillItems = [...(siteSharedContent.skills.left || []), ...(siteSharedContent.skills.right || [])];
+---
+<section>
+  <h2 class="section-title">{page.guideTitle}</h2>
+  <div class="home-grid">
+    <div class="home-panel">
+      <h3><a href="./experience.html">{common.navExperience}</a></h3>
+      <p>{page.guideExperience}</p>
+    </div>
+    <div class="home-panel">
+      <h3><a href="./projects.html">{common.navProjects}</a></h3>
+      <p>{page.guideProjects}</p>
+    </div>
+    <div class="home-panel">
+      <h3><a href="./publications.html">{common.navPublications}</a></h3>
+      <p>{page.guidePublications}</p>
+    </div>
+    <div class="home-panel">
+      <h3>{page.guideFocus}</h3>
+      <ul class="plain-list">
+        {siteHomeContent.focus.map((item) => <li>{getLangValue(item, lang, "")}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="section-title">{page.researchTitle}</h2>
+  <InterestPills interests={siteSharedContent.researchInterests} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{page.skillsTitle}</h2>
+  <SkillBlocks items={skillItems} lang={lang} />
+</section>
+<section>
+  <h2 class="section-title">{page.highlightsTitle}</h2>
+  <ul class="plain-list">
+    {siteHomeContent.highlights.map((item) => <li>{getLangValue(item, lang, "")}</li>)}
+  </ul>
+</section>
+<section>
+  <h2 class="section-title">{page.aiSkillsTitle}</h2>
+  <p class="section-note">{page.aiSkillsNote}</p>
+  <SkillBlocks
+    items={siteSharedContent.aiSkills}
+    lang={lang}
+    className="skill-list ai-skill-list"
+    pillClassName="skill-pills ai-skill-pills"
+  />
+</section>

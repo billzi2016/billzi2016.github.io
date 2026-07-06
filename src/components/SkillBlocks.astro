@@ -1,0 +1,29 @@
+---
+import { defaultLang, getLangValue, splitTopLevelList, type Lang } from "../utils/content";
+
+const {
+  items = [],
+  lang = defaultLang,
+  className = "skill-list",
+  pillClassName = "skill-pills",
+} = Astro.props as {
+  items?: any[];
+  lang?: Lang;
+  className?: string;
+  pillClassName?: string;
+};
+---
+<div class={className}>
+  {items.map((item) => {
+    const label = getLangValue(item, lang, "label");
+    const values = splitTopLevelList(getLangValue(item, lang, "value"));
+    return (
+      <div class="skill-group">
+        <div class="skill-label">{label}</div>
+        <div class={pillClassName}>
+          {values.map((value) => <span>{value}</span>)}
+        </div>
+      </div>
+    );
+  })}
+</div>

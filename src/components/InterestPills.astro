@@ -1,0 +1,15 @@
+---
+import { defaultLang, splitTopLevelList, type Lang } from "../utils/content";
+
+const { interests = [], lang = defaultLang } = Astro.props as {
+  interests?: string[] | Record<string, string[] | string> | string;
+  lang?: Lang;
+};
+
+const rawItems =
+  Array.isArray(interests) ? interests : typeof interests === "object" ? interests[lang] : interests;
+const items = Array.isArray(rawItems) ? rawItems : splitTopLevelList(rawItems);
+---
+<div class="interest-pills">
+  {items.map((item) => <span>{item}</span>)}
+</div>

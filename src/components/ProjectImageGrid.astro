@@ -1,0 +1,46 @@
+---
+import { defaultLang, getLangValue, type Lang } from "../utils/content";
+
+const {
+  images = [],
+  lang = defaultLang,
+  extraClass = "",
+  figureClass = "",
+} = Astro.props as {
+  images?: any[];
+  lang?: Lang;
+  extraClass?: string;
+  figureClass?: string;
+};
+
+const countClass = `project-image-grid-count-${Math.min(images.length, 3)}`;
+const className = [
+  "project-image-grid",
+  countClass,
+  images.length === 4 ? "project-image-grid-four" : "",
+  images.length === 6 ? "project-image-grid-six" : "",
+  extraClass,
+].filter(Boolean).join(" ");
+---
+{images.length > 0 && (
+  <div class={className}>
+    {images.map((image) => {
+      const caption = getLangValue(image, lang, "caption") || image.caption || "";
+      const imageClass = ["project-image", figureClass].filter(Boolean).join(" ");
+      return (
+        <figure class={imageClass}>
+          <button
+            class="project-image-button"
+            type="button"
+            data-lightbox-src={image.src}
+            data-lightbox-caption={caption}
+            aria-label={caption}
+          >
+            <img src={image.src} alt={caption} loading="lazy" />
+          </button>
+          <figcaption>{caption}</figcaption>
+        </figure>
+      );
+    })}
+  </div>
+)}

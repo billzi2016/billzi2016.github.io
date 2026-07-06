@@ -1,7 +1,10 @@
 ---
 import { pageMeta } from "../data/pageMeta";
+import ExperienceInitialContent from "../components/ExperienceInitialContent.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 const meta = pageMeta.experience;
 ---
-<SiteLayout title={meta.title} page="experience" pageTag={meta.pageTag} />
+<SiteLayout title={meta.title} page="experience" pageTag={meta.pageTag}>
+  <ExperienceInitialContent />
+</SiteLayout>
