@@ -1,4 +1,5 @@
 ---
+import BackToTop from "../components/BackToTop.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { siteExperienceContent } from "../data/generated/experienceContent";
@@ -16,7 +17,13 @@ import routerScript from "../scripts/site/site-router.js?url";
 import searchScript from "../scripts/site/site-search.js?url";
 import siteScript from "../scripts/site/site.js?url";
 import "../styles/tailwind.css";
+import "../styles/site/back-to-top.css";
 import "../styles/site/main.css";
+import "../components/InterestPills/interest-pills.css";
+import "../components/ProjectGallery/lightbox.css";
+import "../components/ProjectGallery/media-gallery.css";
+import "../components/Publications/publications.css";
+import "../components/SkillBlocks/skill-blocks.css";
 import "../components/MusicPlayer/music-player.css";
 import "../components/SearchWidget/search-widget.css";
 
@@ -87,6 +94,7 @@ const runtimeData = JSON.stringify({
         <slot name="page-templates" />
       </div>
     </div>
+    <BackToTop />
 
     <script
       is:inline

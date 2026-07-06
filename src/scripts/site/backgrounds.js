@@ -8,11 +8,11 @@
   let matrixLastFrame = 0;
   const LIGHT_PARTICLE_MOVE_SPEED = 0.85;
   const LIGHT_PARTICLE_POINTER_PULL = 0.014;
-  const MATRIX_FONT_SIZE = 48;
-  const MATRIX_COLUMN_STEP = 72;
-  const MATRIX_ROW_STEP = 52;
-  const MATRIX_FRAME_INTERVAL = 84;
-  const MATRIX_FADE_ALPHA = 0.22;
+  const MATRIX_FONT_SIZE = 16;
+  const MATRIX_COLUMN_STEP = 24;
+  const MATRIX_ROW_STEP = 8;
+  const MATRIX_FRAME_INTERVAL = 42;
+  const MATRIX_FADE_ALPHA = 0.18;
   const mobileBackgroundMedia = window.matchMedia(
     "(max-width: 760px), (hover: none) and (pointer: coarse)",
   );
@@ -173,7 +173,7 @@
       return;
     }
     matrixLastFrame = timestamp;
-    // 更强淡出、更低帧率和更大网格，避免字符堆叠并降低重绘压力。
+    // 更强淡出和更低帧率保留原字体尺度，同时避免上下字符堆叠。
     matrixContext.fillStyle = `rgba(13, 20, 27, ${MATRIX_FADE_ALPHA})`;
     matrixContext.fillRect(0, 0, window.innerWidth, window.innerHeight);
     matrixContext.font = `${MATRIX_FONT_SIZE}px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace`;
@@ -181,13 +181,13 @@
     const glyphs =
       "intvoidclassconststructreturnautoforifwhileswitchtemplatepublicprivatestaticnullptrusinginclude0123456789<>{}();:*&#_";
     matrixColumns = matrixColumns.map((y, index) => {
-      const x = index * MATRIX_COLUMN_STEP + (index % 2) * 9;
+      const x = index * MATRIX_COLUMN_STEP;
       const glyph = glyphs[Math.floor(Math.random() * glyphs.length)];
       matrixContext.fillText(glyph, x, y);
       if (y > window.innerHeight + Math.random() * 260) {
         return Math.random() * -220;
       }
-      // 每次低频刷新只推进一格，让画面稳定、稀疏且不再快速叠字。
+      // 每次低频刷新推进接近一个字高，避免上下字符互相覆盖。
       return y + MATRIX_ROW_STEP;
     });
     matrixAnimation = window.requestAnimationFrame(drawMatrix);

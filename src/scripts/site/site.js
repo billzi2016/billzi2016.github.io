@@ -184,10 +184,28 @@ function bindHeaderControls() {
   }
 }
 
+function syncBackToTopState() {
+  const button = document.querySelector(".back-to-top");
+  if (!(button instanceof HTMLButtonElement)) return;
+  button.classList.toggle("is-visible", window.scrollY > 520);
+}
+
+function bindBackToTop() {
+  const button = document.querySelector(".back-to-top");
+  if (!(button instanceof HTMLButtonElement) || button.dataset.bound === "true") return;
+  button.addEventListener("click", () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  });
+  window.addEventListener("scroll", syncBackToTopState, { passive: true });
+  button.dataset.bound = "true";
+  syncBackToTopState();
+}
+
 async function bootstrapSite() {
   applyTheme(localStorage.getItem("site-theme") || "light");
   initFloatingMusicWidget();
   bindHeaderControls();
+  bindBackToTop();
   syncNavState();
   bindNavigationPlaybackSave();
   initProjectImageLightbox();
@@ -208,6 +226,8 @@ window.SiteApp = {
     }
     applyTheme(localStorage.getItem("site-theme") || "light");
     bindHeaderControls();
+    bindBackToTop();
+    syncBackToTopState();
     syncNavState();
     bindNavigationPlaybackSave();
     ensureLanguageSwitchMarkup();

@@ -19,7 +19,7 @@ export const siteTranslations = {
       footerDocs: "Maintenance Docs",
       footerSource: "Source",
       footerTech:
-        "Custom-Built with Astro, Tailwind CSS, pnpm, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
+        "Custom-Built with Astro, Tailwind CSS, PNPM, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
       footerAvailability: "Local Assets and No CDN Dependency for Stronger Network Availability.",
       footerAi:
         "AI-Friendly Engineering: Complete Specs, Clear Structure, Layered Agent Guidance, and Context-Efficient Maintenance.",
