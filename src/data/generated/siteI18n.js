@@ -16,6 +16,7 @@ export const siteTranslations = {
       contactSchoolOne: "Purdue University",
       contactSchoolTwo: "Indiana University",
       footerAbout: "About This Website",
+      footerDocs: "Maintenance Docs",
       footerSource: "Source",
       footerTech:
         "Custom-Built with Astro, Tailwind CSS, pnpm, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
@@ -38,6 +39,7 @@ export const siteTranslations = {
       contactSchoolOne: "普渡大学",
       contactSchoolTwo: "印第安纳大学",
       footerAbout: "关于本站",
+      footerDocs: "维护文档",
       footerSource: "源代码",
       footerTech: "本站使用 Astro、Tailwind CSS、pnpm、Playwright、GitHub Actions 和规格驱动开发（SDD）定制构建。",
       footerAvailability: "通过本地资产与无 CDN 依赖提高网络可用性。",
