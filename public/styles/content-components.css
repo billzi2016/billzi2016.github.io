@@ -1,0 +1,117 @@
+.repo-list,
+.pub-list {
+  margin: 0;
+  padding-left: 1.22rem;
+}
+
+.plain-list li,
+.compact-list li,
+.repo-list li,
+.pub-list li {
+  margin: 0 0 10px;
+}
+
+.hobby-nav-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hobby-nav-list li {
+  margin: 0;
+}
+
+.hobby-nav-list a {
+  display: block;
+  padding: 8px 0;
+  color: var(--text);
+  font-size: 1.18rem;
+  font-weight: 650;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.hobby-nav-list a:hover,
+.hobby-nav-list a:focus {
+  color: var(--accent);
+}
+
+.entry {
+  padding: 16px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.entry-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.entry-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.entry-role {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.entry ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+.entry ul li {
+  margin-bottom: 8px;
+}
+
+.two-column,
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 34px;
+}
+
+.home-panel {
+  padding-top: 8px;
+}
+
+.home-panel {
+  border-top: 1px solid var(--line);
+  transition: border-color var(--theme-transition);
+}
+
+.home-panel h3 {
+  margin: 0 0 8px;
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+

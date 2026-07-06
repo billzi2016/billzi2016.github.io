@@ -1,0 +1,125 @@
+.project-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.project-image-grid:not(.project-image-grid-count-1, .project-image-grid-count-2, .project-image-grid-count-3, .project-image-grid-four, .project-image-grid-six, .repo-image-grid, .panel-image-grid) {
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+}
+
+.project-image-grid-four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-image-grid-six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.repo-image-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.repo-image-grid.project-image-grid-count-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.repo-image-grid.project-image-grid-count-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.repo-image-grid.project-image-grid-count-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.repo-image-grid.project-image-grid-four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.repo-image-grid.project-image-grid-six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel-image-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-image {
+  margin: 0;
+  min-width: 0;
+}
+
+.project-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.project-image-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.ai-token-image {
+  max-width: 680px;
+  margin-top: 18px;
+}
+
+.ai-usage-grid,
+.ai-showcase-grid {
+  margin-top: 18px;
+}
+
+.ai-stacked-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.ai-stacked-image {
+  max-width: none;
+}
+
+.ai-architect-showcase-intro {
+  margin-top: 18px;
+}
+
+.project-image-button:focus-visible img {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.project-image figcaption {
+  margin-top: 6px;
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.entry-image-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-donation-note {
+  margin-top: -2px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+

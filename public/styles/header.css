@@ -1,0 +1,217 @@
+.header-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--theme-transition);
+}
+
+.header-main {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex: 0 0 auto;
+  padding-top: 0;
+}
+
+.name {
+  margin: 0;
+  font-family:
+    "Iowan Old Style",
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.lang-en,
+.lang-zh {
+  display: none;
+}
+
+html[lang="en"] .lang-en {
+  display: inline;
+}
+
+html[lang="zh-CN"] .lang-zh {
+  display: inline;
+}
+
+.degree-line {
+  margin-top: 12px;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.contact-line {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.contact-meta {
+  color: var(--muted);
+  font-size: 0.97rem;
+  flex: 0 1 auto;
+}
+
+.header-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.contact-meta a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+.contact-meta a:hover,
+.contact-meta a:focus-visible {
+  color: var(--accent);
+  border-color: currentColor;
+  text-decoration: none;
+}
+
+.contact-actions {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--ink);
+  font-size: 0.91rem;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(25, 36, 48, 0.08);
+  transition:
+    transform 160ms ease,
+    border-color var(--theme-transition),
+    background var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
+}
+
+.contact-chip:hover,
+.contact-chip:focus-visible {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(34, 56, 79, 0.18);
+}
+
+body.dark-theme .contact-chip {
+  background: rgba(191, 217, 245, 0.08);
+  border-color: rgba(191, 217, 245, 0.26);
+  color: #eef3f8;
+  box-shadow: none;
+}
+
+body.dark-theme .contact-chip:hover,
+body.dark-theme .contact-chip:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0d141b;
+}
+
+/* 导航做成明显按钮，并高亮当前页面。 */
+.nav-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-top: 0;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  font-size: 0.94rem;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(25, 36, 48, 0.06);
+  transition:
+    transform 160ms ease,
+    border-color var(--theme-transition),
+    background var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(34, 56, 79, 0.18);
+}
+
+body.dark-theme .nav-link {
+  background: rgba(191, 217, 245, 0.06);
+  border-color: rgba(191, 217, 245, 0.22);
+  color: #eef3f8;
+  box-shadow: none;
+}
+
+body.dark-theme .nav-link:hover,
+body.dark-theme .nav-link:focus-visible {
+  background: rgba(191, 217, 245, 0.18);
+  border-color: rgba(191, 217, 245, 0.5);
+  color: #ffffff;
+}
+
+.nav-link.is-active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 14px 28px rgba(34, 56, 79, 0.18);
+}
+
+body.dark-theme .nav-link.is-active {
+  background: rgba(191, 217, 245, 0.28);
+  border-color: rgba(191, 217, 245, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(191, 217, 245, 0.1), 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
