@@ -5,8 +5,14 @@
   let matrixContext = null;
   let matrixAnimation = 0;
   let matrixColumns = [];
+  let matrixLastFrame = 0;
   const LIGHT_PARTICLE_MOVE_SPEED = 0.85;
   const LIGHT_PARTICLE_POINTER_PULL = 0.014;
+  const MATRIX_FONT_SIZE = 48;
+  const MATRIX_COLUMN_STEP = 72;
+  const MATRIX_ROW_STEP = 52;
+  const MATRIX_FRAME_INTERVAL = 84;
+  const MATRIX_FADE_ALPHA = 0.22;
   const mobileBackgroundMedia = window.matchMedia(
     "(max-width: 760px), (hover: none) and (pointer: coarse)",
   );
@@ -39,6 +45,7 @@
     }
     matrixContext = null;
     matrixColumns = [];
+    matrixLastFrame = 0;
   }
 
   function animateParticleMagnet() {
@@ -148,11 +155,11 @@
     canvas.style.height = `${window.innerHeight}px`;
     matrixContext = canvas.getContext("2d");
     matrixContext.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const columns = Math.floor(window.innerWidth / 36);
+    const columns = Math.ceil(window.innerWidth / MATRIX_COLUMN_STEP);
     matrixColumns = Array.from({ length: columns }, () => Math.random() * window.innerHeight);
   }
 
-  function drawMatrix() {
+  function drawMatrix(timestamp = 0) {
     if (shouldDisableBackgrounds()) {
       stopMatrix();
       clearMatrix();
@@ -161,22 +168,27 @@
 
     const canvas = document.getElementById("dark-matrix");
     if (!canvas || !matrixContext) return;
-    // 加重每帧的淡出覆盖，缩短残影停留时间，避免积出明显竖条。
-    matrixContext.fillStyle = "rgba(13, 20, 27, 0.12)";
+    if (timestamp - matrixLastFrame < MATRIX_FRAME_INTERVAL) {
+      matrixAnimation = window.requestAnimationFrame(drawMatrix);
+      return;
+    }
+    matrixLastFrame = timestamp;
+    // 更强淡出、更低帧率和更大网格，避免字符堆叠并降低重绘压力。
+    matrixContext.fillStyle = `rgba(13, 20, 27, ${MATRIX_FADE_ALPHA})`;
     matrixContext.fillRect(0, 0, window.innerWidth, window.innerHeight);
-    matrixContext.font = "26px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
-    matrixContext.fillStyle = "rgba(122, 255, 158, 0.44)";
+    matrixContext.font = `${MATRIX_FONT_SIZE}px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace`;
+    matrixContext.fillStyle = "rgba(122, 255, 158, 0.34)";
     const glyphs =
       "intvoidclassconststructreturnautoforifwhileswitchtemplatepublicprivatestaticnullptrusinginclude0123456789<>{}();:*&#_";
     matrixColumns = matrixColumns.map((y, index) => {
-      const x = index * 36;
+      const x = index * MATRIX_COLUMN_STEP + (index % 2) * 9;
       const glyph = glyphs[Math.floor(Math.random() * glyphs.length)];
       matrixContext.fillText(glyph, x, y);
-      if (y > window.innerHeight + Math.random() * 220) {
-        return Math.random() * -140;
+      if (y > window.innerHeight + Math.random() * 260) {
+        return Math.random() * -220;
       }
-      // 放慢下落速度，让背景更稳一点，不会显得太躁。
-      return y + 1;
+      // 每次低频刷新只推进一格，让画面稳定、稀疏且不再快速叠字。
+      return y + MATRIX_ROW_STEP;
     });
     matrixAnimation = window.requestAnimationFrame(drawMatrix);
   }
@@ -184,6 +196,7 @@
   function startMatrix() {
     if (shouldDisableBackgrounds()) return;
     if (matrixAnimation) return;
+    matrixLastFrame = 0;
     resizeMatrix();
     drawMatrix();
   }
