@@ -234,12 +234,12 @@ flowchart TD
 
 这些 specs 是仓库维护契约的一部分。大重构或 AI 辅助维护前应先阅读：
 
-| 中文 | English |
-| --- | --- |
-| [维护方案](specs/maintenance-plan.zh.md) | [Maintenance Plan](specs/maintenance-plan.md) |
-| [模块地图](specs/module-map.zh.md) | [Module Map](specs/module-map.md) |
-| [Astro 迁移方案](specs/astro-migration-plan.zh.md) | [Astro Migration Plan](specs/astro-migration-plan.md) |
-| [工程原则](specs/engineering-principles.zh.md) | [Engineering Principles](specs/engineering-principles.md) |
+| 中文                                               | English                                                   |
+| -------------------------------------------------- | --------------------------------------------------------- |
+| [维护方案](specs/maintenance-plan.zh.md)           | [Maintenance Plan](specs/maintenance-plan.md)             |
+| [模块地图](specs/module-map.zh.md)                 | [Module Map](specs/module-map.md)                         |
+| [Astro 迁移方案](specs/astro-migration-plan.zh.md) | [Astro Migration Plan](specs/astro-migration-plan.md)     |
+| [工程原则](specs/engineering-principles.zh.md)     | [Engineering Principles](specs/engineering-principles.md) |
 
 它们覆盖 Astro 架构、Tailwind 用法、SOLID/DRY 原则、CSS 归属、JavaScript 归属、部署模型、测试检查清单和迁移历史。
 
