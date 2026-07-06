@@ -1,1 +1,1 @@
-../specs/mkdocs_prd.cn.md
+../specs/mkdocs_prd.zh.md

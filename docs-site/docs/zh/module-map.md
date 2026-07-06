@@ -1,1 +1,1 @@
-../../../specs/module-map_CN.md
+../../../specs/module-map.zh.md

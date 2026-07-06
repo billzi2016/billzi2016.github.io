@@ -288,7 +288,7 @@ Before pushing meaningful changes:
 
 Start here before changing code:
 
-1. Read this file and `specs/maintenance-plan_CN.md`.
+1. Read this file and `specs/maintenance-plan.zh.md`.
 2. Read `AGENTS.md` for the AI handoff order and repository-specific operating rules.
 3. Run `git status --short` and do not overwrite unrelated local changes.
 4. Identify whether the task is content, layout, component behavior, data, assets, or deployment.

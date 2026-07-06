@@ -1,1 +1,1 @@
-../../../specs/astro-migration-plan_CN.md
+../../../specs/astro-migration-plan.zh.md

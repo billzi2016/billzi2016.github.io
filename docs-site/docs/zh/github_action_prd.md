@@ -1,1 +1,1 @@
-../specs/github_action_prd.cn.md
+../specs/github_action_prd.zh.md

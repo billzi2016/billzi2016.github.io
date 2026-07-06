@@ -14,7 +14,7 @@ Before making substantial changes, read these documents in order:
 6. `docs-site/specs/mkdocs_prd.md`
 7. `docs-site/specs/github_action_prd.md`
 
-For Chinese maintenance context, read the matching `.cn.md` or `_CN.md` documents through `docs-site/cn/`.
+For Chinese maintenance context, read the matching `.zh.md` or `.zh.md` documents through `docs-site/cn/`.
 
 ## Working Rules
 

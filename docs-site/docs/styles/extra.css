@@ -12,6 +12,20 @@
   font-weight: 700;
 }
 
+.md-header__source {
+  color: rgb(255 255 255 / 92%);
+}
+
+.md-header__source:hover,
+.md-header__source:focus {
+  color: #fff;
+}
+
+.md-source__repository,
+.md-source__facts {
+  color: currentcolor;
+}
+
 .md-typeset h1,
 .md-typeset h2 {
   font-weight: 650;

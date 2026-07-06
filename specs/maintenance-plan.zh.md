@@ -184,11 +184,11 @@ Tailwind 的目的，是减少无聊的布局 CSS。不要为了追求工具类�
 
 ## 工程原则
 
-SOLID 和 DRY 规则统一放在 [工程原则](engineering-principles_CN.md)。组件归属、CSS 归属、JavaScript 归属、抽象边界和 AI 维护规则都按该文件执行。
+SOLID 和 DRY 规则统一放在 [工程原则](engineering-principles.zh.md)。组件归属、CSS 归属、JavaScript 归属、抽象边界和 AI 维护规则都按该文件执行。
 
 ## 模块地图
 
-每个模块的职责、放置位置和禁止放置内容，统一维护在 [模块地图](module-map_CN.md)。
+每个模块的职责、放置位置和禁止放置内容，统一维护在 [模块地图](module-map.zh.md)。
 
 ## JavaScript 规则
 

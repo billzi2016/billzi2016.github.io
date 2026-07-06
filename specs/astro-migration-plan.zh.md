@@ -101,7 +101,7 @@ Tailwind 不是为了替代所有手写样式。复杂视觉系统如果用本�
 
 DRY 用在重复内容、重复渲染 pattern 和共享 helper 逻辑上。不要为了抽象而把无关视觉系统强行合并。
 
-长期规则统一维护在 [工程原则](engineering-principles_CN.md)。
+长期规则统一维护在 [工程原则](engineering-principles.zh.md)。
 
 ## 迁移后的结构
 
@@ -198,4 +198,4 @@ pnpm test:e2e
 - 大型无归属全局 CSS 文件
 - Python server 作为常规开发方式
 
-扩展站点时，按 `specs/maintenance-plan_CN.md` 里的归属规则执行。
+扩展站点时，按 `specs/maintenance-plan.zh.md` 里的归属规则执行。

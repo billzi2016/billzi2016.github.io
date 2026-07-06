@@ -1,1 +1,1 @@
-../../../specs/maintenance-plan_CN.md
+../../../specs/maintenance-plan.zh.md

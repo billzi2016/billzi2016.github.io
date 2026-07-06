@@ -1,1 +1,1 @@
-../../../specs/engineering-principles_CN.md
+../../../specs/engineering-principles.zh.md
