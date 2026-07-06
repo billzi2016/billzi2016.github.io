@@ -243,6 +243,16 @@ These specs are part of the repository contract. Read them before large refactor
 
 They cover the Astro architecture, Tailwind usage, SOLID/DRY rules, CSS ownership, JavaScript ownership, deployment model, testing checklist, and migration history.
 
+## Branching Workflow
+
+After `v1.0.0-astro-tailwind-docs-stable-2026-07-06`, new feature work follows a lightweight trunk-based workflow:
+
+- `main` stays deployable and is treated as the stable trunk.
+- Functional, styling, build, documentation-site, and architecture changes should use short-lived `feature/...` branches.
+- Finish one feature branch, merge it back to `main`, then start the next one. Avoid long-running parallel feature branches for this single-maintainer project.
+- Prefer `git merge --no-ff feature/name` when merging a completed feature so the Git graph preserves the feature boundary.
+- Small README, metadata, release-note, or repository bookkeeping updates may go directly to `main` when they do not affect the built website.
+
 ## Local Development
 
 ```bash

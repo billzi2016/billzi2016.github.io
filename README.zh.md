@@ -243,6 +243,16 @@ flowchart TD
 
 它们覆盖 Astro 架构、Tailwind 用法、SOLID/DRY 原则、CSS 归属、JavaScript 归属、部署模型、测试检查清单和迁移历史。
 
+## 分支工作流
+
+从 `v1.0.0-astro-tailwind-docs-stable-2026-07-06` 之后，新的功能性工作遵守轻量 trunk-based 工作流：
+
+- `main` 保持可部署状态，作为稳定主线。
+- 功能、样式、构建、文档站和架构类改动应使用短生命周期 `feature/...` 分支。
+- 一个 feature 分支做完后合并回 `main`，再开始下一个；这个单人维护项目不长期并行多个 feature 分支。
+- 合并完成的 feature 时，优先使用 `git merge --no-ff feature/name`，让 Git 图保留清晰的 feature 边界。
+- 小型 README、元数据、release note 或仓库整理类改动，在不影响网站构建结果时可以直接进入 `main`。
+
 ## 本地开发
 
 ```bash
