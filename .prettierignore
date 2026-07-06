@@ -3,6 +3,7 @@ dist/
 .astro/
 test-results/
 playwright-report/
+docs-site/docs/assets/vendor/
 
 src/data/generated/
 public/vendor/
