@@ -1,0 +1,1 @@
+../specs/mkdocs_prd.cn.md

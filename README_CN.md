@@ -8,6 +8,14 @@
 
 AI 维护指南：[AGENTS.md](AGENTS.md)
 
+## 文档入口
+
+- 公开网站：[https://billzi2016.github.io/](https://billzi2016.github.io/)
+- 维护文档站源码：[docs-site/](docs-site/)
+- 中文维护入口：[docs-site/cn/](docs-site/cn/)
+- 英文维护入口：[docs-site/en/](docs-site/en/)
+- 文档站 PRD：[docs-site/specs/](docs-site/specs/)
+
 ## 概述
 
 这是一个基于 Astro 的静态学术作品集网站，覆盖研究兴趣、技术技能、项目、论文、经历、教育背景、个人兴趣和一个本地音乐页面。

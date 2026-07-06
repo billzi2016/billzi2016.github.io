@@ -8,6 +8,14 @@ Chinese documentation: [README_CN.md](README_CN.md)
 
 AI maintenance guide: [AGENTS.md](AGENTS.md)
 
+## Documentation Surfaces
+
+- Public website: [https://billzi2016.github.io/](https://billzi2016.github.io/)
+- Maintenance documentation site source: [docs-site/](docs-site/)
+- Chinese maintenance entry: [docs-site/cn/](docs-site/cn/)
+- English maintenance entry: [docs-site/en/](docs-site/en/)
+- Documentation-site PRDs: [docs-site/specs/](docs-site/specs/)
+
 ## Overview
 
 This is an Astro-based static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, personal interests, and a small local music page.

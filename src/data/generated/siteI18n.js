@@ -15,6 +15,12 @@ export const siteTranslations = {
       themeToggleDark: "Light",
       contactSchoolOne: "Purdue University",
       contactSchoolTwo: "Indiana University",
+      footerAbout: "About This Website",
+      footerSource: "Source",
+      footerTech: "Custom-built with Astro, Tailwind CSS, pnpm, Playwright, and GitHub Actions.",
+      footerAvailability: "Local assets and no CDN dependency for stronger network availability.",
+      footerAi:
+        "AI-friendly engineering: Spec-Driven Development (SDD), complete specs, clear structure, layered agent guidance, and context-efficient maintenance.",
     },
     zh: {
       navHome: "首页",
@@ -30,6 +36,11 @@ export const siteTranslations = {
       themeToggleDark: "浅色",
       contactSchoolOne: "普渡大学",
       contactSchoolTwo: "印第安纳大学",
+      footerAbout: "关于本站",
+      footerSource: "源代码",
+      footerTech: "本站使用 Astro、Tailwind CSS、pnpm、Playwright 和 GitHub Actions 定制构建。",
+      footerAvailability: "通过本地资产与无 CDN 依赖提高网络可用性。",
+      footerAi: "AI 构建友好：规格驱动开发（SDD）、规格齐全、结构分明、Agents 分层明确，并尽量节省上下文。",
     },
   },
   page: {

@@ -1,0 +1,1 @@
+../../specs/astro-migration-plan_CN.md
