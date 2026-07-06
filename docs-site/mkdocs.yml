@@ -13,26 +13,27 @@ theme:
   locale: en
   navigation_depth: 3
 
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+  - styles/extra.css
+
 nav:
   - Home: index.md
-  - "🌐 中文":
-      - 中文 README: cn/README_CN.md
+  - '<i class="fa-solid fa-language" aria-hidden="true"></i><span class="sr-only"> Language</span>':
+      - 中文入口: cn/README_CN.md
+      - English Entry: en/README.md
+  - 中文:
       - Agent 维护指南: cn/AGENTS.md
       - 维护方案: cn/maintenance-plan_CN.md
       - Astro 迁移方案: cn/astro-migration-plan_CN.md
       - 工程原则: cn/engineering-principles_CN.md
       - 模块地图: cn/module-map_CN.md
-      - MkDocs PRD: cn/mkdocs_prd.cn.md
-      - GitHub Actions PRD: cn/github_action_prd.cn.md
-  - "🌐 English":
-      - README: en/README.md
+  - English:
       - Agent Maintenance Guide: en/AGENTS.md
       - Maintenance Plan: en/maintenance-plan.md
       - Astro Migration Plan: en/astro-migration-plan.md
       - Engineering Principles: en/engineering-principles.md
       - Module Map: en/module-map.md
-      - MkDocs PRD: en/mkdocs_prd.md
-      - GitHub Actions PRD: en/github_action_prd.md
   - PRDs:
       - MkDocs PRD: specs/mkdocs_prd.md
       - MkDocs PRD 中文: specs/mkdocs_prd.cn.md
@@ -47,6 +48,8 @@ markdown_extensions:
   - fenced_code
 
 validation:
+  nav:
+    omitted_files: ignore
   links:
     absolute_links: ignore
     not_found: ignore
