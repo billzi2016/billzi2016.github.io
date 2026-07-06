@@ -102,9 +102,6 @@
 
 .home-panel {
   padding-top: 8px;
-}
-
-.home-panel {
   border-top: 1px solid var(--line);
   transition: border-color var(--theme-transition);
 }
@@ -114,4 +111,3 @@
   font-size: 1.04rem;
   font-weight: 700;
 }
-

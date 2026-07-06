@@ -269,6 +269,37 @@ body.dark-theme .music-player-wrap {
     color var(--theme-transition);
 }
 
+.playlist-item-compact {
+  padding: 8px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  line-height: 1.25;
+  font-size: 0.78rem;
+}
+
+.playlist-item-compact .playlist-title,
+.playlist-item-compact .playlist-meta {
+  display: inline;
+  min-width: 0;
+}
+
+.playlist-item-compact .playlist-title {
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.playlist-item-compact .playlist-meta {
+  flex: 0 0 auto;
+  margin-top: 0;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
 .playlist-item:hover,
 .playlist-item:focus-visible {
   transform: translateY(-1px);
@@ -314,4 +345,3 @@ body.dark-theme .playlist-item.is-active {
   font-size: 0.95rem;
   transition: color var(--theme-transition);
 }
-
