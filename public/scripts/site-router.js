@@ -35,10 +35,14 @@
         return;
       }
 
-      const audio = document.getElementById("site-audio-player");
-      if (audio && currentPage.contains(audio)) {
-        audio.style.display = "none";
-        document.body.appendChild(audio);
+      if (typeof parkPersistentAudioPlayer === "function") {
+        parkPersistentAudioPlayer();
+      } else {
+        const audio = document.getElementById("site-audio-player");
+        if (audio && currentPage.contains(audio)) {
+          audio.style.display = "none";
+          document.body.appendChild(audio);
+        }
       }
 
       document.title = nextDocument.title;

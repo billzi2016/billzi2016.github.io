@@ -25,13 +25,20 @@ function shouldDisableMusicWidget() {
   return mobileMediaQuery.matches || pageKey === "music";
 }
 
-function destroyFloatingMusicWidget() {
-  const widget = document.getElementById("music-widget");
+function parkPersistentAudioPlayer({ hide = true } = {}) {
   const player = getActiveMidiPlayer();
-  if (player && widget?.contains(player)) {
-    player.style.display = "none";
+  if (!player) return null;
+
+  if (hide) player.style.display = "none";
+  if (player.parentElement !== document.body) {
     document.body.appendChild(player);
   }
+  return player;
+}
+
+function destroyFloatingMusicWidget() {
+  const widget = document.getElementById("music-widget");
+  parkPersistentAudioPlayer();
   if (musicState.saveTimer) {
     window.clearInterval(musicState.saveTimer);
     musicState.saveTimer = null;
@@ -61,7 +68,9 @@ function placePersistentAudioPlayer(target, className, controls) {
   player.className = className;
   player.controls = controls;
   player.style.display = controls ? "" : "none";
-  target.appendChild(player);
+  if (player.parentElement !== target) {
+    target.appendChild(player);
+  }
   return player;
 }
 
@@ -379,10 +388,7 @@ function renderFloatingPlaylist(lang) {
 
 function updateFloatingMusicWidget(lang) {
   if (pageKey === "music") {
-    const widget = document.getElementById("music-widget");
-    if (widget) widget.remove();
-    musicState.widgetInitialized = false;
-    musicState.widgetOpen = false;
+    destroyFloatingMusicWidget();
     return;
   }
 
