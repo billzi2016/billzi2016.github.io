@@ -11,5 +11,13 @@ const meta = pageMeta.music;
   page="music"
   pageTag={meta.pageTag}
 >
-  <MusicInitialContent />
+  <MusicInitialContent lang="en" />
+  <Fragment slot="page-templates">
+    <template id="page-content-template-en">
+      <MusicInitialContent lang="en" />
+    </template>
+    <template id="page-content-template-zh">
+      <MusicInitialContent lang="zh" />
+    </template>
+  </Fragment>
 </SiteLayout>

@@ -2,9 +2,9 @@
 import ProjectImageFigure from "./ProjectImageFigure.astro";
 import ProjectImageGrid from "./ProjectImageGrid.astro";
 import { siteTranslations } from "../data/generated/siteI18n";
-import { defaultLang } from "../utils/content";
+import { defaultLang, type Lang } from "../utils/content";
 
-const lang = defaultLang;
+const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.personal[lang];
 ---
 <section>
@@ -28,7 +28,9 @@ const page = siteTranslations.page.personal[lang];
         {project.images ? (
           <ProjectImageGrid images={project.images} lang={lang} extraClass="panel-image-grid" />
         ) : (
-          <p class="project-donation-note">Donated to Beijing University of Technology.</p>
+          <p class="project-donation-note">
+            {lang === "zh" ? "已捐赠给北京工业大学" : "Donated to Beijing University of Technology."}
+          </p>
         )}
       </div>
     ))}

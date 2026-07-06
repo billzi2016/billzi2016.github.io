@@ -6,5 +6,13 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 const meta = pageMeta.experience;
 ---
 <SiteLayout title={meta.title} page="experience" pageTag={meta.pageTag}>
-  <ExperienceInitialContent />
+  <ExperienceInitialContent lang="en" />
+  <Fragment slot="page-templates">
+    <template id="page-content-template-en">
+      <ExperienceInitialContent lang="en" />
+    </template>
+    <template id="page-content-template-zh">
+      <ExperienceInitialContent lang="zh" />
+    </template>
+  </Fragment>
 </SiteLayout>

@@ -4,9 +4,9 @@ import SkillBlocks from "./SkillBlocks.astro";
 import { siteHomeContent } from "../data/generated/homeContent";
 import { siteSharedContent } from "../data/generated/sharedContent";
 import { siteTranslations } from "../data/generated/siteI18n";
-import { defaultLang, getLangValue } from "../utils/content";
+import { defaultLang, getLangValue, type Lang } from "../utils/content";
 
-const lang = defaultLang;
+const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.home[lang];
 const common = siteTranslations.common[lang];
 const skillItems = [...(siteSharedContent.skills.left || []), ...(siteSharedContent.skills.right || [])];

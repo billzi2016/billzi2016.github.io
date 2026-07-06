@@ -1,15 +1,15 @@
 ---
 import { musicLibrary } from "../data/generated/musicLibrary";
 import { siteTranslations } from "../data/generated/siteI18n";
-import { defaultLang } from "../utils/content";
+import { defaultLang, type Lang } from "../utils/content";
 
-const lang = defaultLang;
+const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.music[lang];
 const tracks = musicLibrary.tracks || [];
 ---
 <section>
   <h2 class="section-title">{page.introTitle}</h2>
-  <p class="section-note">{musicLibrary.introEn || ""}</p>
+  <p class="section-note">{lang === "zh" ? musicLibrary.introZh || "" : musicLibrary.introEn || ""}</p>
   <div class="music-layout">
     <div class="music-stage">
       <div class="music-nowplaying">
@@ -43,13 +43,13 @@ const tracks = musicLibrary.tracks || [];
         {tracks.map((track, index) => (
           <li>
             <button class="playlist-item" type="button" data-index={index}>
-              <span class="playlist-title">{track.titleEn}</span>
-              <span class="playlist-meta">{track.composerEn}</span>
+              <span class="playlist-title">{lang === "zh" ? track.titleZh || track.titleEn : track.titleEn}</span>
+              <span class="playlist-meta">{lang === "zh" ? track.composerZh || track.composerEn : track.composerEn}</span>
             </button>
           </li>
         ))}
       </ol>
-      <p class="music-source-note">{musicLibrary.sourceNoteEn || ""}</p>
+      <p class="music-source-note">{lang === "zh" ? musicLibrary.sourceNoteZh || "" : musicLibrary.sourceNoteEn || ""}</p>
     </div>
   </div>
 </section>

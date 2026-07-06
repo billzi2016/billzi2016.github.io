@@ -1,4 +1,4 @@
-// 站点级交互：中英文切换、深浅色切换、导航高亮，以及统一内容源渲染。
+// 站点级交互：中英文切换、深浅色切换、导航高亮，以及轻量运行时绑定。
 const translations = window.siteTranslations || {};
 const pageTitles = window.sitePageTitles || {};
 
@@ -7,7 +7,6 @@ const body = document.body;
 let pageKey = body.dataset.page;
 const siteContent = window.siteContent || {};
 const musicLibrary = window.musicLibrary || { tracks: [] };
-const sharedHeaderPath = "./partials/header.html";
 const mobileMediaQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
 function escapeHtml(value) {
   return String(value)
@@ -45,49 +44,34 @@ function getLangValue(item, lang, baseName) {
   return item[`${baseName}${suffix}`] || item[baseName] || "";
 }
 
-function renderProjectImageFigure(image, lang, figureClass = "") {
-  const caption = getLangValue(image, lang, "caption") || image.caption || "";
-  const className = ["project-image", figureClass].filter(Boolean).join(" ");
-  return `
-    <figure class="${escapeHtml(className)}">
-      <button class="project-image-button" type="button" data-lightbox-src="${escapeHtml(
-        image.src,
-      )}" data-lightbox-caption="${escapeHtml(caption)}" aria-label="${escapeHtml(caption)}">
-        <img src="${escapeHtml(image.src)}" alt="${escapeHtml(caption)}" loading="lazy" />
-      </button>
-      <figcaption>${escapeHtml(caption)}</figcaption>
-    </figure>
-  `;
-}
-
-function renderProjectImageGrid(images, lang, extraClass = "") {
-  if (!images || images.length === 0) return "";
-  const countClass = `project-image-grid-count-${Math.min(images.length, 3)}`;
-  const fourImageClass = images.length === 4 ? "project-image-grid-four" : "";
-  const sixImageClass = images.length === 6 ? "project-image-grid-six" : "";
-  const className = ["project-image-grid", countClass, fourImageClass, sixImageClass, extraClass]
-    .filter(Boolean)
-    .join(" ");
-  return `<div class="${escapeHtml(className)}">${images
-    .map((image) => renderProjectImageFigure(image, lang))
-    .join("")}</div>`;
-}
-
-function renderPageContent(lang) {
-  if (pageKey === "home") renderHome(lang);
-  if (pageKey === "experience") renderExperience(lang);
-  if (pageKey === "projects") renderProjects(lang);
-  if (pageKey === "publications") renderPublications(lang);
-  if (pageKey === "personal") renderPersonal(lang);
-  if (pageKey === "music") renderMusic(lang);
-}
-
 function syncNavState() {
   document.querySelectorAll(".nav-link").forEach((link) => {
     const active = link.dataset.page === pageKey;
     link.classList.toggle("is-active", active);
     link.setAttribute("aria-current", active ? "page" : "false");
   });
+}
+
+function applyStaticPageTemplate(lang) {
+  const host = document.getElementById("page-content");
+  const template = document.getElementById(`page-content-template-${lang}`);
+  if (!(host instanceof HTMLElement) || !(template instanceof HTMLTemplateElement)) return;
+  if (host.dataset.renderedLang === lang) return;
+
+  if (typeof parkPersistentAudioPlayer === "function") {
+    parkPersistentAudioPlayer();
+  }
+  host.replaceChildren(template.content.cloneNode(true));
+  host.dataset.renderedLang = lang;
+}
+
+function bindPageRuntime(lang) {
+  if (pageKey === "music" && typeof bindMusicPage === "function") {
+    bindMusicPage(lang);
+  }
+  if (pageKey === "publications" && typeof bindCopyButtons === "function") {
+    bindCopyButtons(lang);
+  }
 }
 
 function bindNavigationPlaybackSave() {
@@ -168,12 +152,12 @@ function applyLanguage(lang) {
     themeBtn.setAttribute("title", label);
   }
 
-  renderPageContent(lang);
+  applyStaticPageTemplate(lang);
   updateFloatingMusicWidget(lang);
+  bindPageRuntime(lang);
   updateSiteSearchLanguage(lang);
 }
 
-// 页头改成通过 partial 动态加载后，按钮绑定需要在插入 DOM 之后再做。
 function bindHeaderControls() {
   const langBtn = getLangBtn();
   const themeBtn = getThemeBtn();
@@ -195,27 +179,9 @@ function bindHeaderControls() {
   }
 }
 
-// 通过 localhost 运行时，统一从 partial 加载页头，避免每个页面重复维护。
-async function loadSharedHeader() {
-  const slot = document.getElementById("shared-header-slot");
-  if (!slot || slot.dataset.loaded === "true") return;
-
-  try {
-    const response = await fetch(sharedHeaderPath, { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Failed to load shared header: ${response.status}`);
-    }
-    slot.innerHTML = await response.text();
-    slot.dataset.loaded = "true";
-  } catch (error) {
-    console.error("Failed to load shared header partial.", error);
-  }
-}
-
 async function bootstrapSite() {
   applyTheme(localStorage.getItem("site-theme") || "light");
   initFloatingMusicWidget();
-  await loadSharedHeader();
   bindHeaderControls();
   syncNavState();
   bindNavigationPlaybackSave();
@@ -236,7 +202,6 @@ window.SiteApp = {
       body.dataset.page = nextPageKey;
     }
     applyTheme(localStorage.getItem("site-theme") || "light");
-    await loadSharedHeader();
     bindHeaderControls();
     syncNavState();
     bindNavigationPlaybackSave();

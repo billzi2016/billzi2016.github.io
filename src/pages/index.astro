@@ -24,5 +24,13 @@ const meta = pageMeta.home;
     embedded integration, hardware-aware experimentation, and bilingual communication for AI
     products, intelligent systems, manufacturing, and research.
   </Fragment>
-  <HomeInitialContent />
+  <HomeInitialContent lang="en" />
+  <Fragment slot="page-templates">
+    <template id="page-content-template-en">
+      <HomeInitialContent lang="en" />
+    </template>
+    <template id="page-content-template-zh">
+      <HomeInitialContent lang="zh" />
+    </template>
+  </Fragment>
 </SiteLayout>

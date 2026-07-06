@@ -89,16 +89,17 @@ pnpm exec astro check
 
 ## 数据组织
 
-运行时兼容数据仍保留在：
+Astro 使用的内容数据位于：
 
-- `public/scripts/data/shared-data.js`
-- `public/scripts/data/home-data.js`
-- `public/scripts/data/experience-data.js`
-- `public/scripts/data/projects-data.js`
-- `public/scripts/music-data.js`
-- `public/scripts/publications-data.js`
+- `src/data/generated/sharedContent.js`
+- `src/data/generated/homeContent.js`
+- `src/data/generated/experienceContent.js`
+- `src/data/generated/projectsContent.js`
+- `src/data/generated/publicationsData.js`
+- `src/data/generated/musicLibrary.js`
+- `src/data/generated/siteI18n.js`
 
-Astro 使用的生成数据模块位于 `src/data/generated/`。当前仍保留运行时 JavaScript，用于语言切换、音乐播放连续性、站内搜索、图片灯箱和论文引用按钮。
+Astro 会用这些模块渲染可见页面内容和中英文模板。布局层也会内联一个很小的运行时数据对象，用于语言切换、音乐播放连续性、站内搜索、图片灯箱和论文引用按钮。旧的浏览器端整页渲染脚本和重复 public 数据脚本已经移除。
 
 ## 演示图片
 

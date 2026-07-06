@@ -7,9 +7,10 @@ import {
   getPublicationBucket,
   normalizeAuthorName,
   selectedPublicationKeys,
+  type Lang,
 } from "../utils/content";
 
-const lang = defaultLang;
+const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.publications[lang];
 const common = siteTranslations.common[lang];
 const byKey = new Map(publicationsData.map((item) => [item.key, item]));

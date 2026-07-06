@@ -8,9 +8,10 @@ import {
   getLangValue,
   getProjectKey,
   resolveProjectItem,
+  type Lang,
 } from "../utils/content";
 
-const lang = defaultLang;
+const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.projects[lang];
 const catalog = siteProjectsContent.catalog || {};
 const rankedItems = siteProjectsContent.ranked || [];

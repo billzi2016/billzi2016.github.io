@@ -1,5 +1,6 @@
 function bindCopyButtons(lang) {
   document.querySelectorAll(".pub-copy-btn").forEach((button) => {
+    if (button.dataset.copyBound === "true") return;
     button.addEventListener("click", async () => {
       const bibtex = button.getAttribute("data-bibtex");
       if (!bibtex) return;
@@ -28,5 +29,6 @@ function bindCopyButtons(lang) {
         console.error("Failed to copy BibTeX.", error);
       }
     });
+    button.dataset.copyBound = "true";
   });
 }

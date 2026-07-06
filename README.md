@@ -89,16 +89,17 @@ The site is built with GitHub Actions and deployed to GitHub Pages from the gene
 
 ## Data Organization
 
-Runtime-compatible source data remains under:
+Content data used by Astro lives under:
 
-- `public/scripts/data/shared-data.js`
-- `public/scripts/data/home-data.js`
-- `public/scripts/data/experience-data.js`
-- `public/scripts/data/projects-data.js`
-- `public/scripts/music-data.js`
-- `public/scripts/publications-data.js`
+- `src/data/generated/sharedContent.js`
+- `src/data/generated/homeContent.js`
+- `src/data/generated/experienceContent.js`
+- `src/data/generated/projectsContent.js`
+- `src/data/generated/publicationsData.js`
+- `src/data/generated/musicLibrary.js`
+- `src/data/generated/siteI18n.js`
 
-Astro-facing generated data modules live in `src/data/generated/`. The current runtime JavaScript is retained for language switching, music playback continuity, search, image lightbox behavior, and publication citation buttons.
+Astro renders the visible page content and language templates from these modules. The layout also inlines the small runtime data object needed for language switching, music playback continuity, site search, image lightbox behavior, and publication citation buttons. The old browser-side page renderers and duplicated public data scripts have been removed.
 
 ## Demo Gallery
 
