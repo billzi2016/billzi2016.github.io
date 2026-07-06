@@ -10,6 +10,8 @@ Chinese documentation: [README_CN.md](README_CN.md)
 
 This is an Astro-based static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, personal interests, and a small local music page.
 
+The repository also includes project specs for future maintenance and AI-assisted handoff. They document the Astro migration, the Tailwind/CSS policy, and the rules for keeping the codebase clean.
+
 ## Evolution
 
 This site started as a traditional static website written with plain HTML, CSS, and JavaScript. That approach was simple and reliable, but the CSS and repeated page structure became harder to maintain as the site grew.
@@ -48,6 +50,19 @@ This project does not use Vue or React as the primary framework because the site
 - `src/styles/site/`: Split site CSS imported by Astro through `src/styles/site/main.css`.
 - `public/assets/`: Local images, audio, MIDI files, PDF, and asset documentation.
 - `public/vendor/`: Third-party browser assets that are loaded directly.
+
+## Project Specs
+
+These specs are part of the repository contract. Read them before large refactors or AI-assisted maintenance:
+
+- [Maintenance Plan](specs/maintenance-plan.md)
+- [Astro Migration Plan](specs/astro-migration-plan.md)
+- [Engineering Principles](specs/engineering-principles.md)
+- [维护方案（中文）](specs/maintenance-plan_CN.md)
+- [Astro 迁移方案（中文）](specs/astro-migration-plan_CN.md)
+- [工程原则（中文）](specs/engineering-principles_CN.md)
+
+They cover the Astro architecture, Tailwind usage, SOLID/DRY rules, CSS ownership, JavaScript ownership, deployment model, testing checklist, and migration history.
 
 ## Local Development
 

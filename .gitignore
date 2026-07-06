@@ -4,6 +4,8 @@ assets/soundfonts/site-grand-piano/*
 node_modules/
 dist/
 .astro/
+test-results/
+playwright-report/
 
 __pycache__/
 *.py[cod]

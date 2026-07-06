@@ -1,12 +1,8 @@
 /* 全站样式入口。具体样式按职责拆分到同目录 CSS 文件。 */
 @import url("./base.css");
 @import url("./header.css");
-@import url("./language-switch.css");
-@import url("./theme-toggle.css");
 @import url("./sections.css");
 @import url("./content-components.css");
-@import url("./media-gallery.css");
-@import url("./lightbox.css");
 @import url("./publications.css");
 @import url("./music.css");
 @import url("./search.css");

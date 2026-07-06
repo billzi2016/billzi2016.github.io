@@ -10,6 +10,8 @@
 
 这是一个基于 Astro 的静态学术作品集网站，覆盖研究兴趣、技术技能、项目、论文、经历、教育背景、个人兴趣和一个本地音乐页面。
 
+仓库里也包含项目规范文档，用于后续维护和 AI 接手。它们记录 Astro 迁移过程、Tailwind/CSS 策略，以及保持代码库干净的规则。
+
 ## 技术演化
 
 这个网站最开始是传统的原生静态站，主要由 HTML、CSS 和 JavaScript 组成。这个方案简单、稳定，也很适合早期个人主页；但随着页面、内容和样式不断增加，CSS 和重复页面结构逐渐变得难维护。
@@ -48,6 +50,19 @@
 - `src/styles/site/`：拆分后的站点 CSS，由 Astro 通过 `src/styles/site/main.css` 引入。
 - `public/assets/`：本地图片、音频、MIDI、PDF 和资源说明文档。
 - `public/vendor/`：需要浏览器直接加载的第三方资源。
+
+## 项目规范
+
+这些 specs 是仓库维护契约的一部分。大重构或 AI 辅助维护前应先阅读：
+
+- [维护方案（中文）](specs/maintenance-plan_CN.md)
+- [Astro 迁移方案（中文）](specs/astro-migration-plan_CN.md)
+- [工程原则（中文）](specs/engineering-principles_CN.md)
+- [Maintenance Plan](specs/maintenance-plan.md)
+- [Astro Migration Plan](specs/astro-migration-plan.md)
+- [Engineering Principles](specs/engineering-principles.md)
+
+它们覆盖 Astro 架构、Tailwind 用法、SOLID/DRY 原则、CSS 归属、JavaScript 归属、部署模型、测试检查清单和迁移历史。
 
 ## 本地开发
 
