@@ -24,6 +24,16 @@ The repository is maintained as a production-quality static frontend system rath
 
 The project specs document the module boundaries, Astro migration, Tailwind/CSS policy, and engineering rules that keep the codebase maintainable.
 
+This repository demonstrates production-grade frontend maintenance discipline for a personal academic website:
+
+- Static generation with Astro and Vite, while keeping the deployed site as GitHub Pages-friendly static output.
+- Tailwind CSS plus ownership-based component styling, replacing ad-hoc global CSS accumulation with shared foundations, utility classes, and component-owned CSS.
+- Local asset governance for images, audio, MIDI, soundfonts, PDFs, and vendor browser scripts, avoiding CDN dependency for the public site.
+- MkDocs maintenance documentation that makes the repository architecture, workflows, and historical decisions navigable.
+- README, AGENTS, specs, and module maps that make the system maintainable by both humans and AI agents.
+- Playwright smoke tests for fragile user-facing interactions such as language/theme switching, local search, music controls, and image lightbox behavior.
+- Prettier, Stylelint, Astro check, build validation, release tagging, and lightweight trunk-based development.
+
 ## Technical Stack
 
 - Astro + Vite for static routing, layout composition, bundling, and GitHub Pages output.
