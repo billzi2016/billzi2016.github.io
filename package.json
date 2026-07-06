@@ -2,7 +2,8 @@
   "packageManager": "pnpm@11.9.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "pnpm build:docs && astro build",
+    "build:docs": "mkdocs build --config-file docs-site/mkdocs.yml",
     "preview": "astro preview",
     "check": "astro check",
     "format:check": "prettier --check \"**/*.{astro,css,js,ts,json,md,yml}\"",

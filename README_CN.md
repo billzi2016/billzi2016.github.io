@@ -2,15 +2,15 @@
 
 我的个人学术网站源代码。
 
-网站地址：[https://billzi2016.github.io/](https://billzi2016.github.io/)
-
-英文文档：[README.md](README.md)
-
-AI 维护指南：[AGENTS.md](AGENTS.md)
-
-## 文档入口
+## 网站
 
 - 公开网站：[https://billzi2016.github.io/](https://billzi2016.github.io/)
+- MkDocs 维护文档站：[https://billzi2016.github.io/docs/](https://billzi2016.github.io/docs/)
+
+## 维护文档
+
+- 英文文档：[README.md](README.md)
+- AI 维护指南：[AGENTS.md](AGENTS.md)
 - 维护文档站源码：[docs-site/](docs-site/)
 - 中文维护入口：[docs-site/cn/](docs-site/cn/)
 - 英文维护入口：[docs-site/en/](docs-site/en/)

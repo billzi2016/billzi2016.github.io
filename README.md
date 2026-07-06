@@ -2,15 +2,15 @@
 
 Source code for my personal academic website.
 
-Website: [https://billzi2016.github.io/](https://billzi2016.github.io/)
-
-Chinese documentation: [README_CN.md](README_CN.md)
-
-AI maintenance guide: [AGENTS.md](AGENTS.md)
-
-## Documentation Surfaces
+## Websites
 
 - Public website: [https://billzi2016.github.io/](https://billzi2016.github.io/)
+- MkDocs maintenance documentation: [https://billzi2016.github.io/docs/](https://billzi2016.github.io/docs/)
+
+## Maintenance Documents
+
+- Chinese documentation: [README_CN.md](README_CN.md)
+- AI maintenance guide: [AGENTS.md](AGENTS.md)
 - Maintenance documentation site source: [docs-site/](docs-site/)
 - Chinese maintenance entry: [docs-site/cn/](docs-site/cn/)
 - English maintenance entry: [docs-site/en/](docs-site/en/)

@@ -1,0 +1,54 @@
+site_name: billzi2016.github.io Maintenance Docs
+site_description: Maintenance documentation for the Astro portfolio site.
+site_url: https://billzi2016.github.io/docs/
+repo_url: https://github.com/billzi2016/billzi2016.github.io
+repo_name: billzi2016.github.io
+
+docs_dir: .
+site_dir: ../public/docs
+use_directory_urls: true
+
+theme:
+  name: mkdocs
+  locale: en
+  navigation_depth: 3
+
+nav:
+  - Home: index.md
+  - "🌐 中文":
+      - 中文 README: cn/README_CN.md
+      - Agent 维护指南: cn/AGENTS.md
+      - 维护方案: cn/maintenance-plan_CN.md
+      - Astro 迁移方案: cn/astro-migration-plan_CN.md
+      - 工程原则: cn/engineering-principles_CN.md
+      - 模块地图: cn/module-map_CN.md
+      - MkDocs PRD: cn/mkdocs_prd.cn.md
+      - GitHub Actions PRD: cn/github_action_prd.cn.md
+  - "🌐 English":
+      - README: en/README.md
+      - Agent Maintenance Guide: en/AGENTS.md
+      - Maintenance Plan: en/maintenance-plan.md
+      - Astro Migration Plan: en/astro-migration-plan.md
+      - Engineering Principles: en/engineering-principles.md
+      - Module Map: en/module-map.md
+      - MkDocs PRD: en/mkdocs_prd.md
+      - GitHub Actions PRD: en/github_action_prd.md
+  - PRDs:
+      - MkDocs PRD: specs/mkdocs_prd.md
+      - MkDocs PRD 中文: specs/mkdocs_prd.cn.md
+      - GitHub Actions PRD: specs/github_action_prd.md
+      - GitHub Actions PRD 中文: specs/github_action_prd.cn.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+
+validation:
+  links:
+    absolute_links: ignore
+    not_found: ignore
+    unrecognized_links: ignore
+    anchors: ignore

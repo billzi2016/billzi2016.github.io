@@ -3,6 +3,7 @@ assets/soundfonts/site-grand-piano/*
 
 node_modules/
 dist/
+public/docs/
 .astro/
 test-results/
 playwright-report/
