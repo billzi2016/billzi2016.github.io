@@ -1,3 +1,13 @@
+@media (width > 1180px) {
+  .page {
+    transform: translateX(-48px);
+  }
+
+  body[data-page="music"] .page {
+    transform: none;
+  }
+}
+
 @media (width <= 900px) {
   .header-bar {
     display: block;
