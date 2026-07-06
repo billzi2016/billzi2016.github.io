@@ -186,6 +186,10 @@ Tailwind should reduce boring layout CSS. It should not force complex visual com
 
 SOLID and DRY rules are centralized in [Engineering Principles](engineering-principles.md). Follow that file for component ownership, CSS ownership, JavaScript ownership, abstraction boundaries, and AI maintenance rules.
 
+## Module Map
+
+Module responsibilities, placement rules, and forbidden placement patterns are centralized in [Module Map](module-map.md).
+
 ## JavaScript Policy
 
 Runtime JavaScript lives in `src/scripts/site/` and is bundled by Astro/Vite.

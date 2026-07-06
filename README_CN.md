@@ -12,7 +12,174 @@ AI 维护指南：[AGENTS.md](AGENTS.md)
 
 这是一个基于 Astro 的静态学术作品集网站，覆盖研究兴趣、技术技能、项目、论文、经历、教育背景、个人兴趣和一个本地音乐页面。
 
-仓库里也包含项目规范文档，用于后续维护和 AI 接手。它们记录 Astro 迁移过程、Tailwind/CSS 策略，以及保持代码库干净的规则。
+这个仓库按可部署的静态前端系统维护，而不是一组松散页面。它组合了 Astro 静态生成、Tailwind CSS、组件本地样式、本地资产、Playwright 冒烟测试、Stylelint、Prettier、pnpm 和 GitHub Actions 部署。
+
+项目规范文档记录模块边界、Astro 迁移过程、Tailwind/CSS 策略，以及保持代码库可维护的工程规则。
+
+## 技术栈
+
+- Astro + Vite：负责静态路由、layout 组合、打包和 GitHub Pages 输出。
+- Tailwind CSS：处理工具类样式；复杂视觉系统使用组件本地 CSS。
+- TypeScript-enabled Astro check：提供模板和类型诊断。
+- 浏览器运行时模块：负责语言切换、主题切换、页面切换、本地搜索、图片灯箱、动态背景和持久音乐播放。
+- 本地资产：图片、音频、MIDI、soundfonts 和 vendor 脚本全部本地化。
+- Playwright：覆盖核心页面渲染和脆弱交互的冒烟测试。
+- Prettier + Stylelint：约束格式和 CSS 质量。
+- pnpm + GitHub Actions：负责可复现安装、验证、构建和部署。
+
+## 架构图
+
+第一张图展示静态站架构。Astro 负责路由和文档组合，数据模块同时服务静态渲染和运行时初始化；浏览器脚本被拆成几个职责明确的小系统，而不是把整站做成 SPA runtime。
+
+```mermaid
+flowchart TD
+  subgraph Source["源码树"]
+    Pages["src/pages/*.astro<br/>路由入口"]
+    Layout["src/layouts/SiteLayout.astro<br/>HTML 外壳 + 脚本顺序"]
+    Components["src/components<br/>UI 模块 + 本地 CSS"]
+    Data["src/data<br/>metadata + 生成的中英文内容"]
+    Runtime["src/scripts/site<br/>职责明确的浏览器系统"]
+    Styles["src/styles<br/>Tailwind 入口 + 共享基础 CSS"]
+  end
+
+  subgraph Assets["被服务的资产"]
+    Public["public/assets<br/>图片、PDF、MIDI、M4A、soundfonts"]
+    Vendor["public/vendor<br/>本地第三方浏览器资产"]
+  end
+
+  subgraph Governance["维护契约"]
+    Specs["specs<br/>架构 + 迁移 + 模块地图"]
+    Agents["AGENTS.md<br/>AI 接手顺序"]
+    Tools["tools<br/>维护脚本"]
+  end
+
+  Pages --> Layout
+  Layout --> Components
+  Layout --> Runtime
+  Layout --> Public
+  Layout --> Vendor
+  Data --> Pages
+  Data --> Layout
+  Data --> Components
+  Components --> Styles
+  Runtime --> Interactions["语言/主题<br/>路由/搜索/灯箱/音乐/背景"]
+  Specs -. "定义归属边界" .-> Source
+  Agents -. "告诉 AI 先读什么" .-> Specs
+  Tools -. "支持资产但不参与部署" .-> Public
+```
+
+第二张图是正常工程工作流。本地验证和 CI 使用同一组质量门禁，所以本地通过的改动，推送后也会用同样规则再次检查。
+
+```mermaid
+flowchart LR
+  Change["代码/内容/文档改动"] --> Scope["找到归属模块<br/>component/data/script/spec"]
+  Scope --> Patch["小范围 patch<br/>避免整文件重写"]
+  Patch --> Validate["pnpm validate"]
+
+  subgraph Local["本地质量门禁"]
+    Format["Prettier 格式检查"]
+    Lint["Stylelint CSS lint"]
+    AstroCheck["Astro check"]
+    Build["Astro build"]
+    E2E["Playwright 冒烟测试"]
+  end
+
+  Validate --> Format
+  Validate --> Lint
+  Validate --> AstroCheck
+  Validate --> Build
+  Validate --> E2E
+  Format --> Commit["中文 commit 信息"]
+  Lint --> Commit
+  AstroCheck --> Commit
+  Build --> Commit
+  E2E --> Commit
+  Commit --> Push["push 到 main"]
+  Push --> Actions["GitHub Actions<br/>重复质量门禁"]
+  Actions --> Artifact["上传 dist/ artifact"]
+  Artifact --> PagesDeploy["GitHub Pages 部署"]
+```
+
+运行时生命周期很窄：Astro 先输出静态 HTML，然后少量浏览器模块挂载行为。音乐播放器被特殊处理，页面切换时不会被无意义重建或打断。
+
+```mermaid
+sequenceDiagram
+  participant Browser as 浏览器
+  participant Layout as SiteLayout.astro
+  participant Data as src/data
+  participant Runtime as src/scripts/site
+  participant Music as 持久音乐
+  participant Page as Astro 页面
+  participant Search as 搜索浮层
+  participant Gallery as 项目灯箱
+
+  Browser->>Layout: 请求静态路由
+  Layout->>Data: 读取 metadata 和内容模块
+  Data-->>Layout: 页面标题、翻译、音乐、论文数据
+  Layout->>Page: 渲染静态页面内容
+  Layout-->>Browser: HTML + 本地资产 + 脚本 URL
+  Browser->>Runtime: 加载站点脚本
+  Runtime->>Runtime: 应用已保存的语言和主题状态
+  Runtime->>Music: 停放或恢复 audio 元素
+  Runtime->>Search: 创建本地搜索浮层
+  Runtime->>Gallery: 绑定委托式图片灯箱事件
+  Runtime->>Page: 绑定页面专属行为
+  Browser->>Runtime: 站内局部导航
+  Runtime->>Music: 保存播放状态
+  Runtime->>Page: 从静态 template 替换内容
+  Runtime->>Runtime: 导航后重新绑定控件
+  Runtime->>Music: 恢复或保持播放器状态
+```
+
+CSS 按归属拆分，而不是继续堆进一个大全局文件。共享 CSS 只保留基础层；复杂视觉系统的 CSS 跟随拥有该 DOM 的组件或运行时系统。
+
+```mermaid
+flowchart TD
+  subgraph Foundation["共享基础层"]
+    Base["base.css<br/>tokens + 文档行为"]
+    HeaderCSS["header.css<br/>站点页头外壳"]
+    Sections["sections.css<br/>section primitive"]
+    Content["content-components.css<br/>共享列表/按钮"]
+    Responsive["responsive.css<br/>跨模块断点协调"]
+  end
+
+  subgraph Utility["工具类层"]
+    Tailwind["tailwind.css<br/>Tailwind layers"]
+    LayoutUtilities["spacing/grid/flex/typography"]
+  end
+
+  subgraph ComponentCSS["组件自有 CSS"]
+    Theme["ThemeToggle/theme-toggle.css"]
+    Language["LanguageSwitch/language-switch.css"]
+    GalleryCSS["ProjectGallery/*.css"]
+    MusicCSS["MusicPlayer/music-player.css"]
+    SearchCSS["SearchWidget/search-widget.css"]
+    PublicationCSS["Publications/publications.css"]
+  end
+
+  Tailwind --> LayoutUtilities
+  Foundation --> Quality["Stylelint + Prettier"]
+  Utility --> Quality
+  ComponentCSS --> Quality
+  RuntimeDOM["运行时创建 DOM<br/>搜索/音乐/灯箱"] --> SearchCSS
+  RuntimeDOM --> MusicCSS
+  RuntimeDOM --> GalleryCSS
+```
+
+部署流水线把仓库规则变成机器约束。格式、CSS 质量、Astro 诊断、浏览器冒烟测试和生产构建都通过后，GitHub Pages 才会收到新的 `dist/` artifact。
+
+```mermaid
+flowchart TD
+  CI["GitHub Actions"] --> Install["pnpm install --frozen-lockfile"]
+  Install --> Format["Prettier check"]
+  Format --> CSS["Stylelint"]
+  CSS --> Check["Astro check"]
+  Check --> Browser["安装 Playwright Chromium"]
+  Browser --> Smoke["E2E 冒烟测试"]
+  Smoke --> Build["Astro build"]
+  Build --> Artifact["上传 dist/"]
+  Artifact --> Deploy["GitHub Pages"]
+```
 
 ## 技术演化
 
@@ -61,6 +228,9 @@ AI 维护指南：[AGENTS.md](AGENTS.md)
 
 - [维护方案（中文）](specs/maintenance-plan_CN.md)
 - [Maintenance Plan](specs/maintenance-plan.md)
+
+- [模块地图（中文）](specs/module-map_CN.md)
+- [Module Map](specs/module-map.md)
 
 - [Astro 迁移方案（中文）](specs/astro-migration-plan_CN.md)
 - [Astro Migration Plan](specs/astro-migration-plan.md)

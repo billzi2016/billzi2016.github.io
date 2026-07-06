@@ -5,6 +5,8 @@
   let matrixContext = null;
   let matrixAnimation = 0;
   let matrixColumns = [];
+  const LIGHT_PARTICLE_MOVE_SPEED = 0.85;
+  const LIGHT_PARTICLE_POINTER_PULL = 0.014;
   const mobileBackgroundMedia = window.matchMedia(
     "(max-width: 760px), (hover: none) and (pointer: coarse)",
   );
@@ -61,7 +63,7 @@
         }
 
         const distance = Math.sqrt(distanceSq);
-        const pull = (1 - distance / radius) * 0.035;
+        const pull = (1 - distance / radius) * LIGHT_PARTICLE_POINTER_PULL;
         particle.x += dx * pull;
         particle.y += dy * pull;
       });
@@ -100,7 +102,7 @@
         },
         move: {
           enable: true,
-          speed: 1.55,
+          speed: LIGHT_PARTICLE_MOVE_SPEED,
           direction: "none",
           random: false,
           straight: false,

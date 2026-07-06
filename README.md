@@ -12,7 +12,174 @@ AI maintenance guide: [AGENTS.md](AGENTS.md)
 
 This is an Astro-based static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, personal interests, and a small local music page.
 
-The repository also includes project specs for future maintenance and AI-assisted handoff. They document the Astro migration, the Tailwind/CSS policy, and the rules for keeping the codebase clean.
+The repository is maintained as a production-quality static frontend system rather than a collection of loose pages. It combines Astro static generation, Tailwind CSS, component-local styling, local assets, Playwright smoke tests, Stylelint, Prettier, pnpm, and GitHub Actions deployment.
+
+The project specs document the module boundaries, Astro migration, Tailwind/CSS policy, and engineering rules that keep the codebase maintainable.
+
+## Technical Stack
+
+- Astro + Vite for static routing, layout composition, bundling, and GitHub Pages output.
+- Tailwind CSS for utility styling, with component-local CSS for complex visual systems.
+- TypeScript-enabled Astro checks for template and type diagnostics.
+- Browser runtime modules for language switching, theme switching, page transitions, local search, image lightbox, animated backgrounds, and persistent music playback.
+- Local assets for images, audio, MIDI, soundfonts, and vendor scripts.
+- Playwright smoke tests for core page rendering and fragile interactions.
+- Prettier and Stylelint for formatting and CSS quality gates.
+- pnpm and GitHub Actions for reproducible install, validation, build, and deployment.
+
+## Architecture
+
+The first diagram shows the static-site architecture. Astro owns routes and document composition, data modules feed both static rendering and runtime initialization, while browser scripts are kept as focused systems instead of a full SPA runtime.
+
+```mermaid
+flowchart TD
+  subgraph Source["Source tree"]
+    Pages["src/pages/*.astro<br/>route entry points"]
+    Layout["src/layouts/SiteLayout.astro<br/>HTML shell + script order"]
+    Components["src/components/<br/>UI modules + local CSS"]
+    Data["src/data/<br/>metadata + generated bilingual content"]
+    Runtime["src/scripts/site/<br/>focused browser systems"]
+    Styles["src/styles/<br/>Tailwind entry + shared foundation CSS"]
+  end
+
+  subgraph Assets["Served assets"]
+    Public["public/assets<br/>images, PDF, MIDI, M4A, soundfonts"]
+    Vendor["public/vendor<br/>local third-party browser assets"]
+  end
+
+  subgraph Governance["Maintenance contract"]
+    Specs["specs/<br/>architecture + migration + module map"]
+    Agents["AGENTS.md<br/>AI handoff order"]
+    Tools["tools/<br/>maintenance scripts"]
+  end
+
+  Pages --> Layout
+  Layout --> Components
+  Layout --> Runtime
+  Layout --> Public
+  Layout --> Vendor
+  Data --> Pages
+  Data --> Layout
+  Data --> Components
+  Components --> Styles
+  Runtime --> Interactions["language/theme<br/>router/search/lightbox/music/backgrounds"]
+  Specs -. "defines ownership" .-> Source
+  Agents -. "tells AI what to read first" .-> Specs
+  Tools -. "supports assets but is not deployed" .-> Public
+```
+
+The second diagram is the normal engineering workflow. Local validation and CI intentionally run the same quality gates so a change that passes locally should behave the same way before deployment.
+
+```mermaid
+flowchart LR
+  Change["Code/content/docs change"] --> Scope["Find owning module<br/>component/data/script/spec"]
+  Scope --> Patch["Small patch<br/>avoid whole-file rewrites"]
+  Patch --> Validate["pnpm validate"]
+
+  subgraph Local["Local quality gates"]
+    Format["Prettier format check"]
+    Lint["Stylelint CSS lint"]
+    AstroCheck["Astro check"]
+    Build["Astro build"]
+    E2E["Playwright smoke tests"]
+  end
+
+  Validate --> Format
+  Validate --> Lint
+  Validate --> AstroCheck
+  Validate --> Build
+  Validate --> E2E
+  Format --> Commit["Chinese commit message"]
+  Lint --> Commit
+  AstroCheck --> Commit
+  Build --> Commit
+  E2E --> Commit
+  Commit --> Push["push to main"]
+  Push --> Actions["GitHub Actions<br/>repeat gates"]
+  Actions --> Artifact["upload dist/ artifact"]
+  Artifact --> PagesDeploy["GitHub Pages deploy"]
+```
+
+The runtime lifecycle is deliberately narrow: Astro renders static HTML, then small browser modules attach behavior. The music player is treated specially so page transitions do not recreate or interrupt playback unnecessarily.
+
+```mermaid
+sequenceDiagram
+  participant Browser
+  participant Layout as SiteLayout.astro
+  participant Data as src/data
+  participant Runtime as src/scripts/site
+  participant Music as Persistent music
+  participant Page as Astro page
+  participant Search as Search widget
+  participant Gallery as Project lightbox
+
+  Browser->>Layout: request static route
+  Layout->>Data: read metadata and content modules
+  Data-->>Layout: page titles, translations, music, publications
+  Layout->>Page: render static page content
+  Layout-->>Browser: HTML + local assets + script URLs
+  Browser->>Runtime: load bundled site scripts
+  Runtime->>Runtime: apply stored language + theme state
+  Runtime->>Music: park or restore audio element
+  Runtime->>Search: create local search overlay
+  Runtime->>Gallery: bind delegated image lightbox events
+  Runtime->>Page: bind page-specific behavior
+  Browser->>Runtime: navigate internally
+  Runtime->>Music: save playback state
+  Runtime->>Page: replace content from static template
+  Runtime->>Runtime: re-bind controls after navigation
+  Runtime->>Music: resume or preserve player state
+```
+
+CSS is split by ownership rather than by a single global stylesheet. Shared CSS is limited to foundations; complex visual systems keep their CSS beside the component or runtime system that owns the DOM.
+
+```mermaid
+flowchart TD
+  subgraph Foundation["Shared foundation"]
+    Base["base.css<br/>tokens + document behavior"]
+    HeaderCSS["header.css<br/>site header shell"]
+    Sections["sections.css<br/>section primitives"]
+    Content["content-components.css<br/>shared lists/buttons"]
+    Responsive["responsive.css<br/>cross-module breakpoints"]
+  end
+
+  subgraph Utility["Utility layer"]
+    Tailwind["tailwind.css<br/>Tailwind layers"]
+    LayoutUtilities["spacing/grid/flex/typography"]
+  end
+
+  subgraph ComponentCSS["Component-owned CSS"]
+    Theme["ThemeToggle/theme-toggle.css"]
+    Language["LanguageSwitch/language-switch.css"]
+    GalleryCSS["ProjectGallery/*.css"]
+    MusicCSS["MusicPlayer/music-player.css"]
+    SearchCSS["SearchWidget/search-widget.css"]
+    PublicationCSS["Publications/publications.css"]
+  end
+
+  Tailwind --> LayoutUtilities
+  Foundation --> Quality["Stylelint + Prettier"]
+  Utility --> Quality
+  ComponentCSS --> Quality
+  RuntimeDOM["Runtime-created DOM<br/>search/music/lightbox"] --> SearchCSS
+  RuntimeDOM --> MusicCSS
+  RuntimeDOM --> GalleryCSS
+```
+
+The deployment pipeline turns the repository rules into automated enforcement. Formatting, CSS quality, Astro diagnostics, browser smoke tests, and the production build must all pass before GitHub Pages receives a new `dist/` artifact.
+
+```mermaid
+flowchart TD
+  CI["GitHub Actions"] --> Install["pnpm install --frozen-lockfile"]
+  Install --> Format["Prettier check"]
+  Format --> CSS["Stylelint"]
+  CSS --> Check["Astro check"]
+  Check --> Browser["Install Playwright Chromium"]
+  Browser --> Smoke["E2E smoke tests"]
+  Smoke --> Build["Astro build"]
+  Build --> Artifact["Upload dist/"]
+  Artifact --> Deploy["GitHub Pages"]
+```
 
 ## Evolution
 
@@ -61,6 +228,9 @@ These specs are part of the repository contract. Read them before large refactor
 
 - [Maintenance Plan](specs/maintenance-plan.md)
 - [维护方案（中文）](specs/maintenance-plan_CN.md)
+
+- [Module Map](specs/module-map.md)
+- [模块地图（中文）](specs/module-map_CN.md)
 
 - [Astro Migration Plan](specs/astro-migration-plan.md)
 - [Astro 迁移方案（中文）](specs/astro-migration-plan_CN.md)

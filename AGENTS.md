@@ -8,11 +8,13 @@
 
 1. `README_CN.md`：了解项目用途、运行方式、整体结构。
 2. `specs/maintenance-plan_CN.md`：了解维护边界、目录归属、测试和部署要求。
-3. `specs/engineering-principles_CN.md`：了解 SOLID/DRY、CSS/JS 归属、AI 修改规则。
-4. `specs/astro-migration-plan_CN.md`：了解从原生静态站迁移到 Astro/Tailwind 的背景和禁止回退项。
-5. 需要英文上下文时，再读对应英文版本：
+3. `specs/module-map_CN.md`：了解每个模块具体做什么、改动应该放在哪里。
+4. `specs/engineering-principles_CN.md`：了解 SOLID/DRY、CSS/JS 归属、AI 修改规则。
+5. `specs/astro-migration-plan_CN.md`：了解从原生静态站迁移到 Astro/Tailwind 的背景和禁止回退项。
+6. 需要英文上下文时，再读对应英文版本：
    - `README.md`
    - `specs/maintenance-plan.md`
+   - `specs/module-map.md`
    - `specs/engineering-principles.md`
    - `specs/astro-migration-plan.md`
 
