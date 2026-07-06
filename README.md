@@ -18,6 +18,16 @@ The current version has been migrated to Astro with Tailwind CSS. Astro keeps th
 
 This project does not use Vue or React as the primary framework because the site is mostly content, navigation, images, publications, and lightweight interaction. A full single-page application framework would add more client-side JavaScript and more architectural overhead than this site needs. Astro gives the useful parts of component-based development without turning the website into a heavy SPA. If a future section needs richer interactive UI, Astro can still host focused client-side components where they are actually needed.
 
+| Dimension | Original HTML / CSS / JS static site | Current Astro + Tailwind CSS site | Vue / React SPA-style approach |
+| --- | --- | --- | --- |
+| Page speed | Very fast for small pages, but repeated markup and growing CSS made long-term cleanup harder. | Fast static HTML output with component-based source files and limited runtime JavaScript. | Can be fast when optimized, but usually ships more JavaScript than this site needs. |
+| JavaScript payload | Minimal at first, then gradually accumulated page renderers and runtime helpers. | JavaScript is kept for language switching, music continuity, search, lightbox, and other focused interactions. | More client-side runtime by default, especially if the whole site becomes an SPA. |
+| Maintainability | Simple files, but duplicated structure and CSS growth made changes risky. | Components, data modules, Tailwind utilities, and split CSS make the project easier to inspect and maintain. | Strong component model, but introduces state management and app-level structure that is unnecessary for this content-heavy site. |
+| SEO and static output | Static HTML works well, but pages were manually maintained. | Static HTML remains the deployment target, with Astro generating pages from cleaner source structure. | Needs SSR, SSG, or careful prerendering to match the same static-site behavior cleanly. |
+| GitHub Pages deployment | Easy, but relied on manually organized static assets. | Easy: `pnpm build` generates `dist/`, and GitHub Actions deploys the static output. | Also possible, but the build/runtime model is heavier for this use case. |
+| Visual preservation | Original visual design was built here. | The migration keeps the existing visual design while improving the source structure. | A rewrite in Vue or React would create more risk of accidental visual drift. |
+| Best fit | Small, stable static pages. | Personal academic website with mostly static content and selective interactions. | Large interactive applications, dashboards, editors, or products with complex client-side state. |
+
 ## Pages
 
 - `index.html`: Home
