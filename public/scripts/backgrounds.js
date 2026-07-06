@@ -150,7 +150,7 @@
     canvas.style.height = `${window.innerHeight}px`;
     matrixContext = canvas.getContext("2d");
     matrixContext.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const columns = Math.floor(window.innerWidth / 18);
+    const columns = Math.floor(window.innerWidth / 36);
     matrixColumns = Array.from({ length: columns }, () => Math.random() * window.innerHeight);
   }
 
@@ -166,12 +166,12 @@
     // 加重每帧的淡出覆盖，缩短残影停留时间，避免积出明显竖条。
     matrixContext.fillStyle = "rgba(13, 20, 27, 0.12)";
     matrixContext.fillRect(0, 0, window.innerWidth, window.innerHeight);
-    matrixContext.font = "13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+    matrixContext.font = "26px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
     matrixContext.fillStyle = "rgba(122, 255, 158, 0.44)";
     const glyphs =
       "intvoidclassconststructreturnautoforifwhileswitchtemplatepublicprivatestaticnullptrusinginclude0123456789<>{}();:*&#_";
     matrixColumns = matrixColumns.map((y, index) => {
-      const x = index * 18;
+      const x = index * 36;
       const glyph = glyphs[Math.floor(Math.random() * glyphs.length)];
       matrixContext.fillText(glyph, x, y);
       if (y > window.innerHeight + Math.random() * 220) {

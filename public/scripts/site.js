@@ -4,7 +4,7 @@ const pageTitles = window.sitePageTitles || {};
 
 const root = document.documentElement;
 const body = document.body;
-const pageKey = body.dataset.page;
+let pageKey = body.dataset.page;
 const siteContent = window.siteContent || {};
 const musicLibrary = window.musicLibrary || { tracks: [] };
 const sharedHeaderPath = "./partials/header.html";
@@ -229,5 +229,26 @@ async function bootstrapSite() {
 }
 
 bootstrapSite();
+window.SiteApp = {
+  async mountPage(nextPageKey) {
+    if (nextPageKey) {
+      pageKey = nextPageKey;
+      body.dataset.page = nextPageKey;
+    }
+    applyTheme(localStorage.getItem("site-theme") || "light");
+    await loadSharedHeader();
+    bindHeaderControls();
+    syncNavState();
+    bindNavigationPlaybackSave();
+    ensureLanguageSwitchMarkup();
+    applyLanguage(localStorage.getItem("site-lang") || "en");
+    initFloatingMusicWidget();
+    initProjectImageLightbox();
+    initSiteSearch();
+    if (window.SiteBackgrounds) {
+      window.SiteBackgrounds.syncBackgrounds();
+    }
+  },
+};
 window.addEventListener("pagehide", saveMusicPlaybackState);
 window.addEventListener("beforeunload", saveMusicPlaybackState);

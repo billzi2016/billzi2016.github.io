@@ -1,6 +1,10 @@
 assets/soundfonts/site-grand-piano/*
 !assets/soundfonts/site-grand-piano/README.md
 
+node_modules/
+dist/
+.astro/
+
 __pycache__/
 *.py[cod]
 
