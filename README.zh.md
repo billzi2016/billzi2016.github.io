@@ -24,6 +24,16 @@
 
 项目规范文档记录模块边界、Astro 迁移过程、Tailwind/CSS 策略，以及保持代码库可维护的工程规则。
 
+这个仓库把个人主页维护到生产级前端工程标准：
+
+- 使用 Astro 和 Vite 做静态生成，同时保持适合 GitHub Pages 部署的静态输出。
+- 使用 Tailwind CSS 和按归属拆分的组件样式，把随手堆全局 CSS 的模式整理为共享基础层、工具类和组件自有 CSS。
+- 本地资产治理覆盖图片、音频、MIDI、soundfonts、PDF 和 vendor 浏览器脚本，公开网站避免依赖 CDN。
+- MkDocs 维护文档站让仓库架构、维护流程和历史决策可导航、可追溯。
+- README、AGENTS、specs 和 module map 让系统可以被人类和 AI agent 持续维护。
+- Playwright 冒烟测试覆盖语言/主题切换、本地搜索、音乐控制和图片灯箱等脆弱用户交互。
+- Prettier、Stylelint、Astro check、构建验证、版本里程碑和轻量 trunk-based 开发流程形成质量门禁。
+
 ## 技术栈
 
 - Astro + Vite：负责静态路由、layout 组合、打包和 GitHub Pages 输出。
