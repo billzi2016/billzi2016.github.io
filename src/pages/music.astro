@@ -5,12 +5,8 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
 const meta = pageMeta.music;
 ---
-<SiteLayout
-  title={meta.title}
-  description={meta.description}
-  page="music"
-  pageTag={meta.pageTag}
->
+
+<SiteLayout title={meta.title} description={meta.description} page="music" pageTag={meta.pageTag}>
   <MusicInitialContent lang="en" />
   <Fragment slot="page-templates">
     <template id="page-content-template-en">

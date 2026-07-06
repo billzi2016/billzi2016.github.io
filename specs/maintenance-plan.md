@@ -285,27 +285,28 @@ Before pushing meaningful changes:
 Start here before changing code:
 
 1. Read this file and `specs/maintenance-plan_CN.md`.
-2. Run `git status --short` and do not overwrite unrelated local changes.
-3. Identify whether the task is content, layout, component behavior, data, assets, or deployment.
-4. Edit the smallest owning file or component directory.
-5. Run the relevant validation commands before committing.
+2. Read `AGENTS.md` for the AI handoff order and repository-specific operating rules.
+3. Run `git status --short` and do not overwrite unrelated local changes.
+4. Identify whether the task is content, layout, component behavior, data, assets, or deployment.
+5. Edit the smallest owning file or component directory.
+6. Run the relevant validation commands before committing.
 
 Ownership map:
 
-| Task | Primary location | Notes |
-| --- | --- | --- |
-| Page route | `src/pages/*.astro` | Keep pages thin; delegate markup to components. |
-| Shared HTML shell | `src/layouts/SiteLayout.astro` | Owns metadata, script order, global imports, and runtime data injection. |
-| Header/nav | `src/components/Header*.astro`, `src/components/PrimaryNav.astro` | Do not hide page-specific behavior here. |
-| Theme toggle | `src/components/ThemeToggle/` | CSS stays with the component. |
-| Language switch | `src/components/LanguageSwitch/` | CSS stays with the component. |
-| Project images/lightbox | `src/components/ProjectGallery/`, `src/scripts/site/site-lightbox.js` | Markup/CSS in component; lightbox runtime in script. |
-| Music page/player | `src/components/MusicInitialContent.astro`, `src/components/MusicPlayer/`, `src/scripts/site/site-music.js` | Preserve persistent playback across navigation. |
-| Search | `src/components/SearchWidget/`, `src/scripts/site/site-search.js` | Keep the index local and browser-side. |
-| Publications | `src/components/PublicationsInitialContent.astro`, `src/components/Publications/`, `src/scripts/site/site-citation.js` | Citation copy buttons depend on `.pub-copy-btn`. |
-| Static assets | `public/assets/` | Required assets must stay local. |
-| Generated content | `src/data/generated/` | Do not duplicate generated content in components. |
-| Deployment | `.github/workflows/deploy.yml` | GitHub Pages deploys `dist/` from Astro build. |
+| Task                    | Primary location                                                                                                       | Notes                                                                    |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Page route              | `src/pages/*.astro`                                                                                                    | Keep pages thin; delegate markup to components.                          |
+| Shared HTML shell       | `src/layouts/SiteLayout.astro`                                                                                         | Owns metadata, script order, global imports, and runtime data injection. |
+| Header/nav              | `src/components/Header*.astro`, `src/components/PrimaryNav.astro`                                                      | Do not hide page-specific behavior here.                                 |
+| Theme toggle            | `src/components/ThemeToggle/`                                                                                          | CSS stays with the component.                                            |
+| Language switch         | `src/components/LanguageSwitch/`                                                                                       | CSS stays with the component.                                            |
+| Project images/lightbox | `src/components/ProjectGallery/`, `src/scripts/site/site-lightbox.js`                                                  | Markup/CSS in component; lightbox runtime in script.                     |
+| Music page/player       | `src/components/MusicInitialContent.astro`, `src/components/MusicPlayer/`, `src/scripts/site/site-music.js`            | Preserve persistent playback across navigation.                          |
+| Search                  | `src/components/SearchWidget/`, `src/scripts/site/site-search.js`                                                      | Keep the index local and browser-side.                                   |
+| Publications            | `src/components/PublicationsInitialContent.astro`, `src/components/Publications/`, `src/scripts/site/site-citation.js` | Citation copy buttons depend on `.pub-copy-btn`.                         |
+| Static assets           | `public/assets/`                                                                                                       | Required assets must stay local.                                         |
+| Generated content       | `src/data/generated/`                                                                                                  | Do not duplicate generated content in components.                        |
+| Deployment              | `.github/workflows/deploy.yml`                                                                                         | GitHub Pages deploys `dist/` from Astro build.                           |
 
 Decision rules:
 

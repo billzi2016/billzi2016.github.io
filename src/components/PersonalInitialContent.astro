@@ -7,11 +7,18 @@ import { defaultLang, type Lang } from "../utils/content";
 const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.personal[lang];
 ---
+
 <section>
   <h2 class="section-title">{page.hobbyTitle}</h2>
   <div class="home-panel">
     <ul class="hobby-nav-list">
-      {page.hobbyNavItems.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      {
+        page.hobbyNavItems.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
@@ -21,40 +28,55 @@ const page = siteTranslations.page.personal[lang];
     <p>{page.electronicsText}</p>
   </div>
   <div class="home-grid">
-    {page.electronicsProjects.map((project) => (
-      <div class="home-panel">
-        <h3>{project.title}</h3>
-        <p>{project.text}</p>
-        {project.images ? (
-          <ProjectImageGrid images={project.images} lang={lang} extraClass="panel-image-grid" />
-        ) : (
-          <p class="project-donation-note">
-            {lang === "zh" ? "已捐赠给北京工业大学" : "Donated to Beijing University of Technology."}
-          </p>
-        )}
-      </div>
-    ))}
+    {
+      page.electronicsProjects.map((project) => (
+        <div class="home-panel">
+          <h3>{project.title}</h3>
+          <p>{project.text}</p>
+          {project.images ? (
+            <ProjectImageGrid images={project.images} lang={lang} extraClass="panel-image-grid" />
+          ) : (
+            <p class="project-donation-note">
+              {lang === "zh"
+                ? "已捐赠给北京工业大学"
+                : "Donated to Beijing University of Technology."}
+            </p>
+          )}
+        </div>
+      ))
+    }
   </div>
 </section>
 <section id="ai-full-stack-architect">
   <h2 class="section-title">{page.aiArchitectTitle}</h2>
   <div class="home-panel">
-    {(page.aiArchitectParagraphs || [page.aiArchitectText].filter(Boolean)).map((paragraph) => <p>{paragraph}</p>)}
+    {
+      (page.aiArchitectParagraphs || [page.aiArchitectText].filter(Boolean)).map((paragraph) => (
+        <p>{paragraph}</p>
+      ))
+    }
     <ProjectImageFigure
-      image={{ src: "./assets/images/ai-usage/token-by-month.png", caption: page.aiArchitectTokenCaption }}
+      image={{
+        src: "./assets/images/ai-usage/token-by-month.png",
+        caption: page.aiArchitectTokenCaption,
+      }}
       lang={lang}
       figureClass="ai-token-image"
     />
     <div class="ai-stacked-gallery">
-      {(page.aiArchitectUsageImages || []).map((image) => (
-        <ProjectImageFigure image={image} lang={lang} figureClass="ai-stacked-image" />
-      ))}
+      {
+        (page.aiArchitectUsageImages || []).map((image) => (
+          <ProjectImageFigure image={image} lang={lang} figureClass="ai-stacked-image" />
+        ))
+      }
     </div>
     <p class="section-note ai-architect-showcase-intro">{page.aiArchitectShowcaseIntro}</p>
     <div class="ai-stacked-gallery">
-      {(page.aiArchitectShowcaseImages || []).map((image) => (
-        <ProjectImageFigure image={image} lang={lang} figureClass="ai-stacked-image" />
-      ))}
+      {
+        (page.aiArchitectShowcaseImages || []).map((image) => (
+          <ProjectImageFigure image={image} lang={lang} figureClass="ai-stacked-image" />
+        ))
+      }
     </div>
   </div>
 </section>
@@ -71,14 +93,18 @@ const page = siteTranslations.page.personal[lang];
     <p>{page.pianoIntro}</p>
   </div>
   <div class="home-grid">
-    {page.pianoGroups.map((group) => (
-      <div class="home-panel">
-        <h3>{group.title}</h3>
-        <ul class="plain-list">
-          {group.items.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-    ))}
+    {
+      page.pianoGroups.map((group) => (
+        <div class="home-panel">
+          <h3>{group.title}</h3>
+          <ul class="plain-list">
+            {group.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
   </div>
 </section>
 <section id="cheese">
@@ -103,13 +129,17 @@ const page = siteTranslations.page.personal[lang];
     <p>{page.drinkIntro}</p>
   </div>
   <div class="home-grid">
-    {page.drinkGroups.map((group) => (
-      <div class="home-panel">
-        <h3>{group.title}</h3>
-        <ul class="plain-list">
-          {group.items.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-    ))}
+    {
+      page.drinkGroups.map((group) => (
+        <div class="home-panel">
+          <h3>{group.title}</h3>
+          <ul class="plain-list">
+            {group.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
   </div>
 </section>

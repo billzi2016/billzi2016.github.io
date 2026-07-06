@@ -5,6 +5,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
 const meta = pageMeta.publications;
 ---
+
 <SiteLayout title={meta.title} page="publications" pageTag={meta.pageTag}>
   <PublicationsInitialContent lang="en" />
   <Fragment slot="page-templates">

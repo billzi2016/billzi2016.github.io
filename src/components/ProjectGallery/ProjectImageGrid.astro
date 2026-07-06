@@ -22,27 +22,32 @@ const className = [
   images.length === 4 ? "project-image-grid-four" : "",
   images.length === 6 ? "project-image-grid-six" : "",
   extraClass,
-].filter(Boolean).join(" ");
+]
+  .filter(Boolean)
+  .join(" ");
 ---
-{images.length > 0 && (
-  <div class={className}>
-    {images.map((image) => {
-      const caption = getLangValue(image, lang, "caption") || image.caption || "";
-      const imageClass = ["project-image", figureClass].filter(Boolean).join(" ");
-      return (
-        <figure class={imageClass}>
-          <button
-            class="project-image-button"
-            type="button"
-            data-lightbox-src={image.src}
-            data-lightbox-caption={caption}
-            aria-label={caption}
-          >
-            <img src={image.src} alt={caption} loading="lazy" />
-          </button>
-          <figcaption>{caption}</figcaption>
-        </figure>
-      );
-    })}
-  </div>
-)}
+
+{
+  images.length > 0 && (
+    <div class={className}>
+      {images.map((image) => {
+        const caption = getLangValue(image, lang, "caption") || image.caption || "";
+        const imageClass = ["project-image", figureClass].filter(Boolean).join(" ");
+        return (
+          <figure class={imageClass}>
+            <button
+              class="project-image-button"
+              type="button"
+              data-lightbox-src={image.src}
+              data-lightbox-caption={caption}
+              aria-label={caption}
+            >
+              <img src={image.src} alt={caption} loading="lazy" />
+            </button>
+            <figcaption>{caption}</figcaption>
+          </figure>
+        );
+      })}
+    </div>
+  )
+}

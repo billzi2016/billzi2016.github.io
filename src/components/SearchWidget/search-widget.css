@@ -21,7 +21,7 @@
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--paper-strong);
-  box-shadow: 0 12px 34px rgba(23, 34, 46, 0.12);
+  box-shadow: 0 12px 34px rgb(23 34 46 / 12%);
   backdrop-filter: blur(10px);
   transition:
     background var(--theme-transition),

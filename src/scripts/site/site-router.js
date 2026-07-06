@@ -3,15 +3,23 @@
   let navigating = false;
 
   function isPlainLeftClick(event) {
-    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+    return (
+      event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey
+    );
   }
 
   function getInternalPageUrl(anchor) {
     if (!anchor || anchor.target || anchor.hasAttribute("download")) return null;
     const url = new URL(anchor.href, window.location.href);
     if (url.origin !== window.location.origin) return null;
-    if (!url.pathname.endsWith(".html") && url.pathname !== "/" && !url.pathname.endsWith("/")) return null;
-    if (url.hash && url.pathname === window.location.pathname && url.search === window.location.search) return null;
+    if (!url.pathname.endsWith(".html") && url.pathname !== "/" && !url.pathname.endsWith("/"))
+      return null;
+    if (
+      url.hash &&
+      url.pathname === window.location.pathname &&
+      url.search === window.location.search
+    )
+      return null;
     return url;
   }
 

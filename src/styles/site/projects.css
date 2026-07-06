@@ -22,7 +22,7 @@
   padding: 3px 9px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
+  background: rgb(255 255 255 / 58%);
   color: var(--ink);
   font-size: 0.82rem;
   font-weight: 700;
@@ -34,8 +34,8 @@
 }
 
 body.dark-theme .project-language-pill {
-  background: rgba(191, 217, 245, 0.12);
-  border-color: rgba(191, 217, 245, 0.3);
+  background: rgb(191 217 245 / 12%);
+  border-color: rgb(191 217 245 / 30%);
 }
 
 .item-note {

@@ -48,12 +48,7 @@ section {
   margin: 0 0 18px;
   padding-left: 16px;
   border-left: 4px solid var(--accent);
-  font-family:
-    "Iowan Old Style",
-    "Palatino Linotype",
-    "Book Antiqua",
-    Georgia,
-    serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 1.82rem;
   font-weight: 700;
   line-height: 1.18;

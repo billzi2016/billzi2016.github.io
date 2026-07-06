@@ -16,7 +16,9 @@ const page = siteTranslations.page.projects[lang];
 const catalog = siteProjectsContent.catalog || {};
 const rankedItems = siteProjectsContent.ranked || [];
 const rankedKeys = new Set(rankedItems.map(getProjectKey).filter(Boolean));
-const remainingItems = (siteProjectsContent.all || []).filter((item) => !rankedKeys.has(getProjectKey(item)));
+const remainingItems = (siteProjectsContent.all || []).filter(
+  (item) => !rankedKeys.has(getProjectKey(item)),
+);
 
 function normalizeItems(items: any[], showUpdated: boolean) {
   return items.map((rawItem) => {
@@ -25,7 +27,10 @@ function normalizeItems(items: any[], showUpdated: boolean) {
       ...item,
       languageLabel: formatProjectLanguage(item.language, lang),
       note: getLangValue(item, lang, "note"),
-      updatedLabel: showUpdated && item.updated ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}` : "",
+      updatedLabel:
+        showUpdated && item.updated
+          ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
+          : "",
     };
   });
 }
@@ -33,38 +38,45 @@ function normalizeItems(items: any[], showUpdated: boolean) {
 const rankedProjects = normalizeItems(rankedItems, true);
 const remainingProjects = normalizeItems(remainingItems, false);
 ---
+
 <section>
   <h2 class="section-title">{page.rankingTitle}</h2>
   <p class="section-note">{page.rankingNote}</p>
   <ol class="repo-list">
-    {rankedProjects.map((item) => (
-      <li>
-        <div class="repo-line">
-          <a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
-          {" "}
-          <span class="project-language-pill">{item.languageLabel}</span>
-          {item.updatedLabel && <span class="inline-meta"> {item.updatedLabel}</span>}
-        </div>
-        {item.note && <div class="item-note">{item.note}</div>}
-        <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
-      </li>
-    ))}
+    {
+      rankedProjects.map((item) => (
+        <li>
+          <div class="repo-line">
+            <a href={item.url} target="_blank" rel="noreferrer">
+              {item.name}
+            </a>{" "}
+            <span class="project-language-pill">{item.languageLabel}</span>
+            {item.updatedLabel && <span class="inline-meta"> {item.updatedLabel}</span>}
+          </div>
+          {item.note && <div class="item-note">{item.note}</div>}
+          <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
+        </li>
+      ))
+    }
   </ol>
 </section>
 <section>
   <h2 class="section-title">{page.allTitle}</h2>
   <p class="section-note">{page.allNote}</p>
   <ol class="repo-list">
-    {remainingProjects.map((item) => (
-      <li>
-        <div class="repo-line">
-          <a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
-          {" "}
-          <span class="project-language-pill">{item.languageLabel}</span>
-        </div>
-        {item.note && <div class="item-note">{item.note}</div>}
-        <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
-      </li>
-    ))}
+    {
+      remainingProjects.map((item) => (
+        <li>
+          <div class="repo-line">
+            <a href={item.url} target="_blank" rel="noreferrer">
+              {item.name}
+            </a>{" "}
+            <span class="project-language-pill">{item.languageLabel}</span>
+          </div>
+          {item.note && <div class="item-note">{item.note}</div>}
+          <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
+        </li>
+      ))
+    }
   </ol>
 </section>

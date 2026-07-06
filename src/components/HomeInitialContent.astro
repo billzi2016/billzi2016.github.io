@@ -9,8 +9,12 @@ import { defaultLang, getLangValue, type Lang } from "../utils/content";
 const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.home[lang];
 const common = siteTranslations.common[lang];
-const skillItems = [...(siteSharedContent.skills.left || []), ...(siteSharedContent.skills.right || [])];
+const skillItems = [
+  ...(siteSharedContent.skills.left || []),
+  ...(siteSharedContent.skills.right || []),
+];
 ---
+
 <section>
   <h2 class="section-title">{page.guideTitle}</h2>
   <div class="home-grid">

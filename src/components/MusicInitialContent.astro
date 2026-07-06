@@ -7,9 +7,12 @@ const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.music[lang];
 const tracks = musicLibrary.tracks || [];
 ---
+
 <section>
   <h2 class="section-title">{page.introTitle}</h2>
-  <p class="section-note">{lang === "zh" ? musicLibrary.introZh || "" : musicLibrary.introEn || ""}</p>
+  <p class="section-note">
+    {lang === "zh" ? musicLibrary.introZh || "" : musicLibrary.introEn || ""}
+  </p>
   <div class="music-layout">
     <div class="music-stage">
       <div class="music-nowplaying">
@@ -21,7 +24,16 @@ const tracks = musicLibrary.tracks || [];
         <audio id="audio-player" class="music-page-audio" controls preload="metadata"></audio>
         <div class="music-progress-row">
           <span id="music-progress-elapsed" class="music-progress-time">0:00</span>
-          <input id="music-progress" class="music-progress" type="range" min="0" max="0" step="1" value="0" aria-label="Playback progress" />
+          <input
+            id="music-progress"
+            class="music-progress"
+            type="range"
+            min="0"
+            max="0"
+            step="1"
+            value="0"
+            aria-label="Playback progress"
+          />
           <span id="music-progress-duration" class="music-progress-time">0:00</span>
         </div>
       </div>
@@ -32,7 +44,15 @@ const tracks = musicLibrary.tracks || [];
       </div>
       <div class="music-volume-row">
         <label class="music-volume-label" for="music-volume">{page.volumeLabel}</label>
-        <input id="music-volume" class="music-volume" type="range" min="0" max="100" step="1" value="20" />
+        <input
+          id="music-volume"
+          class="music-volume"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value="20"
+        />
         <span id="music-volume-value" class="music-volume-value">20%</span>
       </div>
     </div>
@@ -40,16 +60,24 @@ const tracks = musicLibrary.tracks || [];
       <h3 class="pub-group-title">{page.playlistTitle}</h3>
       <p class="section-note">{page.playlistNote}</p>
       <ol class="playlist-list">
-        {tracks.map((track, index) => (
-          <li>
-            <button class="playlist-item" type="button" data-index={index}>
-              <span class="playlist-title">{lang === "zh" ? track.titleZh || track.titleEn : track.titleEn}</span>
-              <span class="playlist-meta">{lang === "zh" ? track.composerZh || track.composerEn : track.composerEn}</span>
-            </button>
-          </li>
-        ))}
+        {
+          tracks.map((track, index) => (
+            <li>
+              <button class="playlist-item" type="button" data-index={index}>
+                <span class="playlist-title">
+                  {lang === "zh" ? track.titleZh || track.titleEn : track.titleEn}
+                </span>
+                <span class="playlist-meta">
+                  {lang === "zh" ? track.composerZh || track.composerEn : track.composerEn}
+                </span>
+              </button>
+            </li>
+          ))
+        }
       </ol>
-      <p class="music-source-note">{lang === "zh" ? musicLibrary.sourceNoteZh || "" : musicLibrary.sourceNoteEn || ""}</p>
+      <p class="music-source-note">
+        {lang === "zh" ? musicLibrary.sourceNoteZh || "" : musicLibrary.sourceNoteEn || ""}
+      </p>
     </div>
   </div>
 </section>

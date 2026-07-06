@@ -15,7 +15,7 @@
   padding: 6px 12px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
+  background: rgb(255 255 255 / 58%);
   color: var(--ink);
   font-size: 0.93rem;
   font-weight: 600;
@@ -44,7 +44,7 @@
 }
 
 body.dark-theme .skill-pills span {
-  background: rgba(191, 217, 245, 0.12);
-  border-color: rgba(191, 217, 245, 0.3);
+  background: rgb(191 217 245 / 12%);
+  border-color: rgb(191 217 245 / 30%);
   color: var(--ink);
 }

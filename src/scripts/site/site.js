@@ -7,7 +7,9 @@ const body = document.body;
 let pageKey = body.dataset.page;
 const siteContent = window.siteContent || {};
 const musicLibrary = window.musicLibrary || { tracks: [] };
-const mobileMediaQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
+const mobileMediaQuery = window.matchMedia(
+  "(max-width: 760px), (hover: none) and (pointer: coarse)",
+);
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -29,7 +31,10 @@ function normalizeAuthorName(author) {
   if (!cleaned || cleaned.toLowerCase() === "others") return "";
   if (!cleaned.includes(",")) return cleaned;
 
-  const parts = cleaned.split(",").map((part) => part.trim()).filter(Boolean);
+  const parts = cleaned
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
   if (parts.length < 2) return cleaned;
   return `${parts.slice(1).join(" ")} ${parts[0]}`.trim();
 }

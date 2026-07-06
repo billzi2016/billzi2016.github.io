@@ -41,7 +41,10 @@ export function normalizeAuthorName(author: string): string {
   if (!cleaned || cleaned.toLowerCase() === "others") return "";
   if (!cleaned.includes(",")) return cleaned;
 
-  const parts = cleaned.split(",").map((part) => part.trim()).filter(Boolean);
+  const parts = cleaned
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
   if (parts.length < 2) return cleaned;
   return `${parts.slice(1).join(" ")} ${parts[0]}`.trim();
 }

@@ -19,13 +19,7 @@ import "../styles/site/main.css";
 import "../components/MusicPlayer/music-player.css";
 import "../components/SearchWidget/search-widget.css";
 
-const {
-  title,
-  description,
-  page,
-  pageTag,
-  lead = false,
-} = Astro.props;
+const { title, description, page, pageTag, lead = false } = Astro.props;
 
 const siteContent = {
   shared: siteSharedContent,
@@ -42,7 +36,8 @@ const runtimeData = JSON.stringify({
   publicationsData,
 }).replace(/</g, "\\u003c");
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -71,13 +66,17 @@ const runtimeData = JSON.stringify({
           <div id="shared-header-slot" data-loaded="true">
             <Header />
           </div>
-          {lead ? (
-            <p class="lead" data-i18n="lead" data-i18n-rich="true">
-              <slot name="lead" />
-            </p>
-          ) : (
-            <div class="page-tag" data-i18n="pageTag">{pageTag}</div>
-          )}
+          {
+            lead ? (
+              <p class="lead" data-i18n="lead" data-i18n-rich="true">
+                <slot name="lead" />
+              </p>
+            ) : (
+              <div class="page-tag" data-i18n="pageTag">
+                {pageTag}
+              </div>
+            )
+          }
         </header>
 
         <main id="page-content">
@@ -87,14 +86,17 @@ const runtimeData = JSON.stringify({
       </div>
     </div>
 
-    <script is:inline set:html={`{
+    <script
+      is:inline
+      set:html={`{
       const data = ${runtimeData};
       window.siteTranslations = data.siteTranslations;
       window.sitePageTitles = data.sitePageTitles;
       window.siteContent = data.siteContent;
       window.musicLibrary = data.musicLibrary;
       window.publicationsData = data.publicationsData;
-    }`} />
+    }`}
+    />
     <script is:inline src="./vendor/particles/particles.min.js"></script>
     <script is:inline src={backgroundsScript}></script>
     <script is:inline src={musicScript}></script>

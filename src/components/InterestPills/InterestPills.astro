@@ -7,10 +7,14 @@ const { interests = [], lang = defaultLang } = Astro.props as {
   lang?: Lang;
 };
 
-const rawItems =
-  Array.isArray(interests) ? interests : typeof interests === "object" ? interests[lang] : interests;
+const rawItems = Array.isArray(interests)
+  ? interests
+  : typeof interests === "object"
+    ? interests[lang]
+    : interests;
 const items = Array.isArray(rawItems) ? rawItems : splitTopLevelList(rawItems);
 ---
+
 <div class="interest-pills">
   {items.map((item) => <span>{item}</span>)}
 </div>

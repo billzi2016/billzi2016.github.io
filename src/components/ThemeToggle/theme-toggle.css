@@ -21,10 +21,10 @@
   overflow: hidden;
   background: #117af5;
   box-shadow:
-    0 -1px 1px rgba(0, 0, 0, 0.24),
-    0 1px 1px rgba(255, 255, 255, 0.88),
-    inset 0 -1px 4px rgba(0, 0, 0, 0.28),
-    inset 0 2px 2px rgba(0, 0, 0, 0.2);
+    0 -1px 1px rgb(0 0 0 / 24%),
+    0 1px 1px rgb(255 255 255 / 88%),
+    inset 0 -1px 4px rgb(0 0 0 / 28%),
+    inset 0 2px 2px rgb(0 0 0 / 20%);
   transition:
     background 4.8s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 4.8s cubic-bezier(0.22, 1, 0.36, 1),
@@ -37,10 +37,10 @@
 .theme-toggle:focus-visible .theme-toggle-track {
   transform: scale(1.5) translateY(-1px);
   box-shadow:
-    0 -1px 1px rgba(0, 0, 0, 0.28),
-    0 2px 2px rgba(255, 255, 255, 0.9),
-    inset 0 -2px 5px rgba(0, 0, 0, 0.3),
-    inset 0 2px 2px rgba(0, 0, 0, 0.2);
+    0 -1px 1px rgb(0 0 0 / 28%),
+    0 2px 2px rgb(255 255 255 / 90%),
+    inset 0 -2px 5px rgb(0 0 0 / 30%),
+    inset 0 2px 2px rgb(0 0 0 / 20%);
 }
 
 .theme-toggle-scene {
@@ -51,8 +51,7 @@
   z-index: 0;
   pointer-events: none;
   will-change: transform;
-  transition:
-    transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .theme-toggle-scene-day {
@@ -69,7 +68,7 @@
 .theme-toggle-glow {
   position: absolute;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   z-index: 1;
   transition:
     left 4.8s cubic-bezier(0.22, 1, 0.36, 1),
@@ -118,7 +117,7 @@
   width: 30px;
   bottom: -26px;
   height: 30px;
-  background: rgba(171, 208, 244, 0.72);
+  background: rgb(171 208 244 / 72%);
   transform: translate(-3px, -3px) rotate(-25deg);
   transform-origin: 50% 50%;
   opacity: 0.9;
@@ -130,8 +129,8 @@
   left: 22px;
   bottom: -1px;
   box-shadow:
-    25px 0 0 -4px rgba(171, 208, 244, 0.72),
-    49px -7px 0 -1px rgba(171, 208, 244, 0.72);
+    25px 0 0 -4px rgb(171 208 244 / 72%),
+    49px -7px 0 -1px rgb(171 208 244 / 72%);
 }
 
 .theme-toggle-cloudbank-back::after {
@@ -165,6 +164,7 @@
 .theme-toggle-stars {
   position: absolute;
   inset: 0;
+  transform: translateY(-40px);
   transition: transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -172,9 +172,9 @@
   position: absolute;
   width: 6px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgb(255 255 255 / 95%);
   clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgb(255 255 255 / 20%);
   transform-origin: center;
 }
 
@@ -301,8 +301,7 @@ body.dark-theme .theme-toggle-star-seven {
   height: 32px;
   z-index: 2;
   border-radius: 999px;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25))
-    drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 25%)) drop-shadow(1px 2px 2px rgb(0 0 0 / 25%));
   transition:
     transform 4.8s cubic-bezier(0.22, 1, 0.36, 1),
     filter 4.8s cubic-bezier(0.22, 1, 0.36, 1);
@@ -323,14 +322,14 @@ body.dark-theme .theme-toggle-star-seven {
   background: #eccd2d;
   box-shadow:
     inset 0 -1px 1px #82851f,
-    inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+    inset 1px 1px 1px rgb(255 255 255 / 60%);
 }
 
 .theme-toggle-thumb-moon {
   background: #c9c9c9;
   box-shadow:
     inset 0 -1px 1px #6c6c6c,
-    inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+    inset 1px 1px 1px rgb(255 255 255 / 60%);
   opacity: 0;
   transform: scale(0.86);
 }
@@ -339,7 +338,7 @@ body.dark-theme .theme-toggle-star-seven {
   position: absolute;
   border-radius: 999px;
   background: #889399;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 25%);
 }
 
 .theme-toggle-crater-one {
@@ -366,10 +365,10 @@ body.dark-theme .theme-toggle-star-seven {
 body.dark-theme .theme-toggle-track {
   background: #252d37;
   box-shadow:
-    0 -1px 1px rgba(0, 0, 0, 0.25),
-    0 1px 1px rgba(255, 255, 255, 0.94),
-    inset 0 -1px 4px rgba(0, 0, 0, 0.25),
-    inset 0 2px 2px rgba(0, 0, 0, 0.25);
+    0 -1px 1px rgb(0 0 0 / 25%),
+    0 1px 1px rgb(255 255 255 / 94%),
+    inset 0 -1px 4px rgb(0 0 0 / 25%),
+    inset 0 2px 2px rgb(0 0 0 / 25%);
 }
 
 body.dark-theme .theme-toggle-scene-night {
@@ -421,8 +420,4 @@ body.dark-theme .theme-toggle-cloudbank-front {
 
 body.dark-theme .theme-toggle-stars {
   transform: translateX(0);
-}
-
-.theme-toggle-stars {
-  transform: translateY(-40px);
 }

@@ -46,11 +46,7 @@
     }
 
     const particleSystem = window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS;
-    if (
-      particleSystem &&
-      pointerState.active &&
-      !document.body.classList.contains("dark-theme")
-    ) {
+    if (particleSystem && pointerState.active && !document.body.classList.contains("dark-theme")) {
       const particles = particleSystem.particles.array || [];
       const radius = 220;
       const innerRadius = 26;

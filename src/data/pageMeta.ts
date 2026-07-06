@@ -14,7 +14,8 @@ export const pageMeta = {
   },
   publications: {
     title: "Ziqian Bi | Publications",
-    pageTag: "Representative publications first, followed by the remaining publication list without duplicates.",
+    pageTag:
+      "Representative publications first, followed by the remaining publication list without duplicates.",
   },
   personal: {
     title: "Ziqian Bi | Personal Introduction",
@@ -22,7 +23,8 @@ export const pageMeta = {
   },
   music: {
     title: "Ziqian Bi | Music",
-    description: "A small classical audio listening room with a shuffled playlist curated by Ziqian Bi.",
+    description:
+      "A small classical audio listening room with a shuffled playlist curated by Ziqian Bi.",
     pageTag: "A small listening room with a local shuffled audio playlist.",
   },
 } as const;

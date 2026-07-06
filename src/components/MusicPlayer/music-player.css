@@ -21,12 +21,7 @@
 
 .music-current-title {
   margin-top: 4px;
-  font-family:
-    "Iowan Old Style",
-    "Palatino Linotype",
-    "Book Antiqua",
-    Georgia,
-    serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 1.55rem;
   line-height: 1.2;
 }
@@ -38,6 +33,7 @@
 
 .music-widget {
   --music-widget-gap: 58px;
+
   position: fixed;
   right: 22px;
   top: var(--music-widget-gap);
@@ -75,12 +71,7 @@
 }
 
 .music-widget-title {
-  font-family:
-    "Iowan Old Style",
-    "Palatino Linotype",
-    "Book Antiqua",
-    Georgia,
-    serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 1.02rem;
   font-weight: 700;
 }
@@ -180,14 +171,14 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgb(255 255 255 / 62%);
   transition:
     background var(--theme-transition),
     border-color var(--theme-transition);
 }
 
 body.dark-theme .music-player-wrap {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgb(255 255 255 / 2%);
 }
 
 .music-controls {
@@ -257,7 +248,7 @@ body.dark-theme .music-player-wrap {
   padding: 14px 16px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.56);
+  background: rgb(255 255 255 / 56%);
   color: var(--ink);
   text-align: left;
   cursor: pointer;
@@ -304,8 +295,8 @@ body.dark-theme .music-player-wrap {
 .playlist-item:focus-visible {
   transform: translateY(-1px);
   border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 10px 24px rgba(25, 36, 48, 0.08);
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 10px 24px rgb(25 36 48 / 8%);
 }
 
 .playlist-item.is-active {
@@ -314,14 +305,14 @@ body.dark-theme .music-player-wrap {
 }
 
 body.dark-theme .playlist-item {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(255 255 255 / 3%);
   box-shadow: none;
 }
 
 body.dark-theme .playlist-item:hover,
 body.dark-theme .playlist-item:focus-visible,
 body.dark-theme .playlist-item.is-active {
-  background: rgba(191, 217, 245, 0.08);
+  background: rgb(191 217 245 / 8%);
 }
 
 .playlist-title,

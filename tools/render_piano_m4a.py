@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-把当前目录里的 MIDI 文件离线渲染成钢琴 M4A。
+把 public/assets/midi 里的 MIDI 文件离线渲染成钢琴 M4A。
 
 设计目标：
 - 不依赖 mido / pretty_midi 等额外 Python 包，方便在本机直接运行。
 - 所有 MIDI 声部都强制使用同一个 acoustic grand piano 采样。
-- 输出到 ./m4a，不覆盖原始 .mid 文件。
+- 默认输出到 public/assets/m4a，不覆盖原始 .mid 文件。
 - 先生成临时 WAV，再调用 ffmpeg 转成 M4A，最后删除临时文件。
 
 注意：
@@ -404,11 +404,14 @@ def render_all(input_dir: Path, output_dir: Path, sample_dir: Path) -> None:
 
 def main() -> None:
     script_dir = Path(__file__).resolve().parent
-    default_sample_dir = script_dir / "site-grand-piano" / "acoustic_grand_piano"
+    repo_root = script_dir.parent
+    default_input_dir = repo_root / "public" / "assets" / "midi"
+    default_output_dir = repo_root / "public" / "assets" / "m4a"
+    default_sample_dir = repo_root / "public" / "assets" / "soundfonts" / "site-grand-piano" / "acoustic_grand_piano"
 
     parser = argparse.ArgumentParser(description="Render local MIDI files to piano-only M4A files.")
-    parser.add_argument("--input", type=Path, default=script_dir, help="MIDI 输入目录，默认是脚本所在目录。")
-    parser.add_argument("--output", type=Path, default=script_dir / "m4a", help="M4A 输出目录。")
+    parser.add_argument("--input", type=Path, default=default_input_dir, help="MIDI 输入目录。")
+    parser.add_argument("--output", type=Path, default=default_output_dir, help="M4A 输出目录。")
     parser.add_argument("--samples", type=Path, default=default_sample_dir, help="钢琴采样目录。")
     args = parser.parse_args()
 

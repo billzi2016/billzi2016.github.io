@@ -7,34 +7,39 @@ const { entries = [], lang = defaultLang } = Astro.props as {
   lang?: Lang;
 };
 ---
-{entries.map((entry) => {
-  const links = entry.links || [];
-  const bullets = entry.bullets || [];
-  return (
-    <div class="entry">
-      <div class="entry-heading">
-        <h3 class="entry-title">{getLangValue(entry, lang, "title")}</h3>
-        <div class="entry-meta">{entry.meta || ""}</div>
-      </div>
-      <div class="entry-role">{getLangValue(entry, lang, "role")}</div>
-      {links.length > 0 && (
-        <div class="entry-links">
-          {links.map((link: any) => (
-            <a href={link.url} target="_blank" rel="noreferrer">
-              {getLangValue(link, lang, "label") || link.label || link.url}
-            </a>
-          ))}
+
+{
+  entries.map((entry) => {
+    const links = entry.links || [];
+    const bullets = entry.bullets || [];
+    return (
+      <div class="entry">
+        <div class="entry-heading">
+          <h3 class="entry-title">{getLangValue(entry, lang, "title")}</h3>
+          <div class="entry-meta">{entry.meta || ""}</div>
         </div>
-      )}
-      {bullets.length > 0 && (
-        <ul>
-          {bullets.map((bullet: any) => <li>{getLangValue(bullet, lang, "")}</li>)}
-        </ul>
-      )}
-      {getLangValue(entry, lang, "note") && (
-        <div class="item-note">{getLangValue(entry, lang, "note")}</div>
-      )}
-      <ProjectImageGrid images={entry.images || []} lang={lang} extraClass="entry-image-grid" />
-    </div>
-  );
-})}
+        <div class="entry-role">{getLangValue(entry, lang, "role")}</div>
+        {links.length > 0 && (
+          <div class="entry-links">
+            {links.map((link: any) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {getLangValue(link, lang, "label") || link.label || link.url}
+              </a>
+            ))}
+          </div>
+        )}
+        {bullets.length > 0 && (
+          <ul>
+            {bullets.map((bullet: any) => (
+              <li>{getLangValue(bullet, lang, "")}</li>
+            ))}
+          </ul>
+        )}
+        {getLangValue(entry, lang, "note") && (
+          <div class="item-note">{getLangValue(entry, lang, "note")}</div>
+        )}
+        <ProjectImageGrid images={entry.images || []} lang={lang} extraClass="entry-image-grid" />
+      </div>
+    );
+  })
+}

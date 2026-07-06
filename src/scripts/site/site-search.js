@@ -109,9 +109,14 @@ function runRegexSearch(query) {
 }
 
 function getSearchSnippet(text, query) {
-  const cleanText = String(text || "").replace(/\s+/g, " ").trim();
+  const cleanText = String(text || "")
+    .replace(/\s+/g, " ")
+    .trim();
   if (!cleanText) return "";
-  const firstTerm = String(query || "").trim().split(/\s+/).find(Boolean);
+  const firstTerm = String(query || "")
+    .trim()
+    .split(/\s+/)
+    .find(Boolean);
   const index = firstTerm ? cleanText.toLowerCase().indexOf(firstTerm.toLowerCase()) : -1;
   const start = Math.max(0, index === -1 ? 0 : index - 80);
   return `${start > 0 ? "..." : ""}${cleanText.slice(start, start + 220)}${cleanText.length > start + 220 ? "..." : ""}`;
@@ -203,4 +208,3 @@ function initSiteSearch() {
     performSiteSearch(input.value);
   });
 }
-

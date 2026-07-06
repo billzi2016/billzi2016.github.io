@@ -202,7 +202,8 @@ function updateMusicProgress() {
   const trackDuration = Number.isFinite(player.duration) ? player.duration : 0;
   const currentTime = Number.isFinite(player.currentTime) ? player.currentTime : 0;
   progress.max = trackDuration > 0 ? String(Math.floor(trackDuration)) : "0";
-  progress.value = trackDuration > 0 ? String(Math.min(Math.floor(currentTime), Math.floor(trackDuration))) : "0";
+  progress.value =
+    trackDuration > 0 ? String(Math.min(Math.floor(currentTime), Math.floor(trackDuration))) : "0";
 
   if (elapsed) elapsed.textContent = formatMusicTime(currentTime);
   if (duration) duration.textContent = formatMusicTime(trackDuration);
@@ -341,7 +342,11 @@ function ensureFloatingMusicWidget() {
     </div>
   `;
   document.body.appendChild(widget);
-  placePersistentAudioPlayer(widget.querySelector(".music-widget-panel"), "music-core-player", false);
+  placePersistentAudioPlayer(
+    widget.querySelector(".music-widget-panel"),
+    "music-core-player",
+    false,
+  );
   return widget;
 }
 
@@ -545,5 +550,4 @@ function bindMusicPage(lang) {
       switchMusicTrack(index, true);
     });
   });
-
 }

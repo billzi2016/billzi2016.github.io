@@ -1,4 +1,4 @@
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .header-bar {
     display: block;
   }
@@ -27,7 +27,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (width <= 760px) {
   .background-layer,
   .music-widget,
   .site-search-widget {
@@ -43,7 +43,7 @@
   }
 
   section {
-    padding: 24px 20px 24px;
+    padding: 24px 20px;
     border-radius: 18px;
   }
 

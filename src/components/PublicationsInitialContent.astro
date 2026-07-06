@@ -47,32 +47,39 @@ function venueAndYear(item: any) {
   return "";
 }
 ---
+
 <section>
   <h2 class="section-title" data-i18n="selectedTitle">{page.selectedTitle}</h2>
   <p class="section-note" data-i18n="selectedNote">{page.selectedNote}</p>
   <ol id="selected-publications" class="pub-list">
-    {selected.map((item) => (
-      <li>
-        <div class="pub-item">
-          <div class="pub-main">
-            <div class="pub-line">
-              <span class="pub-authors">
-                {authorParts(item.authors).map((author, index, parts) => (
-                  <>
-                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
-                    {index < parts.length - 1 && ", "}
-                  </>
-                ))}
-              </span>
-              . <em>{item.title}</em>. {venueAndYear(item)}
+    {
+      selected.map((item) => (
+        <li>
+          <div class="pub-item">
+            <div class="pub-main">
+              <div class="pub-line">
+                <span class="pub-authors">
+                  {authorParts(item.authors).map((author, index, parts) => (
+                    <>
+                      <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>
+                        {author}
+                      </span>
+                      {index < parts.length - 1 && ", "}
+                    </>
+                  ))}
+                </span>
+                . <em>{item.title}</em>. {venueAndYear(item)}
+              </div>
+            </div>
+            <div class="pub-copy">
+              <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>
+                {common.citePaper}
+              </button>
             </div>
           </div>
-          <div class="pub-copy">
-            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
-          </div>
-        </div>
-      </li>
-    ))}
+        </li>
+      ))
+    }
   </ol>
 </section>
 <section>
@@ -80,77 +87,95 @@ function venueAndYear(item: any) {
   <p class="section-note" data-i18n="archiveNote">{page.archiveNote}</p>
   <h3 class="pub-group-title" data-i18n="publishedGroupTitle">{page.publishedGroupTitle}</h3>
   <ol id="published-publications" class="pub-list">
-    {groups.published.map((item) => (
-      <li>
-        <div class="pub-item">
-          <div class="pub-main">
-            <div class="pub-line">
-              <span class="pub-authors">
-                {authorParts(item.authors).map((author, index, parts) => (
-                  <>
-                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
-                    {index < parts.length - 1 && ", "}
-                  </>
-                ))}
-              </span>
-              . <em>{item.title}</em>. {venueAndYear(item)}
+    {
+      groups.published.map((item) => (
+        <li>
+          <div class="pub-item">
+            <div class="pub-main">
+              <div class="pub-line">
+                <span class="pub-authors">
+                  {authorParts(item.authors).map((author, index, parts) => (
+                    <>
+                      <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>
+                        {author}
+                      </span>
+                      {index < parts.length - 1 && ", "}
+                    </>
+                  ))}
+                </span>
+                . <em>{item.title}</em>. {venueAndYear(item)}
+              </div>
+            </div>
+            <div class="pub-copy">
+              <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>
+                {common.citePaper}
+              </button>
             </div>
           </div>
-          <div class="pub-copy">
-            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
-          </div>
-        </div>
-      </li>
-    ))}
+        </li>
+      ))
+    }
   </ol>
   <h3 class="pub-group-title" data-i18n="preprintGroupTitle">{page.preprintGroupTitle}</h3>
   <ol id="preprint-publications" class="pub-list">
-    {groups.preprint.map((item) => (
-      <li>
-        <div class="pub-item">
-          <div class="pub-main">
-            <div class="pub-line">
-              <span class="pub-authors">
-                {authorParts(item.authors).map((author, index, parts) => (
-                  <>
-                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
-                    {index < parts.length - 1 && ", "}
-                  </>
-                ))}
-              </span>
-              . <em>{item.title}</em>. {venueAndYear(item)}
+    {
+      groups.preprint.map((item) => (
+        <li>
+          <div class="pub-item">
+            <div class="pub-main">
+              <div class="pub-line">
+                <span class="pub-authors">
+                  {authorParts(item.authors).map((author, index, parts) => (
+                    <>
+                      <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>
+                        {author}
+                      </span>
+                      {index < parts.length - 1 && ", "}
+                    </>
+                  ))}
+                </span>
+                . <em>{item.title}</em>. {venueAndYear(item)}
+              </div>
+            </div>
+            <div class="pub-copy">
+              <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>
+                {common.citePaper}
+              </button>
             </div>
           </div>
-          <div class="pub-copy">
-            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
-          </div>
-        </div>
-      </li>
-    ))}
+        </li>
+      ))
+    }
   </ol>
   <h3 class="pub-group-title" data-i18n="unpublishedGroupTitle">{page.unpublishedGroupTitle}</h3>
   <ol id="unpublished-publications" class="pub-list">
-    {groups.unpublished.map((item) => (
-      <li>
-        <div class="pub-item">
-          <div class="pub-main">
-            <div class="pub-line">
-              <span class="pub-authors">
-                {authorParts(item.authors).map((author, index, parts) => (
-                  <>
-                    <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>{author}</span>
-                    {index < parts.length - 1 && ", "}
-                  </>
-                ))}
-              </span>
-              . <em>{item.title}</em>. {venueAndYear(item)}
+    {
+      groups.unpublished.map((item) => (
+        <li>
+          <div class="pub-item">
+            <div class="pub-main">
+              <div class="pub-line">
+                <span class="pub-authors">
+                  {authorParts(item.authors).map((author, index, parts) => (
+                    <>
+                      <span class={author === "Ziqian Bi" ? "pub-highlight" : undefined}>
+                        {author}
+                      </span>
+                      {index < parts.length - 1 && ", "}
+                    </>
+                  ))}
+                </span>
+                . <em>{item.title}</em>. {venueAndYear(item)}
+              </div>
+            </div>
+            <div class="pub-copy">
+              <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>
+                {common.citePaper}
+              </button>
             </div>
           </div>
-          <div class="pub-copy">
-            <button class="pub-copy-btn" type="button" data-bibtex={item.bibtex}>{common.citePaper}</button>
-          </div>
-        </div>
-      </li>
-    ))}
+        </li>
+      ))
+    }
   </ol>
 </section>
