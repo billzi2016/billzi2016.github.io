@@ -1,4 +1,7 @@
 ---
+import { pageMeta } from "../data/pageMeta";
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+const meta = pageMeta.projects;
 ---
-<SiteLayout title="Ziqian Bi | Projects" page="projects" pageTag="Complete public GitHub repository list, ordered by importance first." />
+<SiteLayout title={meta.title} page="projects" pageTag={meta.pageTag} />

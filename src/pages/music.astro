@@ -1,9 +1,12 @@
 ---
+import { pageMeta } from "../data/pageMeta";
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+const meta = pageMeta.music;
 ---
 <SiteLayout
-  title="Ziqian Bi | Music"
-  description="A small classical audio listening room with a shuffled playlist curated by Ziqian Bi."
+  title={meta.title}
+  description={meta.description}
   page="music"
-  pageTag="A small listening room with a local shuffled audio playlist."
+  pageTag={meta.pageTag}
 />

@@ -1,9 +1,12 @@
 ---
+import { pageMeta } from "../data/pageMeta";
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+const meta = pageMeta.home;
 ---
 <SiteLayout
-  title="Ziqian Bi | Home"
-  description="Ziqian Bi personal academic homepage for AI, ML, LLM, multimodal AI, medical AI, and ML systems roles."
+  title={meta.title}
+  description={meta.description}
   page="home"
   lead
 >

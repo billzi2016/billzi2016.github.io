@@ -1,0 +1,26 @@
+---
+import { contactLinks } from "../data/siteLinks";
+---
+
+<h1 class="name">
+  <span class="lang-en">Ziqian Bi</span>
+  <span class="lang-zh">毕梓仟</span>
+</h1>
+<div class="degree-line">
+  <span class="lang-en">Ph.D. in Computer Science · ECE/EE Background</span>
+  <span class="lang-zh">计算机科学博士 · 电子与电气工程背景</span>
+</div>
+<div class="contact-line">
+  <div class="contact-meta">
+    <span data-i18n="contactSchoolOne">Purdue University</span>
+    (<a href="mailto:bi32@purdue.edu">bi32@purdue.edu</a>)
+    &middot;
+    <span data-i18n="contactSchoolTwo">Indiana University</span>
+    (<a href="mailto:bizi@iu.edu">bizi@iu.edu</a>)
+  </div>
+  <div class="contact-actions">
+    {contactLinks.map((link) => (
+      <a class="contact-chip" href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+    ))}
+  </div>
+</div>

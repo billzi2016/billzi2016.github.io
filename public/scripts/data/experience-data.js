@@ -100,7 +100,7 @@ window.siteExperienceContent = {
         ],
         images: [
           {
-            src: "https://raw.githubusercontent.com/billzi2016/Industrial-Query-Agent/main/v1_faiss/WebUI.png",
+            src: "./assets/images/projects/Industrial-Query-Agent/v1_faiss__WebUI.png",
             captionEn: "Industrial Query Agent Django-template demo UI for the reproduced Infraeo-style retrieval/API system.",
             captionZh: "Industrial Query Agent 的 Django template 演示界面，用于展示后续复现的 Infraeo 风格检索/API 系统。",
           },
@@ -181,7 +181,7 @@ window.siteExperienceContent = {
         ],
         images: [
           {
-            src: "https://raw.githubusercontent.com/billzi2016/RS485-Modbus-Concrete-Sensor-Monitor/main/platform-demo.png",
+            src: "./assets/images/projects/RS485-Modbus-Concrete-Sensor-Monitor/platform-demo.png",
             captionEn: "Industrial RS485 / Modbus concrete-sensor monitoring platform reproduced from the closed CAS internship environment.",
             captionZh: "基于中科院封闭实习环境后续复现的工业级 RS485 / Modbus 混凝土传感器监测平台。",
           },

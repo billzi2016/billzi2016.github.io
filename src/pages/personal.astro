@@ -1,4 +1,7 @@
 ---
+import { pageMeta } from "../data/pageMeta";
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+const meta = pageMeta.personal;
 ---
-<SiteLayout title="Ziqian Bi | Personal Introduction" page="personal" pageTag="A personal page beyond research and projects." />
+<SiteLayout title={meta.title} page="personal" pageTag={meta.pageTag} />

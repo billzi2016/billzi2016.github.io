@@ -1,0 +1,11 @@
+---
+import { primaryNavLinks } from "../data/siteLinks";
+---
+
+<div class="header-link-row">
+  <nav class="nav-line" aria-label="Primary">
+    {primaryNavLinks.map((link) => (
+      <a class="nav-link" data-page={link.page} href={link.href} data-i18n={link.i18nKey}>{link.label}</a>
+    ))}
+  </nav>
+</div>

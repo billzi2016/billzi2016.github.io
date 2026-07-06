@@ -1,4 +1,7 @@
 ---
+import { pageMeta } from "../data/pageMeta";
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+const meta = pageMeta.experience;
 ---
-<SiteLayout title="Ziqian Bi | Experience" page="experience" pageTag="Full CV-style experience page." />
+<SiteLayout title={meta.title} page="experience" pageTag={meta.pageTag} />
