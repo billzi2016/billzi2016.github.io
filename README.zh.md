@@ -247,6 +247,8 @@ flowchart TD
 
 从 `v1.0.0-astro-tailwind-docs-stable-2026-07-06` 之后，新的功能性工作遵守轻量 trunk-based 工作流：
 
+这个仓库早期采用快速迭代的个人静态站维护方式；在 `v1.0.0` 的 Astro/Tailwind/MkDocs 稳定版之后，正式收敛为这个轻量 trunk-based 工作流。
+
 - `main` 保持可部署状态，作为稳定主线。
 - 功能、样式、构建、文档站和架构类改动应使用短生命周期 `feature/...` 分支。
 - 一个 feature 分支做完后合并回 `main`，再开始下一个；这个单人维护项目不长期并行多个 feature 分支。

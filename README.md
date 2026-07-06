@@ -247,6 +247,8 @@ They cover the Astro architecture, Tailwind usage, SOLID/DRY rules, CSS ownershi
 
 After `v1.0.0-astro-tailwind-docs-stable-2026-07-06`, new feature work follows a lightweight trunk-based workflow:
 
+This repository started with a fast-moving personal static-site workflow. After the `v1.0.0` Astro/Tailwind/MkDocs stabilization release, it formally converges on this lightweight trunk-based workflow.
+
 - `main` stays deployable and is treated as the stable trunk.
 - Functional, styling, build, documentation-site, and architecture changes should use short-lived `feature/...` branches.
 - Finish one feature branch, merge it back to `main`, then start the next one. Avoid long-running parallel feature branches for this single-maintainer project.
