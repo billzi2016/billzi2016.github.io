@@ -45,8 +45,7 @@
 }
 
 .site-search-subtitle,
-.site-search-status,
-.site-search-fallback {
+.site-search-status {
   color: var(--muted);
   font-size: 0.74rem;
   line-height: 1.35;

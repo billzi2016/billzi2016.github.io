@@ -5,7 +5,6 @@
 }
 
 .plain-list li,
-.compact-list li,
 .repo-list li,
 .pub-list li {
   margin: 0 0 10px;
@@ -93,7 +92,6 @@
   margin-bottom: 8px;
 }
 
-.two-column,
 .home-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

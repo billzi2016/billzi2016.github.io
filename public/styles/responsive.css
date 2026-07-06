@@ -21,7 +21,6 @@
     margin-top: 12px;
   }
 
-  .two-column,
   .home-grid,
   .music-layout {
     grid-template-columns: 1fr;

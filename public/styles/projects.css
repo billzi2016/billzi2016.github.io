@@ -27,8 +27,3 @@ body.dark-theme .project-language-pill {
   font-size: 0.98rem;
   transition: color var(--theme-transition);
 }
-
-.small {
-  font-size: 0.95rem;
-}
-
