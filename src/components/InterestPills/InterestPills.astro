@@ -1,5 +1,6 @@
 ---
-import { defaultLang, splitTopLevelList, type Lang } from "../utils/content";
+import { defaultLang, splitTopLevelList, type Lang } from "../../utils/content";
+import "./interest-pills.css";
 
 const { interests = [], lang = defaultLang } = Astro.props as {
   interests?: string[] | Record<string, string[] | string> | string;

@@ -43,3 +43,26 @@ test("music page exposes playlist controls without console errors", async ({ pag
   await expect(page.getByRole("button", { name: /Shuffle Next/i })).toBeVisible();
   expect(errors).toEqual([]);
 });
+
+test("site search returns local results", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.locator("#site-search-widget")).toBeVisible();
+  await page.locator("#site-search-input").fill("Astro");
+  await page.locator("#site-search-form").evaluate((form) => {
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  });
+
+  await expect(page.locator("#site-search-results")).toContainText(/Results|No matching results/);
+});
+
+test("project gallery opens and closes the lightbox", async ({ page }) => {
+  await page.goto("/projects.html");
+
+  await page.locator(".project-image-button").first().click();
+  await expect(page.locator(".project-lightbox")).toBeVisible();
+  await expect(page.getByRole("dialog")).toBeVisible();
+
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".project-lightbox")).toHaveCount(0);
+});

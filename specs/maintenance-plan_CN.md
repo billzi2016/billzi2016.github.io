@@ -50,8 +50,17 @@ src/
       media-gallery.css
       lightbox.css
     MusicPlayer/
+      music-player.css
     SearchWidget/
+      search-widget.css
     Publications/
+      publications.css
+    InterestPills/
+      InterestPills.astro
+      interest-pills.css
+    SkillBlocks/
+      SkillBlocks.astro
+      skill-blocks.css
     *InitialContent.astro
   data/
     generated/
@@ -291,9 +300,9 @@ GitHub Pages 应通过 `.github/workflows/deploy.yml` 里的 Astro build workflo
 | 主题切换 | `src/components/ThemeToggle/` | CSS 跟着组件走。 |
 | 语言切换 | `src/components/LanguageSwitch/` | CSS 跟着组件走。 |
 | 项目图片/lightbox | `src/components/ProjectGallery/`、`src/scripts/site/site-lightbox.js` | markup/CSS 在组件，lightbox 运行时在脚本。 |
-| 音乐页/播放器 | `src/components/MusicInitialContent.astro`、`src/scripts/site/site-music.js`、`src/styles/site/music.css` | 必须保持页面切换时音乐不断。 |
-| 搜索 | `src/scripts/site/site-search.js`、`src/styles/site/search.css` | 搜索索引保持本地、浏览器侧运行。 |
-| Publications | `src/components/PublicationsInitialContent.astro`、`src/scripts/site/site-citation.js` | 引用复制按钮依赖 `.pub-copy-btn`。 |
+| 音乐页/播放器 | `src/components/MusicInitialContent.astro`、`src/components/MusicPlayer/`、`src/scripts/site/site-music.js` | 必须保持页面切换时音乐不断。 |
+| 搜索 | `src/components/SearchWidget/`、`src/scripts/site/site-search.js` | 搜索索引保持本地、浏览器侧运行。 |
+| Publications | `src/components/PublicationsInitialContent.astro`、`src/components/Publications/`、`src/scripts/site/site-citation.js` | 引用复制按钮依赖 `.pub-copy-btn`。 |
 | 静态资产 | `public/assets/` | 必需资产必须本地化。 |
 | 生成内容 | `src/data/generated/` | 不要把生成内容重复写进组件。 |
 | 部署 | `.github/workflows/deploy.yml` | GitHub Pages 部署 Astro build 生成的 `dist/`。 |

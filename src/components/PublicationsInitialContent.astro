@@ -9,6 +9,7 @@ import {
   selectedPublicationKeys,
   type Lang,
 } from "../utils/content";
+import "./Publications/publications.css";
 
 const { lang = defaultLang } = Astro.props as { lang?: Lang };
 const page = siteTranslations.page.publications[lang];

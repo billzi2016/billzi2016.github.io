@@ -23,6 +23,8 @@
 - `src/pages/*.astro` 负责路由，不负责复杂 markup。
 - `SiteLayout.astro` 负责文档结构、metadata、脚本顺序和全局 import。
 - `ThemeToggle/` 负责主题切换按钮的 markup 和 CSS。
+- `SearchWidget/` 负责搜索浮层 CSS，`site-search.js` 负责搜索行为。
+- `MusicPlayer/` 负责音乐播放器 CSS，`site-music.js` 负责播放行为。
 - `site-music.js` 负责持久音乐行为。
 - `site-search.js` 负责搜索行为。
 
@@ -151,4 +153,3 @@ pnpm test:e2e
 ```
 
 只有非常明确的纯文档修改，才可以只做较小范围验证。
-

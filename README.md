@@ -43,11 +43,11 @@ This project does not use Vue or React as the primary framework because the site
 
 - `src/pages/`: Astro page entry points.
 - `src/layouts/`: Shared Astro layout.
-- `src/components/`: Header, content sections, image galleries, lists, and other reusable UI components.
+- `src/components/`: Header, content sections, image galleries, lists, and other reusable UI components. Complex components can own local CSS in the same directory.
 - `src/data/`: Site metadata, navigation links, and generated content modules used by Astro.
 - `src/scripts/site/`: Browser runtime modules loaded through Astro/Vite.
 - `src/styles/tailwind.css`: Tailwind entry file.
-- `src/styles/site/`: Split site CSS imported by Astro through `src/styles/site/main.css`.
+- `src/styles/site/`: Shared foundation CSS imported by Astro through `src/styles/site/main.css`.
 - `public/assets/`: Local images, audio, MIDI files, PDF, and asset documentation.
 - `public/vendor/`: Third-party browser assets that are loaded directly.
 

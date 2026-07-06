@@ -1,0 +1,32 @@
+.pub-list li {
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--line);
+  transition: border-color var(--theme-transition);
+}
+
+.pub-list li:last-child {
+  border-bottom: none;
+}
+
+.pub-line {
+  display: block;
+}
+
+.pub-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pub-copy {
+  flex: 0 0 auto;
+}
+
+.pub-authors {
+  color: var(--ink);
+}
+
+.pub-highlight {
+  font-weight: 700;
+}

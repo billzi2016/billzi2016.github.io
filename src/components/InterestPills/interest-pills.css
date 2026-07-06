@@ -1,0 +1,29 @@
+.interest-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.interest-pills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.25;
+  transition:
+    background var(--theme-transition),
+    border-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+body.dark-theme .interest-pills span {
+  background: rgba(191, 217, 245, 0.12);
+  border-color: rgba(191, 217, 245, 0.3);
+  color: var(--ink);
+}

@@ -50,8 +50,17 @@ src/
       media-gallery.css
       lightbox.css
     MusicPlayer/
+      music-player.css
     SearchWidget/
+      search-widget.css
     Publications/
+      publications.css
+    InterestPills/
+      InterestPills.astro
+      interest-pills.css
+    SkillBlocks/
+      SkillBlocks.astro
+      skill-blocks.css
     *InitialContent.astro
   data/
     generated/
@@ -291,9 +300,9 @@ Ownership map:
 | Theme toggle | `src/components/ThemeToggle/` | CSS stays with the component. |
 | Language switch | `src/components/LanguageSwitch/` | CSS stays with the component. |
 | Project images/lightbox | `src/components/ProjectGallery/`, `src/scripts/site/site-lightbox.js` | Markup/CSS in component; lightbox runtime in script. |
-| Music page/player | `src/components/MusicInitialContent.astro`, `src/scripts/site/site-music.js`, `src/styles/site/music.css` | Preserve persistent playback across navigation. |
-| Search | `src/scripts/site/site-search.js`, `src/styles/site/search.css` | Keep the index local and browser-side. |
-| Publications | `src/components/PublicationsInitialContent.astro`, `src/scripts/site/site-citation.js` | Citation copy buttons depend on `.pub-copy-btn`. |
+| Music page/player | `src/components/MusicInitialContent.astro`, `src/components/MusicPlayer/`, `src/scripts/site/site-music.js` | Preserve persistent playback across navigation. |
+| Search | `src/components/SearchWidget/`, `src/scripts/site/site-search.js` | Keep the index local and browser-side. |
+| Publications | `src/components/PublicationsInitialContent.astro`, `src/components/Publications/`, `src/scripts/site/site-citation.js` | Citation copy buttons depend on `.pub-copy-btn`. |
 | Static assets | `public/assets/` | Required assets must stay local. |
 | Generated content | `src/data/generated/` | Do not duplicate generated content in components. |
 | Deployment | `.github/workflows/deploy.yml` | GitHub Pages deploys `dist/` from Astro build. |

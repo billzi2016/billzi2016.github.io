@@ -23,6 +23,8 @@ Examples:
 - `src/pages/*.astro` owns routes, not complex markup.
 - `SiteLayout.astro` owns document structure, metadata, script order, and global imports.
 - `ThemeToggle/` owns the theme toggle markup and CSS.
+- `SearchWidget/` owns search overlay CSS while `site-search.js` owns behavior.
+- `MusicPlayer/` owns music player CSS while `site-music.js` owns playback behavior.
 - `site-music.js` owns persistent music behavior.
 - `site-search.js` owns search behavior.
 
@@ -151,4 +153,3 @@ pnpm test:e2e
 ```
 
 Use smaller validation only when the change is clearly documentation-only.
-

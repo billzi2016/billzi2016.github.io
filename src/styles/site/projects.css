@@ -1,3 +1,20 @@
+.repo-list li {
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--line);
+  transition: border-color var(--theme-transition);
+}
+
+.repo-list li:last-child {
+  border-bottom: none;
+}
+
+.repo-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
 .project-language-pill {
   display: inline-flex;
   align-items: center;
