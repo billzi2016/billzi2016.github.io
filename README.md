@@ -234,17 +234,12 @@ This project does not use Vue or React as the primary framework because the site
 
 These specs are part of the repository contract. Read them before large refactors or AI-assisted maintenance:
 
-- [Maintenance Plan](specs/maintenance-plan.md)
-- [维护方案（中文）](specs/maintenance-plan.zh.md)
-
-- [Module Map](specs/module-map.md)
-- [模块地图（中文）](specs/module-map.zh.md)
-
-- [Astro Migration Plan](specs/astro-migration-plan.md)
-- [Astro 迁移方案（中文）](specs/astro-migration-plan.zh.md)
-
-- [Engineering Principles](specs/engineering-principles.md)
-- [工程原则（中文）](specs/engineering-principles.zh.md)
+| English | 中文 |
+| --- | --- |
+| [Maintenance Plan](specs/maintenance-plan.md) | [维护方案](specs/maintenance-plan.zh.md) |
+| [Module Map](specs/module-map.md) | [模块地图](specs/module-map.zh.md) |
+| [Astro Migration Plan](specs/astro-migration-plan.md) | [Astro 迁移方案](specs/astro-migration-plan.zh.md) |
+| [Engineering Principles](specs/engineering-principles.md) | [工程原则](specs/engineering-principles.zh.md) |
 
 They cover the Astro architecture, Tailwind usage, SOLID/DRY rules, CSS ownership, JavaScript ownership, deployment model, testing checklist, and migration history.
 
