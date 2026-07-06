@@ -1,6 +1,6 @@
 # billzi2016.github.io
 
-毕梓仟个人学术网站的源代码。
+我的个人学术网站源代码。
 
 网站地址：[https://billzi2016.github.io/](https://billzi2016.github.io/)
 
@@ -8,7 +8,7 @@
 
 ## 概述
 
-这是一个静态学术作品集网站，覆盖研究兴趣、技术技能、项目、论文、经历、教育背景和一个小型音乐页面。
+这是一个基于 Astro 的静态学术作品集网站，覆盖研究兴趣、技术技能、项目、论文、经历、教育背景、个人兴趣和一个本地音乐页面。
 
 ## 页面
 
@@ -21,78 +21,66 @@
 
 ## 结构
 
-- `partials/header.html`：由 JavaScript 加载的公共站点页眉。
-- `templates/head.html`：页面生成脚本使用的公共 `<head>` 模板。
-- `styles/`：拆分后的 CSS 文件，由 `styles/main.css` 统一引入。
-- `scripts/data/`：按领域拆分的内容数据文件。
-- `scripts/content-data.js`：轻量聚合入口，暴露 `window.siteContent`。
-- `scripts/site-*.js`：页面渲染与运行时行为。
-- `tools/`：用于生成静态片段和更新缓存版本号的维护脚本。
+- `src/pages/`：Astro 页面入口。
+- `src/layouts/`：公共 Astro 布局。
+- `src/components/`：页头、内容区块、图片画廊、列表和其他可复用 UI 组件。
+- `src/data/`：站点元数据、导航链接，以及 Astro 使用的生成数据模块。
+- `src/styles/tailwind.css`：Tailwind 入口文件。
+- `public/styles/`：兼容旧结构的拆分 CSS，由 `public/styles/main.css` 统一引入。
+- `public/scripts/`：主题切换、语言切换、音乐播放、搜索、路由、论文引用和图片灯箱等运行时逻辑。
+- `public/assets/`：本地图片、音频、MIDI、PDF 和资源说明文档。
 
-## 本地预览
-
-```bash
-python3 server.py
-```
-
-然后打开 `http://localhost:8000/`。
-
-## 维护工具
-
-修改 `templates/head.html` 或 `tools/generate_pages.py` 中的页面元数据后，重新生成各页面重复的 `<head>` 区块：
+## 本地开发
 
 ```bash
-python3 tools/generate_pages.py
+pnpm install
+pnpm dev
 ```
 
-批量更新所有静态页面和 head 模板中的本地 CSS / JavaScript 缓存版本号：
+然后打开本地 Astro 开发服务器，通常是 `http://localhost:4321/`。
+
+如果需要指定 host 和端口：
 
 ```bash
-python3 tools/bump_asset_version.py 20260624-1
+pnpm dev --host 127.0.0.1 --port 4321
 ```
 
-回退最近一次本地资源版本号修改：
+## 构建
 
 ```bash
-python3 tools/bump_asset_version.py --rollback
+pnpm build
 ```
 
-每次资源版本号更新都会把本地回退日志写入 `.asset-version-log.jsonl`；该文件已加入 `.gitignore`，不会提交到 Git。
+Astro 会把生成后的静态站点写入 `dist/`。
 
-## 开发流程
-
-普通内容修改时，优先更新 `scripts/data/` 下对应的数据文件，`scripts/content-data.js` 只保留轻量聚合入口。
-
-修改页面元数据或公共 `<head>` 内容时，编辑 `templates/head.html` 或 `tools/generate_pages.py` 中的页面配置，然后运行：
+本地预览生产构建：
 
 ```bash
-python3 tools/generate_pages.py
+pnpm preview
 ```
 
-修改带 `?v=...` 引用的 CSS 或 JavaScript 文件后，需要刷新浏览器缓存版本号时，运行：
+运行 Astro 检查：
 
 ```bash
-python3 tools/bump_asset_version.py 20260624-1
+pnpm exec astro check
 ```
 
-该工具会在 `.asset-version-log.jsonl` 中记录本地回退日志，这个文件不会进入版本控制。
+## 部署
 
-提交结构性修改前，可以先做轻量语法检查：
-
-```bash
-node --check scripts/content-data.js
-```
+网站通过 GitHub Actions 构建，并将 Astro 生成的静态输出部署到 GitHub Pages。
 
 ## 数据组织
 
-主要内容数据拆分为：
+运行时兼容数据仍保留在：
 
-- `scripts/data/shared-data.js`
-- `scripts/data/home-data.js`
-- `scripts/data/experience-data.js`
-- `scripts/data/projects-data.js`
+- `public/scripts/data/shared-data.js`
+- `public/scripts/data/home-data.js`
+- `public/scripts/data/experience-data.js`
+- `public/scripts/data/projects-data.js`
+- `public/scripts/music-data.js`
+- `public/scripts/publications-data.js`
 
-静态 HTML 页面会先加载这些数据文件，再加载 `scripts/content-data.js`，由它组装出渲染器使用的统一运行时对象。
+Astro 使用的生成数据模块位于 `src/data/generated/`。当前仍保留运行时 JavaScript，用于语言切换、音乐播放连续性、站内搜索、图片灯箱和论文引用按钮。
 
 ## 演示图片
 

@@ -1,6 +1,6 @@
 # billzi2016.github.io
 
-Source code for Ziqian Bi's personal academic website.
+Source code for my personal academic website.
 
 Website: [https://billzi2016.github.io/](https://billzi2016.github.io/)
 
@@ -8,7 +8,7 @@ Chinese documentation: [README_CN.md](README_CN.md)
 
 ## Overview
 
-This is a static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, and a small music page.
+This is an Astro-based static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, personal interests, and a small local music page.
 
 ## Pages
 
@@ -21,78 +21,66 @@ This is a static academic portfolio website covering research interests, technic
 
 ## Structure
 
-- `partials/header.html`: Shared site header loaded by JavaScript.
-- `templates/head.html`: Shared `<head>` template used by the page generator.
-- `styles/`: Split CSS files imported by `styles/main.css`.
-- `scripts/data/`: Split content data files by domain.
-- `scripts/content-data.js`: Thin aggregator that exposes `window.siteContent`.
-- `scripts/site-*.js`: Page renderers and runtime behavior.
-- `tools/`: Maintenance scripts for generated static fragments and cache-busting versions.
+- `src/pages/`: Astro page entry points.
+- `src/layouts/`: Shared Astro layout.
+- `src/components/`: Header, content sections, image galleries, lists, and other reusable UI components.
+- `src/data/`: Site metadata, navigation links, and generated content modules used by Astro.
+- `src/styles/tailwind.css`: Tailwind entry file.
+- `public/styles/`: Legacy-compatible split CSS imported by `public/styles/main.css`.
+- `public/scripts/`: Runtime behavior for theme switching, language switching, music playback, search, routing, publications, and image lightbox.
+- `public/assets/`: Local images, audio, MIDI files, PDF, and asset documentation.
 
-## Local Preview
-
-```bash
-python3 server.py
-```
-
-Then open `http://localhost:8000/`.
-
-## Maintenance Tools
-
-Regenerate repeated page `<head>` blocks after editing `templates/head.html` or page metadata in `tools/generate_pages.py`:
+## Local Development
 
 ```bash
-python3 tools/generate_pages.py
+pnpm install
+pnpm dev
 ```
 
-Update local CSS and JavaScript cache-busting versions across all static pages and the head template:
+Then open the local Astro dev server, usually `http://localhost:4321/`.
+
+To bind an explicit host and port:
 
 ```bash
-python3 tools/bump_asset_version.py 20260624-1
+pnpm dev --host 127.0.0.1 --port 4321
 ```
 
-Roll back the latest local asset-version change:
+## Build
 
 ```bash
-python3 tools/bump_asset_version.py --rollback
+pnpm build
 ```
 
-Each asset-version update writes a local rollback log to `.asset-version-log.jsonl`; this file is ignored by Git.
+Astro writes the generated static site to `dist/`.
 
-## Development Workflow
-
-For normal content edits, update the relevant file under `scripts/data/`, then keep `scripts/content-data.js` as the thin aggregation layer.
-
-When changing page metadata or shared `<head>` content, edit `templates/head.html` or the page metadata in `tools/generate_pages.py`, then run:
+Preview the production build locally:
 
 ```bash
-python3 tools/generate_pages.py
+pnpm preview
 ```
 
-When changing CSS or JavaScript files that are referenced with `?v=...`, refresh the browser cache key with:
+Run Astro diagnostics:
 
 ```bash
-python3 tools/bump_asset_version.py 20260624-1
+pnpm exec astro check
 ```
 
-The tool records a local rollback log in `.asset-version-log.jsonl`, which is intentionally excluded from version control.
+## Deployment
 
-Before committing structural changes, run a lightweight syntax check:
-
-```bash
-node --check scripts/content-data.js
-```
+The site is built with GitHub Actions and deployed to GitHub Pages from the generated Astro output.
 
 ## Data Organization
 
-Main content data is split into:
+Runtime-compatible source data remains under:
 
-- `scripts/data/shared-data.js`
-- `scripts/data/home-data.js`
-- `scripts/data/experience-data.js`
-- `scripts/data/projects-data.js`
+- `public/scripts/data/shared-data.js`
+- `public/scripts/data/home-data.js`
+- `public/scripts/data/experience-data.js`
+- `public/scripts/data/projects-data.js`
+- `public/scripts/music-data.js`
+- `public/scripts/publications-data.js`
 
-The static HTML pages load those files first, then load `scripts/content-data.js`, which assembles the single runtime object used by the renderers.
+Astro-facing generated data modules live in `src/data/generated/`. The current runtime JavaScript is retained for language switching, music playback continuity, search, image lightbox behavior, and publication citation buttons.
 
 ## Demo Gallery
 
