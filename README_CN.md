@@ -43,10 +43,11 @@
 - `src/layouts/`：公共 Astro 布局。
 - `src/components/`：页头、内容区块、图片画廊、列表和其他可复用 UI 组件。
 - `src/data/`：站点元数据、导航链接，以及 Astro 使用的生成数据模块。
+- `src/scripts/site/`：通过 Astro/Vite 加载的浏览器运行时模块。
 - `src/styles/tailwind.css`：Tailwind 入口文件。
-- `public/styles/`：兼容旧结构的拆分 CSS，由 `public/styles/main.css` 统一引入。
-- `public/scripts/`：主题切换、语言切换、音乐播放、搜索、路由、论文引用和图片灯箱等运行时逻辑。
+- `src/styles/site/`：拆分后的站点 CSS，由 Astro 通过 `src/styles/site/main.css` 引入。
 - `public/assets/`：本地图片、音频、MIDI、PDF 和资源说明文档。
+- `public/vendor/`：需要浏览器直接加载的第三方资源。
 
 ## 本地开发
 

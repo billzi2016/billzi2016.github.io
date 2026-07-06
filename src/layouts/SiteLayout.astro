@@ -7,7 +7,15 @@ import { siteProjectsContent } from "../data/generated/projectsContent";
 import { publicationsData } from "../data/generated/publicationsData";
 import { siteSharedContent } from "../data/generated/sharedContent";
 import { sitePageTitles, siteTranslations } from "../data/generated/siteI18n";
+import backgroundsScript from "../scripts/site/backgrounds.js?url";
+import citationScript from "../scripts/site/site-citation.js?url";
+import lightboxScript from "../scripts/site/site-lightbox.js?url";
+import musicScript from "../scripts/site/site-music.js?url";
+import routerScript from "../scripts/site/site-router.js?url";
+import searchScript from "../scripts/site/site-search.js?url";
+import siteScript from "../scripts/site/site.js?url";
 import "../styles/tailwind.css";
+import "../styles/site/main.css";
 
 const {
   title,
@@ -50,7 +58,6 @@ const runtimeData = JSON.stringify({
         document.documentElement.classList.remove("dark-theme");
       }
     </script>
-    <link rel="stylesheet" href="./styles/main.css?v=20260702-9" />
   </head>
   <body data-page={page}>
     <div id="light-particles" class="background-layer background-particles"></div>
@@ -87,12 +94,12 @@ const runtimeData = JSON.stringify({
       window.publicationsData = data.publicationsData;
     }`} />
     <script is:inline src="./vendor/particles/particles.min.js"></script>
-    <script is:inline src="./scripts/backgrounds.js"></script>
-    <script is:inline src="./scripts/site-music.js?v=20260702-9"></script>
-    <script is:inline src="./scripts/site-citation.js?v=20260702-9"></script>
-    <script is:inline src="./scripts/site-search.js?v=20260702-9"></script>
-    <script is:inline src="./scripts/site-lightbox.js?v=20260702-9"></script>
-    <script is:inline src="./scripts/site-router.js?v=20260702-9"></script>
-    <script is:inline src="./scripts/site.js?v=20260702-9"></script>
+    <script is:inline src={backgroundsScript}></script>
+    <script is:inline src={musicScript}></script>
+    <script is:inline src={citationScript}></script>
+    <script is:inline src={searchScript}></script>
+    <script is:inline src={lightboxScript}></script>
+    <script is:inline src={routerScript}></script>
+    <script is:inline src={siteScript}></script>
   </body>
 </html>
