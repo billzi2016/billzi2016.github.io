@@ -1,5 +1,8 @@
 ---
+import { siteTranslations } from "../data/generated/siteI18n";
 import { contactLinks } from "../data/siteLinks";
+
+const defaultCopy = siteTranslations.common.en;
 ---
 
 <h1 class="name">
@@ -12,9 +15,9 @@ import { contactLinks } from "../data/siteLinks";
 </div>
 <div class="contact-line">
   <div class="contact-meta">
-    <span data-i18n="contactSchoolOne">Purdue University</span>
+    <span data-i18n="contactSchoolOne">{defaultCopy.contactSchoolOne}</span>
     (<a href="mailto:bi32@purdue.edu">bi32@purdue.edu</a>) &middot;
-    <span data-i18n="contactSchoolTwo">Indiana University</span>
+    <span data-i18n="contactSchoolTwo">{defaultCopy.contactSchoolTwo}</span>
     (<a href="mailto:bizi@iu.edu">bizi@iu.edu</a>)
   </div>
   <div class="contact-actions">

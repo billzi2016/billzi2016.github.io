@@ -212,6 +212,8 @@ Rules:
 - preserve music playback across page transitions
 - do not introduce React/Vue-style app state unless the site becomes a real app
 
+Persistent music playback is a runtime contract, not a page-local widget. `site-music.js` owns the track index, volume, playback position, playing state, playlist controls, and audio element placement. Navigation code must save playback state before replacing page content, and any music UI must reuse or restore the existing audio element instead of creating a new independent player. The floating widget and the full music page are two views over the same playback system.
+
 ## Build And Tooling
 
 Use pnpm:
