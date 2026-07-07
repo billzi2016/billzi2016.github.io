@@ -19,7 +19,7 @@ export const siteTranslations = {
       footerDocs: "Maintenance Docs",
       footerSource: "Source",
       footerTech:
-        "Custom-Built with Astro, Tailwind CSS, PNPM, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
+        "Custom-Built with Astro, Tailwind CSS, PNPM, MkDocs, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
       footerAvailability: "Local Assets and No CDN Dependency for Stronger Network Availability.",
       footerAi:
         "AI-Friendly Engineering: Complete Specs, Clear Structure, Layered Agent Guidance, and Context-Efficient Maintenance.",
@@ -41,7 +41,8 @@ export const siteTranslations = {
       footerAbout: "关于本站",
       footerDocs: "维护文档",
       footerSource: "源代码",
-      footerTech: "本站使用 Astro、Tailwind CSS、pnpm、Playwright、GitHub Actions 和规格驱动开发（SDD）定制构建。",
+      footerTech:
+        "本站使用 Astro、Tailwind CSS、pnpm、MkDocs、Playwright、GitHub Actions 和规格驱动开发（SDD）定制构建。",
       footerAvailability: "通过本地资产与无 CDN 依赖提高网络可用性。",
       footerAi: "AI 构建友好：规格齐全、结构分明、Agents 分层明确，并尽量节省上下文。",
     },

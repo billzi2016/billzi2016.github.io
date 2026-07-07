@@ -1,3 +1,9 @@
+---
+import { siteTranslations } from "../data/generated/siteI18n";
+
+const defaultCopy = siteTranslations.common.en;
+---
+
 <footer class="site-footer">
   <div class="site-footer__content">
     <a
@@ -7,7 +13,7 @@
       rel="noreferrer"
       data-i18n="footerAbout"
     >
-      About This Website
+      {defaultCopy.footerAbout}
     </a>
     <span class="site-footer__separator" aria-hidden="true">/</span>
     <a
@@ -17,7 +23,7 @@
       rel="noreferrer"
       data-i18n="footerDocs"
     >
-      Maintenance Docs
+      {defaultCopy.footerDocs}
     </a>
     <span class="site-footer__separator" aria-hidden="true">/</span>
     <a
@@ -27,18 +33,16 @@
       rel="noreferrer"
       data-i18n="footerSource"
     >
-      Source
+      {defaultCopy.footerSource}
     </a>
   </div>
   <p class="site-footer__tech" data-i18n="footerTech">
-    Custom-Built with Astro, Tailwind CSS, PNPM, Playwright, GitHub Actions, and Spec-Driven
-    Development (SDD).
+    {defaultCopy.footerTech}
   </p>
   <p class="site-footer__ai" data-i18n="footerAi">
-    AI-Friendly Engineering: Complete Specs, Clear Structure, Layered Agent Guidance, and
-    Context-Efficient Maintenance.
+    {defaultCopy.footerAi}
   </p>
   <p class="site-footer__availability" data-i18n="footerAvailability">
-    Local Assets and No CDN Dependency for Stronger Network Availability.
+    {defaultCopy.footerAvailability}
   </p>
 </footer>

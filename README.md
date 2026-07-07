@@ -149,6 +149,8 @@ sequenceDiagram
   Runtime->>Music: resume or preserve player state
 ```
 
+The persistent music runtime is designed so navigation does not recreate playback from scratch. `site-music.js` owns the current track, volume, playback time, and playing state; `site-router.js` saves that state before partial navigation; and the existing audio element is parked or restored into the next player container instead of being discarded. Floating music controls and the full music page share this runtime contract, so route changes can replace page content without causing the audio source to reload or the track to stutter.
+
 CSS is split by ownership rather than by a single global stylesheet. Shared CSS is limited to foundations; complex visual systems keep their CSS beside the component or runtime system that owns the DOM.
 
 ```mermaid
