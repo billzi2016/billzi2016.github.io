@@ -1,24 +1,21 @@
 # Asset Notes
 
-## `main.pdf`
+## Current Resume PDF
 
-`main.pdf` is the current resume PDF used by this site.
+The current public resume PDF is:
 
-This file is intentionally allowed to exist in Git when needed, but it should not be treated like a normal text file:
+`resume-july-09-2026.pdf`
 
-- it is a binary file
-- even a small resume edit usually changes the whole file at the byte level
-- Git cannot provide meaningful line-by-line diffs for it
-- repeated updates can add unnecessary repository weight over time
+This date-named file is the July 09, 2026 resume version used by this site.
+
+Resume PDFs are binary files. Git cannot provide meaningful line-by-line diffs for them, and repeated binary updates can add unnecessary repository weight over time.
 
 ## Update Rule
 
-When a new resume version replaces `main.pdf`, do not just overwrite it and commit normally.
+When publishing a new resume, add a new date-named PDF instead of reusing a generic filename.
 
-Use this rule:
+Use this naming style:
 
-1. remove the old `main.pdf` from Git cache/index first
-2. then add the new `main.pdf` as a fresh version
-3. commit the replacement after that
+`resume-month-dd-yyyy.pdf`
 
-The goal is to avoid treating changing binary resume files like ordinary source files.
+Then update the site link to point at the new date-named file.
