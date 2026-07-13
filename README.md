@@ -129,6 +129,7 @@ Spec and user instructions are the source of truth for this repository. Maintena
 - Follow SOLID-style boundaries for components, runtime systems, data modules, and styles: extend the owning module instead of adding a second competing system.
 - Name branches deliberately. A branch name may be longer when needed, but it must describe the actual topic and scope in a reviewable way; do not use vague names such as `fix`, `update`, `temp`, or random shorthand.
 - Write commit and merge messages with clear intent. A message must explain what changed and why it matters in plain language, using the discipline expected for reviewable kernel-style history; do not use abbreviations, placeholder wording, or one-word summaries.
+- Avoid `git reset --hard` as a normal workflow tool. It is a high-risk operation and should only be used when the user explicitly asks for it, the impact has been explained, and no safer path fits the task.
 - If a spec, AGENTS rule, or user instruction conflicts with a convenient implementation shortcut, the spec and instruction win.
 
 Required command flow for a feature change:
