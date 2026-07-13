@@ -15,7 +15,14 @@
   gap: 8px;
 }
 
-.project-language-pill {
+.project-meta-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-meta-pill {
   display: inline-flex;
   align-items: center;
   min-height: 26px;
@@ -33,9 +40,27 @@
     color var(--theme-transition);
 }
 
-body.dark-theme .project-language-pill {
+.project-meta-pill-link {
+  background: rgb(42 117 198 / 12%);
+  border-color: rgb(42 117 198 / 34%);
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.project-meta-pill-link:hover {
+  background: rgb(42 117 198 / 18%);
+  border-color: rgb(42 117 198 / 48%);
+}
+
+body.dark-theme .project-meta-pill {
   background: rgb(191 217 245 / 12%);
   border-color: rgb(191 217 245 / 30%);
+}
+
+body.dark-theme .project-meta-pill-link {
+  background: rgb(79 166 255 / 18%);
+  border-color: rgb(79 166 255 / 38%);
 }
 
 .item-note {
