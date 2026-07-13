@@ -25,6 +25,8 @@ For Chinese maintenance context, read the matching `.zh.md` or `.zh.md` document
 - Preserve the Astro portfolio site and the documentation maintenance site as separate concerns.
 - Do not introduce CDN dependencies; prefer local assets for network availability.
 - Use Spec-Driven Development (SDD): update specs before broad implementation changes.
+- Small hotfixes, one-commit documentation fixes, README/AGENTS/spec additions, copy tweaks, or minor styling adjustments may go directly on `main` when the scope is clear and risk is low.
+- Use a short-lived feature branch for work that may need multiple commits or touches structure, build/deployment, cross-module behavior, runtime scripts, data migration, or high-risk areas.
 
 ## Directory Ownership
 
