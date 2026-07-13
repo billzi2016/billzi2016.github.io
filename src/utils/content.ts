@@ -88,6 +88,10 @@ export function formatProjectLanguages(item: any, lang: Lang = defaultLang): str
   return labels.length ? labels : [formatProjectLanguage("none", lang)];
 }
 
+export function formatProjectLanguageSummary(item: any, lang: Lang = defaultLang): string {
+  return formatProjectLanguages(item, lang).join(" / ");
+}
+
 export function getProjectKey(item: any): string {
   if (typeof item === "string") return item;
   if (item && item.name) return item.name;

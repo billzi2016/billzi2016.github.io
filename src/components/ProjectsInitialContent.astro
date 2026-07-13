@@ -4,7 +4,7 @@ import { siteProjectsContent } from "../data/generated/projectsContent";
 import { siteTranslations } from "../data/generated/siteI18n";
 import {
   defaultLang,
-  formatProjectLanguages,
+  formatProjectLanguageSummary,
   getLangValue,
   getProjectKey,
   resolveProjectItem,
@@ -25,7 +25,7 @@ function normalizeItems(items: any[]) {
     const item = resolveProjectItem(rawItem, catalog);
     return {
       ...item,
-      languageLabels: formatProjectLanguages(item, lang),
+      languageLabel: formatProjectLanguageSummary(item, lang),
       note: getLangValue(item, lang, "note"),
       updatedLabel: item.updated ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}` : "",
     };
@@ -59,9 +59,7 @@ const remainingProjects = normalizeItems(remainingItems);
               {item.name}
             </a>{" "}
             <div class="project-meta-pills">
-              {item.languageLabels.map((languageLabel: string) => (
-                <span class="project-meta-pill">{languageLabel}</span>
-              ))}
+              <span class="project-meta-pill">{item.languageLabel}</span>
               {item.updatedLabel && <span class="project-meta-pill">{item.updatedLabel}</span>}
               {(item.links || []).map((link: any) => (
                 <a
@@ -94,9 +92,7 @@ const remainingProjects = normalizeItems(remainingItems);
               {item.name}
             </a>{" "}
             <div class="project-meta-pills">
-              {item.languageLabels.map((languageLabel: string) => (
-                <span class="project-meta-pill">{languageLabel}</span>
-              ))}
+              <span class="project-meta-pill">{item.languageLabel}</span>
               {item.updatedLabel && <span class="project-meta-pill">{item.updatedLabel}</span>}
               {(item.links || []).map((link: any) => (
                 <a
