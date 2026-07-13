@@ -540,12 +540,12 @@ export const siteProjectsContent = {
         noteEn: "A Bad Apple playback experiment on LCD12864-based hardware. Like the dither-TV project, it uses a familiar media motif to explore real embedded graphics constraints, data preprocessing pipelines, and device-oriented rendering strategies.",
         noteZh: "这是一个在 LCD12864 硬件上播放 Bad Apple 的实验项目。和 Dither TV 类似，它借助一个大家熟悉的媒体素材，去认真处理嵌入式图形显示里的现实问题，包括数据预处理、渲染策略和设备约束。",
       },
-      "python-tetris-ai": {
-        name: "python-tetris-ai",
-        url: "https://github.com/billzi2016/python-tetris-ai",
+      "python-falling-blocks-ai": {
+        name: "python-falling-blocks-ai",
+        url: "https://github.com/billzi2016/python-falling-blocks-ai",
         language: "Python",
-        noteEn: "A Tetris project implemented with Python and Pygame that includes multiple AI baselines of increasing sophistication. It is a beginner-friendly reinforcement or heuristic game-AI project and a useful example of making algorithms visually inspectable.",
-        noteZh: "这是一个用 Python 和 Pygame 实现的俄罗斯方块项目，集成了多种由浅入深的 AI 策略。它适合展示我如何把游戏 AI、启发式方法和可视化交互放在一个对初学者也友好的教学型项目里。",
+        noteEn: "A falling-blocks game AI project implemented with Python and Pygame that includes multiple heuristic and search baselines. It is a beginner-friendly game-AI project and a useful example of making algorithms visually inspectable without relying on copyrighted project branding.",
+        noteZh: "这是一个用 Python 和 Pygame 实现的 falling-blocks 游戏 AI 项目，集成了多种启发式与搜索策略。它适合展示我如何把游戏 AI、启发式方法和可视化交互放在一个对初学者也友好的教学型项目里，同时避开版权相关命名。",
       },
       "Alphago-Naive": {
         name: "Alphago-Naive",
@@ -660,9 +660,9 @@ export const siteProjectsContent = {
         noteEn: "A large-scale automation project that generates bilingual LeetCode notes and backdates commits across years of problem history. Beyond interview prep, it is interesting as a content-generation and Git-history simulation pipeline built with repeatability in mind.",
         noteZh: "这是一个大规模自动化项目，会生成双语 LeetCode 题解并回填多年 Git 历史。它的有趣之处不只是刷题，而在于把内容生成、时间戳控制和版本历史模拟做成了一条可重复运行的流水线。",
       },
-      "Whisper": {
-        name: "Whisper",
-        url: "https://github.com/billzi2016/Whisper",
+      "whisper-meeting-transcription-translation-and-summary": {
+        name: "whisper-meeting-transcription-translation-and-summary",
+        url: "https://github.com/billzi2016/whisper-meeting-transcription-translation-and-summary",
         language: "Python",
         noteEn: "A local subtitle-generation tool using Apple Silicon-accelerated transcription plus local translation. It is a practical offline media-AI utility and a good example of combining model inference, platform optimization, and user-facing workflow design.",
         noteZh: "这是一个本地字幕生成工具，结合 Apple Silicon 加速转录和本地翻译流程。它是很实用的离线媒体 AI 工具，也能体现我如何把模型推理、平台优化和面向用户的工作流设计组合在一起。",
