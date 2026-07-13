@@ -79,6 +79,9 @@ export const siteProjectsContent = {
         url: "https://github.com/billzi2016/Leetcode-All-Languages-Best-Solutions",
         language: "Python",
         languages: ["Python", "Shell", "Dockerfile"],
+        links: [
+          { url: "https://billzi2016.github.io/Leetcode-All-Languages-Best-Solutions/", label: "Docs" },
+        ],
         updated: "2026-07-09",
         noteEn: "A multi-language LeetCode best-solution repository covering C, C++, Java, Python, Python3, C#, JavaScript, TypeScript, PHP, Swift, Kotlin, Dart, Go, Ruby, Scala, Rust, Racket, Erlang, and Elixir. Beyond collecting answers, it emphasizes accurate generation, resumable workflows, structured logs, and unittest coverage, making it a strong algorithm-engineering and automation project rather than a loose solution dump.",
         noteZh: "这是一个多语言 LeetCode 最优解仓库，覆盖 C、C++、Java、Python、Python3、C#、JavaScript、TypeScript、PHP、Swift、Kotlin、Dart、Go、Ruby、Scala、Rust、Racket、Erlang 和 Elixir。它不只是题解堆叠，而是强调准确生成、可恢复流程、结构化日志和 unittest 覆盖，是一个很能体现算法工程化和自动化维护能力的重点项目。",
