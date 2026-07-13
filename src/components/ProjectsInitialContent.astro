@@ -20,23 +20,20 @@ const remainingItems = (siteProjectsContent.all || []).filter(
   (item) => !rankedKeys.has(getProjectKey(item)),
 );
 
-function normalizeItems(items: any[], showUpdated: boolean) {
+function normalizeItems(items: any[]) {
   return items.map((rawItem) => {
     const item = resolveProjectItem(rawItem, catalog);
     return {
       ...item,
       languageLabel: formatProjectLanguage(item.language, lang),
       note: getLangValue(item, lang, "note"),
-      updatedLabel:
-        showUpdated && item.updated
-          ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}`
-          : "",
+      updatedLabel: item.updated ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}` : "",
     };
   });
 }
 
-const rankedProjects = normalizeItems(rankedItems, true);
-const remainingProjects = normalizeItems(remainingItems, false);
+const rankedProjects = normalizeItems(rankedItems);
+const remainingProjects = normalizeItems(remainingItems);
 ---
 
 <section>
@@ -50,18 +47,21 @@ const remainingProjects = normalizeItems(remainingItems, false);
             <a href={item.url} target="_blank" rel="noreferrer">
               {item.name}
             </a>{" "}
-            <span class="project-language-pill">{item.languageLabel}</span>
-            {item.updatedLabel && <span class="inline-meta"> {item.updatedLabel}</span>}
-          </div>
-          {(item.links || []).length > 0 && (
-            <div class="entry-links">
+            <div class="project-meta-pills">
+              <span class="project-meta-pill">{item.languageLabel}</span>
+              {item.updatedLabel && <span class="project-meta-pill">{item.updatedLabel}</span>}
               {(item.links || []).map((link: any) => (
-                <a href={link.url} target="_blank" rel="noreferrer">
+                <a
+                  class="project-meta-pill project-meta-pill-link"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {getLangValue(link, lang, "label") || link.label || link.url}
                 </a>
               ))}
             </div>
-          )}
+          </div>
           {item.note && <div class="item-note">{item.note}</div>}
           <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
         </li>
@@ -80,17 +80,21 @@ const remainingProjects = normalizeItems(remainingItems, false);
             <a href={item.url} target="_blank" rel="noreferrer">
               {item.name}
             </a>{" "}
-            <span class="project-language-pill">{item.languageLabel}</span>
-          </div>
-          {(item.links || []).length > 0 && (
-            <div class="entry-links">
+            <div class="project-meta-pills">
+              <span class="project-meta-pill">{item.languageLabel}</span>
+              {item.updatedLabel && <span class="project-meta-pill">{item.updatedLabel}</span>}
               {(item.links || []).map((link: any) => (
-                <a href={link.url} target="_blank" rel="noreferrer">
+                <a
+                  class="project-meta-pill project-meta-pill-link"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {getLangValue(link, lang, "label") || link.label || link.url}
                 </a>
               ))}
             </div>
-          )}
+          </div>
           {item.note && <div class="item-note">{item.note}</div>}
           <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
         </li>

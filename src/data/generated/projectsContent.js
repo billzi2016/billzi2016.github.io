@@ -5,7 +5,7 @@ export const siteProjectsContent = {
         name: "ClinicaLLM-OmniBench",
         url: "https://github.com/billzi2016/ClinicaLLM-OmniBench",
         language: "Python",
-        updated: "2026-06-04",
+        updated: "2026-04-23",
         noteEn: "A medical LLM benchmark framework built in Python for exam-style and specialty question-bank evaluation. The project focuses on dataset normalization, model adapter unification, inference orchestration, and metric reporting under a cleaner evaluation skeleton. It is closely aligned with my work on LLM evaluation, medical AI, benchmark engineering, and reproducible experiment pipelines.",
         noteZh: "这是一个基于 Python 的医学 LLM 基准评测框架，面向医学考试题与专科题库评测。项目重点在数据集标准化、多模型适配器统一、推理流程编排与指标汇总，整体上更强调可复现评测骨架而不是补丁式脚本堆叠。它直接对应我在 LLM evaluation、medical AI 和 benchmark engineering 方面的核心工作。",
       },
@@ -13,7 +13,7 @@ export const siteProjectsContent = {
         name: "ClinicaLLM-OmniBench-EN",
         url: "https://github.com/billzi2016/ClinicaLLM-OmniBench-EN",
         language: "Python",
-        updated: "2026-06-04",
+        updated: "2026-01-25",
         noteEn: "The English-facing companion version of ClinicaLLM-OmniBench, preserving the same Python evaluation framework, benchmark structure, and model integration flow. It highlights benchmark design, dataset organization, inference consistency, and reporting logic in a form that is easier to read for an international technical audience.",
         noteZh: "这是 ClinicaLLM-OmniBench 的英文公开版，保留相同的 Python 评测框架、benchmark 结构和模型接入流程。它更清楚地展示了数据组织、推理一致性控制和结果汇总逻辑，也让整个项目的技术路线更适合英文技术语境下直接阅读。",
       },
@@ -21,7 +21,7 @@ export const siteProjectsContent = {
         name: "billzi2016",
         url: "https://github.com/billzi2016/billzi2016",
         language: "Markdown",
-        updated: "2026-07-01",
+        updated: "2026-04-03",
         noteEn: "My GitHub profile repository, used as a public-facing index for selected work across compilers, LLM platforms, distributed systems, embedded devices, test-driven development, specification-driven development, and first-principles engineering.",
         noteZh: "这是我的 GitHub Profile 仓库，用作公开展示入口，把编译器、LLM 平台、分布式系统、嵌入式设备、测试驱动开发、规格驱动开发和从第一性原理出发的工程项目组织成统一索引。",
         images: [
@@ -36,7 +36,7 @@ export const siteProjectsContent = {
         name: "LLM-Benchmark-Studio",
         url: "https://github.com/billzi2016/LLM-Benchmark-Studio",
         language: "Python",
-        updated: "2026-06-28",
+        updated: "2026-06-05",
         noteEn: "A local-first LLM benchmark platform built with Django, Vue, PostgreSQL, RabbitMQ, Celery, SSE, and multi-provider model execution. It combines evaluation orchestration, dataset pipelines, runtime control, streaming feedback, and experiment management in one coherent AI infrastructure system.",
         noteZh: "这是一个本地优先的 LLM 基准评测平台，使用 Django、Vue、PostgreSQL、RabbitMQ、Celery、SSE 和多模型 provider 执行链路构建。它把评测编排、数据集流水线、运行时控制、流式反馈和实验管理整合成了一个完整的 AI 基础设施系统。",
         images: [
@@ -51,7 +51,7 @@ export const siteProjectsContent = {
         name: "ai-agentic-arxiv-observer",
         url: "https://github.com/billzi2016/ai-agentic-arxiv-observer",
         language: "Python",
-        updated: "2026-06-14",
+        updated: "2026-02-14",
         noteEn: "An agentic arXiv monitoring pipeline built with Python around scheduled scanning, local LLM summarization, Git-based archival, and long-running workflow automation. The repository emphasizes research intelligence, tool orchestration, and reliable agent-style operations rather than one-shot prompting, making it a strong example of AI automation infrastructure.",
         noteZh: "这是一个基于 Python 的 agentic arXiv 监控流水线，围绕定期扫描、本地大模型摘要、Git 归档和长期运行自动化展开。项目重点不在一次性提示词效果，而在工具编排、科研情报处理和可持续运行的 agent workflow，是一个比较完整的 AI 自动化基础设施项目。",
       },
@@ -59,7 +59,7 @@ export const siteProjectsContent = {
         name: "ReAct-AI-Agent",
         url: "https://github.com/billzi2016/ReAct-AI-Agent",
         language: "Python",
-        updated: "2026-06-08",
+        updated: "2026-07-05",
         noteEn: "A full-stack ReAct AI agent system built with Python, Django, SSE streaming, and Docker sandboxing for algorithmic problem solving. It combines reasoning-and-acting loops, runtime control, safe code execution, phased trace visualization, and web interaction. The project is closer to agent engineering and systems integration than to a simple prompt wrapper.",
         noteZh: "这是一个基于 Python、Django、SSE 和 Docker 沙箱的全栈 ReAct AI Agent 系统，用于算法题求解。项目把 reasoning-and-acting 闭环、运行时控制、安全执行、过程可视化和 Web 交互放在同一个系统里完成，更接近真正的 agent engineering 与 systems integration，而不是简单的提示词封装。",
         images: [
@@ -74,7 +74,7 @@ export const siteProjectsContent = {
         name: "chinapost-internship",
         url: "https://github.com/billzi2016/chinapost-internship",
         language: "Python",
-        updated: "2026-02-01",
+        updated: "2026-02-24",
         noteEn: "A reproduced China Post customer-service intelligent assistant built around Django, django-ninja, SSE streaming, PostgreSQL + pgvector, FAISS, and a swappable LLM backend adapter. It demonstrates a full web/API/RAG workflow for postal-domain dialogue and ticket-generation scenarios while keeping internal internship data and infrastructure out of the public repository.",
         noteZh: "这是中国邮政客服智能助手的公开复现项目，围绕 Django、django-ninja、SSE 流式响应、PostgreSQL + pgvector、FAISS 和可切换的大模型后端适配层构建。项目展示了面向邮政领域对话与工单生成场景的完整 Web/API/RAG 工作流，同时不暴露实习期间的内部数据与基础设施。",
         images: [
@@ -94,7 +94,7 @@ export const siteProjectsContent = {
         name: "AI-Agent",
         url: "https://github.com/billzi2016/AI-Agent",
         language: "Jupyter Notebook",
-        updated: "2026-05-31",
+        updated: "2026-01-27",
         noteEn: "A from-scratch AI coding agent course and implementation series built with Jupyter Notebook and local Ollama models. It decomposes architecture, tool calling, file operations, planning loops, and execution control into explicit modules. The value of this repository is that it turns agent internals into an inspectable engineering system rather than a black-box demo.",
         noteZh: "这是一个基于 Jupyter Notebook 和本地 Ollama 的 AI Coding Agent 从零实现系列，把架构、工具调用、文件操作、规划循环和执行控制逐模块拆开。它的价值在于把 agent 内部机制做成可观察、可讲解、可复现的工程系统，而不是只展示一个黑盒成品。",
       },
@@ -102,7 +102,7 @@ export const siteProjectsContent = {
         name: "Pydantic-AI-Study",
         url: "https://github.com/billzi2016/Pydantic-AI-Study",
         language: "Python",
-        updated: "2026-06-08",
+        updated: "2026-06-17",
         noteEn: "A focused repository on Pydantic-AI, typed tool interfaces, validation pipelines, and agent runtime patterns. It studies how structured outputs, schema enforcement, and tool orchestration can make AI agents more reliable and maintainable. The project is particularly relevant to production-style LLM systems that need stronger contracts than plain text prompting.",
         noteZh: "这是一个聚焦 Pydantic-AI、类型化工具接口、校验流程和 agent runtime 模式的研究仓库。项目重点是结构化输出、schema 约束和工具编排如何提升 AI agent 的可靠性与可维护性，尤其适合需要强约束而不是纯文本提示的生产级 LLM 系统。",
       },
@@ -110,7 +110,7 @@ export const siteProjectsContent = {
         name: "professional-agentic-learning",
         url: "https://github.com/billzi2016/professional-agentic-learning",
         language: "Python",
-        updated: "2026-06-25",
+        updated: "2026-03-25",
         noteEn: "A full-stack AI learning-card system built with Django, Vue, SSE streaming, and multi-provider LLM integration. It combines structured study flows, interactive follow-up, quiz generation, and persistent learning sessions in a polished application layer.",
         noteZh: "这是一个全栈 AI 学习卡片系统，使用 Django、Vue、SSE 流式交互和多模型 provider 集成构建。它把结构化学习流程、交互式追问、题卡生成和持久化学习会话组合成了一个完成度很高的应用层系统。",
         images: [
@@ -135,7 +135,7 @@ export const siteProjectsContent = {
         name: "build-from-scratch",
         url: "https://github.com/billzi2016/build-from-scratch",
         language: "Python",
-        updated: "2026-06-14",
+        updated: "2026-03-19",
         noteEn: "An umbrella repository for from-scratch implementations spanning tokenizers, vision-model reconstruction, and systems-oriented learning modules. The common theme is rebuilding modern AI components in small, readable, testable units. It reflects a hands-on engineering style: understand architectures by implementing kernels, data flow, and interfaces directly.",
         noteZh: "这是一个“从零实现”总仓库，覆盖 tokenizer、视觉模型重构和多种系统型学习模块。它的共同主题是把现代 AI 组件拆成可读、可测、可独立运行的小单元，通过亲手实现核心模块、数据流和接口来真正理解架构本身，而不是停留在调用层。",
       },
@@ -144,7 +144,7 @@ export const siteProjectsContent = {
         url: "https://github.com/billzi2016/DeepChrInteract-v2",
         language: "Python",
         links: [{ url: "https://billzi2016.github.io/DeepChrInteract-v2/", label: "Docs" }],
-        updated: "2026-06-01",
+        updated: "2026-06-18",
         noteEn: "A PyTorch reimplementation and extension for enhancer-promoter interaction prediction in genomics. The repository expands the search space to multiple encoder families and fusion strategies, including Transformer-like and sequence-model variants, and is designed for reproducible comparison. It is a strong research-engineering project at the intersection of bioinformatics, deep learning, and experiment design.",
         noteZh: "这是一个基于 PyTorch 的增强子-启动子互作预测重实现与扩展项目，面向基因组序列建模。仓库系统引入了多类编码器与融合策略，包括 Transformer 类和序列建模变体，并强调可复现实验比较。它既有 bioinformatics 与 deep learning 的研究深度，也能体现我在实验设计和科研工程实现上的能力。",
       },
@@ -152,7 +152,7 @@ export const siteProjectsContent = {
         name: "Apple-Silicon-LLM-Engine-from-Scratch",
         url: "https://github.com/billzi2016/Apple-Silicon-LLM-Engine-from-Scratch",
         language: "Python",
-        updated: "2026-06-06",
+        updated: "2026-03-31",
         noteEn: "A GPT-2 inference engine built from scratch for Apple Silicon, moving across NumPy baselines, PyTorch MPS, and C++/Metal-oriented execution ideas. The repository emphasizes Transformer internals, KV cache behavior, memory layout, and inference-system tradeoffs. It is one of my clearest projects for showing model-systems understanding beyond high-level framework use.",
         noteZh: "这是一个面向 Apple Silicon 的 GPT-2 推理引擎从零实现项目，覆盖 NumPy 基线、PyTorch MPS 到 C++ / Metal 导向的执行思路。项目重点放在 Transformer 内部机制、KV cache、内存布局和推理系统权衡上，是我最能体现 model systems understanding 的仓库之一，而不仅是高层框架调用。",
       },
@@ -160,7 +160,7 @@ export const siteProjectsContent = {
         name: "Build-MCP-Step-by-Step",
         url: "https://github.com/billzi2016/Build-MCP-Step-by-Step",
         language: "Jupyter Notebook",
-        updated: "2026-05-28",
+        updated: "2026-01-22",
         noteEn: "A structured notebook series on MCP systems, covering the path from LLMs and agents to runtime wiring, tool interoperability, and production-style integration. It mixes long-form explanation with runnable minimal implementations, making it useful both as a teaching artifact and as a reference for system integration patterns.",
         noteZh: "这是一个围绕 MCP 系统的结构化 Notebook 系列，从 LLM、Agent 一直讲到 runtime wiring、工具互操作和 production-style integration。它把长文解释和最小可运行实现结合起来，因此既是教学材料，也是我做系统集成和 tool interoperability 时的重要参考仓库。",
       },
@@ -168,7 +168,7 @@ export const siteProjectsContent = {
         name: "Build-DeepSeek-Step-by-Step",
         url: "https://github.com/billzi2016/Build-DeepSeek-Step-by-Step",
         language: "Jupyter Notebook",
-        updated: "2026-05-31",
+        updated: "2026-02-03",
         noteEn: "A notebook project that decomposes modern LLM building blocks into stepwise implementations, including tokenization, embeddings, attention, GQA, MLA, MoE, and related model-system ideas. It is designed to connect paper-level concepts with executable engineering intuition, which makes it a useful bridge between theory and implementation.",
         noteZh: "这是一个把现代 LLM 关键模块拆成逐步实现过程的 Notebook 项目，覆盖 tokenization、embedding、attention、GQA、MLA、MoE 等结构。它的价值在于把论文层面的概念真正落到可执行实现上，因此非常适合展示我在大模型底层机制与工程直觉之间的连接能力。",
       },
@@ -176,7 +176,7 @@ export const siteProjectsContent = {
         name: "GPU-Test-and-Polite-Scheduler",
         url: "https://github.com/billzi2016/GPU-Test-and-Polite-Scheduler",
         language: "Python",
-        updated: "2026-06-01",
+        updated: "2026-06-03",
         noteEn: "A shared-GPU systems toolkit built in Python for environment checks, stress tests, tmux-based job hosting, and polite scheduling on multi-user servers. It addresses a practical infrastructure problem: validating CUDA/GPU health, managing long-running workloads, and resuming jobs responsibly in shared compute environments.",
         noteZh: "这是一个基于 Python 的共享 GPU 系统工具集，覆盖环境检查、压测、tmux 托管和多用户服务器上的礼貌调度。它解决的是很真实的基础设施问题：如何验证 CUDA / GPU 健康状态、管理长任务，并在共享算力环境里更合理地恢复作业。",
       },
@@ -184,7 +184,7 @@ export const siteProjectsContent = {
         name: "GPU-Test-and-Polite-Scheduler-EN",
         url: "https://github.com/billzi2016/GPU-Test-and-Polite-Scheduler-EN",
         language: "Python",
-        updated: "2026-06-01",
+        updated: "2026-07-09",
         noteEn: "The English-facing version of the GPU scheduler toolkit. I keep it to make the same systems work readable for a broader audience and to reduce friction when sharing my infrastructure tooling with non-Chinese collaborators or recruiters.",
         noteZh: "这是 GPU 调度工具的英文公开版，我保留它是为了让同一套基础设施工具能被更广泛的英文读者直接理解。对于海外合作者或招聘方，它能更自然地展示我在研究基础设施和系统工具方面的工程经验。",
       },
@@ -192,7 +192,7 @@ export const siteProjectsContent = {
         name: "midi-react-ai-agent-search",
         url: "https://github.com/billzi2016/midi-react-ai-agent-search",
         language: "Python",
-        updated: "2026-06-10",
+        updated: "2026-06-29",
         noteEn: "A natural-language search system over a very large MIDI corpus, powered by a ReAct-style local AI agent. The project combines retrieval, metadata indexing, query interpretation, and interactive search over millions of files. It shows how agent-style reasoning can be applied to domain-specific search systems beyond standard coding or QA demos.",
         noteZh: "这是一个面向超大 MIDI 语料的自然语言搜索系统，底层接入了 ReAct 风格的本地 AI agent。项目把检索、元数据索引、查询理解和交互式搜索整合到数百万文件级别的数据域中，说明我会把 agent reasoning 用到更偏系统和垂直场景的搜索问题里。",
       },
@@ -200,7 +200,7 @@ export const siteProjectsContent = {
         name: "LLM-Gap-Tracker",
         url: "https://github.com/billzi2016/LLM-Gap-Tracker",
         language: "Python",
-        updated: "2026-05-30",
+        updated: "2026-06-02",
         noteEn: "A public-data tracking system for comparing Chinese and US LLM ecosystems across capability, pricing, context window, multimodality, and ecosystem signals. The repository combines data collection, normalization, analysis, and visualization, making it a strong example of model-landscape analytics rather than only model implementation work.",
         noteZh: "这是一个用公开数据追踪中美 LLM 生态差距的项目，覆盖能力、价格、上下文窗口、多模态和生态指标的采集、标准化、分析与可视化。它体现的不是单个模型训练本身，而是我对 model landscape analytics、数据整理和趋势比较的系统化能力。",
       },
@@ -208,7 +208,7 @@ export const siteProjectsContent = {
         name: "gpt-oss",
         url: "https://github.com/billzi2016/gpt-oss",
         language: "Python",
-        updated: "2026-05-27",
+        updated: "2026-03-27",
         noteEn: "A practical repository for experimenting with OpenAI open-weight models, local deployment assumptions, and usage patterns around open model releases. It focuses on how model packaging, runtime choices, and integration paths affect actual workflows, rather than treating open weights as a purely academic announcement.",
         noteZh: "这是一个围绕 OpenAI 开源权重模型做实验的实战仓库，重点在本地部署假设、运行时选择以及真实使用路径。它更关注模型包装形式和集成方式如何影响实际工作流，而不是把开源权重只当成一个概念性发布事件来看待。",
       },
@@ -216,7 +216,7 @@ export const siteProjectsContent = {
         name: "DeepChrInteract",
         url: "https://github.com/billzi2016/DeepChrInteract",
         language: "Python",
-        updated: "2026-06-01",
+        updated: "2026-06-09",
         noteEn: "A foundational reference repository tied directly to my biomedical sequence-modeling work on enhancer-promoter interaction prediction. It preserves the original setup and serves as an important baseline for later PyTorch reproduction and extension work, making it a key anchor point in my genomics and medical AI project line.",
         noteZh: "这是一个与我生物医学序列建模工作直接相关的基础参考仓库，围绕增强子-启动子互作预测展开。它保留了原始问题设置，也为后续 PyTorch 重实现与扩展提供了重要基线，因此在我的 genomics 与 medical AI 项目脉络里是关键锚点。",
       },
@@ -224,7 +224,7 @@ export const siteProjectsContent = {
         name: "Megatron-LM",
         url: "https://github.com/billzi2016/Megatron-LM",
         language: "Python",
-        updated: "2026-06-04",
+        updated: "2026-04-02",
         noteEn: "A repository around large-scale Transformer training and distributed systems concerns. I use it to study training topology, parallelism strategy, optimizer behavior, and throughput-oriented engineering decisions. Its value in my portfolio comes from the systems perspective on scaling rather than from claiming authorship of the original framework.",
         noteZh: "这是一个围绕大规模 Transformer 训练与分布式系统问题展开的仓库。我主要借它研究训练拓扑、并行策略、优化器行为和吞吐导向的工程决策。它在我的项目体系里的价值，更多来自对 scaling systems 的理解，而不是对原始框架本身的占有。",
       },
@@ -232,7 +232,7 @@ export const siteProjectsContent = {
         name: "foundation-model-analysis",
         url: "https://github.com/billzi2016/foundation-model-analysis",
         language: "Jupyter Notebook",
-        updated: "2026-05-27",
+        updated: "2026-01-16",
         noteEn: "An analysis-oriented notebook repository on vision foundation models, multimodal architectures, and self-supervised representation learning. It focuses on model structure, token/feature behavior, and implementation interpretation rather than only benchmark scores. This makes it useful for connecting papers to concrete engineering choices.",
         noteZh: "这是一个围绕视觉基础模型、多模态结构和自监督表示学习的分析型 Notebook 仓库。项目重点在模型结构、token / feature 行为和实现细节解释，而不是只看 benchmark 分数，因此很适合把论文阅读真正转化成工程理解。",
       },
@@ -240,7 +240,7 @@ export const siteProjectsContent = {
         name: "ai-agent-practice-playbook",
         url: "https://github.com/billzi2016/ai-agent-practice-playbook",
         language: "Jupyter Notebook",
-        updated: "2026-05-17",
+        updated: "2026-02-26",
         noteEn: "A playbook-style notebook repository for recurring agent patterns, workflow lessons, and reusable engineering practices. It records task decomposition, validation strategies, and day-to-day AI collaboration techniques. The repository is useful as a systems-thinking artifact around agents rather than as a single monolithic application.",
         noteZh: "这是一个偏 playbook 风格的 agent 实践仓库，用来沉淀常见模式、工作流经验和可复用工程方法。内容围绕任务拆解、验证策略和日常 AI 协作技巧展开，更像一份关于 agent systems thinking 的持续积累，而不是单一大应用。",
       },
@@ -250,6 +250,7 @@ export const siteProjectsContent = {
         language: "HTML",
         noteEn: "The repository for this bilingual personal website, built as a static multi-page front-end system with JavaScript-driven content rendering, theme/language switching, interactive canvas backgrounds, and a local MIDI player. Beyond presentation, it reflects front-end architecture, information design, UI state management, and content-organization decisions in a real deployable site.",
         noteZh: "这是当前这个双语个人网站本身的仓库，作为静态多页面前端系统实现，包含 JavaScript 驱动内容渲染、主题与语言切换、Canvas 背景交互和本地 MIDI 播放器。它不只是展示页面，也体现了前端架构、信息设计、UI 状态管理和真实可部署站点中的内容组织能力。",
+        updated: "2026-06-12",
       },
       "Study": {
         name: "Study",
@@ -257,6 +258,7 @@ export const siteProjectsContent = {
         language: "none",
         noteEn: "A general-purpose study repository that aggregates technical notes, exploratory experiments, and smaller prototypes across algorithms, systems, and AI topics. Repositories like this are valuable because they preserve the intermediate reasoning, comparative testing, and design drafts that often become the seeds of later production-grade projects.",
         noteZh: "这是一个通用型学习仓库，用来汇总算法、系统和 AI 方向的技术笔记、探索性实验与小型原型。它的价值在于保留了很多中间推导、对比测试和设计草稿，而这些内容往往会演化成后续更完整、更工程化的正式项目。",
+        updated: "2026-06-27",
       },
       "vlm-hybrid-gallery": {
         name: "vlm-hybrid-gallery",
@@ -271,12 +273,13 @@ export const siteProjectsContent = {
             captionZh: "VLM 混合图库界面",
           },
         ],
+        updated: "2026-02-06",
       },
       "FlashcardsAPP": {
         name: "FlashcardsAPP",
         url: "https://github.com/billzi2016/FlashcardsAPP",
         language: "Python",
-        updated: "2026-07-01",
+        updated: "2026-05-14",
         noteEn: "An AI flashcards application built with Django, Vue, PostgreSQL, and Ollama. It supports study-card generation, follow-up learning chat, question interactions, and session-based review in a complete full-stack learning workflow.",
         noteZh: "这是一个使用 Django、Vue、PostgreSQL 和 Ollama 构建的 AI 闪卡应用，支持学习卡片生成、追问式学习对话、题目交互和会话化复习，是一个完成度很高的全栈学习工作流项目。",
         images: [
@@ -303,6 +306,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A graphical RPN scientific calculator built in C++ around ATmega2560, LCD2004, ST7920 12864, a matrix keyboard, and persistent storage. The project combines embedded firmware design, display pipeline control, input ergonomics, math-expression handling, and device-oriented UI architecture, making it a substantial MCU systems project rather than a toy calculator demo.",
         noteZh: "这是一个基于 ATmega2560、LCD2004、ST7920 12864 和矩阵键盘的图形化 RPN 科学计算器项目，主要使用 C++ 实现。项目同时处理嵌入式固件设计、显示管线控制、输入效率、数学表达式处理和真机 UI 架构，因此它不是玩具级计算器，而是一个比较完整的 MCU 系统工程项目。",
+        updated: "2026-01-24",
       },
       "ATMega328p-RPN-Scientific-Calculator": {
         name: "ATMega328p-RPN-Scientific-Calculator",
@@ -310,6 +314,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A compact embedded RPN scientific calculator implemented in C++ on Arduino-class hardware. Compared with the graphical ATmega2560 version, this repository focuses more on resource-constrained firmware structure, stack-machine style input logic, display control, and building a maintainable calculator core under tighter MCU limits.",
         noteZh: "这是一个运行在 Arduino 级别硬件上的嵌入式 RPN 科学计算器，主要使用 C++ 实现。相比图形化的 ATmega2560 版本，它更强调资源受限条件下的固件结构、栈式输入逻辑、显示控制以及如何在更紧的 MCU 约束内做出可维护的计算器核心。",
+        updated: "2026-02-11",
       },
       "ATmega2560-LCD12864-Game-Of-Life": {
         name: "ATmega2560-LCD12864-Game-Of-Life",
@@ -317,6 +322,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "An embedded Conway's Game of Life implementation on ATmega2560 with LCD12864 graphics output, keypad interaction, and save/load support. Although compact in scope, it exercises framebuffer-style drawing, state-transition logic, storage management, and event-driven control on resource-constrained hardware.",
         noteZh: "这是一个运行在 ATmega2560 上的生命游戏项目，配合 LCD12864 图形输出、键盘交互和存读档功能。它虽然题材紧凑，但实际覆盖了类 framebuffer 绘制、状态转移逻辑、存储管理和事件驱动控制等一系列资源受限硬件上的核心问题。",
+        updated: "2026-01-15",
       },
       "Homemade-Tiny-OS": {
         name: "Homemade-Tiny-OS",
@@ -324,6 +330,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A user-space tiny operating-system simulator in Python with virtual disks, file-system structures, process scheduling, persistence, and shell-like behavior. The project is deliberately systems-oriented: instead of imitating a fake kernel visually, it focuses on state models, storage semantics, scheduling logic, and testable module boundaries.",
         noteZh: "这是一个用 Python 实现的用户态微型操作系统仿真器，包含虚拟磁盘、文件系统、进程调度、持久化和 shell 行为。项目的重点是系统语义本身：状态模型、存储结构、调度逻辑和可测试的模块边界，而不是只做一个视觉上像操作系统的演示外壳。",
+        updated: "2026-04-28",
       },
       "bignum-from-scratch": {
         name: "bignum-from-scratch",
@@ -331,6 +338,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A high-precision arithmetic library that implements BigInt and BigFloat from scratch in Python without relying on decimal/fractions/mpmath. The repository covers internal number representation, carry/borrow propagation, precision control, and arithmetic API design, making it a concise but technically honest numerical-software project.",
         noteZh: "这是一个从零实现高精度大数运算的仓库，使用 Python 手工实现 BigInt 与 BigFloat，并明确不依赖 decimal、fractions、mpmath 等现成高精度工具。项目覆盖内部数值表示、进位 / 借位传播、精度控制和数学 API 设计，是一个规模不大但技术上非常扎实的 numerical software 项目。",
+        updated: "2026-05-19",
       },
       "Homemade-CPython": {
         name: "Homemade-CPython",
@@ -338,6 +346,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "An AI-assisted long-horizon Python implementation project for reconstructing the core path from source code to `.pyc` artifacts and simplified virtual-machine execution. It touches tokenization, parsing, bytecode-oriented compilation ideas, and runtime behavior, with an emphasis on stable, testable compiler/runtime engineering rather than a throwaway interpreter demo.",
         noteZh: "这是一个 AI 辅助实现的长期 Python 项目，目标是重建从源码到 `.pyc` 产物以及简化虚拟机执行的核心路径。项目涉及词法分析、语法处理、面向字节码的编译思路和运行时行为，重点在稳定、可测试、可演进的 compiler / runtime engineering，而不是一次性的解释器演示。",
+        updated: "2026-04-14",
       },
       "Reverse-Polish-Notation-Calculator": {
         name: "Reverse-Polish-Notation-Calculator",
@@ -345,6 +354,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A scientific calculator project that converts infix expressions into RPN and renders expression trees as images. It is a nice bridge between parsing, syntax trees, symbolic structure, and user-facing visualization, so it reads well for both software and education audiences.",
         noteZh: "这是一个将中缀表达式转换为逆波兰表达式并可视化 AST 的科学计算器项目。它把解析、语法树、表达式结构和可视化展示结合起来，因此既适合作为软件实现项目，也很适合作为算法与编译基础的教学示例。",
+        updated: "2026-04-25",
       },
       "Apple-Silicon-Profiler": {
         name: "Apple-Silicon-Profiler",
@@ -359,6 +369,7 @@ export const siteProjectsContent = {
             captionZh: "Dashboard",
           },
         ],
+        updated: "2026-03-09",
       },
       "Visual-Basic-Core-Compiler": {
         name: "Visual-Basic-Core-Compiler",
@@ -366,6 +377,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "An AI-assisted Python implementation of a core Visual Basic compiler pipeline covering lexical analysis, AST construction, semantic checking, IR generation, and emission to portable C. It is a language-systems project that demonstrates compiler architecture, translation pipelines, and program-analysis thinking beyond the usual AI-centered repository set.",
         noteZh: "这是一个 AI 辅助实现的 Visual Basic 核心编译器项目，主要使用 Python，覆盖词法分析、AST 构建、语义检查、IR 生成和可移植 C 输出。它是一个很典型的 language systems 项目，能够展示我在 compiler architecture、translation pipeline 和 program analysis 方面的系统思考，而不只停留在 AI 方向。",
+        updated: "2026-02-05",
       },
       "Self-Hosting-C-Core-Compiler": {
         name: "Self-Hosting-C-Core-Compiler",
@@ -373,6 +385,7 @@ export const siteProjectsContent = {
         language: "C",
         noteEn: "An AI-assisted self-hosting C-subset compiler project whose goal is bootstrapping: compile its own compiler source and gradually reduce dependence on the original Python implementation. It brings together parsing, IR/code generation, toolchain interfacing, and bootstrap-chain design, making it one of the strongest low-level software-engineering projects in the portfolio.",
         noteZh: "这是一个 AI 辅助实现的自举式 C 子集编译器项目，希望通过编译自己的编译器源码，逐步摆脱最初的 Python 实现。项目把 parsing、IR / code generation、工具链接口以及 bootstrap chain 设计放在一起，是我作品集中很强的低层软件工程项目之一。",
+        updated: "2026-05-23",
       },
       "SDD-Industry-Standard": {
         name: "SDD-Industry-Standard",
@@ -380,6 +393,7 @@ export const siteProjectsContent = {
         language: "none",
         noteEn: "A methodology repository collecting my thoughts on specification-driven development. While it is document-heavy rather than code-heavy, it matters because it reflects how I think about specs, ownership, implementation discipline, and the relationship between product intent and code structure.",
         noteZh: "这是一个围绕规格驱动开发整理的方法论仓库，更多是文档和思考，不是传统代码项目。它的重要性在于能直接体现我如何理解 spec、责任边界、实现纪律，以及产品目标与代码结构之间的关系。",
+        updated: "2026-05-05",
       },
       "label-studio": {
         name: "label-studio",
@@ -387,6 +401,7 @@ export const siteProjectsContent = {
         language: "TypeScript",
         noteEn: "A repository connected to multi-type data labeling and annotation workflows. In the context of my portfolio, it is useful as a practical data-engineering and dataset-preparation touchpoint rather than a pure model or algorithm artifact.",
         noteZh: "这是一个与多类型数据标注工作流相关的仓库。放在我的项目体系里，它更偏向数据工程和数据准备侧的能力展示，而不是单纯的模型或算法项目，能补充我在数据闭环方面的实践经验。",
+        updated: "2026-05-20",
       },
       "C-Core-Compiler": {
         name: "C-Core-Compiler",
@@ -395,6 +410,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/C-Core-Compiler/", label: "Docs" }],
         noteEn: "An AI-assisted controlled C-subset compiler implemented in Python with a clear pipeline from tokens to IR and backend C emission. It is a disciplined compiler-engineering repository that emphasizes readability, testing, and maintainability over flashy optimization claims.",
         noteZh: "这是一个 AI 辅助实现的受控 C 子集编译器项目，主要使用 Python，打通了从 Token、AST、IR 到后端 C 输出的链路。它很强调结构清晰、测试完整和易维护性，而不是追求炫技式优化，因此能比较好地体现我的工程严谨度。",
+        updated: "2026-04-09",
       },
       "chaos-algorithms": {
         name: "chaos-algorithms",
@@ -409,6 +425,7 @@ export const siteProjectsContent = {
             captionZh: "洛伦兹吸引子轨迹",
           },
         ],
+        updated: "2026-06-23",
       },
       "cordic-fixedpoint-algorithm": {
         name: "cordic-fixedpoint-algorithm",
@@ -416,6 +433,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A fixed-point CORDIC reference implementation covering circular and hyperbolic modes with integer-only iterative kernels. It is a compact signal-processing and numerical-methods project that connects well with my hardware and embedded background.",
         noteZh: "这是一个基于定点数的 CORDIC 算法参考实现，覆盖圆周和双曲两种模式，并坚持整数迭代核。它是一个小而扎实的信号处理与数值方法项目，也和我本来的硬件、嵌入式背景衔接得很自然。",
+        updated: "2026-05-08",
       },
       "Autograd-Compiler-Engine": {
         name: "Autograd-Compiler-Engine",
@@ -450,6 +468,7 @@ export const siteProjectsContent = {
             captionZh: "综合计算图",
           },
         ],
+        updated: "2026-03-10",
       },
       "Automatic-Differentiation-From-Scratch": {
         name: "Automatic-Differentiation-From-Scratch",
@@ -457,6 +476,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A pure-Python automatic-differentiation implementation using only minimal numerical support. Compared with ACE, it is more educational and stripped down, making it useful for showing how I simplify complex ML concepts into small, teachable building blocks.",
         noteZh: "这是一个更纯粹、更教学化的自动微分从零实现项目，只依赖最小的数值支持。和更工程化的 ACE 相比，它更适合展示我如何把复杂的机器学习机制拆成可讲解、可复现的小模块。",
+        updated: "2026-03-15",
       },
       "Smart-Huffman-Archiver": {
         name: "Smart-Huffman-Archiver",
@@ -464,6 +484,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A prototype-grade adaptive Huffman archiver with custom binary packaging, streaming compression ideas, and support for multi-file directory structures. It stands out because it treats a classic algorithm as a full engineering artifact instead of a classroom-only coding exercise.",
         noteZh: "这是一个带自定义二进制封装和流式压缩思路的自适应霍夫曼归档器原型。它比较特别的地方在于，我不是把霍夫曼编码当作课堂题，而是把它做成了一个真正有归档结构、格式设计和工程边界的完整软件项目。",
+        updated: "2026-04-12",
       },
       "DTMF-Encod-Decode": {
         name: "DTMF-Encod-Decode",
@@ -471,6 +492,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A DTMF encoder/decoder that generates and analyzes dual-tone telephone signals. It is a compact signal-processing project with direct value for communications understanding and also shows my comfort with lower-level numerical/audio handling work.",
         noteZh: "这是一个 DTMF 双音多频编码与解码项目，可以生成和解析电话按键信号。它虽然规模不大，但很适合展示我在通信信号、数值处理和底层音频分析方面的基础能力。",
+        updated: "2026-04-22",
       },
       "backup-utils": {
         name: "backup-utils",
@@ -478,6 +500,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A set of robust backup scripts for exFAT-to-APFS workflows with error skipping and logging. Projects like this matter because they reveal how I solve real operational problems pragmatically, not only how I build academic or AI-focused systems.",
         noteZh: "这是一个面向 exFAT 到 APFS 备份场景的脚本工具集，重点在于容错、跳过坏文件和完整日志记录。它很能说明我不仅做科研和 AI，也会很务实地解决日常系统运维与数据安全中的真实问题。",
+        updated: "2026-06-11",
       },
       "Arduino-Wired-Telegraph": {
         name: "Arduino-Wired-Telegraph",
@@ -485,6 +508,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A single-wire half-duplex Morse telegraph built on paired Arduino boards with symmetric design, bus arbitration, ACK handling, and retransmission logic. It is a small but elegant communication-systems project that shows protocol thinking on simple hardware.",
         noteZh: "这是一个基于两块 Arduino 的单线半双工莫尔斯电报机项目，包含对称设计、总线仲裁、ACK 确认和重传逻辑。虽然硬件简单，但它很能体现我在通信协议、可靠性和小系统设计方面的思考。",
+        updated: "2026-05-10",
       },
       "RS485-Modbus-Concrete-Sensor-Monitor": {
         name: "RS485-Modbus-Concrete-Sensor-Monitor",
@@ -499,6 +523,7 @@ export const siteProjectsContent = {
             captionZh: "Platform demo",
           },
         ],
+        updated: "2026-01-31",
       },
       "Custom-Style-AI-Chat": {
         name: "Custom-Style-AI-Chat",
@@ -506,6 +531,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A local AI chat application with personality switching, streaming responses, and markdown/code rendering. It is a good example of translating LLM capabilities into a user-facing product experience with persistence and interaction rather than only an API demo.",
         noteZh: "这是一个支持人格切换、流式输出和 Markdown / 代码渲染的本地 AI 聊天应用。它适合展示我如何把 LLM 能力真正做成面向用户的产品体验，而不是停留在单纯的接口调用演示。",
+        updated: "2026-04-05",
       },
       "Prime-Sieve-Algorithms": {
         name: "Prime-Sieve-Algorithms",
@@ -513,6 +539,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A repository dedicated to prime sieves, primality tests, and performance comparison under a unified knowledge structure. It is algorithmically simple to describe, but it reflects the way I package mathematical ideas into reusable, well-documented software artifacts.",
         noteZh: "这是一个围绕素数筛法、素性判定和性能比较展开的算法仓库。虽然题材本身不如大模型那么热门，但它很好地体现了我如何把数学概念整理成统一、可复用、文档清晰的软件项目。",
+        updated: "2026-03-30",
       },
       "z3": {
         name: "z3",
@@ -520,6 +547,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A repository connected to the Z3 theorem prover, useful in my portfolio as a symbolic reasoning and formal methods touchpoint. Even when used mainly for study or experimentation, it broadens the range of systems and reasoning tools I am comfortable exploring.",
         noteZh: "这是一个与 Z3 定理证明器相关的仓库，在我的项目体系里更像形式化方法和符号推理方向的触点。即便主要用于学习和实验，它也说明我愿意接触并理解比常规应用开发更偏严谨推理工具链的东西。",
+        updated: "2026-03-21",
       },
       "Four-Color-Theorem": {
         name: "Four-Color-Theorem",
@@ -527,6 +555,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A Python demonstration of the main ideas behind the Appel-Haken style proof of the Four Color Theorem. It is less about claiming a new theorem result and more about turning a mathematically historic proof strategy into a readable computational teaching artifact.",
         noteZh: "这是一个用 Python 演示四色定理核心思想的项目，围绕放电法、可归约性和 Kempe 链展开。它的价值不在于提出新定理，而在于把历史上很重要的计算机辅助证明思路转化成可读、可运行的教学型计算项目。",
+        updated: "2026-02-18",
       },
       "LCD12864-Dither-TV": {
         name: "LCD12864-Dither-TV",
@@ -534,6 +563,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "An embedded-media experiment that explores dithering and video-like playback on LCD12864 hardware. It is a playful project, but it still requires careful control of display constraints, preprocessing, timing, and hardware-oriented visual output.",
         noteZh: "这是一个在 LCD12864 上做抖动电视效果的嵌入式媒体实验项目。它看起来偏好玩，但实际涉及显示限制、预处理、时序控制和硬件导向的视觉输出，因此也是很典型的“认真做的小系统”类型项目。",
+        updated: "2026-04-08",
       },
       "LCD12864-Bad-Apple": {
         name: "LCD12864-Bad-Apple",
@@ -541,6 +571,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A Bad Apple playback experiment on LCD12864-based hardware. Like the dither-TV project, it uses a familiar media motif to explore real embedded graphics constraints, data preprocessing pipelines, and device-oriented rendering strategies.",
         noteZh: "这是一个在 LCD12864 硬件上播放 Bad Apple 的实验项目。和 Dither TV 类似，它借助一个大家熟悉的媒体素材，去认真处理嵌入式图形显示里的现实问题，包括数据预处理、渲染策略和设备约束。",
+        updated: "2026-03-24",
       },
       "python-falling-blocks-ai": {
         name: "python-falling-blocks-ai",
@@ -548,6 +579,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A falling-blocks game AI project implemented with Python and Pygame that includes multiple heuristic and search baselines. It is a beginner-friendly game-AI project and a useful example of making algorithms visually inspectable without relying on copyrighted project branding.",
         noteZh: "这是一个用 Python 和 Pygame 实现的 falling-blocks 游戏 AI 项目，集成了多种启发式与搜索策略。它适合展示我如何把游戏 AI、启发式方法和可视化交互放在一个对初学者也友好的教学型项目里，同时避开版权相关命名。",
+        updated: "2026-05-22",
       },
       "Alphago-Naive": {
         name: "Alphago-Naive",
@@ -555,6 +587,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A deliberately simplified Go AI repository that avoids pretending to fully reproduce AlphaGo Zero. I like it because it is honest about scope: it focuses on clear intermediate systems that help explain policy modeling and search ideas without overclaiming completeness.",
         noteZh: "这是一个有意走“朴素路线”的围棋 AI 项目，并不假装完整复刻 AlphaGo Zero。它的优点在于范围界定很诚实：强调把策略网络和搜索思路讲清楚，而不是用过度承诺掩盖一个其实并未完成的大系统。",
+        updated: "2026-07-02",
       },
       "RomeInADay": {
         name: "RomeInADay",
@@ -562,6 +595,7 @@ export const siteProjectsContent = {
         language: "HTML",
         noteEn: "A project around the Rome16K dataset for urban-scene 3D understanding. It reflects my interest in spatial representation, large-scale scene reasoning, and turning research datasets into a structured engineering playground for experimentation.",
         noteZh: "这是一个围绕 Rome16K 数据集展开的城市场景三维理解项目。它体现了我对空间表示、大规模场景推理以及把研究数据集整理成可实验工程环境的兴趣。",
+        updated: "2026-04-17",
       },
       "Alphafold-V2-Reproduction": {
         name: "Alphafold-V2-Reproduction",
@@ -569,6 +603,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A PyTorch-oriented AlphaFold 2 style engineering reproduction targeting an end-to-end monomer prediction path. It is ambitious and research-heavy, and it demonstrates my willingness to tackle complex bio-AI systems that require both modeling awareness and pipeline orchestration.",
         noteZh: "这是一个面向 AlphaFold 2 风格工程复现的项目，目标是打通单体蛋白的端到端推理链路。它难度很高，也很偏研究工程，能体现我愿意处理复杂生物 AI 系统时那种既懂模型又要管理整条 pipeline 的工作方式。",
+        updated: "2026-03-06",
       },
       "Alphafold-V1-Reproduction": {
         name: "Alphafold-V1-Reproduction",
@@ -576,6 +611,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A PyTorch reproduction effort for the AlphaFold v1/CASP13 route, with an emphasis on covering features, training, inference, structure optimization, and evaluation under a modern engineering layout. It complements the v2 project by showing historical depth as well as technical ambition.",
         noteZh: "这是一个面向 AlphaFold v1 / CASP13 路线的 PyTorch 复现项目，覆盖特征构建、训练、推理、结构优化和评估。它和 v2 项目形成互补，一方面体现了我愿意追溯方法历史，一方面也显示出我处理复杂科研工程的耐心和深度。",
+        updated: "2026-02-20",
       },
       "Metropolitan-Routing-Algorithm": {
         name: "Metropolitan-Routing-Algorithm",
@@ -605,6 +641,7 @@ export const siteProjectsContent = {
             captionZh: "首尔",
           },
         ],
+        updated: "2026-01-19",
       },
       "ESP32-Prometheus-PC-Monitor": {
         name: "ESP32-Prometheus-PC-Monitor",
@@ -612,6 +649,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A hardware observability terminal that bridges Prometheus metrics with an ESP32-driven analog display matrix. This project is especially useful in my portfolio because it sits at the intersection of embedded systems, monitoring infrastructure, and design-oriented physical computing.",
         noteZh: "这是一个把 Prometheus 指标桥接到 ESP32 物理显示终端上的项目，通过模拟表头矩阵把主机状态可视化出来。它很有代表性，因为它正好落在嵌入式、可观测性基础设施和物理计算设计的交叉点上。",
+        updated: "2026-04-29",
       },
       "ESP8266-Token-Counter": {
         name: "ESP8266-Token-Counter",
@@ -619,6 +657,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A physical token-usage display device that maps AI consumption to electromechanical-style output and LCD feedback. It is a creative but practical observability project that turns abstract API usage into something immediately tangible.",
         noteZh: "这是一个把 AI Token 消耗映射成物理仪表、红灯和 LCD 状态显示的项目。它既有创意，也很实用，因为它把抽象的 API 使用量变成了可以直接感知的实体反馈，非常能体现我做“物理化软件指标”的兴趣。",
+        updated: "2026-02-27",
       },
       "ESP8266-Codex-Usage-Monitor": {
         name: "ESP8266-Codex-Usage-Monitor",
@@ -626,6 +665,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A physical telemetry terminal that reads usage data and presents request and token windows on a small LCD display. It is a compact project, but it clearly shows my interest in connecting software analytics with embedded interfaces and low-power edge devices.",
         noteZh: "这是一个读取使用数据并在小型 LCD 上展示请求数和 Token 统计的物理遥测终端。它虽然体量不大，但很直接地体现了我把软件指标、嵌入式界面和低功耗设备结合起来的兴趣和能力。",
+        updated: "2026-07-11",
       },
       "SQLite-Chaos-Tester": {
         name: "SQLite-Chaos-Tester",
@@ -633,6 +673,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A destructive testing and stress framework for SQLite under concurrency, corruption, abnormal termination, and disk/resource pressure. The project is fundamentally about systems reliability: failure modes, crash behavior, recovery semantics, repeatable chaos scenarios, and how storage software behaves under hostile operating conditions.",
         noteZh: "这是一个面向 SQLite 的破坏性测试与压测框架，覆盖并发、数据损坏、异常终止以及磁盘 / 资源压力等极端场景。项目核心其实是 systems reliability：失败模式、崩溃行为、恢复语义、可重复 chaos 场景，以及存储软件在恶劣运行条件下到底会如何表现。",
+        updated: "2026-05-13",
       },
       "speckit": {
         name: "speckit",
@@ -640,6 +681,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A teaching-oriented repository for using SpecKit and spec-driven development in practice. It reflects how I turn workflow preferences and engineering discipline into reusable course-like material instead of keeping them as private habits.",
         noteZh: "这是一个围绕 SpecKit 和规格驱动开发的教学型仓库。它的意义在于，我会把自己的工作流偏好和工程纪律整理成可复用的课程材料，而不是只当成个人习惯留在脑子里。",
+        updated: "2026-05-07",
       },
       "ViT-H": {
         name: "ViT-H",
@@ -647,6 +689,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A training project around ViT-H/14 on CIFAR-10 using more modern acceleration choices such as Flash Attention, bf16, and compiler support. It is a compact vision-training repo that still touches the kind of performance and scaling concerns relevant to serious model work.",
         noteZh: "这是一个在 CIFAR-10 上训练 ViT-H/14 的项目，使用了 Flash Attention、bf16 和编译优化等更现代的训练选择。虽然任务本身不算最大，但它依然涉及模型训练里比较关键的性能和扩展性问题。",
+        updated: "2026-05-17",
       },
       "system-burner": {
         name: "system-burner",
@@ -654,6 +697,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A hardware burn-in and stress-testing project that uses ML workloads to push systems under load. It is useful because it turns abstract 'stress test' ideas into repeatable scripts with meaningful computational behavior rather than synthetic no-op pressure.",
         noteZh: "这是一个用真实机器学习负载做硬件烤机和压力测试的项目。它的价值在于把抽象的“压测”变成可复现、带真实计算行为的脚本，而不是只做一些没有意义的空转压力模拟。",
+        updated: "2026-04-26",
       },
       "Daily-Leetcode": {
         name: "Daily-Leetcode",
@@ -661,6 +705,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A large-scale automation project that generates bilingual LeetCode notes and backdates commits across years of problem history. Beyond interview prep, it is interesting as a content-generation and Git-history simulation pipeline built with repeatability in mind.",
         noteZh: "这是一个大规模自动化项目，会生成双语 LeetCode 题解并回填多年 Git 历史。它的有趣之处不只是刷题，而在于把内容生成、时间戳控制和版本历史模拟做成了一条可重复运行的流水线。",
+        updated: "2026-02-17",
       },
       "whisper-meeting-transcription-translation-and-summary": {
         name: "whisper-meeting-transcription-translation-and-summary",
@@ -668,6 +713,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A local subtitle-generation tool using Apple Silicon-accelerated transcription plus local translation. It is a practical offline media-AI utility and a good example of combining model inference, platform optimization, and user-facing workflow design.",
         noteZh: "这是一个本地字幕生成工具，结合 Apple Silicon 加速转录和本地翻译流程。它是很实用的离线媒体 AI 工具，也能体现我如何把模型推理、平台优化和面向用户的工作流设计组合在一起。",
+        updated: "2026-06-15",
       },
       "system-design-interview": {
         name: "system-design-interview",
@@ -675,6 +721,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "An automated generator for system-design interview questions and solutions using local LLMs. It shows how I package long-form structured reasoning into a repeatable content pipeline rather than only producing one-off answers manually.",
         noteZh: "这是一个用本地大模型自动生成系统设计面试题与完整题解的项目。它能说明我会把结构化长文本推理做成可重复的内容生产流程，而不是只手工生成一次性的答案。",
+        updated: "2026-05-30",
       },
       "MCU-Design-and-Prototypes-Sandbox": {
         name: "MCU-Design-and-Prototypes-Sandbox",
@@ -682,6 +729,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A curated sandbox of MCU and embedded-system prototype ideas spanning sensors, displays, communication, control, and robotics. It acts as a design library for future hardware builds and captures the breadth of my embedded interests beyond any single finished board.",
         noteZh: "这是一个整理 MCU / Arduino / 嵌入式原型方案的沙箱仓库，覆盖传感器、显示、通信、控制和机器人等方向。它更像我的硬件设计库，能够展示我在嵌入式方向的广度，而不只依赖某一个成品板子来代表自己。",
+        updated: "2026-05-25",
       },
       "LLM-AI-Papers": {
         name: "LLM-AI-Papers",
@@ -689,6 +737,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "An automated AI paper-reading agent that tracks arXiv, generates Chinese technical interpretations, and commits them into a personal research knowledge base. It is a strong example of applying local LLMs to knowledge management instead of only chat interfaces.",
         noteZh: "这是一个自动化 AI 论文精读 Agent，会追踪 arXiv、生成中文技术解读，并通过 Git 方式沉淀成个人科研知识库。它很好地说明我会把本地 LLM 用在知识管理和长期研究积累上，而不只是做聊天应用。",
+        updated: "2026-06-20",
       },
       "codex-config": {
         name: "codex-config",
@@ -696,6 +745,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A repository for documenting and versioning the rules I use to constrain and guide AI coding agents. While small, it matters because it captures how I think about safety, control surfaces, and human-AI collaboration governance in actual development workflows.",
         noteZh: "这是一个记录我如何约束和引导 AI coding agent 的配置仓库。虽然体量不大，但它很重要，因为它反映了我如何理解安全性、控制面以及真实开发流程里的人机协作治理问题。",
+        updated: "2026-03-28",
       },
       "http-server-from--scratch": {
         name: "http-server-from--scratch",
@@ -703,6 +753,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A notebook-based HTTP server implementation using Python's lower-level networking primitives. It is a foundational systems-learning project that is valuable not because it competes with frameworks, but because it makes protocol handling and server structure explicit.",
         noteZh: "这是一个基于 Notebook 的 HTTP Server 从零实现项目，使用了 Python 的底层网络能力。它的意义不在于替代成熟框架，而在于把协议处理和服务端结构显式地展现出来，是很好的系统基础学习项目。",
+        updated: "2026-01-18",
       },
       "ESP32-Weather-Box": {
         name: "ESP32-Weather-Box",
@@ -710,6 +761,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A weather-box system built around ESP32, MQTT, and Django, covering device firmware, communication, and backend services. It is a representative IoT full-stack project because it spans embedded code, transport protocols, and server-side data flow.",
         noteZh: "这是一个基于 ESP32、MQTT 和 Django 的天气盒子项目，覆盖设备固件、通信链路和后端服务。它是一个很典型的 IoT 全栈项目，因为把嵌入式代码、传输协议和服务器侧数据流完整串在了一起。",
+        updated: "2026-05-28",
       },
       "MRI_Deep_Learning_Projects": {
         name: "MRI_Deep_Learning_Projects",
@@ -717,6 +769,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A repository summarizing multiple deep-learning projects on brain imaging datasets, including classification, regression, self-supervised learning, and interpretability analysis. It connects directly to my long-running medical AI work on neuroimaging and disease-related modeling.",
         noteZh: "这是一个汇总多个脑影像深度学习项目的仓库，覆盖分类、回归、自监督预训练和可解释性分析。它与我长期做的医学 AI、脑影像和疾病相关建模工作直接相连，是我研究经历里非常重要的一条主线。",
+        updated: "2026-04-06",
       },
       "Heuristic-Algorithm": {
         name: "Heuristic-Algorithm",
@@ -724,6 +777,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A teaching-oriented notebook collection on heuristic algorithms with runnable experiments and visualization. It is useful because it shows my habit of presenting algorithms with structure, experiments, and explanations instead of leaving them as bare implementations.",
         noteZh: "这是一个面向教学的启发式算法 Notebook 仓库，强调原理、实验和可视化并重。它能反映出我做算法项目时，往往会连同结构化说明和实验设计一起整理，而不是只留一份裸代码实现。",
+        updated: "2026-02-21",
       },
       "openai-gym-reinforcement-learning-lab": {
         name: "openai-gym-reinforcement-learning-lab",
@@ -731,6 +785,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A reinforcement-learning lab built around Gym/Gymnasium tasks, intended as a structured collection of experiments from simple control to more complex settings. It is a broad educational RL workspace rather than a single algorithm claim, which makes it useful for showing range.",
         noteZh: "这是一个围绕 Gym / Gymnasium 任务整理的强化学习实验室，目标是把从基础控制到更复杂环境的一系列实验组织成清晰的学习空间。它更像一个系统性的 RL 工作区，而不是只做单个算法噱头，因此很适合展示能力范围。",
+        updated: "2026-05-04",
       },
       "inverted-pendulum-rl-lab": {
         name: "inverted-pendulum-rl-lab",
@@ -738,6 +793,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A focused reinforcement-learning lab around inverted-pendulum environments, covering methods such as DQN, PPO, DDPG, and SAC. Compared with the broader Gym lab, this repository is more controlled and problem-specific, making it useful for deeper comparative experimentation.",
         noteZh: "这是一个围绕倒立摆环境展开的强化学习实验室，覆盖 DQN、PPO、DDPG 和 SAC 等方法。相比更广泛的 Gym 实验仓库，它更聚焦、更利于做可控对比，因此很适合展示我在单一问题上做系统实验的方式。",
+        updated: "2026-06-14",
       },
       "leetcode-terminator": {
         name: "leetcode-terminator",
@@ -745,6 +801,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A local AI-assisted LeetCode system with translation, solution generation, streaming output, persistent caching, and deployment support. It is noteworthy because it treats coding-practice tooling as a productized LLM application rather than as a thin wrapper around model calls.",
         noteZh: "这是一个本地 AI 辅助 LeetCode 系统，支持翻译、题解生成、流式输出、缓存和部署。它有代表性的地方在于，我把刷题工具做成了一个产品化的 LLM 应用，而不是简单给模型套一层最薄的调用壳。",
+        updated: "2026-01-21",
       },
       "Make-GitHub-Green-Again-Time-Machine-via-Local-AI-Agent-Ollama-VLLM-LangChain": {
         name: "Make-GitHub-Green-Again-Time-Machine-via-Local-AI-Agent-Ollama-VLLM-LangChain",
@@ -752,6 +809,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A time-machine style automation that uses local AI agents to backfill problem-solving history and produce long-range Git contribution patterns. It is both playful and technically interesting because it combines generation pipelines, timestamp control, and local-LLM orchestration.",
         noteZh: "这是一个“时间机器式”的自动化项目，利用本地 AI agent 回填做题历史并生成长时间跨度的 Git 贡献轨迹。它既有趣，也很技术化，因为同时涉及内容生成、时间戳控制和本地 LLM 编排流水线。",
+        updated: "2026-05-11",
       },
       "Daily-Paper-Reading": {
         name: "Daily-Paper-Reading",
@@ -759,6 +817,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A daily paper-screening and analysis workflow that uses local LLMs to generate Chinese technical notes from arXiv candidates. It complements my other paper projects by focusing on day-to-day research digestion rather than building a larger archival system.",
         noteZh: "这是一个每日筛选并分析论文的工作流，会用本地大模型把 arXiv 候选论文整理成中文技术笔记。它和我其他论文项目形成互补，更偏向日常科研吸收，而不是更大的长期归档系统。",
+        updated: "2026-03-07",
       },
       "RL-MCTS-gomoku-zero-11x11": {
         name: "RL-MCTS-gomoku-zero-11x11",
@@ -766,6 +825,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A Gomoku self-play training system using AlphaGo Zero style MCTS and policy-value learning. It is useful as a reinforcement-learning and game-search project that connects planning, self-play data generation, and iterative training loops in a recognizable research format.",
         noteZh: "这是一个五子棋自博弈训练系统，采用 AlphaGo Zero 风格的 MCTS 与策略价值网络训练。它是很典型的强化学习和博弈搜索项目，把规划、自博弈数据生成和迭代训练闭环串成了比较标准的研究工程结构。",
+        updated: "2026-03-03",
       },
       "django-with-speckit": {
         name: "django-with-speckit",
@@ -773,6 +833,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A Django demo project integrated with SpecKit ideas, featuring student-management operations and an AI assistant flow. It is small, but it concretely demonstrates how specification-driven workflows can shape a normal web application rather than only a theoretical methodology repo.",
         noteZh: "这是一个把 SpecKit 思路应用到 Django 小项目里的示例，包含学生管理和 AI 助手操作流程。它虽然不大，但很具体地说明了规格驱动开发并不只是一套理论，而是可以真正落到普通 Web 应用结构里的。",
+        updated: "2026-05-02",
       },
       "ai-agent-reflection": {
         name: "ai-agent-reflection",
@@ -780,6 +841,7 @@ export const siteProjectsContent = {
         language: "none",
         noteEn: "A repository for reflecting on the behavior, strengths, and tradeoffs of different AI coding agents. It is helpful as a meta-engineering artifact: instead of only using tools, I also document how they differ and what kind of collaboration patterns they encourage.",
         noteZh: "这是一个记录不同 AI coding agent 使用体验和差异的仓库。它的意义在于，我不只“使用工具”，还会把工具之间的能力边界、优缺点和协作模式系统记录下来，形成面向实践的元工程观察。",
+        updated: "2026-05-16",
       },
       "gomoku-minimax-engine": {
         name: "gomoku-minimax-engine",
@@ -787,6 +849,7 @@ export const siteProjectsContent = {
         language: "Shell",
         noteEn: "A Gomoku engine project built around minimax search and automated game export. It is a smaller search-oriented companion to the RL/MCTS work and shows that I am comfortable with both classical deterministic game search and learning-based approaches.",
         noteZh: "这是一个围绕 minimax 搜索构建的五子棋引擎项目，还支持自动对局导出。它可以看作 RL / MCTS 路线之外的经典搜索补充，说明我对博弈问题既能做学习式方法，也能做传统确定性搜索。",
+        updated: "2026-06-26",
       },
       "MIMO-FMCW-Radar-Simulator-Multiprocess": {
         name: "MIMO-FMCW-Radar-Simulator-Multiprocess",
@@ -827,6 +890,7 @@ export const siteProjectsContent = {
             captionZh: "Range-Chirp Heatmap",
           },
         ],
+        updated: "2026-03-16",
       },
       "automl-autodl": {
         name: "automl-autodl",
@@ -834,6 +898,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A tabular risk-modeling workspace that combines classical machine learning and deep learning around a unified preprocessing pipeline. It is useful as an example of practical ML engineering on structured data rather than only vision or language benchmarks.",
         noteZh: "这是一个围绕表格风险建模构建的工作区，把传统机器学习和深度学习整合在统一预处理流水线下。它能补充展示我在结构化数据上的 ML 工程能力，而不只是视觉或语言方向的项目经验。",
+        updated: "2026-07-08",
       },
       "mmwave-fmcw-cascade-mimo-sensing-platform": {
         name: "mmwave-fmcw-cascade-mimo-sensing-platform",
@@ -842,6 +907,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/mmwave-fmcw-cascade-mimo-sensing-platform/", label: "Docs" }],
         noteEn: "A repository centered on mmWave FMCW cascade MIMO sensing experiments. Even when not packaged as a polished public framework, it represents the sensing-systems and radar-processing line of work that has been central to my Purdue research experience.",
         noteZh: "这是一个围绕毫米波 FMCW 级联 MIMO 感知实验展开的仓库。即便它未必像通用框架那样包装完善，它依然代表了我在普渡研究中很核心的一条主线：感知系统、雷达处理和安全相关实验。",
+        updated: "2026-04-20",
       },
       "intelligent-esp32-drone-racing-gate-system": {
         name: "intelligent-esp32-drone-racing-gate-system",
@@ -849,6 +915,7 @@ export const siteProjectsContent = {
         language: "C++",
         noteEn: "A large-scale ESP32-based intelligent racing-gate control system for drones or RC vehicles, built around centralized wireless networking and event timing. It is one of the more ambitious embedded/networking concepts in the portfolio because it combines distributed nodes, synchronization, telemetry, and control logic.",
         noteZh: "这是一个基于 ESP32 的无人机 / 遥控赛车智能穿越环控制系统，围绕集中式无线网络、事件计时和联动控制展开。它是我嵌入式和网络项目里较为 ambitious 的一类，因为同时涉及分布式节点、同步、遥测和控制逻辑。",
+        updated: "2026-02-15",
       },
       "immersive-vr-xr-security-telemetry-platform": {
         name: "immersive-vr-xr-security-telemetry-platform",
@@ -856,6 +923,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A workspace around immersive VR/XR security and telemetry ideas. Even if still exploratory, it shows my willingness to look beyond conventional web or model tooling and think about sensing, interaction, and security in more complex real-world environments.",
         noteZh: "这是一个围绕沉浸式 VR/XR 安全与遥测展开的工作区。即使仍带有探索性质，它也说明我愿意把问题扩展到更复杂的真实环境中，去思考感知、交互和安全之间的结合，而不只停留在常规 Web 或模型工具上。",
+        updated: "2026-03-01",
       },
       "mmlock-fmcw-radar-deep-security": {
         name: "mmlock-fmcw-radar-deep-security",
@@ -864,6 +932,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/mmlock-fmcw-radar-deep-security/", label: "Docs" }],
         noteEn: "A repository around mmWave radar sensing for security scenarios, especially user-leaving detection and data-protection contexts. It is important in my portfolio because it connects directly to my radar-security research line and to physical attack/defense thinking in sensing systems.",
         noteZh: "这是一个围绕毫米波雷达安全场景展开的仓库，聚焦用户离开检测、数据防护和感知系统安全。它和我的雷达安全研究线直接相连，也很能体现我如何把物理世界中的攻击 / 防御思维引入感知模型系统。",
+        updated: "2026-06-08",
       },
       "advanced-sorting-algorithms": {
         name: "advanced-sorting-algorithms",
@@ -871,6 +940,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A structured sorting-algorithms repository with correctness validation, benchmarks, and contextual notes on stability and complexity. It is a clean example of how I like to package core CS material into reusable and comparable engineering artifacts.",
         noteZh: "这是一个结构化整理排序算法的仓库，包含正确性验证、基准测试以及对稳定性和复杂度的说明。它很好地展示了我如何把计算机科学基础内容组织成可比较、可复用的工程化成果，而不是零散代码片段。",
+        updated: "2026-03-22",
       },
       "advanced-search-data-structures": {
         name: "advanced-search-data-structures",
@@ -878,6 +948,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A repository for search algorithms and data structures that validates lookup semantics and traversal behavior under a unified interface. It is a good foundational CS project and pairs naturally with the sorting repository as part of a broader algorithmic teaching toolkit.",
         noteZh: "这是一个围绕查找算法和搜索数据结构展开的仓库，在统一接口下验证查找语义和遍历行为。它是很好的 CS 基础项目，也和排序算法仓库一起构成了我更完整的算法教学与实现体系。",
+        updated: "2026-02-23",
       },
       "llm-auto-rag-survey": {
         name: "llm-auto-rag-survey",
@@ -885,6 +956,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A literature-discovery and taxonomy pipeline for LLM-, RAG-, and agent-related arXiv papers using embeddings, FAISS, and external classification. It is interesting because it treats survey-building as a systems problem involving retrieval, taxonomy design, and large-context classification.",
         noteZh: "这是一个面向 LLM、RAG 和 Agent 相关论文的文献发现与分类流水线，结合了 embedding、FAISS 检索和更高层的分类步骤。它的特别之处在于，把“做综述”当成一个系统问题来处理，而不仅仅是人工读文献。",
+        updated: "2026-03-18",
       },
       "real-time-yolo-vision-intelligence-lab": {
         name: "real-time-yolo-vision-intelligence-lab",
@@ -892,6 +964,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A notebook collection for real-time vision experiments with YOLO, including static images, live camera streams, and multi-object tracking. It is a useful applied-computer-vision repository that shows I can connect models to live input and operational loops.",
         noteZh: "这是一个围绕 YOLO 的实时视觉实验仓库，覆盖静态图像、摄像头视频流和多目标跟踪。它是比较典型的应用型计算机视觉项目，能体现我不仅会跑模型，还会把模型接到真实输入和持续运行场景里。",
+        updated: "2026-02-12",
       },
       "Batch-MRI-Quality-Control": {
         name: "Batch-MRI-Quality-Control",
@@ -911,6 +984,7 @@ export const siteProjectsContent = {
             captionZh: "Swagger UI",
           },
         ],
+        updated: "2026-02-09",
       },
       "distributed-paxos-raft-lab": {
         name: "distributed-paxos-raft-lab",
@@ -945,6 +1019,7 @@ export const siteProjectsContent = {
             captionZh: "Stopping services",
           },
         ],
+        updated: "2026-03-13",
       },
       "Industrial-Query-Agent": {
         name: "Industrial-Query-Agent",
@@ -959,6 +1034,7 @@ export const siteProjectsContent = {
             captionZh: "Industrial Query Agent Web UI",
           },
         ],
+        updated: "2026-02-02",
       },
       "LLM-SFT-PEFT-Preference-RL-Quantization-Inference-Deployment": {
         name: "LLM-SFT-PEFT-Preference-RL-Quantization-Inference-Deployment",
@@ -966,6 +1042,7 @@ export const siteProjectsContent = {
         language: "Jupyter Notebook",
         noteEn: "A notebook-centered LLM training and deployment study repository covering SFT, LoRA/QLoRA, preference optimization, reward-oriented RL data formats, quantization, inference, and deployment workflows for Qwen2.5-7B-Instruct and gpt-oss-20b.",
         noteZh: "这是一个以 Notebook 为核心的大模型训练与部署学习仓库，覆盖 SFT、LoRA / QLoRA、偏好优化、奖励优化数据格式、量化、推理和部署流程，并围绕 Qwen2.5-7B-Instruct 与 gpt-oss-20b 分成两套实践路线。",
+        updated: "2026-04-16",
       },
       "maze-algorithms": {
         name: "maze-algorithms",
@@ -980,6 +1057,7 @@ export const siteProjectsContent = {
             captionZh: "迷宫算法可视化页面截图",
           },
         ],
+        updated: "2026-04-19",
       },
       "whitebox-ml-dl-algo": {
         name: "whitebox-ml-dl-algo",
@@ -1044,6 +1122,7 @@ export const siteProjectsContent = {
             captionZh: "Optimizer Trajectories Demo",
           },
         ],
+        updated: "2026-01-28",
       },
       "AI-Chat": {
         name: "AI-Chat",
@@ -1051,6 +1130,7 @@ export const siteProjectsContent = {
         language: "HTML",
         noteEn: "A web-facing AI chat interface repository. Compared with the more customized chat projects, this one is useful as a simpler interaction prototype that captures UI ideas, prompt-to-interface wiring, and lightweight deployment-style presentation.",
         noteZh: "这是一个面向网页的 AI 聊天界面仓库。相比更完整的定制化聊天项目，它更像一个轻量级交互原型，用来承载界面想法、提示到界面的连接以及较轻量的部署式展示。",
+        updated: "2026-02-08",
       },
       "AI-Solar-Panel-Defect-Detection-Deployment": {
         name: "AI-Solar-Panel-Defect-Detection-Deployment",
@@ -1081,6 +1161,7 @@ export const siteProjectsContent = {
             captionZh: "PVEL-AD 示例",
           },
         ],
+        updated: "2026-03-12",
       },
       "Gomoku-AI": {
         name: "Gomoku-AI",
@@ -1092,6 +1173,7 @@ export const siteProjectsContent = {
         ],
         noteEn: "A browser-based Rust/Wasm Gomoku AI with search, evaluation, and a public demo plus documentation. It is a compact but polished game-AI project that makes the engine behavior directly inspectable in the browser.",
         noteZh: "这是一个基于 Rust / Wasm 的浏览器五子棋 AI 项目，包含搜索、局面评估、公开演示和文档。它体量紧凑但完成度高，可以直接在浏览器里观察引擎行为。",
+        updated: "2026-06-21",
       },
       "Othello-AI": {
         name: "Othello-AI",
@@ -1103,6 +1185,7 @@ export const siteProjectsContent = {
         ],
         noteEn: "A browser-based Rust/Wasm Othello AI with bitboards, alpha-beta search, exact endgame search, stability-aware evaluation, and Web Worker parallelism. It complements Gomoku-AI as a second polished game-search project with public demo and docs.",
         noteZh: "这是一个基于 Rust / Wasm 的浏览器黑白棋 AI，包含 bitboard、alpha-beta 搜索、精确终局搜索、稳定性评估和 Web Worker 并行。它和 Gomoku-AI 形成一组完成度较高的博弈搜索项目，都有公开演示和文档。",
+        updated: "2026-01-30",
       },
       "4096-expectimax-bitboard": {
         name: "4096-expectimax-bitboard",
@@ -1110,6 +1193,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A 4096 expectimax AI project built around bitboard state encoding, heuristic evaluation, and search optimization. It keeps the project naming and presentation copyright-neutral while preserving the algorithmic value of the puzzle-AI work.",
         noteZh: "这是一个 4096 expectimax AI 项目，围绕 bitboard 状态编码、启发式评估和搜索优化展开。项目命名和展示保持版权中性，同时保留 puzzle AI 的算法价值。",
+        updated: "2026-05-31",
       },
       "guesswho-ai-from-scratch": {
         name: "guesswho-ai-from-scratch",
@@ -1125,6 +1209,7 @@ export const siteProjectsContent = {
             captionZh: "GuessWho AI 演示",
           },
         ],
+        updated: "2026-05-26",
       },
       "Receipt-MLLM-OCR": {
         name: "Receipt-MLLM-OCR",
@@ -1132,6 +1217,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A receipt OCR and multimodal-LLM extraction project for turning messy receipt images into structured information. It fits the practical document-AI line of work around visual parsing, extraction quality, and downstream usability.",
         noteZh: "这是一个面向收据图像的 OCR 与多模态大模型信息抽取项目，用于把杂乱票据图片整理成结构化信息。它属于很实用的 document AI 工作，重点在视觉解析、抽取质量和下游可用性。",
+        updated: "2026-03-04",
       },
       "Deep-Learning-The-Definitive-Guide": {
         name: "Deep-Learning-The-Definitive-Guide",
@@ -1140,6 +1226,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/Deep-Learning-The-Definitive-Guide/", label: "Docs" }],
         noteEn: "A deep-learning guide repository organized as long-form technical notes and runnable notebooks. It serves as a structured knowledge base across model foundations, training practice, and implementation details.",
         noteZh: "这是一个深度学习指南仓库，用长文技术笔记和可运行 Notebook 组织模型基础、训练实践和实现细节，是一个结构化的深度学习知识库。",
+        updated: "2026-06-24",
       },
       "Facial-Recognition": {
         name: "Facial-Recognition",
@@ -1148,6 +1235,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/Facial-Recognition/", label: "Docs" }],
         noteEn: "A facial-recognition project with public documentation, useful as a focused applied-computer-vision repository around identity features, model workflow, and dataset-facing engineering.",
         noteZh: "这是一个带公开文档的人脸识别项目，属于聚焦的应用计算机视觉仓库，覆盖身份特征、模型流程和面向数据集的工程整理。",
+        updated: "2026-07-03",
       },
       "Recommender-Systems": {
         name: "Recommender-Systems",
@@ -1155,6 +1243,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A recommender-systems repository covering classic recommendation workflows, ranking intuition, and experiment organization. It broadens the portfolio beyond vision and language into user-item modeling.",
         noteZh: "这是一个推荐系统仓库，覆盖经典推荐流程、排序直觉和实验组织，能把项目范围从视觉和语言扩展到 user-item 建模。",
+        updated: "2026-05-01",
       },
       "generative-models": {
         name: "generative-models",
@@ -1162,6 +1251,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A generative-models repository for studying and implementing core ideas behind modern generation methods. It is useful as a compact research-learning project around modeling distributions and synthesis workflows.",
         noteZh: "这是一个生成模型学习与实现仓库，用来整理现代生成方法背后的核心思路，重点在分布建模和生成流程。",
+        updated: "2026-07-06",
       },
       "SFCN-age-gender-balanced": {
         name: "SFCN-age-gender-balanced",
@@ -1169,6 +1259,7 @@ export const siteProjectsContent = {
         language: "Python",
         noteEn: "A medical-imaging age and gender modeling project around balanced SFCN-style training. It connects deep-learning implementation with fairness-aware dataset balancing and neuroimaging workflows.",
         noteZh: "这是一个围绕 SFCN 风格训练的人脑影像年龄与性别建模项目，连接了深度学习实现、数据平衡和脑影像工作流。",
+        updated: "2026-04-11",
       },
       "tennis-for-two": {
         name: "tennis-for-two",
@@ -1177,6 +1268,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/tennis-for-two/", label: "Demo" }],
         noteEn: "A browser recreation of the historical Tennis for Two interaction, packaged as a lightweight public demo. It sits in the portfolio as a small but clear interactive/game-history project.",
         noteZh: "这是一个浏览器版 Tennis for Two 交互复现项目，并提供轻量公开演示。它在项目集中属于小而清晰的交互与游戏史向作品。",
+        updated: "2026-06-30",
       },
       "python-git-reproduction": {
         name: "python-git-reproduction",
@@ -1185,6 +1277,7 @@ export const siteProjectsContent = {
         links: [{ url: "https://billzi2016.github.io/python-git-reproduction/", label: "Docs" }],
         noteEn: "A reproducible Python and Git workflow documentation project with MkDocs pages and repository-level maintenance notes. It is useful as a public example of disciplined documentation and repeatable development practice.",
         noteZh: "这是一个围绕 Python 与 Git 可复现工作流的文档项目，包含 MkDocs 页面和仓库级维护说明。它适合作为规范文档与可重复开发实践的公开示例。",
+        updated: "2026-06-06",
       },
     },
     ranked: [
