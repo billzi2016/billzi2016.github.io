@@ -20,7 +20,7 @@
 
 这是一个基于 Astro 的静态学术作品集网站，覆盖研究兴趣、技术技能、项目、论文、经历、教育背景、个人兴趣和一个本地音乐页面。
 
-这个仓库按可部署的静态前端系统维护，而不是一组松散页面。它组合了 Astro 静态生成、Tailwind CSS、组件本地样式、本地资产、Playwright 冒烟测试、Stylelint、Prettier、pnpm 和 GitHub Actions 部署。
+这个仓库按可部署的静态前端系统维护，而不是一组松散页面。它组合了 Astro 静态生成、Tailwind CSS、组件本地样式、本地资产、PhotoSwipe 项目灯箱、Playwright 冒烟测试、Stylelint、Prettier、pnpm 和 GitHub Actions 部署。
 
 项目规范文档记录模块边界、Astro 迁移过程、Tailwind/CSS 策略，以及保持代码库可维护的工程规则。
 
@@ -28,10 +28,10 @@
 
 - 使用 Astro 和 Vite 做静态生成，同时保持适合 GitHub Pages 部署的静态输出。
 - 使用 Tailwind CSS 和按归属拆分的组件样式，把随手堆全局 CSS 的模式整理为共享基础层、工具类和组件自有 CSS。
-- 本地资产治理覆盖图片、音频、MIDI、soundfonts、PDF 和 vendor 浏览器脚本，公开网站避免依赖 CDN。
+- 本地资产治理覆盖图片、音频、MIDI、soundfonts、PDF 和 PhotoSwipe 等 vendor 浏览器脚本，公开网站避免依赖 CDN。
 - MkDocs 维护文档站让仓库架构、维护流程和历史决策可导航、可追溯。
 - README、AGENTS、specs 和 module map 让系统可以被人类和 AI agent 持续维护。
-- Playwright 冒烟测试覆盖语言/主题切换、本地搜索、音乐控制和图片灯箱等脆弱用户交互。
+- Playwright 冒烟测试覆盖语言/主题切换、本地搜索、音乐控制和 PhotoSwipe 图片灯箱等脆弱用户交互。
 - Prettier、Stylelint、Astro check、构建验证、版本里程碑和轻量 trunk-based 开发流程形成质量门禁。
 
 ## 技术栈
@@ -39,8 +39,8 @@
 - Astro + Vite：负责静态路由、layout 组合、打包和 GitHub Pages 输出。
 - Tailwind CSS：处理工具类样式；复杂视觉系统使用组件本地 CSS。
 - TypeScript-enabled Astro check：提供模板和类型诊断。
-- 浏览器运行时模块：负责语言切换、主题切换、页面切换、本地搜索、图片灯箱、动态背景和持久音乐播放。
-- 本地资产：图片、音频、MIDI、soundfonts 和 vendor 脚本全部本地化。
+- 浏览器运行时模块：负责语言切换、主题切换、页面切换、本地搜索、PhotoSwipe 图片灯箱、动态背景和持久音乐播放。
+- 本地资产：图片、音频、MIDI、soundfonts 和 PhotoSwipe vendor 脚本全部本地化。
 - Playwright：覆盖核心页面渲染和脆弱交互的冒烟测试。
 - Prettier + Stylelint：约束格式和 CSS 质量。
 - pnpm + GitHub Actions：负责可复现安装、验证、构建和部署。
@@ -267,7 +267,7 @@ flowchart TD
 - `src/styles/tailwind.css`：Tailwind 入口文件。
 - `src/styles/site/`：共享基础 CSS，由 Astro 通过 `src/styles/site/main.css` 引入。
 - `public/assets/`：本地图片、音频、MIDI、PDF 和资源说明文档。
-- `public/vendor/`：需要浏览器直接加载的第三方资源。
+- `public/vendor/`：需要浏览器直接加载的第三方资源，包括本地化的 PhotoSwipe CSS 和 UMD 脚本。
 - `tools/`：仓库维护脚本，不应该作为站点资产发布。
 - `AGENTS.md`：AI 维护入口和文档阅读顺序。
 
@@ -353,7 +353,7 @@ Astro 使用的内容数据位于：
 - `src/data/generated/musicLibrary.js`
 - `src/data/generated/siteI18n.js`
 
-Astro 会用这些模块渲染可见页面内容和中英文模板。布局层也会内联一个很小的运行时数据对象，用于语言切换、音乐播放连续性、站内搜索、图片灯箱和论文引用按钮。旧的浏览器端整页渲染脚本和重复 public 数据脚本已经移除。
+Astro 会用这些模块渲染可见页面内容和中英文模板。布局层也会内联一个很小的运行时数据对象，用于语言切换、音乐播放连续性、站内搜索、PhotoSwipe 图片灯箱和论文引用按钮。旧的浏览器端整页渲染脚本和重复 public 数据脚本已经移除。
 
 ## 演示图片
 

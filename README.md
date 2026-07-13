@@ -20,7 +20,7 @@ Source code for my personal academic website.
 
 This is an Astro-based static academic portfolio website covering research interests, technical skills, projects, publications, experience, education, personal interests, and a small local music page.
 
-The repository is maintained as a production-quality static frontend system rather than a collection of loose pages. It combines Astro static generation, Tailwind CSS, component-local styling, local assets, Playwright smoke tests, Stylelint, Prettier, pnpm, and GitHub Actions deployment.
+The repository is maintained as a production-quality static frontend system rather than a collection of loose pages. It combines Astro static generation, Tailwind CSS, component-local styling, local assets, PhotoSwipe project lightbox behavior, Playwright smoke tests, Stylelint, Prettier, pnpm, and GitHub Actions deployment.
 
 The project specs document the module boundaries, Astro migration, Tailwind/CSS policy, and engineering rules that keep the codebase maintainable.
 
@@ -28,10 +28,10 @@ This repository demonstrates production-grade frontend maintenance discipline fo
 
 - Static generation with Astro and Vite, while keeping the deployed site as GitHub Pages-friendly static output.
 - Tailwind CSS plus ownership-based component styling, replacing ad-hoc global CSS accumulation with shared foundations, utility classes, and component-owned CSS.
-- Local asset governance for images, audio, MIDI, soundfonts, PDFs, and vendor browser scripts, avoiding CDN dependency for the public site.
+- Local asset governance for images, audio, MIDI, soundfonts, PDFs, and vendor browser scripts such as PhotoSwipe, avoiding CDN dependency for the public site.
 - MkDocs maintenance documentation that makes the repository architecture, workflows, and historical decisions navigable.
 - README, AGENTS, specs, and module maps that make the system maintainable by both humans and AI agents.
-- Playwright smoke tests for fragile user-facing interactions such as language/theme switching, local search, music controls, and image lightbox behavior.
+- Playwright smoke tests for fragile user-facing interactions such as language/theme switching, local search, music controls, and PhotoSwipe image lightbox behavior.
 - Prettier, Stylelint, Astro check, build validation, release tagging, and lightweight trunk-based development.
 
 ## Technical Stack
@@ -39,8 +39,8 @@ This repository demonstrates production-grade frontend maintenance discipline fo
 - Astro + Vite for static routing, layout composition, bundling, and GitHub Pages output.
 - Tailwind CSS for utility styling, with component-local CSS for complex visual systems.
 - TypeScript-enabled Astro checks for template and type diagnostics.
-- Browser runtime modules for language switching, theme switching, page transitions, local search, image lightbox, animated backgrounds, and persistent music playback.
-- Local assets for images, audio, MIDI, soundfonts, and vendor scripts.
+- Browser runtime modules for language switching, theme switching, page transitions, local search, PhotoSwipe image lightbox behavior, animated backgrounds, and persistent music playback.
+- Local assets for images, audio, MIDI, soundfonts, and PhotoSwipe vendor scripts.
 - Playwright smoke tests for core page rendering and fragile interactions.
 - Prettier and Stylelint for formatting and CSS quality gates.
 - pnpm and GitHub Actions for reproducible install, validation, build, and deployment.
@@ -267,7 +267,7 @@ This project does not use Vue or React as the primary framework because the site
 - `src/styles/tailwind.css`: Tailwind entry file.
 - `src/styles/site/`: Shared foundation CSS imported by Astro through `src/styles/site/main.css`.
 - `public/assets/`: Local images, audio, MIDI files, PDF, and asset documentation.
-- `public/vendor/`: Third-party browser assets that are loaded directly.
+- `public/vendor/`: Third-party browser assets that are loaded directly, including localized PhotoSwipe CSS and UMD scripts.
 - `tools/`: Repository maintenance scripts that should not be published as site assets.
 - `AGENTS.md`: AI maintenance entrypoint and reading order.
 
@@ -353,7 +353,7 @@ Content data used by Astro lives under:
 - `src/data/generated/musicLibrary.js`
 - `src/data/generated/siteI18n.js`
 
-Astro renders the visible page content and language templates from these modules. The layout also inlines the small runtime data object needed for language switching, music playback continuity, site search, image lightbox behavior, and publication citation buttons. The old browser-side page renderers and duplicated public data scripts have been removed.
+Astro renders the visible page content and language templates from these modules. The layout also inlines the small runtime data object needed for language switching, music playback continuity, site search, PhotoSwipe image lightbox behavior, and publication citation buttons. The old browser-side page renderers and duplicated public data scripts have been removed.
 
 ## Demo Gallery
 

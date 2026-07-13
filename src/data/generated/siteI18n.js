@@ -19,7 +19,9 @@ export const siteTranslations = {
       footerDocs: "Maintenance Docs",
       footerSource: "Source",
       footerTech:
-        "Custom-Built with Astro, Tailwind CSS, PNPM, MkDocs, Prettier, Stylelint, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
+        "Tech Stack: Astro, Tailwind CSS, PhotoSwipe, pnpm, and MkDocs.",
+      footerQuality:
+        "CI/CD and Quality Gates: Prettier, Stylelint, Playwright, GitHub Actions, and Spec-Driven Development (SDD).",
       footerAvailability: "Local Assets and No CDN Dependency for Stronger Network Availability.",
       footerAi:
         "AI-Friendly Engineering: Complete Specs, Clear Structure, Layered Agent Guidance, and Context-Efficient Maintenance.",
@@ -42,7 +44,9 @@ export const siteTranslations = {
       footerDocs: "维护文档",
       footerSource: "源代码",
       footerTech:
-        "本站使用 Astro、Tailwind CSS、pnpm、MkDocs、Prettier、Stylelint、Playwright、GitHub Actions 和规格驱动开发（SDD）定制构建。",
+        "技术栈：Astro、Tailwind CSS、PhotoSwipe、pnpm 和 MkDocs。",
+      footerQuality:
+        "CI/CD 与质量门禁：Prettier、Stylelint、Playwright、GitHub Actions 和规格驱动开发（SDD）。",
       footerAvailability: "通过本地资产与无 CDN 依赖提高网络可用性。",
       footerAi: "AI 构建友好：规格齐全、结构分明、Agents 分层明确，并尽量节省上下文。",
     },
