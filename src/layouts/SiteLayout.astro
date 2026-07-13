@@ -53,6 +53,7 @@ const runtimeData = JSON.stringify({
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="icon" type="image/png" href="./assets/images/web-icon.png" />
+    <link rel="stylesheet" href="./vendor/photoswipe/photoswipe.css" />
     <script is:inline>
       document.documentElement.classList.add("theme-preload");
       try {
@@ -108,6 +109,7 @@ const runtimeData = JSON.stringify({
     }`}
     />
     <script is:inline src="./vendor/particles/particles.min.js"></script>
+    <script is:inline src="./vendor/photoswipe/photoswipe.umd.min.js"></script>
     <script is:inline src={backgroundsScript}></script>
     <script is:inline src={musicScript}></script>
     <script is:inline src={citationScript}></script>

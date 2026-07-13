@@ -2,99 +2,37 @@
   overflow: hidden;
 }
 
-.project-lightbox {
-  position: fixed;
-  inset: 0;
+.pswp.project-photoswipe {
+  --pswp-bg: rgb(10 14 18);
+
   z-index: 2147483647;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 56px 24px 24px;
-  background: rgb(10 14 18 / 90%);
-  cursor: zoom-out;
-  overflow: hidden;
 }
 
-.project-lightbox-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: calc(100vw - 48px);
-  max-height: calc(100vh - 80px);
-  margin: 0;
-  cursor: auto;
-}
-
-.project-lightbox-content img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: calc(100vh - 112px);
-  object-fit: contain;
+.project-photoswipe .pswp__img {
+  background: rgb(255 255 255 / 96%);
   border-radius: 8px;
-  background: rgb(255 255 255 / 95%);
 }
 
-.project-lightbox-content figcaption {
-  display: block;
-  flex: 0 0 auto;
-  max-width: 100%;
-  margin-top: 12px;
+.pswp__project-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  max-width: min(960px, calc(100% - 48px));
+  padding: 4px 10px;
+  transform: translateX(-50%);
+  border-radius: 999px;
   color: #fff;
-  font-size: 1rem;
+  background: rgb(0 0 0 / 52%);
+  font-size: 0.95rem;
   line-height: 1.4;
   text-align: center;
   overflow-wrap: anywhere;
 }
 
-.project-lightbox-close {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 2147483647;
-  width: 76px;
-  height: 76px;
-  border: 1px solid rgb(255 255 255 / 48%);
-  border-radius: 999px;
-  color: #fff;
-  background: rgb(0 0 0 / 42%);
-  font-size: 3.6rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.project-lightbox-nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 2147483646;
-  width: min(18vw, 160px);
-  border: 0;
-  color: #fff;
-  font-size: 6rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.project-lightbox-prev {
-  left: 0;
-  background: linear-gradient(90deg, rgb(0 0 0 / 46%), rgb(0 0 0 / 0%));
-}
-
-.project-lightbox-next {
-  right: 0;
-  background: linear-gradient(270deg, rgb(0 0 0 / 46%), rgb(0 0 0 / 0%));
-}
-
-.project-lightbox-counter {
-  margin-top: 6px;
-  color: rgb(255 255 255 / 72%);
-  font-size: 0.9rem;
-}
-
-.project-lightbox-close:hover,
-.project-lightbox-close:focus-visible {
-  background: rgb(255 255 255 / 18%);
+@media (width <= 760px) {
+  .pswp__project-caption {
+    bottom: 10px;
+    max-width: calc(100% - 24px);
+    font-size: 0.82rem;
+  }
 }
