@@ -118,6 +118,34 @@ flowchart LR
   Artifact --> PagesDeploy["GitHub Pages deploy"]
 ```
 
+## Trunk-Based Maintenance Contract
+
+Spec and user instructions are the source of truth for this repository. Maintenance work must preserve the requested workflow and architecture, even when a faster shortcut appears available.
+
+- Use a short-lived feature branch for non-trivial changes, keep the branch visible, and merge it back to `main` with an explicit non-fast-forward merge commit.
+- Do not replace the requested workflow with a fast-forward merge when the task requires a visible branch/merge history.
+- Run the real validation path for the repository, especially `pnpm validate`, instead of using mock checks or partial shortcuts as a substitute for the requested gates.
+- Keep implementation DRY and aligned with existing modules; do not create parallel logic, duplicate data paths, or temporary alternatives that make ownership unclear.
+- Follow SOLID-style boundaries for components, runtime systems, data modules, and styles: extend the owning module instead of adding a second competing system.
+- Name branches deliberately. A branch name may be longer when needed, but it must describe the actual topic and scope in a reviewable way; do not use vague names such as `fix`, `update`, `temp`, or random shorthand.
+- Write commit and merge messages with clear intent. A message must explain what changed and why it matters in plain language, using the discipline expected for reviewable kernel-style history; do not use abbreviations, placeholder wording, or one-word summaries.
+- If a spec, AGENTS rule, or user instruction conflicts with a convenient implementation shortcut, the spec and instruction win.
+
+Required command flow for a feature change:
+
+```bash
+git switch main
+git pull --ff-only origin main
+git switch -c feature/<descriptive-topic-and-scope>
+pnpm validate
+git add <changed-files>
+git commit -m "<Chinese message explaining intent and scope>"
+git push origin feature/<descriptive-topic-and-scope>
+git switch main
+git merge --no-ff feature/<descriptive-topic-and-scope> -m "<Chinese merge message explaining the integrated feature>"
+git push origin main
+```
+
 The runtime lifecycle is deliberately narrow: Astro renders static HTML, then small browser modules attach behavior. The music player is treated specially so page transitions do not recreate or interrupt playback unnecessarily.
 
 ```mermaid

@@ -118,6 +118,34 @@ flowchart LR
   Artifact --> PagesDeploy["GitHub Pages 部署"]
 ```
 
+## Trunk-Based 维护契约
+
+spec 和用户指令是这个仓库的最高事实来源。维护工作必须保留被要求的流程和架构，不能因为某条捷径看起来更快就替换掉原始要求。
+
+- 非平凡改动使用短生命周期 feature 分支，保留可见分支，并用明确的 non-fast-forward merge commit 合回 `main`。
+- 如果任务要求能看到分支和合并历史，不允许用 fast-forward merge 替代。
+- 使用仓库真实验证路径，尤其是 `pnpm validate`；不能用 mock 检查、局部快速检查或临时脚本冒充要求的质量门禁。
+- 保持实现 DRY，并遵守现有模块归属；不要制造平行逻辑、重复数据路径或临时替代系统，避免后续分不清哪个才是主逻辑。
+- 组件、运行时系统、数据模块和样式都按 SOLID 风格边界维护：扩展拥有该职责的模块，而不是新增一套竞争实现。
+- 分支名必须认真命名。必要时可以长一点，但必须准确描述真实主题和影响范围，方便审查；不要使用 `fix`、`update`、`temp` 或随手缩写这种含糊名字。
+- commit 和 merge 信息必须讲清楚意图。信息要用清楚的中文说明改了什么、为什么重要，符合可审查的 kernel-style 历史纪律；不要使用缩写、占位词或一个词带过。
+- 当 spec、AGENTS 规则或用户指令与某个方便的实现捷径冲突时，必须以 spec 和指令为准。
+
+feature 改动必须使用下面的命令流程：
+
+```bash
+git switch main
+git pull --ff-only origin main
+git switch -c feature/<descriptive-topic-and-scope>
+pnpm validate
+git add <changed-files>
+git commit -m "<说明意图和范围的中文提交信息>"
+git push origin feature/<descriptive-topic-and-scope>
+git switch main
+git merge --no-ff feature/<descriptive-topic-and-scope> -m "<说明集成功能的中文合并提交信息>"
+git push origin main
+```
+
 运行时生命周期很窄：Astro 先输出静态 HTML，然后少量浏览器模块挂载行为。音乐播放器被特殊处理，页面切换时不会被无意义重建或打断。
 
 ```mermaid

@@ -53,6 +53,15 @@ const remainingProjects = normalizeItems(remainingItems, false);
             <span class="project-language-pill">{item.languageLabel}</span>
             {item.updatedLabel && <span class="inline-meta"> {item.updatedLabel}</span>}
           </div>
+          {(item.links || []).length > 0 && (
+            <div class="entry-links">
+              {(item.links || []).map((link: any) => (
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {getLangValue(link, lang, "label") || link.label || link.url}
+                </a>
+              ))}
+            </div>
+          )}
           {item.note && <div class="item-note">{item.note}</div>}
           <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
         </li>
@@ -73,6 +82,15 @@ const remainingProjects = normalizeItems(remainingItems, false);
             </a>{" "}
             <span class="project-language-pill">{item.languageLabel}</span>
           </div>
+          {(item.links || []).length > 0 && (
+            <div class="entry-links">
+              {(item.links || []).map((link: any) => (
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {getLangValue(link, lang, "label") || link.label || link.url}
+                </a>
+              ))}
+            </div>
+          )}
           {item.note && <div class="item-note">{item.note}</div>}
           <ProjectImageGrid images={item.images || []} lang={lang} extraClass="repo-image-grid" />
         </li>
