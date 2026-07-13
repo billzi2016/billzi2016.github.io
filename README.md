@@ -123,6 +123,8 @@ flowchart LR
 Spec and user instructions are the source of truth for this repository. Maintenance work must preserve the requested workflow and architecture, even when a faster shortcut appears available.
 
 - Use a short-lived feature branch for non-trivial changes, keep the branch visible, and merge it back to `main` with an explicit non-fast-forward merge commit.
+- Small hotfixes, one-commit documentation fixes, README/AGENTS/spec additions, copy tweaks, or minor styling adjustments may go directly on `main` when the scope is clear, risk is low, and the work will not turn into a multi-commit change.
+- Use a short-lived feature branch when the task is expected to need multiple commits or touches structural changes, build/deployment logic, cross-module behavior, complex styling, runtime scripts, data migration, or high-risk areas.
 - Do not replace the requested workflow with a fast-forward merge when the task requires a visible branch/merge history.
 - Run the real validation path for the repository, especially `pnpm validate`, instead of using mock checks or partial shortcuts as a substitute for the requested gates.
 - Keep implementation DRY and aligned with existing modules; do not create parallel logic, duplicate data paths, or temporary alternatives that make ownership unclear.
@@ -294,7 +296,8 @@ This repository started with a fast-moving personal static-site workflow. After 
 - Functional, styling, build, documentation-site, and architecture changes should use short-lived `feature/...` branches.
 - Finish one feature branch, merge it back to `main`, then start the next one. Avoid long-running parallel feature branches for this single-maintainer project.
 - Prefer `git merge --no-ff feature/name` when merging a completed feature so the Git graph preserves the feature boundary.
-- Small README, metadata, release-note, or repository bookkeeping updates may go directly to `main` when they do not affect the built website.
+- Small hotfixes, one-commit documentation fixes, README/AGENTS/spec additions, copy tweaks, or minor styling adjustments may go directly to `main` when the scope is clear, risk is low, and the built website is not affected.
+- Use a short-lived feature branch when a task is expected to need multiple commits or touches structure, build/deployment, cross-module behavior, runtime scripts, data migration, or high-risk areas.
 
 ## Local Development
 

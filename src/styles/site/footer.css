@@ -33,14 +33,11 @@
   color: var(--line-strong);
 }
 
-.site-footer__tech,
-.site-footer__availability,
-.site-footer__ai {
+.site-footer__meta {
   max-width: 1220px;
-  margin: 8px auto 0;
+  margin: 2px auto 0;
 }
 
-.site-footer__availability,
-.site-footer__ai {
-  margin-top: 2px;
+.site-footer__content + .site-footer__meta {
+  margin-top: 8px;
 }
