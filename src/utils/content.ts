@@ -80,6 +80,14 @@ export function formatProjectLanguage(language: string, lang: Lang = defaultLang
   return language || "";
 }
 
+export function formatProjectLanguages(item: any, lang: Lang = defaultLang): string[] {
+  const languages = Array.isArray(item?.languages) ? item.languages : [item?.language];
+  const labels = languages
+    .map((language) => formatProjectLanguage(language, lang))
+    .filter((language) => language && language !== "none");
+  return labels.length ? labels : [formatProjectLanguage("none", lang)];
+}
+
 export function getProjectKey(item: any): string {
   if (typeof item === "string") return item;
   if (item && item.name) return item.name;

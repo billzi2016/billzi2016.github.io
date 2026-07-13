@@ -60,9 +60,10 @@ test("project gallery opens and closes the lightbox", async ({ page }) => {
   await page.goto("/projects.html");
 
   await page.locator(".project-image-button").first().click();
-  await expect(page.locator(".project-lightbox")).toBeVisible();
+  await expect(page.locator(".pswp")).toBeVisible();
   await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(page.locator(".pswp__button--zoom")).toBeVisible();
 
   await page.keyboard.press("Escape");
-  await expect(page.locator(".project-lightbox")).toHaveCount(0);
+  await expect(page.locator(".pswp")).not.toBeVisible();
 });

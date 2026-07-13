@@ -4,7 +4,7 @@ import { siteProjectsContent } from "../data/generated/projectsContent";
 import { siteTranslations } from "../data/generated/siteI18n";
 import {
   defaultLang,
-  formatProjectLanguage,
+  formatProjectLanguages,
   getLangValue,
   getProjectKey,
   resolveProjectItem,
@@ -25,11 +25,22 @@ function normalizeItems(items: any[]) {
     const item = resolveProjectItem(rawItem, catalog);
     return {
       ...item,
-      languageLabel: formatProjectLanguage(item.language, lang),
+      languageLabels: formatProjectLanguages(item, lang),
       note: getLangValue(item, lang, "note"),
       updatedLabel: item.updated ? `${lang === "zh" ? "更新于" : "updated"} ${item.updated}` : "",
     };
   });
+}
+
+function getProjectLinkClass(link: any) {
+  const label = String(link.label || link.labelEn || link.labelZh || "").toLowerCase();
+  return [
+    "project-meta-pill",
+    "project-meta-pill-link",
+    label === "demo" ? "project-meta-pill-link-demo" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 const rankedProjects = normalizeItems(rankedItems);
@@ -48,11 +59,13 @@ const remainingProjects = normalizeItems(remainingItems);
               {item.name}
             </a>{" "}
             <div class="project-meta-pills">
-              <span class="project-meta-pill">{item.languageLabel}</span>
+              {item.languageLabels.map((languageLabel: string) => (
+                <span class="project-meta-pill">{languageLabel}</span>
+              ))}
               {item.updatedLabel && <span class="project-meta-pill">{item.updatedLabel}</span>}
               {(item.links || []).map((link: any) => (
                 <a
-                  class="project-meta-pill project-meta-pill-link"
+                  class={getProjectLinkClass(link)}
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
@@ -81,11 +94,13 @@ const remainingProjects = normalizeItems(remainingItems);
               {item.name}
             </a>{" "}
             <div class="project-meta-pills">
-              <span class="project-meta-pill">{item.languageLabel}</span>
+              {item.languageLabels.map((languageLabel: string) => (
+                <span class="project-meta-pill">{languageLabel}</span>
+              ))}
               {item.updatedLabel && <span class="project-meta-pill">{item.updatedLabel}</span>}
               {(item.links || []).map((link: any) => (
                 <a
-                  class="project-meta-pill project-meta-pill-link"
+                  class={getProjectLinkClass(link)}
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"

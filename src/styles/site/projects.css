@@ -44,13 +44,23 @@
   background: rgb(42 117 198 / 12%);
   border-color: rgb(42 117 198 / 34%);
   color: var(--accent);
-  font-weight: 800;
   text-decoration: none;
 }
 
 .project-meta-pill-link:hover {
   background: rgb(42 117 198 / 18%);
   border-color: rgb(42 117 198 / 48%);
+}
+
+.project-meta-pill-link-demo {
+  background: rgb(22 163 74 / 13%);
+  border-color: rgb(22 163 74 / 34%);
+  color: #15803d;
+}
+
+.project-meta-pill-link-demo:hover {
+  background: rgb(22 163 74 / 20%);
+  border-color: rgb(22 163 74 / 50%);
 }
 
 body.dark-theme .project-meta-pill {
@@ -61,6 +71,12 @@ body.dark-theme .project-meta-pill {
 body.dark-theme .project-meta-pill-link {
   background: rgb(79 166 255 / 18%);
   border-color: rgb(79 166 255 / 38%);
+}
+
+body.dark-theme .project-meta-pill-link-demo {
+  background: rgb(74 222 128 / 16%);
+  border-color: rgb(74 222 128 / 38%);
+  color: #86efac;
 }
 
 .item-note {
