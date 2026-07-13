@@ -82,6 +82,7 @@ git push origin main
 - 不要用 fast-forward merge 替代可见合并历史。
 - 不要把未验证的 feature 合进 `main`。
 - 合并前工作区必须干净。
+- `git reset --hard` 是高风险操作，尽可能不要使用；只有在用户明确要求、已说明影响、且没有更安全方案时才允许。
 
 ## 目录归属
 
