@@ -1,0 +1,19 @@
+---
+import AcademicServiceInitialContent from "../components/AcademicServiceInitialContent.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { pageMeta } from "../data/pageMeta";
+
+const meta = pageMeta.academicService;
+---
+
+<SiteLayout title={meta.title} page="academicService" pageTag={meta.pageTag}>
+  <AcademicServiceInitialContent lang="en" />
+  <Fragment slot="page-templates">
+    <template id="page-content-template-en">
+      <AcademicServiceInitialContent lang="en" />
+    </template>
+    <template id="page-content-template-zh">
+      <AcademicServiceInitialContent lang="zh" />
+    </template>
+  </Fragment>
+</SiteLayout>

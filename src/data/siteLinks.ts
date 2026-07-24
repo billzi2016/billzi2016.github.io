@@ -43,6 +43,12 @@ export const primaryNavLinks = [
     label: "Publications",
   },
   {
+    page: "academicService",
+    href: "./academic-service.html",
+    i18nKey: "navAcademicService",
+    label: "Academic Service",
+  },
+  {
     page: "personal",
     href: "./personal.html",
     i18nKey: "navPersonalIntro",

@@ -17,6 +17,10 @@ export const pageMeta = {
     pageTag:
       "Representative publications first, followed by the remaining publication list without duplicates.",
   },
+  academicService: {
+    title: "Ziqian Bi | Academic Service",
+    pageTag: "Peer-review service for conferences and journals.",
+  },
   personal: {
     title: "Ziqian Bi | Personal Introduction",
     pageTag: "A personal page beyond research and projects.",

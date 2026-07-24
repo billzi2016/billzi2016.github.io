@@ -6,6 +6,7 @@ export const siteTranslations = {
       navExperience: "Experience",
       navProjects: "Projects",
       navPublications: "Publications",
+      navAcademicService: "Academic Service",
       navPersonalIntro: "Personal Introduction",
       navMusic: "Music",
       citePaper: "Cite this paper",
@@ -31,6 +32,7 @@ export const siteTranslations = {
       navExperience: "经历",
       navProjects: "项目",
       navPublications: "论文",
+      navAcademicService: "学术服务",
       navPersonalIntro: "个人介绍",
       navMusic: "音乐",
       citePaper: "引用这篇论文",
@@ -151,6 +153,24 @@ export const siteTranslations = {
         publishedGroupTitle: "已发表",
         preprintGroupTitle: "arXiv / 预印本",
         unpublishedGroupTitle: "未发表 / 准备中",
+      },
+    },
+    academicService: {
+      en: {
+        pageTag: "Peer-review service for conferences and journals.",
+        selectedTitle: "Selected Academic Service",
+        selectedNote:
+          "Completed 100+ manuscript reviews across conference and journal peer-review service. The records below are representative rather than exhaustive; additional reviewing and academic-service contributions are not individually listed.",
+        serviceTitle: "Academic Service",
+        serviceNote: "Conference and journal peer-review service.",
+      },
+      zh: {
+        pageTag: "面向会议与期刊的同行评审服务。",
+        selectedTitle: "精选学术服务",
+        selectedNote:
+          "已完成 100+ 篇稿件审稿，覆盖会议与期刊同行评审服务。以下仅列出部分代表性学术服务；另有许多审稿与学术服务未逐项列出。",
+        serviceTitle: "学术服务",
+        serviceNote: "会议与期刊同行评审服务。",
       },
     },
     personal: {
@@ -945,6 +965,7 @@ export const sitePageTitles = {
   experience: { en: "Ziqian Bi | Experience", zh: "毕梓仟 | 经历" },
   projects: { en: "Ziqian Bi | Projects", zh: "毕梓仟 | 项目" },
   publications: { en: "Ziqian Bi | Publications", zh: "毕梓仟 | 论文" },
+  academicService: { en: "Ziqian Bi | Academic Service", zh: "毕梓仟 | 学术服务" },
   personal: { en: "Ziqian Bi | Personal Introduction", zh: "毕梓仟 | 个人介绍" },
   music: { en: "Ziqian Bi | Music", zh: "毕梓仟 | 音乐" },
 };

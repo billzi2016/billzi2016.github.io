@@ -71,6 +71,13 @@ function buildSearchDocuments() {
     addDoc("Education", getLangValue(item, "en", "title"), "./experience.html", item),
   );
 
+  (siteContent.academicService?.selected || []).forEach((item) =>
+    addDoc("Academic Service", getLangValue(item, "en", "title"), "./academic-service.html", item),
+  );
+  (siteContent.academicService?.service || []).forEach((item) =>
+    addDoc("Academic Service", getLangValue(item, "en", "title"), "./academic-service.html", item),
+  );
+
   Object.values(siteContent.projects?.catalog || {}).forEach((item) =>
     addDoc("Project", item.name, item.url || "./projects.html", item),
   );

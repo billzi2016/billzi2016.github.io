@@ -16,7 +16,7 @@ const { entries = [], lang = defaultLang } = Astro.props as {
       <div class="entry">
         <div class="entry-heading">
           <h3 class="entry-title">{getLangValue(entry, lang, "title")}</h3>
-          <div class="entry-meta">{entry.meta || ""}</div>
+          <div class="entry-meta">{getLangValue(entry, lang, "meta")}</div>
         </div>
         <div class="entry-role">{getLangValue(entry, lang, "role")}</div>
         {links.length > 0 && (
