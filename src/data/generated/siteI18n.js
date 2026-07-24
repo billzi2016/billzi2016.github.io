@@ -345,9 +345,9 @@ export const siteTranslations = {
               "A VVVF inverter project based on CM600HA-24H IGBT modules, covering three-phase inversion, PWM modulation, DC bus power, gate driving, and motor-control debugging. This project leans toward heavy industrial power electronics.",
           },
           {
-            title: "Modular TTL Logic Clock",
+            title: "Modular Discrete Transistor Logic Clock",
             text:
-              "A modular digital logic clock constructed using 74-series TTL ICs, comprising 3-input AND gate modules, master-slave JK flip-flop counter boards, BCD decoding & display modules, manual clock adjustment boards, and power distribution units.",
+              "An IC-free modular digital logic clock constructed entirely using discrete 9012 and 9013 transistors, comprising 3-input AND gate modules, master-slave JK flip-flop counter boards, BCD decoding & display modules, manual clock adjustment boards, and power distribution units.",
             images: [
               {
                 src: "./assets/images/ttl-clock/3与门 红色.PNG",
@@ -363,7 +363,7 @@ export const siteTranslations = {
               },
               {
                 src: "./assets/images/ttl-clock/调表板 黄色.PNG",
-                caption: "Clock Adjustment & Control Board (Yellow Board)",
+                caption: "Clock Adjustment & Control Board (Purple Board, changed to purple due to low yellow contrast)",
               },
               {
                 src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
@@ -383,9 +383,9 @@ export const siteTranslations = {
             ],
           },
           {
-            title: "ATmega2560 LCD12864 Hardware Game of Life",
+            title: "Voltage Comparator Pure Hardware Game of Life",
             text:
-              "An embedded Conway's Game of Life on ATmega2560 with ST7920 LCD12864 graphical output, featuring custom PCB layout, framebuffer rendering, cellular state-transition rules, and keypad control.",
+              "A pure hardware Conway's Game of Life built using voltage comparators (op-amps). Completely free of MCUs or 12864 displays, cellular state evolution is driven directly by hardware comparator logic.",
             images: [
               {
                 src: "./assets/images/game-life/pcb 正面.PNG",
@@ -723,9 +723,9 @@ export const siteTranslations = {
               "基于 CM600HA-24H IGBT 模块的 VVVF 变频驱动项目，围绕三相逆变、PWM 调制、母线供电、门极驱动和电机控制调试展开。这个项目更偏向重型工业功率电子设备。",
           },
           {
-            title: "TTL 数字逻辑时钟",
+            title: "纯分立三极管数字逻辑时钟",
             text:
-              "基于 74 系列 TTL 中小规模集成电路构成的模块化数字逻辑时钟，包含 3 输入与门板、主从 JK 触发器分频计数板、译码显示板、调表板与电源分配模块。",
+              "完全由 9012、9013 晶体三极管及分立元件拼搭搭建的无集成电路（No IC）模块化数字逻辑时钟，包含 3 输入与门板、主从 JK 触发器分频计数板、译码显示板、调表板与电源分配模块。",
             images: [
               {
                 src: "./assets/images/ttl-clock/3与门 红色.PNG",
@@ -741,7 +741,7 @@ export const siteTranslations = {
               },
               {
                 src: "./assets/images/ttl-clock/调表板 黄色.PNG",
-                caption: "调表与校时控制板（黄板）",
+                caption: "调表与校时控制板（紫板，因黄色对比度太低采用紫色可视化）",
               },
               {
                 src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
@@ -761,9 +761,9 @@ export const siteTranslations = {
             ],
           },
           {
-            title: "ATmega2560 LCD12864 硬件生命游戏",
+            title: "纯硬件电压比较器康威生命游戏",
             text:
-              "基于 ATmega2560 微控制器与 ST7920 LCD12864 显示屏构成的硬件康威生命游戏，包含帧缓冲区绘制、细胞状态演化算法与按键交互 PCB。",
+              "基于电压比较器（运放）构成的纯硬件康威生命游戏，不依赖单片机与 12864 显示屏，细胞演化状态完全由电压比较器硬件电路进行判断与自动演进。",
             images: [
               {
                 src: "./assets/images/game-life/pcb 正面.PNG",
