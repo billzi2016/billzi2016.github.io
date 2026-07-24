@@ -3,9 +3,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 26px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--line-strong);
-  transition: border-color var(--theme-transition);
+  padding-bottom: 0;
 }
 
 .header-main {
@@ -73,6 +71,9 @@ html[lang="zh-CN"] .lang-zh {
   align-items: center;
   gap: 10px;
   margin-top: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--theme-transition);
 }
 
 .contact-meta a {
