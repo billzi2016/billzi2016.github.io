@@ -344,6 +344,74 @@ export const siteTranslations = {
             text:
               "A VVVF inverter project based on CM600HA-24H IGBT modules, covering three-phase inversion, PWM modulation, DC bus power, gate driving, and motor-control debugging. This project leans toward heavy industrial power electronics.",
           },
+          {
+            title: "Modular TTL Logic Clock",
+            text:
+              "A modular digital logic clock constructed using 74-series TTL ICs, comprising 3-input AND gate modules, master-slave JK flip-flop counter boards, BCD decoding & display modules, manual clock adjustment boards, and power distribution units.",
+            images: [
+              {
+                src: "./assets/images/ttl-clock/3与门 红色.PNG",
+                caption: "3-Input AND Gate Module (Red Board)",
+              },
+              {
+                src: "./assets/images/ttl-clock/主从JK 蓝色.PNG",
+                caption: "Master-Slave JK Flip-Flop Divider/Counter Module (Blue Board)",
+              },
+              {
+                src: "./assets/images/ttl-clock/译码显示 黑色.PNG",
+                caption: "BCD Decoder & 7-Segment Display Module (Black Board)",
+              },
+              {
+                src: "./assets/images/ttl-clock/调表板 黄色.PNG",
+                caption: "Clock Adjustment & Control Board (Yellow Board)",
+              },
+              {
+                src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
+                caption: "Right-Angle Header Power Distribution Module (White Board)",
+              },
+            ],
+          },
+          {
+            title: "ST7920 12864 Graphic LCD Driver & Expansion Board",
+            text:
+              "A dedicated interface and expansion PCB designed for ST7920-based 12864 graphic LCD displays, bridging MCU controls, contrast tuning, and dot-matrix display driving.",
+            images: [
+              {
+                src: "./assets/images/12864/pcb.PNG",
+                caption: "ST7920 12864 LCD Interface PCB Layout",
+              },
+            ],
+          },
+          {
+            title: "ATmega2560 LCD12864 Hardware Game of Life",
+            text:
+              "An embedded Conway's Game of Life on ATmega2560 with ST7920 LCD12864 graphical output, featuring custom PCB layout, framebuffer rendering, cellular state-transition rules, and keypad control.",
+            images: [
+              {
+                src: "./assets/images/game-life/pcb 正面.PNG",
+                caption: "Game of Life PCB Top View Render",
+              },
+              {
+                src: "./assets/images/game-life/丝印层 正面.PNG",
+                caption: "Game of Life Top Silkscreen & Trace Layer",
+              },
+            ],
+          },
+          {
+            title: "8×8×8 3D LED Light Cube",
+            text:
+              "A 3D LED matrix light cube containing 512 LED nodes, featuring multiplexed driver circuit schematics, 3D frame refresh routines, and custom hardware assembly.",
+            images: [
+              {
+                src: "./assets/images/light-cube-888/Schematic.png",
+                caption: "8x8x8 LED Light Cube Circuit Schematic",
+              },
+              {
+                src: "./assets/images/light-cube-888/唯一一张.PNG",
+                caption: "8x8x8 LED Light Cube Hardware Photo",
+              },
+            ],
+          },
         ],
         pianoTitle: "Piano",
         pianoIntro:
@@ -653,6 +721,74 @@ export const siteTranslations = {
             title: "CM600HA-24H VVVF",
             text:
               "基于 CM600HA-24H IGBT 模块的 VVVF 变频驱动项目，围绕三相逆变、PWM 调制、母线供电、门极驱动和电机控制调试展开。这个项目更偏向重型工业功率电子设备。",
+          },
+          {
+            title: "TTL 数字逻辑时钟",
+            text:
+              "基于 74 系列 TTL 中小规模集成电路构成的模块化数字逻辑时钟，包含 3 输入与门板、主从 JK 触发器分频计数板、译码显示板、调表板与电源分配模块。",
+            images: [
+              {
+                src: "./assets/images/ttl-clock/3与门 红色.PNG",
+                caption: "3 输入与门逻辑模块（红板）",
+              },
+              {
+                src: "./assets/images/ttl-clock/主从JK 蓝色.PNG",
+                caption: "主从 JK 触发器分频 / 计数模块（蓝板）",
+              },
+              {
+                src: "./assets/images/ttl-clock/译码显示 黑色.PNG",
+                caption: "BCD 译码与数码管显示模块（黑板）",
+              },
+              {
+                src: "./assets/images/ttl-clock/调表板 黄色.PNG",
+                caption: "调表与校时控制板（黄板）",
+              },
+              {
+                src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
+                caption: "弯针电源分配模块（白板）",
+              },
+            ],
+          },
+          {
+            title: "ST7920 12864 点阵液晶驱动板",
+            text:
+              "面向 12864 点阵液晶屏设计的专有驱动与扩展 PCB，打通微控制器接口、对比度调节与点阵显示驱动控制。",
+            images: [
+              {
+                src: "./assets/images/12864/pcb.PNG",
+                caption: "ST7920 12864 液晶接口 PCB 布局与布线",
+              },
+            ],
+          },
+          {
+            title: "ATmega2560 LCD12864 硬件生命游戏",
+            text:
+              "基于 ATmega2560 微控制器与 ST7920 LCD12864 显示屏构成的硬件康威生命游戏，包含帧缓冲区绘制、细胞状态演化算法与按键交互 PCB。",
+            images: [
+              {
+                src: "./assets/images/game-life/pcb 正面.PNG",
+                caption: "硬件生命游戏 PCB 正面渲染图",
+              },
+              {
+                src: "./assets/images/game-life/丝印层 正面.PNG",
+                caption: "硬件生命游戏正面丝印与走线图",
+              },
+            ],
+          },
+          {
+            title: "8×8×8 三维 LED 光立方",
+            text:
+              "拥有 512 个 LED 节点的立体三维显示光立方，包含多路复用驱动电路设计、三维动画帧刷新与硬件电路原理图设计。",
+            images: [
+              {
+                src: "./assets/images/light-cube-888/Schematic.png",
+                caption: "8×8×8 光立方电路原理图",
+              },
+              {
+                src: "./assets/images/light-cube-888/唯一一张.PNG",
+                caption: "8×8×8 光立方硬件实物展示",
+              },
+            ],
           },
         ],
         pianoTitle: "钢琴",
