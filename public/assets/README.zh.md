@@ -4,7 +4,7 @@
 
 本站当前公开使用的简历 PDF 是：
 
-`resume-july-09-2026.pdf`
+`resume-july-28-2026.pdf`
 
 这是 July 09, 2026 版本的简历 PDF。
 

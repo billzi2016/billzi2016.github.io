@@ -4,7 +4,7 @@
 
 The current public resume PDF is:
 
-`resume-july-09-2026.pdf`
+`resume-july-28-2026.pdf`
 
 This date-named file is the July 09, 2026 resume version used by this site.
 
