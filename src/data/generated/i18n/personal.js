@@ -116,67 +116,67 @@ export const personalPageTranslations = {
             images: [
               {
                 src: "./assets/images/music-box/图片_20260726221508_2464_1.jpg",
-                caption: "Hardware music box photo 1",
+                caption: "Assembled transistor music box board",
               },
               {
                 src: "./assets/images/music-box/图片_20260726221510_2465_1.jpg",
-                caption: "Hardware music box photo 2",
+                caption: "Music box board with speaker wiring",
               },
               {
                 src: "./assets/images/music-box/图片_20260726221511_2466_1.jpg",
-                caption: "Hardware music box photo 3",
+                caption: "Transistor music box control section",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230841_2477_1.jpg",
-                caption: "Hardware music box photo 4",
+                caption: "Music box timing and switching board",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230843_2478_1.jpg",
-                caption: "Hardware music box photo 5",
+                caption: "Close-up of the transistor rows",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230846_2479_1.jpg",
-                caption: "Hardware music box photo 6",
+                caption: "Music box wiring and component layout",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230847_2480_1.jpg",
-                caption: "Hardware music box photo 7",
+                caption: "Discrete component music box assembly",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230849_2481_1.jpg",
-                caption: "Hardware music box photo 8",
+                caption: "Music box board test setup",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230850_2482_1.jpg",
-                caption: "Hardware music box photo 9",
+                caption: "Music box oscillator and signal wiring",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230852_2483_1.jpg",
-                caption: "Hardware music box photo 10",
+                caption: "Transistor music box module close-up",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230854_2484_1.jpg",
-                caption: "Hardware music box photo 11",
+                caption: "Music box board and output wiring",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230855_2485_1.jpg",
-                caption: "Hardware music box photo 12",
+                caption: "Music box power and control connections",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203728_2548_1.jpg",
-                caption: "Hardware music box photo 13",
+                caption: "Music box mounted hardware view",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203729_2549_1.jpg",
-                caption: "Hardware music box photo 14",
+                caption: "Music box board under test",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203731_2550_1.jpg",
-                caption: "Hardware music box photo 15",
+                caption: "Music box discrete circuit detail",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203733_2551_1.jpg",
-                caption: "Hardware music box photo 16",
+                caption: "Completed hardware music box assembly",
               },
             ],
           },
@@ -269,11 +269,6 @@ export const personalPageTranslations = {
             ],
           },
           {
-            title: "IRFP260N ZVS High-Frequency Driver",
-            text:
-              "An IRFP260N TO-247 MOSFET ZVS high-frequency driver for high-current resonant drive and induction-heating experiments. This project focuses on power device selection, the resonant network, heat handling, and heavy-current wiring. The physical build has been donated to Beijing University of Technology.",
-          },
-          {
             title: "88-Channel Relay Piano Control Array",
             text:
               "An 88-channel relay array board for controlling the 88 keys of a piano. Each relay maps to one key-control channel. The focus is keeping the power, driver, and control wiring clear enough for the board to connect reliably to the later piano-control system.",
@@ -340,11 +335,6 @@ export const personalPageTranslations = {
             ],
           },
           {
-            title: "CM600HA-24H VVVF",
-            text:
-              "A VVVF inverter project based on CM600HA-24H IGBT modules, covering three-phase inversion, PWM modulation, DC bus power, gate driving, and motor-control debugging. This project leans toward heavy industrial power electronics.",
-          },
-          {
             title: "Modular Discrete Transistor Logic Clock",
             text:
               "An IC-free modular digital logic clock constructed entirely using discrete 9012 and 9013 transistors, comprising 3-input AND gate modules, master-slave JK flip-flop counter boards, BCD decoding & display modules, manual clock adjustment boards, and power distribution units.",
@@ -369,21 +359,28 @@ export const personalPageTranslations = {
                 src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
                 caption: "Right-Angle Header Power Distribution Module (White Board)",
               },
+            ],
+          },
+          {
+            title: "TTL Chip Digital Clock",
+            text:
+              "A separate digital clock built with TTL logic chips. It is different from the no-IC transistor clock, and the work is mainly about wiring the logic chips, checking the count and decode stages, and making the display run steadily.",
+            images: [
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260729001204_2518_1.jpg",
-                caption: "TTL chip clock hardware photo 1",
+                caption: "TTL chip clock display and control board",
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260729001205_2519_1.jpg",
-                caption: "TTL chip clock hardware photo 2",
+                caption: "TTL chip clock board wiring",
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260730202239_2529_1.jpg",
-                caption: "TTL chip clock hardware photo 3",
+                caption: "TTL chip clock module stack",
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260730202449_2532_1.jpg",
-                caption: "TTL chip clock hardware photo 4",
+                caption: "TTL chip clock running on the bench",
               },
             ],
           },
@@ -432,73 +429,83 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726221518_2470_1.jpg",
-                caption: "8x8x8 LED light cube photo 1",
+                caption: "LED cube frame with wiring exposed",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231336_2486_1.jpg",
-                caption: "8x8x8 LED light cube photo 2",
+                caption: "LED cube vertical layer assembly",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231338_2487_1.jpg",
-                caption: "8x8x8 LED light cube photo 3",
+                caption: "LED cube soldered grid structure",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231339_2488_1.jpg",
-                caption: "8x8x8 LED light cube photo 4",
+                caption: "LED cube base wiring detail",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231340_2489_1.jpg",
-                caption: "8x8x8 LED light cube photo 5",
+                caption: "LED cube control wiring underside",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231342_2490_1.jpg",
-                caption: "8x8x8 LED light cube photo 6",
+                caption: "LED cube frame on the workbench",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231343_2491_1.jpg",
-                caption: "8x8x8 LED light cube photo 7",
+                caption: "LED cube soldering and alignment view",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
-                caption: "8x8x8 LED light cube photo 8",
+                caption: "LED cube lit during testing",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
-                caption: "8x8x8 LED light cube photo 9",
+                caption: "LED cube animation test pattern",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
-                caption: "8x8x8 LED light cube photo 10",
+                caption: "LED cube refresh test",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
-                caption: "8x8x8 LED light cube photo 11",
+                caption: "LED cube brightness test",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
-                caption: "8x8x8 LED light cube photo 12",
+                caption: "LED cube side lighting view",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203410_2543_1.jpg",
-                caption: "8x8x8 LED light cube photo 13",
+                caption: "LED cube display pattern",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203411_2544_1.jpg",
-                caption: "8x8x8 LED light cube photo 14",
+                caption: "LED cube layered light pattern",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
-                caption: "8x8x8 LED light cube photo 15",
+                caption: "LED cube full-height lighting test",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
-                caption: "8x8x8 LED light cube photo 16",
+                caption: "LED cube diagonal pattern test",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
-                caption: "8x8x8 LED light cube photo 17",
+                caption: "LED cube final lighting check",
               },
             ],
+          },
+          {
+            title: "IRFP260N ZVS High-Frequency Driver",
+            text:
+              "An IRFP260N TO-247 MOSFET ZVS high-frequency driver for high-current resonant drive and induction-heating experiments. This project focuses on power device selection, the resonant network, heat handling, and heavy-current wiring. The physical build has been donated to Beijing University of Technology.",
+          },
+          {
+            title: "CM600HA-24H VVVF",
+            text:
+              "A VVVF inverter project based on CM600HA-24H IGBT modules, covering three-phase inversion, PWM modulation, DC bus power, gate driving, and motor-control debugging. This project leans toward heavy industrial power electronics.",
           },
         ],
         pianoTitle: "Piano",
@@ -736,67 +743,67 @@ export const personalPageTranslations = {
             images: [
               {
                 src: "./assets/images/music-box/图片_20260726221508_2464_1.jpg",
-                caption: "硬件八音盒照片 1",
+                caption: "全三极管八音盒整机板",
               },
               {
                 src: "./assets/images/music-box/图片_20260726221510_2465_1.jpg",
-                caption: "硬件八音盒照片 2",
+                caption: "带扬声器接线的八音盒电路",
               },
               {
                 src: "./assets/images/music-box/图片_20260726221511_2466_1.jpg",
-                caption: "硬件八音盒照片 3",
+                caption: "八音盒控制电路区域",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230841_2477_1.jpg",
-                caption: "硬件八音盒照片 4",
+                caption: "八音盒时序与开关电路",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230843_2478_1.jpg",
-                caption: "硬件八音盒照片 5",
+                caption: "三极管排列近景",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230846_2479_1.jpg",
-                caption: "硬件八音盒照片 6",
+                caption: "八音盒接线和元件布局",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230847_2480_1.jpg",
-                caption: "硬件八音盒照片 7",
+                caption: "分立元件八音盒装配",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230849_2481_1.jpg",
-                caption: "硬件八音盒照片 8",
+                caption: "八音盒电路测试状态",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230850_2482_1.jpg",
-                caption: "硬件八音盒照片 9",
+                caption: "八音盒振荡和信号接线",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230852_2483_1.jpg",
-                caption: "硬件八音盒照片 10",
+                caption: "三极管八音盒模块近景",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230854_2484_1.jpg",
-                caption: "硬件八音盒照片 11",
+                caption: "八音盒输出接线",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230855_2485_1.jpg",
-                caption: "硬件八音盒照片 12",
+                caption: "八音盒电源和控制连接",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203728_2548_1.jpg",
-                caption: "硬件八音盒照片 13",
+                caption: "八音盒硬件固定后的视图",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203729_2549_1.jpg",
-                caption: "硬件八音盒照片 14",
+                caption: "调试中的八音盒电路板",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203731_2550_1.jpg",
-                caption: "硬件八音盒照片 15",
+                caption: "八音盒分立电路细节",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203733_2551_1.jpg",
-                caption: "硬件八音盒照片 16",
+                caption: "完成装配的硬件八音盒",
               },
             ],
           },
@@ -889,11 +896,6 @@ export const personalPageTranslations = {
             ],
           },
           {
-            title: "IRFP260N ZVS 高频驱动",
-            text:
-              "基于 IRFP260N TO-247 功率 MOSFET 的 ZVS 高频驱动电路，用来做大电流谐振驱动和感应加热实验。这个项目重点在功率器件选型、谐振网络、散热和大电流布线。实物已经捐赠给北京工业大学。",
-          },
-          {
             title: "88 路继电器钢琴控制阵列",
             text:
               "这是一块 88 路继电器阵列板，用来控制钢琴的 88 个键。每一路继电器对应一个按键控制通道，重点是把电源、驱动和控制线整理清楚，让整块板能稳定接入后面的钢琴控制系统。",
@@ -960,11 +962,6 @@ export const personalPageTranslations = {
             ],
           },
           {
-            title: "CM600HA-24H VVVF",
-            text:
-              "基于 CM600HA-24H IGBT 模块的 VVVF 变频驱动项目，围绕三相逆变、PWM 调制、母线供电、门极驱动和电机控制调试展开。这个项目更偏向重型工业功率电子设备。",
-          },
-          {
             title: "纯分立三极管数字逻辑时钟",
             text:
               "完全由 9012、9013 晶体三极管及分立元件拼搭搭建的无集成电路（No IC）模块化数字逻辑时钟，包含 3 输入与门板、主从 JK 触发器分频计数板、译码显示板、调表板与电源分配模块。",
@@ -989,21 +986,28 @@ export const personalPageTranslations = {
                 src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
                 caption: "弯针电源分配模块（白板）",
               },
+            ],
+          },
+          {
+            title: "TTL 芯片数字时钟",
+            text:
+              "这是另一套用 TTL 逻辑芯片做的数字时钟，和无集成电路的三极管时钟不是同一个项目。这个项目主要是把逻辑芯片、计数译码和显示部分接起来，再把整机调到能稳定运行。",
+            images: [
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260729001204_2518_1.jpg",
-                caption: "TTL 芯片时钟硬件照片 1",
+                caption: "TTL 芯片时钟显示与控制板",
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260729001205_2519_1.jpg",
-                caption: "TTL 芯片时钟硬件照片 2",
+                caption: "TTL 芯片时钟板间接线",
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260730202239_2529_1.jpg",
-                caption: "TTL 芯片时钟硬件照片 3",
+                caption: "TTL 芯片时钟模块堆叠",
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260730202449_2532_1.jpg",
-                caption: "TTL 芯片时钟硬件照片 4",
+                caption: "桌面调试中的 TTL 芯片时钟",
               },
             ],
           },
@@ -1052,73 +1056,83 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726221518_2470_1.jpg",
-                caption: "8×8×8 光立方照片 1",
+                caption: "露出接线的光立方框架",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231336_2486_1.jpg",
-                caption: "8×8×8 光立方照片 2",
+                caption: "光立方竖向层结构",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231338_2487_1.jpg",
-                caption: "8×8×8 光立方照片 3",
+                caption: "焊接完成的 LED 网格",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231339_2488_1.jpg",
-                caption: "8×8×8 光立方照片 4",
+                caption: "光立方底部接线细节",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231340_2489_1.jpg",
-                caption: "8×8×8 光立方照片 5",
+                caption: "光立方控制线底部视图",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231342_2490_1.jpg",
-                caption: "8×8×8 光立方照片 6",
+                caption: "工作台上的光立方框架",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260726231343_2491_1.jpg",
-                caption: "8×8×8 光立方照片 7",
+                caption: "光立方焊接和对齐检查",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
-                caption: "8×8×8 光立方照片 8",
+                caption: "光立方点亮测试",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
-                caption: "8×8×8 光立方照片 9",
+                caption: "光立方动画测试图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
-                caption: "8×8×8 光立方照片 10",
+                caption: "光立方刷新测试",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
-                caption: "8×8×8 光立方照片 11",
+                caption: "光立方亮度测试",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
-                caption: "8×8×8 光立方照片 12",
+                caption: "光立方侧面点亮视图",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203410_2543_1.jpg",
-                caption: "8×8×8 光立方照片 13",
+                caption: "光立方显示图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203411_2544_1.jpg",
-                caption: "8×8×8 光立方照片 14",
+                caption: "光立方分层灯光图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
-                caption: "8×8×8 光立方照片 15",
+                caption: "光立方整高度点亮测试",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
-                caption: "8×8×8 光立方照片 16",
+                caption: "光立方斜向图案测试",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
-                caption: "8×8×8 光立方照片 17",
+                caption: "光立方最终点亮检查",
               },
             ],
+          },
+          {
+            title: "IRFP260N ZVS 高频驱动",
+            text:
+              "基于 IRFP260N TO-247 功率 MOSFET 的 ZVS 高频驱动电路，用来做大电流谐振驱动和感应加热实验。这个项目重点在功率器件选型、谐振网络、散热和大电流布线。实物已经捐赠给北京工业大学。",
+          },
+          {
+            title: "CM600HA-24H VVVF",
+            text:
+              "基于 CM600HA-24H IGBT 模块的 VVVF 变频驱动项目，围绕三相逆变、PWM 调制、母线供电、门极驱动和电机控制调试展开。这个项目更偏向重型工业功率电子设备。",
           },
         ],
         pianoTitle: "钢琴",
