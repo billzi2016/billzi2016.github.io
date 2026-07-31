@@ -112,7 +112,7 @@ export const personalPageTranslations = {
           {
             title: "Hardware Music Box",
             text:
-              "A hardware music box built entirely from transistors, without integrated circuits. The interest is in making timing, switching, and sound generation work through discrete components instead of hiding the logic inside chips.",
+              "A hardware music box built entirely from transistors, without integrated circuits. The interest is in rebuilding chip-level timing, switching, and sound-generation logic with discrete components.",
             images: [
               {
                 src: "./assets/images/music-box/图片_20260726221508_2464_1.jpg",
@@ -144,7 +144,7 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/music-box/图片_20260726230849_2481_1.jpg",
-                caption: "Music box board test setup",
+                caption: "Finished music box board with the discrete signal path visible",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230850_2482_1.jpg",
@@ -168,7 +168,7 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/music-box/图片_20260730203729_2549_1.jpg",
-                caption: "Music box board under test",
+                caption: "Completed music box circuit board from the component side",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203731_2550_1.jpg",
@@ -183,7 +183,7 @@ export const personalPageTranslations = {
           {
             title: "IC Clock",
             text:
-              "A separate digital clock build, different from the fully discrete transistor version. It mixes ICs with transistor circuits: the ICs handle most of the counting, decoding, and display control, while transistor circuits handle the oscillator and latch-related parts. The focus is module wiring, timing debug, and final assembly.",
+              "A separate digital clock build, different from the fully discrete transistor version. It mixes ICs with transistor circuits: the ICs handle most of the counting, decoding, and display control, while transistor circuits handle the oscillator and latch-related parts. The focus is module wiring, timing behavior, and final assembly.",
             images: [
               {
                 src: "./assets/images/transistor-clock/图片_20260726221520_2471_1.jpg",
@@ -194,7 +194,7 @@ export const personalPageTranslations = {
           {
             title: "Telegraph Hardware Build",
             text:
-              "A small telegraph build with a key, coil, and mechanical contacts. I also wrote the Morse-code recognition and communication protocol, using AVR interrupts to handle input and timing. The mechanical side produces the contact movement, and the electronics recognize the keyed signal.",
+              "A telegraph communication build using a CH340 USB-to-UART chip. It can read content from a computer serial port or from an SD card, then send it through my own Morse-code recognition and communication protocol. The AVR uses interrupts to handle input and timing so the devices can communicate with each other.",
             images: [
               {
                 src: "./assets/images/telegraph/图片_20260726221517_2469_1.jpg",
@@ -457,19 +457,19 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
-                caption: "LED cube lit during testing",
+                caption: "LED cube lit as a finished display",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
-                caption: "LED cube animation test pattern",
+                caption: "LED cube animation pattern across the grid",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
-                caption: "LED cube refresh test",
+                caption: "LED cube with a refreshed layer pattern",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
-                caption: "LED cube brightness test",
+                caption: "LED cube showing a bright full-frame pattern",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
@@ -485,15 +485,15 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
-                caption: "LED cube full-height lighting test",
+                caption: "LED cube lit through the full height of the frame",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
-                caption: "LED cube diagonal pattern test",
+                caption: "LED cube diagonal light pattern",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
-                caption: "LED cube final lighting check",
+                caption: "LED cube finished lighting pattern",
               },
             ],
           },
@@ -739,7 +739,7 @@ export const personalPageTranslations = {
           {
             title: "硬件八音盒",
             text:
-              "全三极管实现的硬件八音盒，没有使用任何集成电路。重点是用分立元件完成时序、开关和发声逻辑，而不是把逻辑藏在芯片里。",
+              "全三极管实现的硬件八音盒，没有使用任何集成电路。重点是把芯片里的时序、开关和发声逻辑变成分立元件电路。",
             images: [
               {
                 src: "./assets/images/music-box/图片_20260726221508_2464_1.jpg",
@@ -771,7 +771,7 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/music-box/图片_20260726230849_2481_1.jpg",
-                caption: "八音盒电路测试状态",
+                caption: "能看到分立信号路径的八音盒成品板",
               },
               {
                 src: "./assets/images/music-box/图片_20260726230850_2482_1.jpg",
@@ -795,7 +795,7 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/music-box/图片_20260730203729_2549_1.jpg",
-                caption: "调试中的八音盒电路板",
+                caption: "从元件面看到的八音盒成品电路板",
               },
               {
                 src: "./assets/images/music-box/图片_20260730203731_2550_1.jpg",
@@ -810,7 +810,7 @@ export const personalPageTranslations = {
           {
             title: "集成电路时钟",
             text:
-              "这是另一套数字时钟制作，不是全分立三极管版本。它混合使用了集成电路和三极管电路：计数、译码和显示控制主要由 IC 完成，振荡和锁存相关部分用三极管搭出来。重点在模块连接、时序调试和整机装配。",
+              "这是另一套数字时钟制作，不是全分立三极管版本。它混合使用了集成电路和三极管电路：计数、译码和显示控制主要由 IC 完成，振荡和锁存相关部分用三极管搭出来。重点在模块连接、时序关系和整机装配。",
             images: [
               {
                 src: "./assets/images/transistor-clock/图片_20260726221520_2471_1.jpg",
@@ -821,7 +821,7 @@ export const personalPageTranslations = {
           {
             title: "电报机硬件制作",
             text:
-              "一个电报机小制作，包含按键、线圈和机械触点。我另外写了莫尔斯码识别和通信协议，用 AVR 中断处理输入和时序。机械部分负责产生触点动作，电子部分负责识别按键信号。",
+              "一个电报通信制作，用 CH340 做 USB 转 UART。内容可以从电脑串口读取，也可以从 SD 卡读取，然后通过我写的莫尔斯码识别和通信协议在设备之间传递。AVR 这边用中断处理输入和时序，让几块设备能互相通信。",
             images: [
               {
                 src: "./assets/images/telegraph/图片_20260726221517_2469_1.jpg",
@@ -1007,7 +1007,7 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260730202449_2532_1.jpg",
-                caption: "桌面调试中的 TTL 芯片时钟",
+                caption: "桌面上的 TTL 芯片时钟成品",
               },
             ],
           },
@@ -1084,19 +1084,19 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
-                caption: "光立方点亮测试",
+                caption: "作为成品显示的光立方点亮状态",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
-                caption: "光立方动画测试图案",
+                caption: "光立方网格里的动画图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
-                caption: "光立方刷新测试",
+                caption: "光立方刷新后的分层图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
-                caption: "光立方亮度测试",
+                caption: "光立方高亮显示图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
@@ -1112,15 +1112,15 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
-                caption: "光立方整高度点亮测试",
+                caption: "光立方整高度点亮图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
-                caption: "光立方斜向图案测试",
+                caption: "光立方斜向灯光图案",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
-                caption: "光立方最终点亮检查",
+                caption: "光立方成品点亮图案",
               },
             ],
           },
