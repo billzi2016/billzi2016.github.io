@@ -181,20 +181,20 @@ export const personalPageTranslations = {
             ],
           },
           {
-            title: "Discrete Transistor Clock",
+            title: "IC Clock",
             text:
-              "A clock-related discrete-transistor hardware build, grouped with the transistor-clock photo set in the local asset library.",
+              "A separate digital clock build, different from the fully discrete transistor version. It mixes ICs with transistor circuits: the ICs handle most of the counting, decoding, and display control, while transistor circuits handle the oscillator and latch-related parts. The focus is module wiring, timing debug, and final assembly.",
             images: [
               {
                 src: "./assets/images/transistor-clock/图片_20260726221520_2471_1.jpg",
-                caption: "Discrete transistor clock hardware photo",
+                caption: "IC clock hardware photo",
               },
             ],
           },
           {
             title: "Telegraph Hardware Build",
             text:
-              "A telegraph-themed hardware build, documented here through the local telegraph photo set.",
+              "A small telegraph build with a key, coil, and mechanical contacts. I also wrote the Morse-code recognition and communication protocol, using AVR interrupts to handle input and timing. The mechanical side produces the contact movement, and the electronics recognize the keyed signal.",
             images: [
               {
                 src: "./assets/images/telegraph/图片_20260726221517_2469_1.jpg",
@@ -271,35 +271,40 @@ export const personalPageTranslations = {
           {
             title: "IRFP260N ZVS High-Frequency Driver",
             text:
-              "A ZVS high-frequency driver built with IRFP260N TO-247 power MOSFETs, used for high-current resonant drive and induction-heating-style experiments. The project focuses on power device selection, resonant tank behavior, thermal handling, and heavy-current wiring.",
+              "An IRFP260N TO-247 MOSFET ZVS high-frequency driver for high-current resonant drive and induction-heating experiments. This project focuses on power device selection, the resonant network, heat handling, and heavy-current wiring. The physical build has been donated to Beijing University of Technology.",
+          },
+          {
+            title: "88-Channel Relay Piano Control Array",
+            text:
+              "An 88-channel relay array board for controlling the 88 keys of a piano. Each relay maps to one key-control channel. The focus is keeping the power, driver, and control wiring clear enough for the board to connect reliably to the later piano-control system.",
             images: [
               {
                 src: "./assets/images/relay-array/图片_20260726221513_2467_1.jpg",
-                caption: "High-current hardware assembly photo 1",
+                caption: "Full relay piano control assembly with Arduino and wiring harness",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204042_2552_1.jpg",
-                caption: "High-current hardware assembly photo 2",
+                caption: "Front view of the relay rows, driver wiring, and Arduino control board",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204044_2553_1.jpg",
-                caption: "High-current hardware assembly photo 3",
+                caption: "Side view of the stacked relay board and indicator LEDs",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204152_2554_1.jpg",
-                caption: "High-current hardware assembly photo 4",
+                caption: "Close-up of the wiring harness and control headers",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204357_2555_1.jpg",
-                caption: "High-current hardware assembly photo 5",
+                caption: "Arduino control side next to the relay matrix",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204358_2556_1.jpg",
-                caption: "High-current hardware assembly photo 6",
+                caption: "Relay rows beside the control and wiring section",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204359_2557_1.jpg",
-                caption: "High-current hardware assembly photo 7",
+                caption: "Connector board and bundled control wiring",
               },
             ],
           },
@@ -796,20 +801,20 @@ export const personalPageTranslations = {
             ],
           },
           {
-            title: "分立三极管时钟",
+            title: "集成电路时钟",
             text:
-              "一个和分立三极管时钟相关的硬件制作，按本地 transistor-clock 图片目录归入电子制作记录。",
+              "这是另一套数字时钟制作，不是全分立三极管版本。它混合使用了集成电路和三极管电路：计数、译码和显示控制主要由 IC 完成，振荡和锁存相关部分用三极管搭出来。重点在模块连接、时序调试和整机装配。",
             images: [
               {
                 src: "./assets/images/transistor-clock/图片_20260726221520_2471_1.jpg",
-                caption: "分立三极管时钟硬件照片",
+                caption: "集成电路时钟硬件照片",
               },
             ],
           },
           {
             title: "电报机硬件制作",
             text:
-              "一个电报机主题的硬件制作，这里通过本地 telegraph 图片目录记录实物照片。",
+              "一个电报机小制作，包含按键、线圈和机械触点。我另外写了莫尔斯码识别和通信协议，用 AVR 中断处理输入和时序。机械部分负责产生触点动作，电子部分负责识别按键信号。",
             images: [
               {
                 src: "./assets/images/telegraph/图片_20260726221517_2469_1.jpg",
@@ -886,35 +891,40 @@ export const personalPageTranslations = {
           {
             title: "IRFP260N ZVS 高频驱动",
             text:
-              "基于 IRFP260N TO-247 封装功率 MOSFET 的 ZVS 高频驱动电路，用于大电流谐振驱动和感应加热类实验。这个项目重点在功率器件选型、谐振网络、散热和大电流布线。",
+              "基于 IRFP260N TO-247 功率 MOSFET 的 ZVS 高频驱动电路，用来做大电流谐振驱动和感应加热实验。这个项目重点在功率器件选型、谐振网络、散热和大电流布线。实物已经捐赠给北京工业大学。",
+          },
+          {
+            title: "88 路继电器钢琴控制阵列",
+            text:
+              "这是一块 88 路继电器阵列板，用来控制钢琴的 88 个键。每一路继电器对应一个按键控制通道，重点是把电源、驱动和控制线整理清楚，让整块板能稳定接入后面的钢琴控制系统。",
             images: [
               {
                 src: "./assets/images/relay-array/图片_20260726221513_2467_1.jpg",
-                caption: "大电流硬件组装照片 1",
+                caption: "带 Arduino 和接线束的钢琴继电器控制阵列整机",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204042_2552_1.jpg",
-                caption: "大电流硬件组装照片 2",
+                caption: "继电器排、驱动接线和 Arduino 控制板正面",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204044_2553_1.jpg",
-                caption: "大电流硬件组装照片 3",
+                caption: "继电器板侧面和指示灯排",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204152_2554_1.jpg",
-                caption: "大电流硬件组装照片 4",
+                caption: "控制接线束和排针接口近景",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204357_2555_1.jpg",
-                caption: "大电流硬件组装照片 5",
+                caption: "继电器矩阵旁边的 Arduino 控制侧",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204358_2556_1.jpg",
-                caption: "大电流硬件组装照片 6",
+                caption: "继电器排与控制接线区域",
               },
               {
                 src: "./assets/images/relay-array/图片_20260730204359_2557_1.jpg",
-                caption: "大电流硬件组装照片 7",
+                caption: "接口板和整理后的控制线束",
               },
             ],
           },
