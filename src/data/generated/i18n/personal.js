@@ -245,11 +245,11 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/relay-clock/4.jpg",
-                caption: "Relay clock running inside the acrylic enclosure",
+                caption: "Relay clock installed inside the acrylic enclosure",
               },
               {
                 src: "./assets/images/relay-clock/5.jpg",
-                caption: "Relay clock powered on inside the acrylic enclosure",
+                caption: "Relay clock hardware inside the acrylic enclosure",
               },
             ],
           },
@@ -364,7 +364,7 @@ export const personalPageTranslations = {
           {
             title: "TTL Chip Digital Clock",
             text:
-              "A separate digital clock built with TTL logic chips. It is different from the no-IC transistor clock, and the work is mainly about wiring the logic chips, checking the count and decode stages, and making the display run steadily.",
+              "A separate digital clock built with TTL logic chips. It is different from the no-IC transistor clock, and the work is mainly about wiring the logic chips, checking the count and decode stages, and assembling the display section.",
             images: [
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260729001204_2518_1.jpg",
@@ -380,7 +380,7 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260730202449_2532_1.jpg",
-                caption: "TTL chip clock running on the bench",
+                caption: "Completed TTL chip clock on the bench",
               },
             ],
           },
@@ -457,43 +457,43 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
-                caption: "LED cube lit as a finished display",
+                caption: "Finished LED cube frame and base wiring",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
-                caption: "LED cube animation pattern across the grid",
+                caption: "LED cube grid viewed from the front",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
-                caption: "LED cube with a refreshed layer pattern",
+                caption: "LED cube layer spacing and soldered columns",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
-                caption: "LED cube showing a bright full-frame pattern",
+                caption: "LED cube frame with the full grid visible",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
-                caption: "LED cube side lighting view",
+                caption: "LED cube side view and vertical alignment",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203410_2543_1.jpg",
-                caption: "LED cube display pattern",
+                caption: "LED cube upper grid and vertical supports",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203411_2544_1.jpg",
-                caption: "LED cube layered light pattern",
+                caption: "LED cube layered structure from an angle",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
-                caption: "LED cube lit through the full height of the frame",
+                caption: "LED cube full-height frame view",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
-                caption: "LED cube diagonal light pattern",
+                caption: "LED cube diagonal view of the 3D grid",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
-                caption: "LED cube finished lighting pattern",
+                caption: "Completed LED cube hardware view",
               },
             ],
           },
@@ -872,11 +872,11 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/relay-clock/4.jpg",
-                caption: "透明亚克力外壳内的通电运行状态",
+                caption: "装进透明亚克力外壳里的继电器机械表",
               },
               {
                 src: "./assets/images/relay-clock/5.jpg",
-                caption: "透明亚克力外壳内通电运行的继电器机械表",
+                caption: "透明亚克力外壳内的继电器机械表硬件",
               },
             ],
           },
@@ -991,7 +991,7 @@ export const personalPageTranslations = {
           {
             title: "TTL 芯片数字时钟",
             text:
-              "这是另一套用 TTL 逻辑芯片做的数字时钟，和无集成电路的三极管时钟不是同一个项目。这个项目主要是把逻辑芯片、计数译码和显示部分接起来，再把整机调到能稳定运行。",
+              "这是另一套用 TTL 逻辑芯片做的数字时钟，和无集成电路的三极管时钟不是同一个项目。这个项目主要是把逻辑芯片、计数译码和显示部分接起来，再完成整机装配。",
             images: [
               {
                 src: "./assets/images/ttl-chip-clock/图片_20260729001204_2518_1.jpg",
@@ -1084,43 +1084,43 @@ export const personalPageTranslations = {
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
-                caption: "作为成品显示的光立方点亮状态",
+                caption: "光立方成品框架和底部接线",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
-                caption: "光立方网格里的动画图案",
+                caption: "从正面看到的光立方网格",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
-                caption: "光立方刷新后的分层图案",
+                caption: "光立方层间距和焊接立柱",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
-                caption: "光立方高亮显示图案",
+                caption: "能看到完整网格的光立方框架",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
-                caption: "光立方侧面点亮视图",
+                caption: "光立方侧面结构和垂直对齐",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203410_2543_1.jpg",
-                caption: "光立方显示图案",
+                caption: "光立方上层网格和竖向支撑",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203411_2544_1.jpg",
-                caption: "光立方分层灯光图案",
+                caption: "斜角视图下的光立方分层结构",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
-                caption: "光立方整高度点亮图案",
+                caption: "光立方整高度框架视图",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
-                caption: "光立方斜向灯光图案",
+                caption: "光立方三维网格斜向视图",
               },
               {
                 src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
-                caption: "光立方成品点亮图案",
+                caption: "光立方成品硬件视图",
               },
             ],
           },
