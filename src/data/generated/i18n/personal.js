@@ -66,13 +66,44 @@ export const personalPageTranslations = {
             src: "./assets/images/ai-usage/awesome.png",
             caption: "Curated repository presentation: Awesome Flow Matching",
           },
+          {
+            src: "./assets/images/projects/batch-mri-quality-control-demo.png",
+            caption: "Batch MRI quality-control project demo",
+          },
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab-demo.png",
+            caption: "Distributed Paxos / Raft lab project demo",
+          },
+          {
+            src: "./assets/images/projects/industrial-query-agent-webui.png",
+            caption: "Industrial query agent Web UI demo",
+          },
+          {
+            src: "./assets/images/projects/maze-algorithms-demo.png",
+            caption: "Maze algorithms project demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-kmeans-demo.png",
+            caption: "White-box ML / DL K-means demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-pca-demo.png",
+            caption: "White-box ML / DL PCA demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-tsne-demo.png",
+            caption: "White-box ML / DL t-SNE demo",
+          },
         ],
         catTitle: "Cat",
-        catText: "This is my cat, Charlie. He was abandoned at Petco and later adopted by me.",
+        catText: "These are cats from my daily life, including Charlie, who was abandoned at Petco and later adopted by me.",
         catImages: [
-          { src: "./assets/images/cat/1.jpg", caption: "Charlie scratching" },
-          { src: "./assets/images/cat/2.jpg", caption: "Charlie zoning out" },
-          { src: "./assets/images/cat/3.jpg", caption: "Charlie resting" },
+          { src: "./assets/images/cat/Charlie/1.jpg", caption: "Charlie scratching" },
+          { src: "./assets/images/cat/Charlie/2.jpg", caption: "Charlie zoning out" },
+          { src: "./assets/images/cat/Charlie/3.jpg", caption: "Charlie resting" },
+          { src: "./assets/images/cat/mimi/图片_20260730204718_2560_1.jpg", caption: "Mimi photo" },
+          { src: "./assets/images/cat/mimi/图片_20260730204750_2561_1.jpg", caption: "Mimi close-up" },
+          { src: "./assets/images/cat/mimi/图片_20260730205028_2564_1.jpg", caption: "Mimi resting" },
         ],
         electronicsTitle: "Electronics Making",
         electronicsText:
@@ -82,6 +113,94 @@ export const personalPageTranslations = {
             title: "Hardware Music Box",
             text:
               "A hardware music box built entirely from transistors, without integrated circuits. The interest is in making timing, switching, and sound generation work through discrete components instead of hiding the logic inside chips.",
+            images: [
+              {
+                src: "./assets/images/music-box/图片_20260726221508_2464_1.jpg",
+                caption: "Hardware music box photo 1",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726221510_2465_1.jpg",
+                caption: "Hardware music box photo 2",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726221511_2466_1.jpg",
+                caption: "Hardware music box photo 3",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230841_2477_1.jpg",
+                caption: "Hardware music box photo 4",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230843_2478_1.jpg",
+                caption: "Hardware music box photo 5",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230846_2479_1.jpg",
+                caption: "Hardware music box photo 6",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230847_2480_1.jpg",
+                caption: "Hardware music box photo 7",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230849_2481_1.jpg",
+                caption: "Hardware music box photo 8",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230850_2482_1.jpg",
+                caption: "Hardware music box photo 9",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230852_2483_1.jpg",
+                caption: "Hardware music box photo 10",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230854_2484_1.jpg",
+                caption: "Hardware music box photo 11",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230855_2485_1.jpg",
+                caption: "Hardware music box photo 12",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203728_2548_1.jpg",
+                caption: "Hardware music box photo 13",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203729_2549_1.jpg",
+                caption: "Hardware music box photo 14",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203731_2550_1.jpg",
+                caption: "Hardware music box photo 15",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203733_2551_1.jpg",
+                caption: "Hardware music box photo 16",
+              },
+            ],
+          },
+          {
+            title: "Discrete Transistor Clock",
+            text:
+              "A clock-related discrete-transistor hardware build, grouped with the transistor-clock photo set in the local asset library.",
+            images: [
+              {
+                src: "./assets/images/transistor-clock/图片_20260726221520_2471_1.jpg",
+                caption: "Discrete transistor clock hardware photo",
+              },
+            ],
+          },
+          {
+            title: "Telegraph Hardware Build",
+            text:
+              "A telegraph-themed hardware build, documented here through the local telegraph photo set.",
+            images: [
+              {
+                src: "./assets/images/telegraph/图片_20260726221517_2469_1.jpg",
+                caption: "Telegraph hardware build photo",
+              },
+            ],
           },
           {
             title: "Relay Mechanical Clock",
@@ -153,6 +272,36 @@ export const personalPageTranslations = {
             title: "IRFP260N ZVS High-Frequency Driver",
             text:
               "A ZVS high-frequency driver built with IRFP260N TO-247 power MOSFETs, used for high-current resonant drive and induction-heating-style experiments. The project focuses on power device selection, resonant tank behavior, thermal handling, and heavy-current wiring.",
+            images: [
+              {
+                src: "./assets/images/relay-array/图片_20260726221513_2467_1.jpg",
+                caption: "High-current hardware assembly photo 1",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204042_2552_1.jpg",
+                caption: "High-current hardware assembly photo 2",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204044_2553_1.jpg",
+                caption: "High-current hardware assembly photo 3",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204152_2554_1.jpg",
+                caption: "High-current hardware assembly photo 4",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204357_2555_1.jpg",
+                caption: "High-current hardware assembly photo 5",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204358_2556_1.jpg",
+                caption: "High-current hardware assembly photo 6",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204359_2557_1.jpg",
+                caption: "High-current hardware assembly photo 7",
+              },
+            ],
           },
           {
             title: "CM600HA-24H DRSSTC",
@@ -215,6 +364,22 @@ export const personalPageTranslations = {
                 src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
                 caption: "Right-Angle Header Power Distribution Module (White Board)",
               },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260729001204_2518_1.jpg",
+                caption: "TTL chip clock hardware photo 1",
+              },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260729001205_2519_1.jpg",
+                caption: "TTL chip clock hardware photo 2",
+              },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260730202239_2529_1.jpg",
+                caption: "TTL chip clock hardware photo 3",
+              },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260730202449_2532_1.jpg",
+                caption: "TTL chip clock hardware photo 4",
+              },
             ],
           },
           {
@@ -225,6 +390,10 @@ export const personalPageTranslations = {
               {
                 src: "./assets/images/12864/pcb.PNG",
                 caption: "ST7920 12864 LCD Interface PCB Layout",
+              },
+              {
+                src: "./assets/images/12864/图片_20260726221515_2468_1.jpg",
+                caption: "ST7920 12864 LCD interface board photo",
               },
             ],
           },
@@ -255,6 +424,74 @@ export const personalPageTranslations = {
               {
                 src: "./assets/images/light-cube-888/唯一一张.PNG",
                 caption: "8x8x8 LED Light Cube Hardware Photo",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726221518_2470_1.jpg",
+                caption: "8x8x8 LED light cube photo 1",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231336_2486_1.jpg",
+                caption: "8x8x8 LED light cube photo 2",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231338_2487_1.jpg",
+                caption: "8x8x8 LED light cube photo 3",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231339_2488_1.jpg",
+                caption: "8x8x8 LED light cube photo 4",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231340_2489_1.jpg",
+                caption: "8x8x8 LED light cube photo 5",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231342_2490_1.jpg",
+                caption: "8x8x8 LED light cube photo 6",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231343_2491_1.jpg",
+                caption: "8x8x8 LED light cube photo 7",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
+                caption: "8x8x8 LED light cube photo 8",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
+                caption: "8x8x8 LED light cube photo 9",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
+                caption: "8x8x8 LED light cube photo 10",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
+                caption: "8x8x8 LED light cube photo 11",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
+                caption: "8x8x8 LED light cube photo 12",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203410_2543_1.jpg",
+                caption: "8x8x8 LED light cube photo 13",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203411_2544_1.jpg",
+                caption: "8x8x8 LED light cube photo 14",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
+                caption: "8x8x8 LED light cube photo 15",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
+                caption: "8x8x8 LED light cube photo 16",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
+                caption: "8x8x8 LED light cube photo 17",
               },
             ],
           },
@@ -444,13 +681,44 @@ export const personalPageTranslations = {
             src: "./assets/images/ai-usage/awesome.png",
             caption: "整理型仓库展示：Awesome Flow Matching",
           },
+          {
+            src: "./assets/images/projects/batch-mri-quality-control-demo.png",
+            caption: "批量 MRI 质量控制项目 demo",
+          },
+          {
+            src: "./assets/images/projects/distributed-paxos-raft-lab-demo.png",
+            caption: "分布式 Paxos / Raft 实验项目 demo",
+          },
+          {
+            src: "./assets/images/projects/industrial-query-agent-webui.png",
+            caption: "工业查询智能体 Web UI demo",
+          },
+          {
+            src: "./assets/images/projects/maze-algorithms-demo.png",
+            caption: "迷宫算法项目 demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-kmeans-demo.png",
+            caption: "白盒 ML / DL K-means demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-pca-demo.png",
+            caption: "白盒 ML / DL PCA demo",
+          },
+          {
+            src: "./assets/images/projects/whitebox-ml-dl-tsne-demo.png",
+            caption: "白盒 ML / DL t-SNE demo",
+          },
         ],
         catTitle: "猫",
-        catText: "这是我的小猫查理。它是被人遗弃在 Petco 后由我收养的。",
+        catText: "这些是我日常生活里的猫，其中包括查理。查理是被人遗弃在 Petco 后由我收养的。",
         catImages: [
-          { src: "./assets/images/cat/1.jpg", caption: "瘙痒中的查理" },
-          { src: "./assets/images/cat/2.jpg", caption: "发呆中的查理" },
-          { src: "./assets/images/cat/3.jpg", caption: "休息中的查理" },
+          { src: "./assets/images/cat/Charlie/1.jpg", caption: "瘙痒中的查理" },
+          { src: "./assets/images/cat/Charlie/2.jpg", caption: "发呆中的查理" },
+          { src: "./assets/images/cat/Charlie/3.jpg", caption: "休息中的查理" },
+          { src: "./assets/images/cat/mimi/图片_20260730204718_2560_1.jpg", caption: "Mimi 照片" },
+          { src: "./assets/images/cat/mimi/图片_20260730204750_2561_1.jpg", caption: "Mimi 近照" },
+          { src: "./assets/images/cat/mimi/图片_20260730205028_2564_1.jpg", caption: "休息中的 Mimi" },
         ],
         electronicsTitle: "电子制作",
         electronicsText:
@@ -460,6 +728,94 @@ export const personalPageTranslations = {
             title: "硬件八音盒",
             text:
               "全三极管实现的硬件八音盒，没有使用任何集成电路。重点是用分立元件完成时序、开关和发声逻辑，而不是把逻辑藏在芯片里。",
+            images: [
+              {
+                src: "./assets/images/music-box/图片_20260726221508_2464_1.jpg",
+                caption: "硬件八音盒照片 1",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726221510_2465_1.jpg",
+                caption: "硬件八音盒照片 2",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726221511_2466_1.jpg",
+                caption: "硬件八音盒照片 3",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230841_2477_1.jpg",
+                caption: "硬件八音盒照片 4",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230843_2478_1.jpg",
+                caption: "硬件八音盒照片 5",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230846_2479_1.jpg",
+                caption: "硬件八音盒照片 6",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230847_2480_1.jpg",
+                caption: "硬件八音盒照片 7",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230849_2481_1.jpg",
+                caption: "硬件八音盒照片 8",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230850_2482_1.jpg",
+                caption: "硬件八音盒照片 9",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230852_2483_1.jpg",
+                caption: "硬件八音盒照片 10",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230854_2484_1.jpg",
+                caption: "硬件八音盒照片 11",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260726230855_2485_1.jpg",
+                caption: "硬件八音盒照片 12",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203728_2548_1.jpg",
+                caption: "硬件八音盒照片 13",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203729_2549_1.jpg",
+                caption: "硬件八音盒照片 14",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203731_2550_1.jpg",
+                caption: "硬件八音盒照片 15",
+              },
+              {
+                src: "./assets/images/music-box/图片_20260730203733_2551_1.jpg",
+                caption: "硬件八音盒照片 16",
+              },
+            ],
+          },
+          {
+            title: "分立三极管时钟",
+            text:
+              "一个和分立三极管时钟相关的硬件制作，按本地 transistor-clock 图片目录归入电子制作记录。",
+            images: [
+              {
+                src: "./assets/images/transistor-clock/图片_20260726221520_2471_1.jpg",
+                caption: "分立三极管时钟硬件照片",
+              },
+            ],
+          },
+          {
+            title: "电报机硬件制作",
+            text:
+              "一个电报机主题的硬件制作，这里通过本地 telegraph 图片目录记录实物照片。",
+            images: [
+              {
+                src: "./assets/images/telegraph/图片_20260726221517_2469_1.jpg",
+                caption: "电报机硬件制作照片",
+              },
+            ],
           },
           {
             title: "纯继电器机械表",
@@ -531,6 +887,36 @@ export const personalPageTranslations = {
             title: "IRFP260N ZVS 高频驱动",
             text:
               "基于 IRFP260N TO-247 封装功率 MOSFET 的 ZVS 高频驱动电路，用于大电流谐振驱动和感应加热类实验。这个项目重点在功率器件选型、谐振网络、散热和大电流布线。",
+            images: [
+              {
+                src: "./assets/images/relay-array/图片_20260726221513_2467_1.jpg",
+                caption: "大电流硬件组装照片 1",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204042_2552_1.jpg",
+                caption: "大电流硬件组装照片 2",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204044_2553_1.jpg",
+                caption: "大电流硬件组装照片 3",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204152_2554_1.jpg",
+                caption: "大电流硬件组装照片 4",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204357_2555_1.jpg",
+                caption: "大电流硬件组装照片 5",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204358_2556_1.jpg",
+                caption: "大电流硬件组装照片 6",
+              },
+              {
+                src: "./assets/images/relay-array/图片_20260730204359_2557_1.jpg",
+                caption: "大电流硬件组装照片 7",
+              },
+            ],
           },
           {
             title: "CM600HA-24H DRSSTC",
@@ -593,6 +979,22 @@ export const personalPageTranslations = {
                 src: "./assets/images/ttl-clock/弯针电源 白色.PNG",
                 caption: "弯针电源分配模块（白板）",
               },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260729001204_2518_1.jpg",
+                caption: "TTL 芯片时钟硬件照片 1",
+              },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260729001205_2519_1.jpg",
+                caption: "TTL 芯片时钟硬件照片 2",
+              },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260730202239_2529_1.jpg",
+                caption: "TTL 芯片时钟硬件照片 3",
+              },
+              {
+                src: "./assets/images/ttl-chip-clock/图片_20260730202449_2532_1.jpg",
+                caption: "TTL 芯片时钟硬件照片 4",
+              },
             ],
           },
           {
@@ -603,6 +1005,10 @@ export const personalPageTranslations = {
               {
                 src: "./assets/images/12864/pcb.PNG",
                 caption: "ST7920 12864 液晶接口 PCB 布局与布线",
+              },
+              {
+                src: "./assets/images/12864/图片_20260726221515_2468_1.jpg",
+                caption: "ST7920 12864 液晶接口板实物照片",
               },
             ],
           },
@@ -633,6 +1039,74 @@ export const personalPageTranslations = {
               {
                 src: "./assets/images/light-cube-888/唯一一张.PNG",
                 caption: "8×8×8 光立方硬件实物展示",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726221518_2470_1.jpg",
+                caption: "8×8×8 光立方照片 1",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231336_2486_1.jpg",
+                caption: "8×8×8 光立方照片 2",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231338_2487_1.jpg",
+                caption: "8×8×8 光立方照片 3",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231339_2488_1.jpg",
+                caption: "8×8×8 光立方照片 4",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231340_2489_1.jpg",
+                caption: "8×8×8 光立方照片 5",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231342_2490_1.jpg",
+                caption: "8×8×8 光立方照片 6",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260726231343_2491_1.jpg",
+                caption: "8×8×8 光立方照片 7",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730202659_2535_1.jpg",
+                caption: "8×8×8 光立方照片 8",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203108_2538_1.jpg",
+                caption: "8×8×8 光立方照片 9",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203109_2539_1.jpg",
+                caption: "8×8×8 光立方照片 10",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203216_2540_1.jpg",
+                caption: "8×8×8 光立方照片 11",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203218_2541_1.jpg",
+                caption: "8×8×8 光立方照片 12",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203410_2543_1.jpg",
+                caption: "8×8×8 光立方照片 13",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203411_2544_1.jpg",
+                caption: "8×8×8 光立方照片 14",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203413_2545_1.jpg",
+                caption: "8×8×8 光立方照片 15",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203523_2546_1.jpg",
+                caption: "8×8×8 光立方照片 16",
+              },
+              {
+                src: "./assets/images/light-cube-888/图片_20260730203525_2547_1.jpg",
+                caption: "8×8×8 光立方照片 17",
               },
             ],
           },
@@ -757,4 +1231,3 @@ export const personalPageTranslations = {
         ],
       },
     };
-
