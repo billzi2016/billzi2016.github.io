@@ -4,7 +4,7 @@ export const contactLinks = [
     label: "Google Scholar",
   },
   {
-    href: "./assets/resume-july-28-2026.pdf",
+    href: "./assets/resume-august-24-2026.pdf",
     label: "[PDF] Resume",
   },
   {
