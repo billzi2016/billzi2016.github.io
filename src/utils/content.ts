@@ -110,7 +110,7 @@ export const selectedPublicationKeys = [
   "bi2025generalbench",
   "xu2023mmlock",
   "bi2025subspace",
-  "niu2024large",
+  "niu2026large",
   "liang2026comprehensive",
   "korada2025temporal",
   "pan2025cd9",

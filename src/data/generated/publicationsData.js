@@ -117,10 +117,10 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "wang2024bench",
-    "title": "From Bench to Bedside: A Review of Clinical Trials in Drug Discovery and Development",
-    "venue": "arXiv preprint arXiv:2412.09378",
-    "year": "2024",
+    "key": "wang2026bench",
+    "title": "From bench to bedside: a review of clinical trials in drug discovery and development",
+    "venue": "BIO Integration",
+    "year": "2026",
     "authors": [
       "Wang, Tianyang",
       "Liu, Ming",
@@ -134,7 +134,7 @@ export const publicationsData = [
       "Chen, Keyu",
       "others"
     ],
-    "bibtex": "@article{wang2024bench,\n  title={From Bench to Bedside: A Review of Clinical Trials in Drug Discovery and Development},\n  author={Wang, Tianyang and Liu, Ming and Peng, Benji and Song, Xinyuan and Zhang, Charles and Sun, Xintian and Niu, Qian and Liu, Junyu and Chen, Silin and Chen, Keyu and others},\n  journal={arXiv preprint arXiv:2412.09378},\n  year={2024}\n}"
+    "bibtex": "@article{wang2026bench,\n  title={From bench to bedside: a review of clinical trials in drug discovery and development},\n  author={Wang, Tianyang and Liu, Ming and Peng, Benji and Song, Xinyuan and Zhang, Charles and Sun, Xintian and Niu, Qian and Liu, Junyu and Chen, Silin and Chen, Keyu and others},\n  journal={BIO Integration},\n  volume={7},\n  number={12},\n  pages={1--18},\n  year={2026},\n  publisher={Compuscript Ltd}\n}"
   },
   {
     "type": "article",
@@ -180,7 +180,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "hsieh2024deep",
+    "key": "hsieh2024bigdata",
     "title": "Deep learning, machine learning, advancing big data analytics and management",
     "venue": "arXiv preprint arXiv:2412.02187",
     "year": "2024",
@@ -197,11 +197,11 @@ export const publicationsData = [
       "Feng, Pohsun",
       "others"
     ],
-    "bibtex": "@article{hsieh2024deep,\n  title={Deep learning, machine learning, advancing big data analytics and management},\n  author={Hsieh, Weiche and Bi, Ziqian and Chen, Keyu and Peng, Benji and Zhang, Sen and Xu, Jiawei and Wang, Jinlang and Yin, Caitlyn Heqi and Zhang, Yichao and Feng, Pohsun and others},\n  journal={arXiv preprint arXiv:2412.02187},\n  year={2024}\n}"
+    "bibtex": "@article{hsieh2024bigdata,\n  title={Deep learning, machine learning, advancing big data analytics and management},\n  author={Hsieh, Weiche and Bi, Ziqian and Chen, Keyu and Peng, Benji and Zhang, Sen and Xu, Jiawei and Wang, Jinlang and Yin, Caitlyn Heqi and Zhang, Yichao and Feng, Pohsun and others},\n  journal={arXiv preprint arXiv:2412.02187},\n  year={2024}\n}"
   },
   {
     "type": "article",
-    "key": "chen2024deep",
+    "key": "chen2024designpatterns",
     "title": "Deep learning and machine learning: Advancing big data analytics and management with design patterns",
     "venue": "arXiv preprint arXiv:2410.03795",
     "year": "2024",
@@ -218,11 +218,11 @@ export const publicationsData = [
       "Li, Ming",
       "others"
     ],
-    "bibtex": "@article{chen2024deep,\n  title={Deep learning and machine learning: Advancing big data analytics and management with design patterns},\n  author={Chen, Keyu and Bi, Ziqian and Wang, Tianyang and Wen, Yizhu and Feng, Pohsun and Niu, Qian and Liu, Junyu and Peng, Benji and Zhang, Sen and Li, Ming and others},\n  journal={arXiv preprint arXiv:2410.03795},\n  year={2024}\n}"
+    "bibtex": "@article{chen2024designpatterns,\n  title={Deep learning and machine learning: Advancing big data analytics and management with design patterns},\n  author={Chen, Keyu and Bi, Ziqian and Wang, Tianyang and Wen, Yizhu and Feng, Pohsun and Niu, Qian and Liu, Junyu and Peng, Benji and Zhang, Sen and Li, Ming and others},\n  journal={arXiv preprint arXiv:2410.03795},\n  year={2024}\n}"
   },
   {
     "type": "article",
-    "key": "bi2025gpt",
+    "key": "bi2025gptoss",
     "title": "Is GPT-OSS Good? A Comprehensive Evaluation of OpenAI's Latest Open Source Models",
     "venue": "arXiv preprint arXiv:2508.12461",
     "year": "2025",
@@ -239,7 +239,7 @@ export const publicationsData = [
       "Hao, Junfeng",
       "others"
     ],
-    "bibtex": "@article{bi2025gpt,\n  title={Is GPT-OSS Good? A Comprehensive Evaluation of OpenAI's Latest Open Source Models},\n  author={Bi, Ziqian and Chen, Keyu and Tseng, Chiung-Yi and Zhang, Danyang and Wang, Tianyang and Luo, Hongying and Chen, Lu and Huang, Junming and Guan, Jibin and Hao, Junfeng and others},\n  journal={arXiv preprint arXiv:2508.12461},\n  year={2025}\n}"
+    "bibtex": "@article{bi2025gptoss,\n  title={Is GPT-OSS Good? A Comprehensive Evaluation of OpenAI's Latest Open Source Models},\n  author={Bi, Ziqian and Chen, Keyu and Tseng, Chiung-Yi and Zhang, Danyang and Wang, Tianyang and Luo, Hongying and Chen, Lu and Huang, Junming and Guan, Jibin and Hao, Junfeng and others},\n  journal={arXiv preprint arXiv:2508.12461},\n  year={2025}\n}"
   },
   {
     "type": "article",
@@ -285,10 +285,10 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "niu2024large",
+    "key": "niu2026large",
     "title": "Large language models and cognitive science: A comprehensive review of similarities, differences, and challenges",
     "venue": "BIO Integration",
-    "year": "2024",
+    "year": "2026",
     "authors": [
       "Niu, Qian",
       "Liu, Junyu",
@@ -302,11 +302,11 @@ export const publicationsData = [
       "Yin, Caitlyn Heqi",
       "others"
     ],
-    "bibtex": "@article{niu2024large,\n  title={Large language models and cognitive science: A comprehensive review of similarities, differences, and challenges},\n  author={Niu, Qian and Liu, Junyu and Bi, Ziqian and Feng, Pohsun and Peng, Benji and Chen, Keyu and Li, Ming and Yan, Lawrence KQ and Zhang, Yichao and Yin, Caitlyn Heqi and others},\n  journal={BIO Integration},\n  year={2024}\n}"
+    "bibtex": "@article{niu2026large,\n  title={Large language models and cognitive science: A comprehensive review of similarities, differences, and challenges},\n  author={Niu, Qian and Liu, Junyu and Bi, Ziqian and Feng, Pohsun and Peng, Benji and Chen, Keyu and Li, Ming and Yan, Lawrence KQ and Zhang, Yichao and Yin, Caitlyn Heqi and others},\n  journal={BIO Integration},\n  volume={7},\n  number={13},\n  pages={1--19},\n  year={2026},\n  publisher={Compuscript Ltd}\n}"
   },
   {
     "type": "article",
-    "key": "chen2024deep",
+    "key": "chen2024pythonfundamentals",
     "title": "Deep Learning and Machine Learning--Python Data Structures and Mathematics Fundamental: From Theory to Practice",
     "venue": "arXiv preprint arXiv:2410.19849",
     "year": "2024",
@@ -323,11 +323,11 @@ export const publicationsData = [
       "Yin, Caitlyn Heqi",
       "others"
     ],
-    "bibtex": "@article{chen2024deep,\n  title={Deep Learning and Machine Learning--Python Data Structures and Mathematics Fundamental: From Theory to Practice},\n  author={Chen, Silin and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Chen, Keyu and Yin, Caitlyn Heqi and others},\n  journal={arXiv preprint arXiv:2410.19849},\n  year={2024}\n}"
+    "bibtex": "@article{chen2024pythonfundamentals,\n  title={Deep Learning and Machine Learning--Python Data Structures and Mathematics Fundamental: From Theory to Practice},\n  author={Chen, Silin and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Chen, Keyu and Yin, Caitlyn Heqi and others},\n  journal={arXiv preprint arXiv:2410.19849},\n  year={2024}\n}"
   },
   {
     "type": "article",
-    "key": "bi2025gpt",
+    "key": "bi2025financialgptoss",
     "title": "Is GPT-OSS All You Need? Benchmarking Large Language Models for Financial Intelligence and the Surprising Efficiency Paradox",
     "venue": "arXiv preprint arXiv:2512.14717",
     "year": "2025",
@@ -337,7 +337,7 @@ export const publicationsData = [
       "Song, Junhao",
       "Tseng, Chiung-Yi"
     ],
-    "bibtex": "@article{bi2025gpt,\n  title={Is GPT-OSS All You Need? Benchmarking Large Language Models for Financial Intelligence and the Surprising Efficiency Paradox},\n  author={Bi, Ziqian and Zhang, Danyang and Song, Junhao and Tseng, Chiung-Yi},\n  journal={arXiv preprint arXiv:2512.14717},\n  year={2025}\n}"
+    "bibtex": "@article{bi2025financialgptoss,\n  title={Is GPT-OSS All You Need? Benchmarking Large Language Models for Financial Intelligence and the Surprising Efficiency Paradox},\n  author={Bi, Ziqian and Zhang, Danyang and Song, Junhao and Tseng, Chiung-Yi},\n  journal={arXiv preprint arXiv:2512.14717},\n  year={2025}\n}"
   },
   {
     "type": "article",
@@ -588,7 +588,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "feng2024mastering",
+    "key": "feng2024automl",
     "title": "Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--AutoML from Basics to State-of-the-Art Techniques",
     "venue": "arXiv preprint arXiv:2410.09596",
     "year": "2024",
@@ -605,7 +605,7 @@ export const publicationsData = [
       "Li, Ming",
       "others"
     ],
-    "bibtex": "@article{feng2024mastering,\n  title={Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--AutoML from Basics to State-of-the-Art Techniques},\n  author={Feng, Pohsun and Bi, Ziqian and Wen, Yizhu and Peng, Benji and Liu, Junyu and Yin, Caitlyn Heqi and Wang, Tianyang and Chen, Keyu and Zhang, Sen and Li, Ming and others},\n  journal={arXiv preprint arXiv:2410.09596},\n  year={2024}\n}"
+    "bibtex": "@article{feng2024automl,\n  title={Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--AutoML from Basics to State-of-the-Art Techniques},\n  author={Feng, Pohsun and Bi, Ziqian and Wen, Yizhu and Peng, Benji and Liu, Junyu and Yin, Caitlyn Heqi and Wang, Tianyang and Chen, Keyu and Zhang, Sen and Li, Ming and others},\n  journal={arXiv preprint arXiv:2410.09596},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -647,7 +647,7 @@ export const publicationsData = [
       "Yin, Caitlyn Heqi",
       "others"
     ],
-    "bibtex": "@article{hsieh2024deep,\n  title={Deep Learning, Machine Learning--Digital Signal and Image Processing: From Theory to Application},\n  author={Hsieh, Weiche and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Chen, Keyu and Yin, Caitlyn Heqi and others},\n  journal={arXiv preprint arXiv:2410.20304},\n  year={2024}\n}"
+    "bibtex": "@article{hsieh2024signalimage,\n  title={Deep Learning, Machine Learning--Digital Signal and Image Processing: From Theory to Application},\n  author={Hsieh, Weiche and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Chen, Keyu and Yin, Caitlyn Heqi and others},\n  journal={arXiv preprint arXiv:2410.20304},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -730,7 +730,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "wang2024deep",
+    "key": "wang2024modelsecurity",
     "title": "Deep learning model security: Threats and defenses",
     "venue": "arXiv preprint arXiv:2412.08969",
     "year": "2024",
@@ -747,7 +747,7 @@ export const publicationsData = [
       "Liu, Junyu",
       "others"
     ],
-    "bibtex": "@article{wang2024deep,\n  title={Deep learning model security: Threats and defenses},\n  author={Wang, Tianyang and Bi, Ziqian and Zhang, Yichao and Liu, Ming and Hsieh, Weiche and Feng, Pohsun and Yan, Lawrence KQ and Wen, Yizhu and Peng, Benji and Liu, Junyu and others},\n  journal={arXiv preprint arXiv:2412.08969},\n  year={2024}\n}"
+    "bibtex": "@article{wang2024modelsecurity,\n  title={Deep learning model security: Threats and defenses},\n  author={Wang, Tianyang and Bi, Ziqian and Zhang, Yichao and Liu, Ming and Hsieh, Weiche and Feng, Pohsun and Yan, Lawrence KQ and Wen, Yizhu and Peng, Benji and Liu, Junyu and others},\n  journal={arXiv preprint arXiv:2412.08969},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -850,7 +850,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "chen2024deep",
+    "key": "chen2024generativemodels",
     "title": "Deep Learning and Machine Learning, Advancing Big Data Analytics and Management: Generative Models",
     "venue": "",
     "year": "2024",
@@ -867,7 +867,7 @@ export const publicationsData = [
       "Liu, Junyu",
       "others"
     ],
-    "bibtex": "@article{chen2024deep,\n  title={Deep Learning and Machine Learning, Advancing Big Data Analytics and Management: Generative Models},\n  author={Chen, Silin and Wang, Tianyang and Song, Xinyuan and Jing, Bowen and Yang, Junjie and Song, Junhao and Chen, Keyu and Li, Ming and Niu, Qian and Liu, Junyu and others},\n  year={2024}\n}"
+    "bibtex": "@article{chen2024generativemodels,\n  title={Deep Learning and Machine Learning, Advancing Big Data Analytics and Management: Generative Models},\n  author={Chen, Silin and Wang, Tianyang and Song, Xinyuan and Jing, Bowen and Yang, Junjie and Song, Junhao and Chen, Keyu and Li, Ming and Niu, Qian and Liu, Junyu and others},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -913,7 +913,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "chen2024deep",
+    "key": "chen2024tensorflow",
     "title": "Deep learning and machine learning, advancing big data analytics and management: Tensorflow pretrained models",
     "venue": "arXiv preprint arXiv:2409.13566",
     "year": "2024",
@@ -930,11 +930,11 @@ export const publicationsData = [
       "Wang, Tianyang",
       "others"
     ],
-    "bibtex": "@article{chen2024deep,\n  title={Deep learning and machine learning, advancing big data analytics and management: Tensorflow pretrained models},\n  author={Chen, Keyu and Bi, Ziqian and Niu, Qian and Liu, Junyu and Peng, Benji and Zhang, Sen and Liu, Ming and Song, Xinyuan and Jiang, Zekun and Wang, Tianyang and others},\n  journal={arXiv preprint arXiv:2409.13566},\n  year={2024}\n}"
+    "bibtex": "@article{chen2024tensorflow,\n  title={Deep learning and machine learning, advancing big data analytics and management: Tensorflow pretrained models},\n  author={Chen, Keyu and Bi, Ziqian and Niu, Qian and Liu, Junyu and Peng, Benji and Zhang, Sen and Liu, Ming and Song, Xinyuan and Jiang, Zekun and Wang, Tianyang and others},\n  journal={arXiv preprint arXiv:2409.13566},\n  year={2024}\n}"
   },
   {
     "type": "article",
-    "key": "wang2024deep",
+    "key": "wang2024generativemodels",
     "title": "Deep learning and machine learning-generative models: Foundations, techniques, and applications",
     "venue": "",
     "year": "2024",
@@ -951,7 +951,7 @@ export const publicationsData = [
       "Jing, Bowen",
       "others"
     ],
-    "bibtex": "@article{wang2024deep,\n  title={Deep learning and machine learning-generative models: Foundations, techniques, and applications},\n  author={Wang, Tianyang and Wang, Yunze and Song, Xinyuan and Zhang, Yichao and Chen, Silin and Bi, Ziqian and Liu, Ming and Zhou, Jun and Song, Junhao and Jing, Bowen and others},\n  year={2024}\n}"
+    "bibtex": "@article{wang2024generativemodels,\n  title={Deep learning and machine learning-generative models: Foundations, techniques, and applications},\n  author={Wang, Tianyang and Wang, Yunze and Song, Xinyuan and Zhang, Yichao and Chen, Silin and Bi, Ziqian and Liu, Ming and Zhou, Jun and Song, Junhao and Jing, Bowen and others},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -1069,7 +1069,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "wang2024deep",
+    "key": "wang2024oop",
     "title": "Deep learning and machine learning, advancing big data analytics and management: Object-oriented programming",
     "venue": "arXiv preprint arXiv:2409.19916",
     "year": "2024",
@@ -1086,7 +1086,7 @@ export const publicationsData = [
       "Pan, Xuanhe",
       "others"
     ],
-    "bibtex": "@article{wang2024deep,\n  title={Deep learning and machine learning, advancing big data analytics and management: Object-oriented programming},\n  author={Wang, Tianyang and Bi, Ziqian and Chen, Keyu and Xu, Jiawei and Niu, Qian and Liu, Junyu and Peng, Benji and Li, Ming and Zhang, Sen and Pan, Xuanhe and others},\n  journal={arXiv preprint arXiv:2409.19916},\n  year={2024}\n}"
+    "bibtex": "@article{wang2024oop,\n  title={Deep learning and machine learning, advancing big data analytics and management: Object-oriented programming},\n  author={Wang, Tianyang and Bi, Ziqian and Chen, Keyu and Xu, Jiawei and Niu, Qian and Liu, Junyu and Peng, Benji and Li, Ming and Zhang, Sen and Pan, Xuanhe and others},\n  journal={arXiv preprint arXiv:2409.19916},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -1458,7 +1458,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "chen2024deep",
+    "key": "chen2024nlp",
     "title": "Deep Learning and Machine Learning--Natural Language Processing: From Theory to Application",
     "venue": "arXiv preprint arXiv:2411.05026",
     "year": "2024",
@@ -1475,7 +1475,7 @@ export const publicationsData = [
       "Yin, Caitlyn Heqi",
       "others"
     ],
-    "bibtex": "@article{chen2024deep,\n  title={Deep Learning and Machine Learning--Natural Language Processing: From Theory to Application},\n  author={Chen, Keyu and Fei, Cheng and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Yin, Caitlyn Heqi and others},\n  journal={arXiv preprint arXiv:2411.05026},\n  year={2024}\n}"
+    "bibtex": "@article{chen2024nlp,\n  title={Deep Learning and Machine Learning--Natural Language Processing: From Theory to Application},\n  author={Chen, Keyu and Fei, Cheng and Bi, Ziqian and Liu, Junyu and Peng, Benji and Zhang, Sen and Pan, Xuanhe and Xu, Jiawei and Wang, Jinlang and Yin, Caitlyn Heqi and others},\n  journal={arXiv preprint arXiv:2411.05026},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -1595,7 +1595,7 @@ export const publicationsData = [
   },
   {
     "type": "article",
-    "key": "feng2024mastering",
+    "key": "feng2024blockchain",
     "title": "Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--Blockchain and Applications",
     "venue": "arXiv preprint arXiv:2410.10110",
     "year": "2024",
@@ -1612,7 +1612,7 @@ export const publicationsData = [
       "Zhang, Sen",
       "others"
     ],
-    "bibtex": "@article{feng2024mastering,\n  title={Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--Blockchain and Applications},\n  author={Feng, Pohsun and Bi, Ziqian and Yan, Lawrence KQ and Wen, Yizhu and Peng, Benji and Liu, Junyu and Yin, Caitlyn Heqi and Wang, Tianyang and Chen, Keyu and Zhang, Sen and others},\n  journal={arXiv preprint arXiv:2410.10110},\n  year={2024}\n}"
+    "bibtex": "@article{feng2024blockchain,\n  title={Mastering AI: Big Data, Deep Learning, and the Evolution of Large Language Models--Blockchain and Applications},\n  author={Feng, Pohsun and Bi, Ziqian and Yan, Lawrence KQ and Wen, Yizhu and Peng, Benji and Liu, Junyu and Yin, Caitlyn Heqi and Wang, Tianyang and Chen, Keyu and Zhang, Sen and others},\n  journal={arXiv preprint arXiv:2410.10110},\n  year={2024}\n}"
   },
   {
     "type": "article",
@@ -1914,22 +1914,37 @@ export const publicationsData = [
   {
     "type": "article",
     "key": "li2026integrating",
-    "title": "Integrating Machine Learning, Deep Learning, and Molecular Docking to Predict the Molecular Network Mechanism of Aristolochic Acid I-Induced Renal Cell Carcinoma",
+    "title": "Integrating machine learning, deep learning, and docking to predict aristolochic acid A carcinogenesis",
     "venue": "Frontiers in Pharmacology",
     "year": "2026",
     "authors": [
-      "LI, Longzhu",
+      "Li, Longzhu",
       "Liao, Jiacheng",
-      "Xin-tian, Chen",
+      "Chen, Xintian",
       "Lin, Zeqiong",
       "Gong, Siqiao",
       "Huang, Junmin",
       "Bi, Ziqian",
       "Wang, Tianyang",
       "Chia, Xinliang",
-      "Chen, LU",
+      "Chen, Lu",
       "others"
     ],
-    "bibtex": "@article{li2026integrating,\n  title={Integrating Machine Learning, Deep Learning, and Molecular Docking to Predict the Molecular Network Mechanism of Aristolochic Acid I-Induced Renal Cell Carcinoma},\n  author={LI, Longzhu and Liao, Jiacheng and Xin-tian, Chen and Lin, Zeqiong and Gong, Siqiao and Huang, Junmin and Bi, Ziqian and Wang, Tianyang and Chia, Xinliang and Chen, LU and others},\n  journal={Frontiers in Pharmacology},\n  volume={17},\n  pages={1873914},\n  year={2026},\n  publisher={Frontiers}\n}"
+    "bibtex": "@article{li2026integrating,\n  title={Integrating machine learning, deep learning, and docking to predict aristolochic acid A carcinogenesis},\n  author={Li, Longzhu and Liao, Jiacheng and Chen, Xintian and Lin, Zeqiong and Gong, Siqiao and Huang, Junmin and Bi, Ziqian and Wang, Tianyang and Chia, Xinliang and Chen, Lu and others},\n  journal={Frontiers in Pharmacology},\n  volume={17},\n  pages={1873914},\n  year={2026}\n}"
+  },
+  {
+    "type": "article",
+    "key": "lu2026endogenous",
+    "title": "An Endogenous Threat Recognition and Hazard Mitigation framework for intelligent connected vehicles network security",
+    "venue": "Ad Hoc Networks",
+    "year": "2026",
+    "authors": [
+      "Lu, Di",
+      "Tang, Pan",
+      "Bi, Ziqian",
+      "Chia, Xinliang",
+      "Zhou, Yifan"
+    ],
+    "bibtex": "@article{lu2026endogenous,\n  title={An Endogenous Threat Recognition and Hazard Mitigation framework for intelligent connected vehicles network security},\n  author={Lu, Di and Tang, Pan and Bi, Ziqian and Chia, Xinliang and Zhou, Yifan},\n  journal={Ad Hoc Networks},\n  pages={104362},\n  year={2026},\n  publisher={Elsevier}\n}"
   }
 ];

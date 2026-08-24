@@ -147,6 +147,14 @@ export const siteExperienceContent = {
             en: "Supported embedded hardware integration and system bring-up across sensing, communication, and display modules for field-oriented monitoring applications.",
             zh: "面向现场监测应用，完成了感知、通信与显示模块的嵌入式硬件集成与系统联调。",
           },
+          {
+            en: "Adapted C++ / OpenCV image-processing routines and early rule-based inspection utilities for manufacturing-line quality analysis, including solder-joint stability observation, camera-calibration support, visual evidence collection, and line-quality analysis.",
+            zh: "适配 C++ / OpenCV 图像处理流程和早期规则式检测工具，用于制造线质量分析，包括焊点稳定性观察、相机标定支持、视觉证据采集和产线质量分析。",
+          },
+          {
+            en: "Worked with MES, ERP, SCADA, OEE, and Siemens PLC concepts in factory automation contexts, including production-system workflows, equipment-side data flows, production-line efficiency analysis, bottleneck identification, station-level throughput review, and blocking-point diagnosis.",
+            zh: "在工厂自动化场景中接触并应用 MES、ERP、SCADA、OEE 和西门子 PLC 概念，覆盖生产系统流程、设备侧数据流、产线效率分析、瓶颈识别、工站级吞吐复盘和阻塞点诊断。",
+          },
         ],
       },
       {
@@ -202,6 +210,10 @@ export const siteExperienceContent = {
           {
             en: "For the production path, RS485 sensors feed collector/modbus_client.py, which writes the same Redis key format used by the mock flow; Redis handles most real-time caching and aggregation work as a high-performance layer, while the distributed Modbus gateway and acquisition-worker design is theoretically scalable to thousands to tens of thousands of sensors by adding more gateway devices and collector instances.",
             zh: "生产路径中，RS485 传感器数据进入 collector/modbus_client.py，并写入与 mock 流完全相同的 Redis key 格式；Redis 作为高性能实时缓存与汇聚层承担绝大部分缓存任务，而分布式 Modbus 网关与采集 worker 设计在理论上可通过增加网关设备和采集实例承载千级到万级传感器。",
+          },
+          {
+            en: "Validated the same gateway and Redis data contract at a larger 128-gateway scale, covering 128 gateways x 16 sensors and 2,048 keys per second with TTL=10s while keeping simulation collectors and RS485 production collectors on one shared key format.",
+            zh: "在 128 网关规模下验证同一套网关与 Redis 数据契约，覆盖 128 个网关 x 16 个传感器、2,048 keys/s、TTL=10s，并保持仿真采集器和 RS485 生产采集器使用同一种 key 格式。",
           },
         ],
       },
@@ -309,15 +321,17 @@ export const siteExperienceContent = {
         titleEn: "Indiana University Luddy School of Informatics, Computing, and Engineering",
         titleZh: "印第安纳大学 Luddy 信息、计算与工程学院",
         meta: "Aug 2025 - Present",
-        roleEn: "Ph.D. Candidate, Computer Science (CS)",
-        roleZh: "计算机科学博士候选人",
+        roleEn: "Ph.D., Computer Science (CS)",
+        roleZh: "计算机科学博士",
+        noteEn: "Expected May 2027.",
+        noteZh: "预计 2027 年 5 月完成。",
       },
       {
         titleEn: "Purdue University",
         titleZh: "普渡大学",
         meta: "Aug 2021 - May 2025",
-        roleEn: "Ph.D. Candidate, Computer and Information Technology",
-        roleZh: "计算与信息技术博士候选人",
+        roleEn: "Ph.D., Computer and Information Technology",
+        roleZh: "计算与信息技术博士",
         noteEn: "Transferred with advisor to Indiana University to continue doctoral study.",
         noteZh: "后随导师转入印第安纳大学继续博士阶段学习。",
       },
